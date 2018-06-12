@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "编辑客户信息";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@model SPACRM.Entity.CUST_INFO
+
+@section htmlhead{
+    @Html.Css("plugin/validator")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .col-sm-8
+        {
+            padding:0;
+        }
+    </style>
+}
+<div style="margin:-2px 15px;">
+    <div id="h_title" class="h_title">客户信息维护</div>
+    <div>
+        <form id="frmEdit" action="@Url.Action("Save")" method="post" role="form">
+            @*<div class="form-group col-xs-6">
+                <label for="CUST_NO" class="col-sm-3 control-label">客户编号:</label>
+                <div class="col-sm-8">
+                    @Html.Hidden("ID", Model.ID)
+                    @if (Model.ID > 0)
+                    {
+                         @Html.TextBox("CUST_NO", Model.CUST_NO, new { @class = "form-control", placeholder = "请输入客户编号",@readonly="readonly" })
+                    }
+                    else
+                    {
+                         @Html.TextBox("CUST_NO", Model.CUST_NO, new { @class = "form-control", placeholder = "请输入客户编号" })
+                    }
+                   
+                </div>
+            </div>*@
+            <div class="form-group col-xs-6">
+                <label for="NAME" class="col-sm-3 control-label">客户姓名:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("NAME", Model.NAME, new { @class = "form-control", placeholder = "请输入客户姓名" })
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="MOBILE">手机号码:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("MOBILE", Model.MOBILE, new { @class = "form-control", placeholder = "请输入手机号码" })
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="GENDER">性 别:</label>
+                <div class="col-sm-8">
+                    @Html.ResourceRadioList("GENDER", "CGENDER", string.IsNullOrEmpty(Model.GENDER) ? "" : Model.GENDER, null)
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="BIRTHDAY">生 日:</label>
+                <div class="col-sm-8 input-group date" id="birthday_picker">
+                    @Html.TextBox("BIRTHDAY", Model.BIRTHDAY, new { @class = "form-control" })
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="IDTYPE">证件类型:</label>
+                <div class="col-sm-8">
+                    @Html.ResourceDropDownList("IDTYPE", "CARD_TYPE", Model.IDTYPE, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="IDCARD">证件号码:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("IDCARD", Model.IDCARD, new { @class = "form-control", placeholder = "请输入证件号码" })
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="EMAIL">电子邮件:</label>
+                <div class="col-sm-8 input-group">
+                    <span class="input-group-addon">@@</span>
+                    @Html.TextBox("EMAIL", Model.EMAIL, new { @class = "form-control", placeholder = "请输入电子邮件" })
+                </div>
+
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="WECHAT">微信账号:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("WECHAT", Model.WECHAT, new { @class = "form-control", placeholder = "请输入微信账号" })
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="QQ">QQ号码:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("QQ", Model.QQ, new { @class = "form-control", placeholder = "请输入QQ号码" })
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <div class="btnpanel_right">
+                <button type="reset" id="btnCancel" class="btn btn-default">  取 消  </button>
+                <button type="button" id="btnSave" class="btn btn-primary">  保 存  </button>
+            </div>
+
+        </form>
+
+
+
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+          
+        };
+    </script>
+    @Html.Js("plugins/validator/validator","plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/customer/edit")
+}

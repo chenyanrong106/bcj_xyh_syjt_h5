@@ -1,0 +1,10 @@
+diff a/SPACRM.WebApp/assets/css/plugin/xjdailog.css b/SPACRM.WebApp/assets/css/plugin/xjdailog.css	(rejected hunks)
+@@ -1,7 +1,7 @@
+ .xj-window {
+     zoom:1;
+     display:block;
+-    z-index:9999;
++    z-index:999;
+     position:absolute;
+     left:0px;
+     top:0px;

@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "业务信息表管理";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+    var store = ViewData["store"] == null ? "0" : ViewData["store"].ToString();
+    var regionid = ViewData["region_id"] == null ? "0" : ViewData["region_id"].ToString();
+ }
+@model SPACRM.Entity.ORDER_HEAD
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog")
+    @Html.Css("plugin/validator")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label {
+                margin-bottom: 4px;
+            }
+
+
+            .tableborder {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	/*以上分别设置的是表格边框中上右下左的边框宽度*/
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	/*设置边框的表现样式，solid为实线*/
+	border-top-color: #e6e5e5;
+	border-right-color: #e6e5e5;
+	border-bottom-color: #e6e5e5;
+	border-left-color: #e6e5e5;
+	/*设置边框的颜色*/
+}
+
+            th {
+ text-align: center;
+    height:35px;
+} 
+                td {
+ text-align: right;
+} 
+    </style>
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-tasks"></i> 业务信息表</h2>
+    </div>    
+        <div id="mainbody" class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                业务信息列表</h4>
+            </div>
+            <div class="panel-body" style="min-height: 450px">
+                 <div class="row">
+      
+                    @*  <div class="text-right col-md-12">*@
+                     @Html.Hidden("ID","first")
+                <form id="formQuery"  class="form-inline" role="form"  method="post">     
+                      @Html.Hidden("store_id","-1")                                       
+                    <div class="form-group">
+                        地区名称:
+                      @Html.ResourceDropDownList("REGION", "REGIONSTORE", "地区名称", new { @class = "form-control" },orgId,regionid,store,false) @*服务类别*@                   
+                                                                            
+                    </div>
+                     <div class="form-group">
+                         分店名称:
+                      @*   @{
+                             if(Request["ID"]=="first")
+                             {
+                                  @Html.ResourceDropDownList("STORE", "STORE", "门店名称", new { @class = "form-control" },orgId,false) 
+                             }
+                             else
+                             {
+                              <select class="form-control" id="STORE" name="STORE">
+                            <option value="">请选择门店名称</option>
+                        </select>     
+                             }
+                          }*@
+
+                             <select class="form-control" id="STORE" name="STORE" style="width:150px">
+                            <option value="">请选择门店名称</option>
+                        </select>     
+                                
+                                                                         
+                    </div>
+             
+                         @*  <div class="form-group">
+                               开始日期:
+                     @Html.TextBox("BEGIN_DATE", "", new { @class = "form-control", placeholder="请选择开始日期" }) 
+                                     
+                                                                            
+                    </div>
+                             <div class="form-group">
+                                结束日期:
+                         @Html.TextBox("END_DATE","", new { @class = "form-control" , placeholder="请选择结束日期" })
+                         
+                                <div class="btn-group">
+                           <button class="btn-primary btn" id="btnSearch"><i class="fa fa-search"></i> 查 询</button>
+                        </div>    </div>      *@   
+                    
+                      <div class="form-group">
+                <button class="btn btn-default" id="btnORDER_DATE">
+                    <i class="fa fa-calendar-o"></i>
+                    <span class="hidden-xs hidden-sm">选择日期</span>
+                    <b class="caret"></b>
+                </button>
+                <input type="hidden" name="BEGIN_DATE" id="ORDER_START_DATE" />
+                <input type="hidden" name="END_DATE" id="ORDER_END_DATE" />
+
+                       <div class="btn-group">
+                           <button class="btn-primary btn" id="btnSearch"><i class="fa fa-search"></i> 查 询</button>
+                        </div>   
+                           <div class="btn-group">
+                           <button class="btn-primary btn" id="btnExcel"> 导出excel</button>
+                        </div>   
+            </div>                                    
+                              
+                </form>
+                     <br />
+               @* </div>*@
+                <div class="col-md-14">
+                    <div id="gridlist">
+                    @*  @{
+                          List<SPACRM.Entity.ORDER_HEAD> list = (List<SPACRM.Entity.ORDER_HEAD>)ViewData["plist"];
+                       }
+                        
+                        <table width="1050" border="1" align="center" cellpadding="0" cellspacing="0" class="tableborder">
+                            <tr><th  >日期</th><th>分店号</th><th>业务单号</th><th>顾客姓名</th><th>项目收入</th><th>产品收入</th><th>会员卡收入</th></tr>
+                       @{
+                           for (var i=0;i<list.Count;i++)
+                           {
+                               
+                               <tr>
+                                   <td>@list[i].TRANS_DATE</td>
+                                   <td>@list[i].STORE_NAME</td>
+                                   <td>@list[i].ORDER_NO</td>
+                                    <td>@list[i].STORE_NAME</td>
+                                    <td>@list[i].STORE_NAME</td>
+                                    <td>@list[i].STORE_NAME</td>
+                                    <td>@list[i].STORE_NAME</td>
+
+                               </tr>
+                           }
+                         }
+                             <tr><td colspan="4">总计</td><td >总计</td><td >总计</td><td >总计</td></tr>
+                              <tr><td colspan="4">小计</td></tr>
+                        </table>*@
+                    </div>
+                </div>
+            </div>
+
+    
+            </div>
+        </div>
+    </div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("ListWork")",
+            excelUrl: "@Url.Action("Excel")",
+            proTypeUrl: "@Url.Action("GetStore")"
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker",
+    "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN","app/report/work")
+  
+}
+

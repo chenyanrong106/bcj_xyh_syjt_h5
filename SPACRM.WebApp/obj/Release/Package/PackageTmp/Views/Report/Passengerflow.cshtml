@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "客流量报表管理";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+    var store = ViewData["store"] == null ? "0" : ViewData["store"].ToString();
+    var regionid = ViewData["region_id"] == null ? "0" : ViewData["region_id"].ToString();
+}
+@model SPACRM.Entity.ORDER_HEAD
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "js/jqueryui")
+    <link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' />
+    <link rel='stylesheet' type='text/css' href="~/assets/js/jquery-ui-1.10.4.custom.min.css" />
+}
+<form id="formQuery" class="form-inline" role="form" method="post">
+<div class="container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-bar-chart-o"></i>客流量报表
+            <div class="options">
+                <div class="btn-toolbar">
+                    <div class="form-group">
+                        <select class="form-control" id="Year" name="Year" style="width: 100px">
+                            <option value="2015">2015年</option>
+                        </select>
+                        <select class="form-control" id="Month" name="Month" style="width: 70px">
+                            <option value="1">1月</option>
+                            <option value="2">2月</option>
+                            <option value="3">3月</option>
+                            <option value="4">4月</option>
+                            <option value="5">5月</option>
+                            <option value="6">6月</option>
+                            <option value="7">7月</option>
+                            <option value="8">8月</option>
+                            <option value="9">9月</option>
+                            <option value="10">10月</option>
+                            <option value="11">11月</option>
+                            <option value="12">12月</option>
+                        </select>
+                        @*    <div class="btn-group">
+                           <button class="btn-primary btn" id="btnSearch"><i class="fa fa-search"></i> 查 询</button>
+                        </div>  *@
+                    </div>
+                </div>
+            </div>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 clearfix">
+                            <h4 class="pull-left" style="margin: 0 0 20px;">
+                                客流量分析报表 <small></small>
+                            </h4>
+                            <div class="btn-group pull-right">
+                                @* <a href="javascript:;" class="btn btn-default btn-sm active" id="xxfx2014">2014</a>*@
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div id="salesContainer" style="height: 250px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+@section jssection{
+    <script type="text/javascript">
+     var util = {};
+        var options = {
+            listUrl: "@Url.Action("PassengerFlow")"
+         
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker",
+    "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/report/passengerflow")
+}

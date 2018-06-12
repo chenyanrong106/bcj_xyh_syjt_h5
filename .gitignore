@@ -1,0 +1,7 @@
+
+*.dll
+.vs/SPACRM/v15/sqlite3/storage.ide-wal
+.vs/SPACRM/v15/.suo
+.vs/SPACRM/v15/sqlite3/storage.ide
+.vs/SPACRM/v15/sqlite3/storage.ide-shm
+.vs/SPACRM/v15/sqlite3/storage.ide-wal

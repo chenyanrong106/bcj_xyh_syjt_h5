@@ -1,0 +1,402 @@
+﻿@{
+    //ViewBag.Title = "打印小票";
+    Layout = null;// "~/Views/Shared/_LayoutD.cshtml";
+}
+@using SPACRM.Entity
+@using SPACRM.Entity.Entities;
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>打印小票</title>
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .col-sm-8 {
+            padding: 0;
+        }
+
+        table td {
+            font-size: 13px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body style="text-align: left" onload=" window.print();">
+    <div style="text-align: left;">
+        <table border="0" width="250" id="table4">
+            <tr>
+                <td align="center">
+                    <img border="0"  src="@( ViewBag.IMAGE_ID != null ? Url.Action("ViewImage", "Helper", new { id = ViewBag.IMAGE_ID }) : Url.Content("~/assets/img/photos/female.jpg"))" width="240" height="79"></td>
+            </tr>
+        </table>
+        <table border="0" width="250" id="table6">
+            <tr>
+                <td align="left"><font face="Times New Roman" size="2.5">@ViewBag.AddressEn</font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman" size="3">@ViewBag.Website</font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman" size="3">Reservations:@ViewBag.Telephone</font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman" size="3">*********Welcome!***********</font></td>
+            </tr>
+        </table>
+
+        <table border="0" width="250" id="table5">
+            <tr>
+                <td align="left" height="8"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><font face="Times New Roman"><strong>Invoice</strong></font></td>
+            </tr>
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman">Check ID:@ViewBag.head.ORDER_NO</font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman">Date:@DateTime.Now.ToString("yyyy-MM-dd HH:mm") </font></td>
+            </tr>
+            @*    <tr>
+		    <td align="center" height="8"></td>
+	    </tr>*@
+            <tr>
+                <td align="left"><font face="Times New Roman">Customer ID:@ViewBag.head.CUST_NO</font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman">Customer Name:@ViewBag.head.CUST_NAME</font></td>
+            </tr>
+            @* <tr>
+		    <td align="center" height="8"></td>
+	    </tr>*@
+            <tr>
+                <td align="left"><font face="Times New Roman">Facility:</font></td>
+            </tr>
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr size="0">
+                </td>
+            </tr>
+        </table>
+
+        <table border="0" width="250" id="table1">
+            @foreach (var item in (List<ORDER_DETAIL_EX>)ViewBag.proItemList)
+            {
+                <tr>
+                    <td align="left" width="80%"><font face="Times New Roman">
+					@item.PROD_NAME </font></td>
+                    <td align="right" width="20%"><font face="Times New Roman">
+					@item.PROD_PRICE</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="80%"><font face="Times New Roman">Cash Discount</font></td>
+                    <td align="right" width="20%"><font face="Times New Roman">@item.CASHDISCOUNT</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="80%"><font face="Times New Roman">Item Discount</font></td>
+                    <td align="right" width="20%"><font face="Times New Roman">
+			@item.DISCOUNT_RATE %off</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="80%"><font face="Times New Roman">
+					NO.@item.EMPLOYEE_NO&nbsp;&nbsp;@item.EMPLOYEE_NAME</font></td>
+                    <td align="right" width="20%"><font face="Times New Roman">
+					@item.PAY_AMT</font></td>
+                </tr>
+                <tr>
+                    <td align="center" height="8"></td>
+                    <td align="center" height="8"></td>
+                </tr>
+
+            }
+
+        </table>
+
+        @{
+            var lcItemList = (List<CUST_CDETAIL_EX>)ViewBag.custdetail;
+        }
+        @if (lcItemList != null && lcItemList.Count > 0)
+        {
+            <table border="0" width="180" id="table90">
+
+                @*<tr>
+                    <td colspan="4" style="font-weight: bold">疗程明细:
+                    </td>
+                </tr>*@
+                <tr>
+                    <td style="width: 36%">Name
+                    </td>
+                    <td style="width: 20%">Quantity
+                    </td>
+                    <td style="width: 22%">Price
+                    </td>
+                    <td style="width: 22%">Sum
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <hr size="0">
+                    </td>
+                </tr>
+                @foreach (var item in lcItemList)
+                {
+                    <tr>
+                        <td width="56%" colspan="2">@item.SERVICE_NAME
+                        </td>
+                        <td width="44%" align="center" colspan="2">Remaining @item.AVA_QTY
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="36%" align="right">
+                        </td>
+                        <td width="20%" align="center" >@item.USED_QTY
+                        </td>
+                        <td width="22%" align="center" >0
+                        </td>
+                        <td width="22%" align="center" >
+                        </td>
+                    </tr>
+                 
+                }
+            </table>
+        }
+
+        @if (ViewBag.head.ORDER_STATUS == (int)OrderStatus.Payed)
+        {
+            <table border="0" width="250" id="table10">
+                <tr>
+                    <td colspan="2">
+                        <hr size="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" width="70%"><font face="Times New Roman">Subtotal:</font></td>
+                    <td align="right" width="30%"><font face="Times New Roman">@ViewBag.head.PAYED_AMT</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="70%"><font face="Times New Roman">Tip:</font></td>
+                    <td align="right" width="30%"><font face="Times New Roman">0</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="70%"><font face="Times New Roman">Total:</font></td>
+                    <td align="right" width="30%"><font face="Times New Roman">@ViewBag.head.PAYED_AMT</font></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr size="0">
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" width="250" id="table3">
+                <tr>
+                    <td align="left" width="60%" height="8"></td>
+                    <td align="right" width="40%" height="8"></td>
+                </tr>
+                <tr>
+                    <td align="left" width="60%"><font face="Times New Roman">Balance Close</font></td>
+                    <td align="right" width="40%"></td>
+                </tr>
+                @foreach (var item in (List<ORDER_PAYMENT_EX>)ViewBag.proPayList)
+                {
+                    <tr>
+                        <td align="left" width="60%"><font face="Times New Roman">Pay:</font></td>
+                        <td align="right" width="40%"><font face="Times New Roman">@item.PAY_TYPE_NAME_EN</font></td>
+                    </tr>
+                    <tr>
+                        <td align="left" width="60%"><font face="Times New Roman">Subtotal:</font></td>
+                        <td align="right" width="40%"><font face="Times New Roman">@item.PAY_AMT</font></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr size="0">
+                        </td>
+                    </tr>
+                }
+
+                <tr>
+                    <td align="left" width="60%"><font face="Times New Roman">Tender:</font></td>
+                    <td align="right" width="40%"><font face="Times New Roman">@ViewBag.head.PAYED_AMT</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="60%"><font face="Times New Roman">Change:</font></td>
+                    <td align="right" width="40%"><font face="Times New Roman">0</font></td>
+                </tr>
+            </table>
+            
+        
+        }
+        else
+        { 
+            <table border="0" width="250" id="table10">
+                <tr>
+                    <td colspan="2">
+                        <hr size="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" width="70%"><font face="Times New Roman">Subtotal:</font></td>
+                    <td align="right" width="30%"><font face="Times New Roman">@ViewBag.head.PAY_AMT</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="70%"><font face="Times New Roman">Tip:</font></td>
+                    <td align="right" width="30%"><font face="Times New Roman">0</font></td>
+                </tr>
+                <tr>
+                    <td align="left" width="70%"><font face="Times New Roman">Total:</font></td>
+                    <td align="right" width="30%"><font face="Times New Roman">@ViewBag.head.PAY_AMT</font></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr size="0">
+                    </td>
+                </tr>
+            </table>
+        }
+
+        <table width="250">
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Times New Roman" size="2">THANK YOU</font></td>
+            </tr>
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td align="center"><font face="Times New Roman" size="2">Check</font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman">Employee:@ViewBag.head.SYY</font></td>
+            </tr>
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+        </table>
+
+        <table width="250">
+            <tr>
+                <td align="left" width="70%"><font face="Times New Roman">Your Current Balance:</font></td>
+                <td align="right" width="30%"><font face="Times New Roman">@ViewBag.head.BALANCE</font></td>
+            </tr>
+            <tr>
+                <td align="left" width="70%"><font face="Times New Roman">Your Card Points:</font></td>
+                <td align="right" width="30%"><font face="Times New Roman"> @ViewBag.custinfo.AVA_POINTS</font></td>
+            </tr>
+        </table>
+        @if (((List<CustPayMode_EX>)ViewBag.CustPayV).Count > 0)
+        {
+            <br />
+            <table width="250">
+                <tr>
+                    <td align="left" width="100%" colspan="2"><font face="Times New Roman">Your Electronic Coupon:</font></td>
+
+                </tr>
+                @foreach (CustPayMode_EX p in ((List<CustPayMode_EX>)ViewBag.CustPayV))
+                {
+                    <tr>
+                        <td align="left" width="70%"><font face="Times New Roman">@p.NAME:</font></td>
+                        <td align="right" width="30%"><font face="Times New Roman"> @p.BALANCE</font></td>
+                    </tr>
+                }
+
+            </table>
+        }
+
+
+        <table width="250">
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td align="center" height="8"></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Times New Roman">Signature:_____________________</font></td>
+            </tr>
+            <tr>
+                <td>&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+
+@section jssection{
+
+    <script type="text/javascript" language="JavaScript">
+        var HKEY_Root, HKEY_Path, HKEY_Key;
+        HKEY_Root = "HKEY_CURRENT_USER";
+        HKEY_Path = "\\Software\\Microsoft\\Internet Explorer\\PageSetup\\";
+        //设置网页打印的页眉页脚为空
+        function PageSetup_Null() {
+            var Wsh = new ActiveXObject("WScript.Shell");
+            HKEY_Key = "header";
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "");
+            HKEY_Key = "footer";
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "");
+            HKEY_Key = "margin_left"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0.2");  //键值设定--左边边界
+
+            HKEY_Key = "margin_top"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--上边边界
+
+            HKEY_Key = "margin_right"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--右边边界
+
+            HKEY_Key = "margin_bottom"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--下边边界
+        } PageSetup_Null();
+        function WindowPrint() {
+            /// 隐藏不需要打印的内容
+            try {
+                PageSetup_Null();
+            }
+            catch (e) {
+                var errorMsg = e.message + "\r" + "请设置:IE选项->安全->Internet->" + "ActiveX控件和插件" + "\r" + "对未标记为可安全执行脚本的ActiveX的控件初始化并执行脚本->允许/提示";
+                //alert(errorMsg);
+                return;
+            }
+            window.print();
+        }
+    </script>
+
+}

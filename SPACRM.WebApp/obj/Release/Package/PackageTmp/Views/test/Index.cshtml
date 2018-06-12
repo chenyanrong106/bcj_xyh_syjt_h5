@@ -1,0 +1,83 @@
+﻿@using ServiceStack.Text;
+
+@{
+    ViewBag.Title = "来电及预约管理";
+}
+@model SPACRM.WebApp.ViewModels.BookIndexModel
+@section htmlhead{
+@Html.Css("plugin/xjcalendar", "plugin/xjdailog", "plugin/bdatetimepicker", "plugin/tip", "glyphicons")
+    <style type="text/css">
+        .s_container {
+            padding: 5px;
+        }
+
+        #mainbody {
+            font-family: "Microsoft YaHei",Helvetica,Arial,simsun;
+            font-size: 12px;
+        }
+
+        .qpanel {
+            padding: 4px 14px;
+            overflow: hidden;
+            zoom: 1;
+        }
+
+            .qpanel select {
+                font-size: 13px;
+                padding: 3px;
+            }
+
+        .dateshow {
+            width: 160px;
+            float: left;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .l-box {
+            padding: 4px 6px;
+        }
+
+        .l-box-title {
+            padding: 2px;
+            border-bottom: solid 1px #ddd;
+            font-weight: bold;
+        }
+
+        .bitem {
+            padding: 2px;
+            margin-top: 2px;
+        }
+    </style>
+}
+<div class="s_container">
+    <div class="row" id="mainbody">
+        <div style="clear:both;"></div>
+        <div id="calendar" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;position:relative; z-index:1;" onselectstart="return false;"></div>
+    </div>
+
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util ={};
+        var options ={
+            view360Url:"@Url.Action("View360", "Customer")",
+            getModelsUrl:"@Url.Action("GetModels","Booking")",
+            loginUrl:"@Url.Action("UserLogin", "Customer")",
+            checkInUrl:"@Url.Action("CardCheckIn", "Customer")",
+            tempLoginUrl:"@Url.Action("TempUserLogin", "Customer")",
+            viewBillUrl:"@Url.Action("ItemDetail", "Customer")",
+            getResourceUrl:"@Url.Action("List", "Resource")",
+            setStatusUrl:"@Url.Action("UpdateBookingStatus")",
+            editUrl:"@Url.Action("Edit")",
+            newListUrl:"@Url.Action("SNewList")",
+            failListUrl:"@Url.Action("FailList")",
+            calReqHandlerUrl:"@Url.Action("ReqViewHandler")"
+@*            startHour:@Model.StartHour,
+            endHour:@Model.EndHour*@
+            };
+    </script>
+    @Html.Js("plugins/xjcalendar/xjcalendar", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "plugins/jquery-tip/jquery.tip", "app/booking/index")
+}

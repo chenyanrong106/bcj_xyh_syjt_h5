@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "订单明细报表";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+    var store = ViewData["store"] == null ? "0" : ViewData["store"].ToString();
+    var regionid = ViewData["region_id"] == null ? "0" : ViewData["region_id"].ToString();
+}
+@section htmlhead{
+    @Html.Css("plugin/xjgrid")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label {
+                margin-bottom: 4px;
+            }
+    </style>
+
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2><i class="fa fa-shopping-cart"></i>报表汇总（订单明细）</h2>
+    </div>
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>列表</h4>
+        </div>
+        <form id="formQuery" role="form">
+            <div class="panel-body" style="min-height: 350px">
+                <div class="text-right col-md-2 form-group">
+                    @Html.ResourceDropDownList("STORE_ID", "LoginStore", "门店名称", new { @class = "form-control", style = "" }, orgId, regionid, store, false)
+                </div>
+                <div class="text-right col-md-3 form-group">
+                    <div class="col-sm-12 input-group date" id="birthday_picker">
+                        @Html.TextBox("ORDER_START_DATE", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control" })
+                        <span class="input-group-addon">to</span>
+                        @Html.TextBox("ORDER_END_DATE", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-2 form-group">
+                    <input type="text" maxlength="100" class="form-control" style="" placeholder="输入客户卡号" id="CardNO" name="CardNO" />
+                </div>
+                <div class="col-md-4 form-group" style="width: 400px;">
+                    <input type="text" maxlength="100" class="form-control" style="width: 200px; display: inline-block" placeholder="输入订单号" id="ORDER_NO" name="ORDER_NO" />
+
+                    <button id="btnSearch" class="btn-primary btn"><i class="fa fa-search"></i>查 询</button>
+                    @Html.ActionLink("导出excel", "SummaryExcel", new { @style = "color:white;" }, "")
+                </div>
+                <div class="col-md-12">
+                    <div id="gridlist" style="width: 1000px; overflow-x: auto;"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /.modal -->
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("GetSummaryList")"
+        };
+    </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/order/summarylist")
+}
+

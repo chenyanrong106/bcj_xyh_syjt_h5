@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "PointsList";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+
+@model SPACRM.Entity.Customer360
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "view360")
+}
+@helper DisplayOption(string text)
+{ 
+    if (string.IsNullOrEmpty(text))
+    {
+    @:-
+    }
+    else
+    {
+    @text
+    }
+}
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.MPoint != null)
+            {
+                <div>
+                    <div class="l-box-content">
+                        <div class="l-box-c">
+                            <div class="info-box">
+                                <label>会员编号：</label>@Model.MPoint.MEMBER_NO
+                            </div>
+                            <div class="info-box">
+                                <label>总积分：</label><span class="badge badge-warning">@Model.MPoint.TOTAL_POINTS</span>
+                            </div>
+                            <div class="info-box">
+                                <label>当前可用积分：</label><span class="badge badge-warning">@Model.MPoint.AVA_POINTS</span>
+                            </div>
+                        </div>
+                        <div class="l-box-c">
+                            <div class="info-box">
+                                <label>当前等级：</label><span class="badge badge-info">@Model.MPoint.MEM_LVL</span>
+                            </div>
+                            <div class="info-box">
+                                <label>已使用积分：</label><span class="badge badge-warning">@Model.MPoint.USED_POINTS</span>
+                            </div>
+                            <div class="info-box">
+                                <label>过期积分：</label><span class="badge badge-danger">@Model.MPoint.NOAVAL_POINTS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="alert alert-dismissable alert-info">
+                <strong></strong>会员的积分历史记录。
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;</button>
+            </div>
+            <div class="table-responsive" id="gridlist">
+            </div>
+        </div>
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            pointsUrl: "@Url.Action("GetMemberPointsList", "Customer", new { cid = Request.QueryString["cid"] })"
+        };
+    </script>
+
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "app/customer/pointslist")
+}

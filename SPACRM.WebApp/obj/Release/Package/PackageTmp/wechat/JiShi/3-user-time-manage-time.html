@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>我-时间管理-管理休息日-时间段</title>
+    <!-- CSS start -->
+    <link rel="stylesheet" href="icofont/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- CSS over -->
+</head>
+
+
+<body>
+    <!-- container start -->
+    <div class="container">
+        <!-- header start -->
+        <header class="header">
+            <div class="inner">
+                <a class="button left gray" href="3-user-time.html">取消</a>
+                <h4 class="title">休息时间管理</h4>
+                <a class="button right disabled" href="javascripy:;">完成</a>
+                <!-- 激活状态 <a class="button right color-1" href="#">完成</a> -->
+            </div>
+        </header>
+        <!-- header over -->
+        <!-- footer start -->
+        <footer class="footer border-none">
+            <img class="shadow" src="img/shadow@2x.png" alt="">
+            <div class="inner">
+                <a href="#" class="button outlineButton disabled">锁定时间</a>
+                <!-- 激活状态 <a href="#" class="button outlineButton">锁定时间</a> -->
+            </div>
+        </footer>
+        <!-- footer over -->
+        <!-- main start -->
+        <main class="main">
+            <!-- tab start -->
+            <nav class="tabbar tabbar-border">
+                <div class="inner">
+                    <a href="3-user-time-manage-date.html">日期</a>
+                    <a href="3-user-time-manage-time.html#date-14" class="active">时间段</a>
+                </div>
+            </nav>
+            <!-- tab over -->
+            <!-- calendar start -->
+            <section class="swiper-container calendar-slide shadow" id="calendar-slide">
+                <div class="swiper-wrapper row">
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-1">
+                        <p class="date">1</p>
+                        <p class="label gray">八月</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-2">
+                        <p class="date">2</p>
+                        <p class="label gray">初二</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-3">
+                        <p class="date">3</p>
+                        <p class="label gray">初三</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-4">
+                        <p class="date">4</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-5">
+                        <p class="date">5</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-6">
+                        <p class="date">6</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-7">
+                        <p class="date">7</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-8">
+                        <p class="date">8</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-9">
+                        <p class="date">9</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-10">
+                        <p class="date">10</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-11">
+                        <p class="date">11</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-12">
+                        <p class="date">12</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column disabled" data-hash="date-13">
+                        <p class="date">13</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column today active" href="#" data-hash="date-14">
+                        <p class="date">14</p>
+                        <p class="label color-1">十四</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column breath" href="#" data-hash="date-15">
+                        <p class="date">15</p>
+                        <p class="label black">短休</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column rest" href="#" data-hash="date-16">
+                        <p class="date">16</p>
+                        <p class="label black">全天休息</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column rest" href="#" data-hash="date-17">
+                        <p class="date">17</p>
+                        <p class="label black">全天休息</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-18">
+                        <p class="date">18</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-19">
+                        <p class="date">19</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column breath" href="#" data-hash="date-20">
+                        <p class="date">20</p>
+                        <p class="label black">短休</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-21">
+                        <p class="date">21</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-22">
+                        <p class="date">22</p>
+                        <p class="label color-1">有订单</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-23">
+                        <p class="date">23</p>
+                        <p class="label">廿三</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-24">
+                        <p class="date">24</p>
+                        <p class="label">廿四</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-25">
+                        <p class="date">25</p>
+                        <p class="label">廿五</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-26">
+                        <p class="date">26</p>
+                        <p class="label">廿六</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-27">
+                        <p class="date">27</p>
+                        <p class="label">廿七</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-28">
+                        <p class="date">28</p>
+                        <p class="label">廿八</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-29">
+                        <p class="date">29</p>
+                        <p class="label">廿九</p>
+                    </a>
+                    <!-- item over -->
+                    <!-- item start -->
+                    <a class="swiper-slide column" href="#" data-hash="date-30">
+                        <p class="date">30</p>
+                        <p class="label">三十</p>
+                    </a>
+                    <!-- item over -->
+                </div>
+            </section>
+            <!-- calendar over -->
+            <!-- time start -->
+            <section class="calendar-time">
+                <div class="inner">
+                    <a class="item disabled">10:00</a>
+                    <a class="item tooltip" data-tooltip="#tooltip-content">10:30</a>
+                    <a class="item">11:00</a>
+                    <a class="item">11:30</a>
+                    <a class="item">12:00</a>
+                    <a class="item">12:30</a>
+                    <a class="item disabled">13:00</a>
+                    <a class="item active">13:30</a>
+                    <a class="item transit">14:00</a>
+                    <a class="item active">14:30</a>
+                    <a class="item">15:00</a>
+                    <a class="item">15:30</a>
+                    <a class="item disabled">16:00</a>
+                    <a class="item disabled">16:30</a>
+                    <a class="item disabled">17:00</a>
+                    <a class="item">17:30</a>
+                    <a class="item disabled">18:00</a>
+                    <a class="item rest">18:30</a>
+                    <a class="item rest">19:00</a>
+                    <a class="item rest">19:30</a>
+                    <a class="item">20:00</a>
+                    <a class="item">20:30</a>
+                    <a class="item disabled">21:00</a>
+                    <a class="item">21:30</a>
+                    <a class="item">22:00</a>
+                </div>
+                <!-- explain start -->
+                <footer class="explain align-center">
+                    <p><span class="icon usable"></span>可选</p>
+                    <p><span class="icon selected"></span>已选择</p>
+                    <p><span class="icon locking"></span>已锁定</p>
+                    <p><span class="icon disabled"></span>不可选</p>
+                </footer>
+                <!-- explain over -->
+            </section>
+            <!-- time over -->
+        </main>
+        <!-- main over -->
+    </div>
+    <!-- container over -->
+    <!-- tooltip start -->
+    <div id="tooltip-content">
+        <p>请选择结束时间</p>
+        <p class="small">18:30开始休息</p>
+    </div>
+    <!-- tooltip over -->
+
+    <!-- JavaScript start -->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/swiper/swiper.min.js"></script>
+    <script type="text/javascript" src="js/tooltip/jquery.darktooltip.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <!-- JavaScript over -->
+
+</body>
+
+</html>

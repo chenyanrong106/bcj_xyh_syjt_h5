@@ -1,0 +1,449 @@
+﻿@{
+    ViewBag.Title = "顾客详情";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@model SPACRM.Entity.Customer360
+@section htmlhead{
+    @Html.Css("view360", "plugin/xjdailog")
+    <style type="text/css">
+        th { text-align: center; height: 35px; }
+
+        td { text-align: center; height: 35px; }
+
+        .mr5 { margin-top: 5px; }
+    </style>
+}
+@helper DisplayOption(string text)
+{ 
+    if (string.IsNullOrEmpty(text))
+    {
+    @:-
+    }
+    else
+    {
+    @text
+    }
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-group"></i>顾客详情</h2>
+    </div>
+    <div id="mainbody" class="">
+        <div class="">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img id="IMAGE_SHOW" src="@(Model.BaseInfo.IMAGE_ID.HasValue ? Url.Action("ViewImage", "Helper", new { id = Model.BaseInfo.IMAGE_ID.Value }) : Url.Content("~/assets/img/photos/female.jpg"))" style="width:250px;height:250px;" class="thumbnail img-responsive" alt="" />
+                    <iframe src="@Url.Action("UploadImage", "Helper", new { upid = "smallimg", showtip = "选择小图", type = 1, uid = Model.BaseInfo.ID })" frameborder="0" style="width: 62px; height: 20px; border: none; padding: 5; margin: 5; float: left;"></iframe>
+                    <input type="hidden" id="IMAGE_ID" name="IMAGE_ID" value="@Model.BaseInfo.IMAGE_ID" />
+                    <div class="mb30">
+                    </div>
+                    <!--<div class="l-box l-box-search">
+                        <div class="l-box-title">查找用户</div>
+                        <div>
+                            <form class="pure-form" onsubmit="return false;">
+                                <input type="hidden" id="hdMemberId" value="" />
+                                <input type="hidden" id="hdMemberName" value="" />
+                                <input type="text" id="tbquery" placeholder="客户名称或会员卡号或电话" style="width:160px;" /><a href="#" id="abtnquery" style="margin-left:-20px"><i class="icon-search"></i></a>
+                            </form>
+                        </div>
+                    </div>-->
+                    <div class="l-box">
+                        @*<div class="face">
+                <img src="@Url.Content("~/assets/img/photos/female.jpg")" alt="" border="0" style="width:152px;height:160px" />
+            </div>*@
+                        <div class="l-box-title">
+                            最近备注
+                        </div>
+                        <div class="l-box-item  l-box-shoping">@Model.LastNote.NOTES<p>
+                            <i>(@(Model.LastNote.CREATE_DATE))</i>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="l-box">
+                        <div class="l-box-title">
+                            消费情况
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            总消费额:<i>¥ @Model.MemberSta.SPEND_TOTAL</i>
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            近6个月金额:<i>¥ @Model.MemberSta.SPEND_6MONTH</i>
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            近6个月AUS:<i> @Model.MemberSta.QTY_6MONTH</i>
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            近三个月消费（次）:<i>@Model.MemberSta.QTY_3MONTH</i>
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            近一年消费（次）:<i>@Model.MemberSta.QTY_YEAR</i>
+                        </div>
+                    </div>
+                    <div class="l-box">
+                        <div class="l-box-title">
+                            首选项
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            首选员工性别:<i>@DisplayOption(Model.MemberSta.PREFER_GENDER)</i>
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            首选员工:<i>@DisplayOption(Model.MemberSta.PREFER_STAFF)</i>
+                        </div>
+                        <div class="l-box-item l-box-shoping">
+                            首选产品:<i>@DisplayOption(Model.MemberSta.PREFER_PRODUCT)</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="profile-header">
+                        <h2 class="profile-name">
+                            <span id="spanCustName">@Model.BaseInfo.NAME</span></h2>
+                        <input type="hidden" id="hideCid" value="@Model.BaseInfo.ID" />
+                        <div class="l-box-content">
+                            <div class="l-box-c">
+                                <div class="info-box">
+                                    <label><i class="fa fa-phone"></i><span id="spanMobile">@Model.BaseInfo.MOBILE</span> </label>
+
+                                </div>
+                                <div class="info-box">
+                                    <label>
+                                        会员卡号：</label>@Model.BaseInfo.CARD_NO
+                                </div>
+                                <div class="info-box">
+                                    <label>
+                                        性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>@Model.BaseInfo.GENDER
+                                </div>
+                                <div class="info-box">
+                                    <label>
+                                        邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>@Model.BaseInfo.EMAIL
+                                </div>
+                            </div>
+                            <div class="l-box-c">
+                                <div class="info-box">
+                                    <label>
+                                        会籍店:</label><span id="spanStore">@Model.BaseInfo.STORE_NAME</span>
+                                </div>
+                                <div class="info-box">
+                                    <label>
+                                        卡内余额：</label><span class="badge badge-info">
+                                            @Model.BaseInfo.BALANCE
+                                        </span>
+                                </div>
+                                <div class="info-box">
+                                    <label>
+                                        生日：</label>@Model.BaseInfo.BIRTHDAY
+                                </div>
+                            </div>
+                            <div class="l-box-c">
+                                <div class="info-box">
+                                    <label>
+                                        注册门店:</label><span>@Model.BaseInfo.REG_STORE_NAME</span>
+                                </div>
+                                <div class="info-box">
+                                    <label>
+                                        储值卡欠款：</label><span class="badge badge-danger" id="bookListCount">@Model.BaseInfo.ARREARS</span>
+                                </div>
+                                <div class="info-box">
+                                    <label>
+                                        当前可用积分：</label><span class="badge badge-warning">@Model.GPoint.Ava_Points</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-green mr5" id="btnBooking">
+                            <i class="fa fa-calendar"></i>预约</button>
+                        <button class="btn btn-white mr5" id="btnOrder">
+                            <i class="fa fa-shopping-cart"></i>开单</button>
+                        @if (Model.BaseInfo.STATUS == 0)
+                        {
+                            <button class="btn btn-green mr5" id="btnFaCard">
+                                发卡</button>
+                            <button class="btn btn-green mr5" id="btnTranferStore">
+                                转店</button>
+                        }
+                        else if (Model.BaseInfo.STATUS == 1)
+                        {
+                            <button class="btn btn-green mr5" id="btnBuyCard">
+                                购卡/充值</button>
+                            <button class="btn btn-green mr5" id="btnMakeUpCard">
+                                挂失/解冻/补卡</button>
+                            <button class="btn btn-green mr5" id="btnAbsentCard">
+                                退卡</button>
+                            <button class="btn btn-green mr5" id="btnExchange">
+                                积分兑换</button>
+                            <button class="btn btn-green mr5" id="btnTransfer">
+                                转账</button>  
+                            <button class="btn btn-green mr5" id="btnTranferStore">
+                                转店</button>
+                            <button class="btn btn-green mr5" id="btnFileshow">
+                                查看附件</button>
+                            if (ViewBag.HasRight_B2V == true)
+                            {
+                            <button class="btn btn-green mr5" id="btnExchange2">
+                                代金券兑换</button>
+                            }
+                            <button class="btn btn-green mr5" id="btnBuLcc">
+                                计次疗程补录</button>
+                        }
+                        else if (Model.BaseInfo.STATUS == 2)
+                        {
+                            <button class="btn btn-green mr5" id="btnMakeUpCard">
+                                挂失/解冻/补卡</button>
+                            <button class="btn btn-green mr5" id="btnAbsentCard">
+                                退卡</button>
+                            <button class="btn btn-green mr5" id="btnTransfer">
+                                转账</button>  
+                            <button class="btn btn-green mr5" id="btnTranferStore">
+                                会员转店</button>
+                        }
+                        else if (Model.BaseInfo.STATUS == 3)
+                        {
+                            <button class="btn btn-green mr5" id="btnFaCard">
+                                发卡</button>
+                            <button class="btn btn-green mr5" id="btnTranferStore">
+                                会员转店</button>
+                        }
+                        @if (ViewBag.HasRight_GivingVoucher == true)
+                        {
+                            <a href="@Url.Action("GivingVoucher", new { id = Model.BaseInfo.ID })" class="btn btn-green mr5" id="btnGiveVoucher">
+                                <i class="fa fa-ticket"></i>
+                                赠 券</a>
+                        }
+                    </div>
+                    <!-- profile-header -->
+                    <!-- Nav tabs -->
+                    <div class="tab-container">
+                        <ul class="nav nav-tabs">
+                            <li><a href="#order" data-toggle="tab" id="tab_order"><strong>全部订单</strong></a></li>
+                            <li><a href="#card" data-toggle="tab" id="tab_card"><strong>卡券信息</strong></a></li>
+                            @if (Request.QueryString["mot"] == "1")
+                            {
+                                <li><a href="#activities" data-toggle="tab" id="tab_activities"><strong>扩展信息</strong></a></li>
+                            }
+                            else
+                            {
+                                <li class="active"><a href="#activities" data-toggle="tab" id="tab_activities"><strong>扩展信息</strong></a></li>
+                            }
+                            @* <li><a href="#detail" data-toggle="tab" id="tab_detail"><strong>详细信息</strong></a></li>*@
+                            <li><a href="#booking" data-toggle="tab" id="tab_booking"><strong>预约记录</strong></a></li>
+                            <li><a href="#remark" data-toggle="tab" id="tab_remark"><strong>备忘录</strong></a></li>
+                            @*<li><a href="#coupon" data-toggle="tab" id="tab_coupon"><strong>优惠券</strong></a></li>*@
+                            @if (Request.QueryString["mot"] == "1")
+                            {
+                                <li class="active"><a href="#mot" data-toggle="tab" id="tab_points"><strong>MOT策略</strong></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="#points" data-toggle="tab" id="tab_points"><strong>会员积分</strong></a></li>
+                            }
+                            <li><a href="#certificate" data-toggle="tab" id="tab_certificate"><strong>礼券/促销</strong></a></li>
+                            <li><a href="#files" data-toggle="tab" id="tab_files"><strong>会员附件</strong></a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div id="tabcontent" class="tab-content" style="background-color: white;">
+                            @if (Request.QueryString["mot"] == "1")
+                            {
+                                <div class="tab-pane" id="activities">
+                                    @*   <div class="activity-list">
+                                     @if (Model.CustomerDynamic != null)
+                                        {
+                                            foreach (var cd in Model.CustomerDynamic)
+                                            {
+                                            <div class="media act-media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object act-thumb" src="@(Model.BaseInfo.IMAGE_ID.HasValue ? Url.Action("ViewImage", "Helper", new { id = Model.BaseInfo.IMAGE_ID.Value }) : Url.Content("~/assets/img/photos/female.jpg"))" alt="" />
+                                                </a>
+                                                <div class="media-body act-media-body">
+                                                    <strong>@Model.BaseInfo.NAME</strong>@(Model.BaseInfo.GENDER == "男" ? "先生" : "小姐")<span
+                                                        class="label label-default">@cd.TYPE</span>了<span class="label label-primary">@cd.SERVICE_NAME</span>
+                                                    <br />
+                                                    <small class="text-muted">@cd.SERVICE_TIME</small>
+                                                </div>
+                                            </div>
+                                            }
+                                        }
+                                    </div>*@
+                                    <!-- activity-list -->
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="tab-pane active" id="activities">
+                                    @*  <div class="activity-list">
+                                      @if (Model.CustomerDynamic != null)
+                                        {
+                                            foreach (var cd in Model.CustomerDynamic)
+                                            {
+                                            <div class="media act-media">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object act-thumb" src="@(Model.BaseInfo.IMAGE_ID.HasValue ? Url.Action("ViewImage", "Helper", new { id = Model.BaseInfo.IMAGE_ID.Value }) : Url.Content("~/assets/img/photos/female.jpg"))" alt="" />
+                                                </a>
+                                                <div class="media-body act-media-body">
+                                                    <strong>@Model.BaseInfo.NAME</strong>@(Model.BaseInfo.GENDER == "男" ? "先生" : "小姐")<span
+                                                        class="label label-default">@cd.TYPE</span>了<span class="label label-primary">@cd.SERVICE_NAME</span>
+                                                    <br />
+                                                    <small class="text-muted">@cd.SERVICE_TIME</small>
+                                                </div>
+                                            </div>
+                                            }
+                                        }
+                                    </div>*@
+                                    <!-- activity-list -->
+                                </div>
+                            }
+                            @* <div class="tab-pane" id="detail">
+                            </div>*@
+                            <div class="tab-pane" id="booking">
+                            </div>
+                            <div class="tab-pane" id="order">
+                            </div>
+                            <div class="tab-pane" id="remark">
+                            </div>
+                            <div class="tab-pane" id="card">
+                            </div>
+                            @if (Request.QueryString["mot"] == "1")
+                            {
+                                <div class="tab-pane active" id="mot">
+                                    <table width="780" border="1" align="center" cellpadding="0" cellspacing="0" class="tableborder">
+                                        <tr>
+                                            <th>MOT名称
+                                            </th>
+                                            <th>状态
+                                            </th>
+                                            <th>日期
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a id="exec1">策略1</a>
+                                            </td>
+                                            <td>未处理
+                                            </td>
+                                            <td>2014-07-28
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a id="exec2">策略2</a>
+                                            </td>
+                                            <td>未处理
+                                            </td>
+                                            <td>2014-08-08
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a id="exec3">策略3</a>
+                                            </td>
+                                            <td>未处理
+                                            </td>
+                                            <td>2014-08-08
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a id="exec4">策略4</a>
+                                            </td>
+                                            <td>未处理
+                                            </td>
+                                            <td>2014-08-08
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            }
+                            <div class="tab-pane" id="points">
+                            </div>
+                            <div class="tab-pane" id="certificate">
+                            </div>
+                            <div class="tab-pane" id="files">
+                            </div>
+                            <!-- tab-content -->
+                        </div>
+                    </div>
+                    <!-- col-sm-9 -->
+                </div>
+            </div>
+            <!-- contentpanel -->
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hideCard_No" value="@Model.BaseInfo.CARD_NO" />
+<input type="hidden" id="hideStatus" value="@Model.BaseInfo.STATUS" />
+<!--购卡储值续清-->
+<div id="confirmModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="frmEdit" method="post" role="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                    <h4 class="modal-title">购卡/储值/续清<span id="spanEName"></span></h4>
+                </div>
+                <div>
+                    <div>
+                    </div>
+                    <div class="modal-body">
+                        <div id="gridlist">
+                            <table id="tCardList">
+                                <thead style="background-color: #f7f8fa">
+                                    <tr>
+                                        @*   <td style="width: 10%">编号</td>*@
+                                        <td style="width: 20%">订单号
+                                        </td>
+                                        <td style="width: 15%">卡级/疗程
+                                        </td>
+                                        <td style="width: 10%">总金额
+                                        </td>
+                                        <td style="width: 10%">已付金额
+                                        </td>
+                                        <td style="width: 10%">欠款金额
+                                        </td>
+                                        <td style="width: 20%">操作
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnBuyLCCard" style="float: left;" class="btn btn-green mr5"
+                        data-dismiss="modal">
+                        购卡</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        取 消</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!--end-->
+@section jssection{
+    <script type="text/javascript">
+        var _utils = {};
+        var options = {
+            newCustExpandInfoUrl: "@Url.Action("CustExpandInfo", "Customer", new { cid = Request.QueryString["cid"] })",
+            newBookingUrl: "@Url.Action("Index", "Booking", new { cid = Request.QueryString["cid"] })",
+            newOrderUrl: "@Url.Action("OrderD", "Order", new { cid = Request.QueryString["cid"] })",
+            bookingUrl: "@Url.Action("BookList", "Customer", new { cid = Request.QueryString["cid"] })",
+            orderUrl: "@Url.Action("OrderList", "Customer", new { cid = Request.QueryString["cid"] })",
+            remarkUrl: "@Url.Action("RemarkList", "Customer", new { cid = Request.QueryString["cid"] })",
+            cardUrl: "@Url.Action("CardList", "Customer", new { cid = Request.QueryString["cid"] })",
+            couponUrl: "@Url.Action("CouponList", "Customer", new { cid = Request.QueryString["cid"] })",
+            pointsUrl: "@Url.Action("PointsList", "Customer", new { cid = Request.QueryString["cid"] })",
+            filesUrl: "@Url.Action("fileslist", "Customer", new { cid = Request.QueryString["cid"] })",
+            certificateUrl: "@Url.Action("certificatelist", "Customer", new { cid = Request.QueryString["cid"] })",
+            QueryCardlistUrl: "@Url.Action("CustCardList", "Order")",
+            exchangeVoucherUrl: "@Url.Action("ExchangeVoucher", new { id = Model.BaseInfo.ID })",
+            buLCCardUrl: "@Url.Action("BuLCCard", new { id = Model.BaseInfo.ID })"
+        }; </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "app/customer/view360")
+}

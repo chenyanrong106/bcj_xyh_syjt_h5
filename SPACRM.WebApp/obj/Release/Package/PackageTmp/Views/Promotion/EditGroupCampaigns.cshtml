@@ -1,0 +1,240 @@
+﻿@{
+    ViewBag.Title = "团购活动维护";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+}
+@model SPACRM.Entity.Entities.PROMOTION_INFO_EX
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/codeprettifier/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-toggle/toggles.css' />
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-tags"></i>&nbsp;团购活动维护</h2>
+    </div>
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4></h4>
+        </div>
+        <div class="panel-body" style="min-height: 350px">
+            <form class="form-horizontal" id="frmSave" action="@Url.Action("SaveElectronicCoupon")" method="post" role="form">
+                <div class="form-group">
+                    @Html.Hidden("ID", Model.ID)
+                    @Html.Hidden("TYPE", 1)
+                    @Html.Hidden("PROD_INFO", Model.PROD_INFO)
+                    @Html.Hidden("cuAllProInfos", "")
+                    <label for="STATUS" class="col-sm-2 control-label">状态</label>
+                    <div class="col-sm-4">
+                        @Html.ResourceRadioList("STATUS", "UP_DOWN", Model.STATUS, null)
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="help-block" style="color: red;"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="SUB_TYPE" class="col-sm-2 control-label">类型</label>
+                    <div class="col-sm-4">
+                        @Html.ResourceDropDownList("SUB_TYPE", "PROMISSION_SUB_TYPE", Model.SUB_TYPE, new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="help-block" style="color: red;"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CHANNEL" class="col-sm-2 control-label">渠道</label>
+                    <div class="col-sm-4">
+                        @Html.ResourceDropDownList("CHANNEL", "PROMOTION_PATH", Model.CHANNEL, new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="help-block" style="color: red;"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="NAME" class="col-sm-2 control-label">活动名称</label>
+                    <div class="col-sm-4">
+                        @Html.TextBox("NAME", Model.NAME, new { @class = "form-control", placeholder = "请输入活动名称" })
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="help-block" style="color: red;"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="YXDATE" class="col-sm-2 control-label">有效期</label>
+                    <div class="col-sm-4">
+                        <div class="input-daterange input-group" id="YXDATE_Datepicker">
+                            @Html.TextBox("BEGIN_DATE_Str", Model.BEGIN_DATE_Str, new { @class = "input-small form-control" })
+                            <span class="input-group-addon">至</span>
+                            @Html.TextBox("END_DATE_Str", Model.END_DATE_Str, new { @class = "input-small form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="DISCOUNT_RATE" class="col-sm-2 control-label">折扣/代金券</label>
+                    <div class="col-sm-4">
+                        @* @Html.TextBox("DISCOUNT_RATE", Model.DISCOUNT_RATE, new { @class = "form-control mask", 
+                       placeholder = "请输入优惠折扣" })*@
+
+                        <input type="text" id="DISCOUNT_RATE" name="DISCOUNT_RATE" value="@Model.DISCOUNT_RATE" class="form-control mask"  placeholder="请输入优惠折扣"  onkeyup="util.DISCOUNT_RATE_ONKEYUP(this)">@*data-inputmask="'mask':'9.99'"*@
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="help-block" style="color: red;"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CUST_GROUP_ID" class="col-sm-2 control-label">适用顾客</label>
+                    <div class="col-sm-8">
+                        <div class="row">
+                    <div class="col-sm-4">@Html.Hidden("ISALLCUST", (Model.IS_ALLCUST.HasValue ?(Model.IS_ALLCUST.Value ? 1 : 0):0))
+                        @Html.ResourceRadioList("IS_ALLCUST", "IS_ALLCUST", (Model.IS_ALLCUST.HasValue ?(Model.IS_ALLCUST.Value ? 1 : 0):0), null)
+                        
+                    </div>
+                            <div class="col-sm-3" id="DivCUST_GROUP_ID">
+                            @Html.ResourceDropDownList("CUST_GROUP_ID", "CUST_GROUP", Model.CUST_GROUP_ID, new { @class = "form-control" }, orgId, false)
+                     </div>
+                                <div class="col-sm-2">
+                        <p class="help-block" style="color: red;"></p>
+                    </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">适用时段（当天）</label>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                @Html.ResourceRadioList("IS_ALLDAY", "IS_ALLDAY", (Model.IS_ALLDAY.HasValue ? (Model.IS_ALLDAY.Value ? 1 : 0) : 1), null)
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group" id="BEGIN_TIMEDiv">
+                                    @Html.TextBox("BEGIN_TIME_Str", Model.BEGIN_TIME_Str, new { @class = "form-control", placeholder = "开始时间点" })
+                                    <span class="input-group-addon" id="BEGIN_TIME_BTN"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group" id="END_TIMEDiv">
+                                    @Html.TextBox("END_TIME_Str", Model.END_TIME_Str, new { @class = "form-control", placeholder = "截止时间点" })
+                                    <span class="input-group-addon" id="END_TIME_BTN"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">适用项目</label>
+                    <div class="col-sm-4">
+                        @Html.ResourceRadioList("IS_ALLPROD", "IS_ALLPROD", (Model.IS_ALLPROD.HasValue ? (Model.IS_ALLPROD.Value ? 1 : 0) : 1), null)
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+                <div class="form-group" id="p1">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-4">
+                        @Html.ResourceDropDownList("PROMISSION_PRO_TYPE", "PROMISSION_PRO_TYPE2", "", new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-1">
+                        @*<button type="button" class="btn btn-primary" id="btnAddPros">添加</button>*@
+                    </div>
+                    <div class="col-sm-5">
+                    </div>
+                </div>
+                <div class="form-group" id="p2">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-4" id="pro_type_div">
+                        <select class="form-control" id="PRO_TYPE" name="PRO_TYPE">
+                            <option value="">请选择</option>
+                        </select>
+                        @*@Html.ResourceDropDownList("PRO_TYPE", "PRO_TYPE", "", new { @class = "form-control" })*@
+                    </div>
+                    <div class="col-sm-1">
+                        @*<button type="button" class="btn btn-primary" id="btnAddPros">添加</button>*@
+                    </div>
+                    <div class="col-sm-5">
+                    </div>
+                </div>
+                <div class="form-group" id="p3">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-4" id="pro_items_div">
+                        <select class="form-control" id="PRO_ITMES" name="PRO_ITMES">
+                        </select>
+                        @*@Html.ResourceDropDownList("PRO_TYPE", "PRO_TYPE", "", new { @class = "form-control" })*@
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-primary" id="btnAddOnePro">添加</button>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="form-group" id="p4">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-7">
+                        <div id="gridlist" class="xjgrid">
+                            <div class='grid-body'>
+                                <div class='grid-body-inner'>
+                                    <table id="tableProds" style="width: 100%">
+                                        <thead>
+                                            <tr class='thead'>
+                                                <td style="width: 0%"></td>
+                                                <td style="width: 20%;">
+                                                    <div style="text-align: left;">类型</div>
+                                                </td>
+                                                <td style="width: 65%;">
+                                                    <div style="text-align: left;">产品名称</div>
+                                                </td>
+                                                <td style="width: 15%;">
+                                                    <div style="text-align: left;">操作</div>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnCloseFrm" class="btn btn-default" data-dismiss="modal">取 消</button>
+                    <button type="button" id="btnSaveFrm" class="btn btn-primary">保 存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            indexUrl: "@Url.Action("ElectronicCoupon")",
+            proLisUrl: "@Url.Action("GetRPPByPrId")",
+            proItemsUrl: "@Url.Action("GetProds")",
+            proTypeUrl: "@Url.Action("GetProdTypes")",
+            addProUrl: "@Url.Action("AddProd")",
+            @*detailLisUrl: "@Url.Action("QueryCommissionDETAILList")",
+            saveUrl: "@Url.Action("SaveCommissionDETAIL")"*@
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "js/common", "app/promotion/editelectroniccoupon")
+    <script type='text/javascript' src='../../assets/plugins/form-inputmask/jquery.inputmask.bundle.min.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-mask.js'></script>
+
+}
+
+
+
+

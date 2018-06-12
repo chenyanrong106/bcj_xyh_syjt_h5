@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <title>平安献礼30年</title>
+    <style>
+        .h-card, .s-card { content: ''; display: table; }
+    </style>
+</head>
+<body>
+    <div class="wrap card-page">
+        <div class="card card-detail">
+            <img src="" />
+        </div>
+       
+        <!-- 保存卡片 -->
+        <div class="bottom">
+            <p>长按保存卡片</p>
+            <div class="card-btn">
+                <div class="card-btn-left">
+                    <a href="../html/building.aspx"><img src="../images/card/again.png" alt=""></a>
+                </div>
+                <div class="card-btn-right">
+                    <a href="../html/share.html">
+                        <img src="../images/card/other.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wxshare.js"></script>
+    <script src="../js/pv.record.js"></script>
+    <script>
+        //如果是竖向卡片
+        var verCard = "P0010,P0018,P0013,P0014,P0009,P0008,P0007";
+        var prizecode = $.getQueryString("prizecode");
+        var imgsrc = decodeURIComponent($.getQueryString("imgsrc"));
+
+        $(".card-detail img").attr("src", imgsrc);
+        var _class = verCard.indexOf(prizecode) > 0 ? "s-card" : "h-card";
+        $(".card-detail").addClass(_class);
+    </script>
+</body>
+</html>

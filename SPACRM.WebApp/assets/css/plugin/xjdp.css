@@ -1,0 +1,149 @@
+.dp-wrapper{
+    position: absolute;
+    top: 0;
+    left:0;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    background-color: #EEE;
+    padding: 5px 0 5px 5px;
+    z-index: 999;
+    display: none;
+    width: 435px;
+}
+.dp-wrapper .dp-inner{
+    padding: 5px 0 0 0 ;
+}
+.dp-wrapper .dp-btn-panel .btn{
+   margin: 5px 10px 0px 10px;
+}
+.xjminical
+{
+
+}
+.xjminical-p1
+{
+    float: left;
+    margin-right: 5px;
+    background-color: #fff;
+    padding: 2px 5px;
+    border:solid 1px #ddd ;
+}
+.xjminical-p1-head
+{
+    height: 30px;
+    line-height: 30px;
+    background-color: #E6E6E6;
+    padding: 0px 5px;
+    border-radius:4px;
+}
+.xjminical-p1-head .ymbtn
+{
+   color: #555;
+   font-size: 14px;
+   margin: 0px 30px 0px 30px;
+}
+.xjminical-p1-head .ymslp{
+    color: #555;
+    font-size: 14px;
+    margin: 0px 0px 0px 10px;
+}
+.xjminical-p1-head a
+{
+    display: inline-block;
+    background: transparent url("../../img/plugin/calendar/combined_v40_vr.png") no-repeat;
+    height: 12px;
+    line-height: 1em;
+    width: 15px;
+}
+.xjminical-p1-head a:hover{
+  -moz-opacity:0.6;
+  opacity:0.6;
+  filter:alpha(opacity=60);
+}
+.xjminical-p1-head a.cal-prev
+{
+  background-position: -243px -35px
+}
+.xjminical-p1-head a.cal-next
+{
+  background-position: -258px -35px
+}
+.xjminical-body
+{
+  font-size:14px;
+  font-family:tahoma,verdana,sans-serif;
+}
+
+.xjminical-body th{
+   width:24px;
+   text-align:center;
+   border-bottom:1px solid #ddd;
+   cursor:default;
+   padding:3px 0;
+   border-collapse:separate;
+}
+.xjminical-body th span
+{
+  font-size: 11px;
+  font-weight: normal;
+}
+.xjminical-body td{
+   text-align:center;
+   color:#233d6d;
+   cursor:default;
+   border-collapse:separate;
+   padding: 1px;
+}
+.xjminical-body td a{
+  color:#423E39;
+  font:normal 14px arial,helvetica,tahoma,sans-serif;
+  display:block;
+  text-align:center;
+  padding: 4px 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 3px;
+  /*outline-color:rgb(113, 107, 122);*/
+}
+td.xjminical-day a{
+    border:1px solid #fff;
+}
+.xjminical-p2
+{
+  display: none;
+}
+.xjminical-head
+{
+
+}
+.xjminical-body .xjminical-active{
+    cursor:pointer;
+    color:black;
+}
+.xjminical-body a,.xjminical-body em{
+    text-decoration:none;
+    font-style:normal;
+}
+.xjminical-body .xjminical-current a{
+    background:#DDECFE;
+    border:1px solid #8db2e3;
+    padding:3px 3px;
+}
+
+.xjminical-body .xjminical-today a{
+    border:1px solid #aaa;
+    padding:3px 3px;
+}
+.xjminical-body .xjminical-current span{
+    font-weight: bold;
+}
+.xjminical-body .xjminical-prevday a,.xjminical-body .xjminical-nextday a{
+    color:#aaa;
+    text-decoration:none!important;
+}
+.xjminical-body td.xjminical-day a:hover,.xjminical-body .xjminical-disabled a:hover{
+    text-decoration:none!important;
+    color:#716b7a;
+    background:#E5E3E9;
+}
+.xjminical-body .xjminical-disabled a{cursor:default;background:#eee;color:#bbb;}

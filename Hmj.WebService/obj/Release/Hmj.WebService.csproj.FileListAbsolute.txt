@@ -1,0 +1,7 @@
+D:\puman\hmj\REFDLL\Hmj.WebService.dll
+D:\puman\hmj\REFDLL\Hmj.WebService.pdb
+D:\puman\hmj\Hmj.WebService\obj\Release\Hmj.WebService.csproj.CoreCompileInputs.cache
+D:\puman\hmj\Hmj.WebService\obj\Release\Hmj.WebService.csproj.CopyComplete
+D:\puman\hmj\Hmj.WebService\obj\Release\Hmj.WebService.dll
+D:\puman\hmj\Hmj.WebService\obj\Release\Hmj.WebService.pdb
+D:\puman\hmj\Hmj.WebService\obj\Release\Hmj.WebService.csprojResolveAssemblyReference.cache

@@ -1,0 +1,163 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, th, td { margin: 0; padding: 0 }
+body { font: 12px/1.5 "Microsoft YaHei"; word-wrap: break-word; word-break: break-all }
+table { border-collapse: collapse; border-spacing: 0 }
+em, th, var, i { font-style: normal; font-weight: normal }
+ol, ul { list-style: none }
+caption, th { text-align: left }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal }
+fieldset, img { border: 0 }
+button, input, select, textarea { font-size: 100% }
+img { vertical-align: middle }
+.clearfix:after { content: "."; height: 0; visibility: hidden; display: block; clear: both; font-size: 0; line-height: 0 }
+.clearfix { *zoom: 1 }
+.clear { clear: both; overflow: hidden; font-size: 0; height: 0; line-height: 0 }
+html { _overflow-y: scroll }
+body { background-color: #fff }
+a { text-decoration: none }
+.left { float: left; display: inline }
+.right { float: right; display: inline }
+.clearfix:before { content: ""; display: table }
+.clearfix:after { content: ""; display: table; clear: both }
+html, body, p, dl, dt, dd, table, td, th, input, img, form, div, span, ul, ol, li, h1, h2, h3, h4, h5, h6, select, input { margin: 0; padding: 0; font-weight: normal }
+html { margin: 0 auto !important; min-width: 320px; max-width: 720px; -webkit-text-size-adjust: none; -webkit-user-select: none }
+body { position: relative; background-color: #f9f9f9; color: #333333; font-size: 1.037037037rem }
+img, iframe { border: none }
+ul, li, ol { list-style: none }
+img { vertical-align: top; max-width: 100% }
+table { border-collapse: collapse; border-spacing: 0 }
+input, button { outline: 0; border-radius: 0; background: transparent }
+em, b, i, strong, cite, sub, sup, font { font-weight: normal; font-style: normal; font-size: 100% }
+a { color: #333333; text-decoration: none; outline: none }
+.clear { clear: both }
+a, li, input, button, section, span, div { -webkit-tap-highlight-color: rgba(0,0,0,0); -moz-tap-highlight-color: rgba(0,0,0,0); -o-tap-highlight-color: rgba(0,0,0,0); -ms-tap-highlight-color: rgba(0,0,0,0); tap-highlight-color: rgba(0,0,0,0) }
+::-webkit-input-placeholder { color: #999999 }
+::-moz-placeholder { color: #999999 }
+:-moz-placeholder { color: #999999 }
+
+@media only screen and (min-width: 320px) and (max-width: 359px) {
+    html { font-size: 12px; font-family: sans-serif }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 374px) {
+    html { font-size: 13px; font-family: sans-serif }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 400px) {
+    html { font-size: 14px; font-family: sans-serif }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 479px) {
+    html { font-size: 15px; font-family: sans-serif }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 720px) {
+    html { font-size: 18px; font-family: sans-serif }
+}
+
+@media only screen and (min-width: 720px) {
+    html { font-size: 27px; font-family: sans-serif }
+}
+
+.mask .mask-box .mask-content .box-bottom .back-btn, .card-page .bottom .card-btn .card-btn-left { float: left; _display: inline }
+.mask .mask-box .mask-content .box-bottom .logo, .card-page .bottom .card-btn .card-btn-right { float: right; _display: inline }
+.clearfix:before { content: ""; display: table }
+.clearfix:after { content: ""; display: table; clear: both }
+a, li, input, button, section, span, div { -webkit-tap-highlight-color: transparent; -moz-tap-highlight-color: transparent; -o-tap-highlight-color: transparent; -ms-tap-highlight-color: transparent; tap-highlight-color: transparent }
+    a:focus { -webkit-user-modify: inherit }
+    button:hover { outline: none; cursor: pointer }
+body { font-family: Microsoft YaHei, Arial,STZhongsong, Tahoma, Helvetica; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; background: #fff; overflow-x: hidden }
+html { overflow-x: hidden }
+.wrap { margin: 0 auto; max-width: 720px; height: 100%; min-height: 100vh; box-sizing: border-box; background: #101010 }
+.load { padding-top: 11.1111111111rem; height: 22.2222222222rem; margin: 0 auto; position: relative }
+    .load .loadimg { width: 3.7037037037rem; height: 100%; margin: 0 auto; background: url("../images/building-s.png") no-repeat; background-size: 100% 100% }
+    .load p { font-size: 1.7037037037rem; color: #f6c479; text-align: center; padding-top: 1.4814814815rem; font-family: Arial }
+    .load .zhezhao { position: absolute; top: 0; left: 0; width: 27.7777777778rem; height: 40.2222222222rem }
+
+        .load .zhezhao .zhezhaoimg { height: 100%; background: url("../images/yy.png") no-repeat; background-size: 100% 100% }
+.index-page { background: #101010; overflow: hidden }
+    .index-page .pro-bg { width: 100%; height: 100%; background: url("../images/pro.jpg") no-repeat; background-size: 100% calc(100vh - 5.2rem); margin: 0 auto }
+    .index-page .logo { width: 7.8518518519rem; margin: 0 auto 1.1111111111rem }
+        .index-page .logo img { margin-top: 1.8518518519rem }
+    .index-page .title { width: 19.9259259259rem; margin: 0 auto }
+    .index-page .btn-list { overflow: hidden; margin-top: 22.962962963rem }
+        .index-page .btn-list ul li { text-align: center; margin-bottom: .3703703704rem }
+            .index-page .btn-list ul li:nth-child(2) { margin-bottom: .6666666667rem }
+            .index-page .btn-list ul li:nth-child(3) img { width: 7.25rem; }
+            .index-page .btn-list ul li a { color: #bc955a; font-size: 1.1851851852rem; text-decoration: underline }
+            .index-page .btn-list ul li img { width: 9.3703703704rem }
+.gz_page { background-image: url(../images/gz_bg.jpg); background-repeat: no-repeat; background-size: 100% 100% }
+    .gz_page .btn-list { width: 100%; position: absolute; bottom: 1.7rem; left: 50%; transform: translateX(-50%) }
+.mask { background: #101010; position: fixed; top: 0; margin: 0 auto; max-width: 720px; min-height: 100vh; width: 100%; height: 100%; z-index: 99; display: none }
+    .mask.mask-rules { background: url("../images/rules-bg.jpg") no-repeat; background-size: 100% 100% }
+    .mask.mask-prize { background: rgba(16,16,16,0.9) }
+        .mask.mask-prize .commit-txt { width: 21.8148148148rem; margin: 11.8518518519rem auto 1.4814814815rem }
+        .mask.mask-prize .prize-btn { width: 14.8888888889rem; display: block; margin: 0 auto .6666666667rem }
+    .mask .mask-box { padding: 2.5925925926rem 1.4814814815rem; position: relative; height: 100% }
+        .mask .mask-box .threeth { position: absolute; right: 1.1851851852rem; top: 2.037037037rem; width: 6.3703703704rem; height: 4.2962962963rem; z-index: 9999 }
+        .mask .mask-box .mask-content { border-radius: .5925925926rem; font-size: .8888888889rem; color: #F5C379; padding: 2.037037037rem 0 0 1.1111111111rem; position: relative; z-index: 999; height: 100%; max-height: calc(100% - 12rem) }
+            .mask .mask-box .mask-content .rules-scroll { padding-right: 1.1111111111rem; height: 100%; overflow-y: auto }
+            .mask .mask-box .mask-content h3 { color: #f6c479; font-size: 1.3333333333rem; text-align: center }
+            .mask .mask-box .mask-content .rules-tit { font-size: .8888888889rem; margin-top: 1.4814814815rem; font-weight: bold; color: #f6c479; }
+            .mask .mask-box .mask-content .bold { font-weight: bold; color: #f6c479; }
+            .mask .mask-box .mask-content .rules-list li em { float: left }
+            .mask .mask-box .mask-content .rules-list li span { overflow: hidden; display: inline-block; width: 16.6666666667rem }
+            .mask .mask-box .mask-content .box-bottom { padding: 0 1.3333333333rem 1.8518518519rem 0; margin-top: .9259259259rem; height: 2.5925925926rem }
+                .mask .mask-box .mask-content .box-bottom .back-btn { width: 8rem }
+                .mask .mask-box .mask-content .box-bottom .logo { width: 7.7777777778rem }
+                    .mask .mask-box .mask-content .box-bottom .logo img { margin-top: 0 }
+    .mask .foot { width: 100%; height: 14.8148148148rem; background: url("../images/rules-foot.jpg") no-repeat; background-size: 100% 100%; position: fixed; bottom: 0; z-index: 9 }
+    .mask .xs-bg { width: 100%; height: 100%; background: url("../images/xs-bg.jpg") no-repeat; background-size: 100% 100% }
+        .mask .xs-bg .back-btn { width: 8rem; position: fixed; bottom: .5185185185rem; left: 50%; transform: translateX(-50%) }
+.userflow-page { background: url("../images/jp-bg.jpg") no-repeat; background-size: 100% 100% }
+    .userflow-page .prize-content { width: 19.0740740741rem; margin: 0 auto }
+        .userflow-page .prize-content img { margin-top: 2.5925925926rem }
+    .userflow-page .prize-xs { width: 100% }
+        .userflow-page .prize-xs img { margin-top: 2.5925925926rem }
+    .userflow-page .form { border: 1px solid #9f7f4e; border-radius: .7407407407rem; width: 22.2222222222rem; height: 14.8148148148rem; margin: 0 auto; background: rgba(16,16,16,0.83) }
+        .userflow-page .form li { margin-top: 1.2962962963rem; height: 2.4444444444rem; line-height: 2.4444444444rem }
+            .userflow-page .form li label { font-size: 1.4814814815rem; color: #f6c479; padding: .3703703704rem .7407407407rem 0 1.4814814815rem; vertical-align: middle }
+            .userflow-page .form li input { width: 14.8148148148rem; height: 2.4444444444rem; border: 1px solid #9f7f4e; border-radius: 5px; color: #f6c479; padding-left: .3703703704rem; vertical-align: middle }
+            .userflow-page .form li:last-child { margin-top: .7407407407rem; padding-left: 1.4814814815rem; font-size: 1.1111111111rem; color: #f6c479 }
+    .userflow-page p { color: #f6c479; text-align: center; font-size: 1.1428571428571428rem; padding: 1.1111111111rem 0 }
+    .userflow-page .commit-btn { width: 9.3703703704rem; margin: .9259259259rem auto 0 }
+.pdName { width: 22.22222rem; height: auto; background: rgba(16,16,16,0.83); border: 1px solid #9f7f4e; text-align: center; position: fixed; top: 40%; left: 50%; color: #fff; margin: 0 auto; padding: 0.37037rem; border-radius: 0.55556rem; margin-left: -11.11111rem; font-size: 1.25926rem; display: none }
+.userflow2-page.userflow2-page .yhq-txt { width: 18.7037037037rem; margin: 0 auto 1.8518518519rem }
+    .userflow2-page.userflow2-page .yhq-txt img { margin-top: 4.4444444444rem }
+.userflow2-page.userflow2-page .yhq-pic { width: 17.6296296296rem; margin: 0 auto; height: 7.1845rem }
+.userflow2-page.userflow2-page .form-tel p { font-size: 1.4074074074rem; color: #f6c479; margin: 3.7037037037rem auto 1.1111111111rem }
+.userflow2-page.userflow2-page .form-tel .name-input { width: 19.2592592593rem; margin: 0 auto }
+    .userflow2-page.userflow2-page .form-tel .name-input label { font-size: 1.4814814815rem; color: #f6c479; padding-right: .7407407407rem; vertical-align: middle }
+    .userflow2-page.userflow2-page .form-tel .name-input input { width: 14.642857142857142rem; height: 2.5rem; background-color: #101010; border: 1px solid #bc955a; border-radius: 5px; color: #f6c479; padding-left: .3703703704rem; vertical-align: middle }
+.userflow2-page.userflow2-page .form-tel .ljlq-btn { width: 9.3703703704rem; margin: 1.7037037037rem auto 0 }
+.userflow2-page.userflow2-page .mask-prize.mask-yhq h3 { width: 12.5185185185rem; margin: 0 auto 7.4074074074rem }
+    .userflow2-page.userflow2-page .mask-prize.mask-yhq h3 img { margin-top: 10.3703703704rem }
+.userflow2-page.userflow2-page .mask-prize.mask-ewm .ewm { width: 12.571428571428571rem; height: 12.571428571428571rem; margin: 11.4814814815rem auto 1.4814814815rem; border: 1px solid #9f7f4e; border-radius: 1.2142857142857142rem ;text-align:center;position:relative;}
+    .userflow2-page.userflow2-page .mask-prize.mask-ewm .ewm img {
+        width: 10.714285714285714rem;
+        height: 10.714285714285714rem;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+    }
+.userflow2-page.userflow2-page .mask-prize.mask-ewm p { width: 22.3703703704rem; margin: 0 auto }
+.card-page { background: url("../images/jp-bg.jpg") no-repeat; background-size: 100% 100% }
+    .card-page .card { width: 21.4814814815rem; margin: 0 auto }
+        .card-page .card.h-card { margin-bottom: 2.962962963rem }
+            .card-page .card.h-card img { margin-top: 4.8148148148rem }
+        .card-page .card.s-card { margin-bottom: 1.2962962963rem }
+            .card-page .card.s-card img { margin-top: 2.2222222222rem }
+    .card-page .bottom p { color: #f6c479; text-align: center }
+    .card-page .bottom .card-btn { padding: 1.037037037rem 1.4814814815rem 1.4814814815rem 1.4814814815rem; overflow: hidden; }
+        .card-page .bottom .card-btn div { width: 11.4814814815rem }
+/* rules-icon*/
+.index-page .rules-icon { width: 2.6296296296rem; margin: 1.4814814815rem 0 0 1.4814814815rem; }
+/* mypage*/
+.my-page { background: url("../images/prize-bg.jpg") no-repeat; background-size: 100% 100%; overflow: hidden; }
+    .my-page .logo-tit { height: 8.5rem; box-sizing: border-box; padding: 1rem 0 .7407407407rem; width: 5.5555555556rem; margin: 0 auto; }
+    .my-page .prize-list { overflow: hidden; height: calc(100vh - 13.5rem); overflow-y: auto;color: #f6c479; text-align:center;font-size:1.14285714rem; }
+        .my-page .prize-list li { width: 24.1111111111rem; margin: 0.962962963rem auto 0; position: relative; }
+            .my-page .prize-list li span { position: absolute; bottom: 1.1851851852rem; right: 5.1481481481rem; width: 5.9259259259rem; }
+            .my-page .prize-list li.jp-xs { margin-top: 0; }
+            .my-page .prize-list li.jp-yhq span { right: 3.1481481481rem; }
+    .my-page .back-btn { height: 5rem; box-sizing: border-box; padding-top: 1.5rem; width: 8.0740740741rem; margin: 0 auto; }

@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "RemarkList";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@model SPACRM.Entity.Customer360
+@section htmlhead{
+    @Html.Css("view360","plugin/validator", "plugin/xjgrid")
+}
+
+<div>
+
+<div class="tab-pane" id="inline">
+<form id="frmRemark" class="form-horizontal row-border" action="@Url.Action("SaveRemark")" method="post" role="form">
+    <div class="panel panel-dark panel-alt timeline-post">
+        <div class="panel-body">
+          @*  <h4>面部情况</h4>*@
+       @*      <div class="form-horizontal">
+              会员特征:                   
+            @if(Model.App_Dict!=null)
+            {
+                 @Html.Hidden("count",Model.App_Dict.Count)
+                for (int i =0; i < Model.App_Dict.Count;i++)
+                {   
+                    var name="CheckBox"+i;                                                   
+                   @Html.CheckBox(name)  
+                    var sname="FEATURE"+i;   
+                               
+                  <span id="@sname"> @Model.App_Dict[i].DICT_VALUE  </span>   
+             
+                           <span> &nbsp; </span>                                 
+                }
+               
+            }  </div> *@
+               @Html.Hidden("FEATURE")      
+                
+            <textarea id="REMARK" name="NOTES" placeholder="请输入顾客备忘录....." class="form-control"></textarea>
+            <br />
+             @Html.CheckBox("IS_URGENT")
+            是否紧急:
+           
+        </div><!-- panel-body -->
+       
+        <div class="panel-footer">
+          @*  <div class="timeline-btns pull-left">
+                <a href="#" class="tooltips" data-toggle="tooltip" title="Add Photo"><i class="fa fa-picture-o"></i></a>
+            </div><!--timeline-btns -->*@
+            <button id="btnSave" class="btn btn-primary pull-right">  保 存  </button>
+        </div><!-- panel-footer -->
+    </div>
+    <div class="activity-list">
+        @if (Model.CustomerNote != null)
+        {
+            foreach (var cn in Model.CustomerNote)
+            {
+               var id= ViewBag.IMAGE_ID;
+            <div class="media act-media">
+                <a class="pull-left" href="#">
+                    <img class="media-object act-thumb" src="@( ViewBag.IMAGE_ID!=null ? Url.Action("ViewImage", "Helper", new { id =  ViewBag.IMAGE_ID }) : Url.Content("~/assets/img/photos/female.jpg"))" style="width:30px;height:30px;"   alt="" />
+                </a>
+           @*      <a class="pull-right" href="#" id="delete" >
+                 <i class="fa fa-trash-o" ></i>删除
+                </a>*@
+                <div class="media-body act-media-body">
+                    @*<a href="#" id="inline-comments" data-type="textarea" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments">@cn.NOTES</a>*@
+                     <a href="#">@cn.FEATURE</a>
+                
+                    <a href="#">备注:@cn.NOTES
+                      
+                        @if((bool)cn.IS_URGENT)
+                        {
+                        <span class="badge badge-warning">急</span>
+                        }
+                        <br />
+                      
+                         
+                    </a> 
+                    备注人:
+                    @if(cn.ORG_NAME!=null)
+                    {
+                        @cn.ORG_NAME
+                    }
+                    else if(cn.REGION_NAME!=null)
+                    
+                    {
+                        @cn.REGION_NAME;
+                    }
+                    else
+                    {
+                        @cn.EMP_NAME;
+                    }
+                    <br />
+                    <small class="text-muted">@cn.CREATE_DATE</small>
+                </div>
+            </div>
+            }
+        }
+        <!-- media -->
+    </div>
+    <input type="hidden" id="CUST_ID" name="CUST_ID" value="@Request.QueryString["cid"]" />
+    </form>
+    <!-- activity-list -->
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            deleteurl:"@Url.Action("RemarkDelete")",
+    noteUrl: "@Url.Action("RemarkList", "Customer", new { cid = Request.QueryString["cid"] })"
+    }; </script>
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "app/customer/remark")
+}

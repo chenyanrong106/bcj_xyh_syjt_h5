@@ -1,0 +1,126 @@
+@charset "utf-8";
+*{margin:0; padding:0;}
+html{font-family:"Microsoft YaHei","Helvetica Neue","Helvetica","Roboto","STHeiTi","Arial","sans-serif";-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:62.5%;}
+body{ margin:0 auto; padding:0;width:100%;height:100%; background:#fff; overflow-x:hidden;-webkit-user-select:none;-webkit-text-size-adjust:none; max-width:90rem;}
+ul,li,h1,h2,h3,h4,h5,p,input,dl,dt,dd,table,th,td,ol,form,bdo,em,i{margin:0;padding:0;list-style:none;}
+a:link,a:visited{ text-decoration:none; color:#333;webkit-touch-callout: none;} a:hover{ text-decoration:none;webkit-touch-callout: none;}
+
+
+
+.order-tag-item{ width:100%; height:40px; background:#fff; display:block; margin-bottom:10px; position:fixed; top:45px; left:0; right:0; z-index:9999;}
+.order-tag-item ol{ float:left; width:33.33%; height:40px;  text-align:center; font-size:14px;}
+.order-tag-item ol span{ color:#999; line-height:40px;}
+.order-tag-item ol span.curbtn{ color:#ff5252; border-bottom:2px solid #ff5252;line-height:38px; display:block; padding:0 10px;}
+
+.quan-index-items{ padding-top:10px;display:block;}
+.quan-index-items ul li{ margin-bottom:10px; width:100%; height:100px; background:url(../images/quanbg.png) no-repeat center center; overflow:hidden; background-size:100% 100%; position:relative;}
+.quan-index-moneny{border-right:2px dashed #eee; display:block;}
+.quan-index-moneny strong{ line-height:40px;font-size:3.6rem; color:#ff5252; text-align:center; display:block; padding-top:6px; font-weight:normal;}
+.quan-index-moneny strong em{ font-size:14px; font-style:normal;}
+.quan-index-moneny p{ color:#333; text-align:center; font-size:12px; padding-bottom:10px;}
+.quan-index-info{ text-align:right; padding-right:15px;}
+.quan-index-info h2{ font-size:1.6rem; color:#535353; line-height:24px; padding-top:10px;}
+.quan-index-info p{ font-size:12px; color:#bdbdbd; line-height:22px; margin-bottom:10px;}
+.lingqubtn{ width:80px; height:22px; border:1px solid #ff5252; color:#ff5252; display:inline-block; line-height:22px; text-align:center; border-radius:5px; font-size:12px;}
+
+.quan-index-items ul li.yishiyong p,.quan-index-items ul li.yishiyong strong,.quan-index-items ul li.yishiyong h2{ color:#999;}
+.yishiyong-icon{ position:absolute; right:10px; bottom:0; width:50px; height:50px; background:url(../images/yishiyong.png) no-repeat center center; background-size:50px; display:block;}
+.yiguoqi-icon{ position:absolute; right:10px; bottom:0; width:50px; height:50px; background:url(../images/yiguoqi.png) no-repeat center center; background-size:50px; display:block;}
+
+.youhuiquan-banner{ width:100%; display:block; margin-bottom:10px; min-height:150px; background:#eee;}
+.quan-all-waper{ margin:10px; height:100px; display:block; z-index:1; background:url(../images/Combined.png) no-repeat center center; overflow:hidden; background-size:100% 100%;}
+.youhuiquan-banner img{ width:100%; display:block;}
+
+.quan-left-waper{ float:left; width:32%; display:block; padding:10px 0;}
+.quan-left-moneny{ border-right:2px dashed #fff; display:block; padding:10px 0; line-height:50px; font-size:4.2rem; color:#fff; text-align:center; font-family:Arial, Helvetica, sans-serif;}
+.quan-left-moneny em{ font-style:normal; font-size:14px; color:#fff; margin-right:2px;}
+.quan-right-waper{ float:left; width:68%; display:block; padding:10px 0;color:#fff;}
+.quan-right-waper h2{ line-height:30px; color:#fff; font-size:18px; padding-left:15px;}
+.quan-right-waper h3{ line-height:22px; color:#fff; font-size:14px; padding-left:15px; margin-bottom:1rem; font-weight:normal;}
+.quan-right-waper p{ font-size:12px;padding-left:15px; color:#fff;}
+.quan-content-box{ padding:10px; display:block;}
+.inputText{ width:80%; border:none; background:#eee; border-radius:5px; height:44px; line-height:44px; font-size:16px; text-indent:10px; margin:0 auto 20px; -webkit-appearance:none; display:block;}
+.submit-btn{ width:60%; height:44px; background:#ff6161; display:block; color:#fff; font-size:18px; margin:0 auto 40px; text-align:center; line-height:44px;border-radius:5px; }
+.submit-kongbtn{ width:60%;  border:1px solid #ff5252; line-height:42px;color:#ff5252; text-align:center; height:42px;font-size:18px; margin:10px auto 40px;border-radius:5px; }
+
+.quan-admin-info{ display:none; overflow:hidden;}
+.quan-admin-info p{ line-height:22px; font-size:14px; color:#666; text-align:center;}
+.quan-admin-info p strong{ color:#ff5252;}
+a.alink{ color:#ff5252; text-decoration:underline; display:inline-block;}
+
+.quan-huise{ filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%); opacity:0.4;}
+
+.quan-title-box{ background:#eee; height:1px; display:block; position:relative; margin:15px auto; clear:both;}
+.quan-title-box strong {
+    width: 140px;
+    height: 30px;
+    background:#fff;
+	position:absolute;
+	left:50%;
+	top:-15px;
+	margin-left:-70px;
+	text-align:center;
+	font-size:12px; 
+	line-height:30px;
+	color:#bdbdbd;
+	font-weight:normal;
+}
+.quan-title-box strong.width80{ width:90px; margin-left:-45px;}
+.quan-title-box strong.width70{ width:70px; margin-left:-35px;}
+
+.pengyou-list{ padding:10px 0; overflow:hidden;}
+.pengyou-list ul li{ margin-bottom:20px; display:block; overflow:hidden; color:#666; font-size:12px;}
+.pengyou-list ul li span{ float:right; line-height:50px; font-size:20px; color:#ff5252; font-family:Arial, Helvetica, sans-serif;}
+.pengyou-list ul li img{ float:left; margin-right:10px; border-radius:5px; width:50px; height:50px;}
+.pengyou-list ul li strong{ display:block; margin-bottom:8px; font-size:16px; color:#ff7070;}
+.pengyou-list ul li strong i{ font-size:12px; font-weight:normal; font-style:normal; color:#bdbdbd; margin-left:10px;}
+
+#mendian ul{ height:50px; overflow:hidden;}
+
+.mei-index-Top{padding-top:84px;}
+.dianhua{ width:40px; height:40px; background:url(../images/Artboard.png) no-repeat center center; background-size:40px; display:block; margin-top:5px; margin-right:6px;} 
+.pengyou-list ul li strong.mendian{ color:#333; background:url(../images/mendian.png) no-repeat 0 center; background-size:18px; padding-left:25px;}
+.pengyou-list ul li p.address{ color:#999; background:url(../images/address.png) no-repeat 0 center; background-size:18px; padding-left:25px;}
+
+.moreDian{ width:80%; height:40px; border:1px solid #ff5252; display:block; line-height:40px; border-radius:5px; font-size:16px; color:#ff5252; text-align:center; margin:20px auto; font-weight:bold;}
+.guize-detail{ padding-bottom:20px; display:block;}
+.guize-detail p{ font-size:12px; color:#666; line-height:22px; text-align:left; padding-left:15px;}
+.guize-detail p em{ width:15px; display:inline-block; margin-left:-15px; font-style:normal; font-weight:bold;}
+.detialpp p{font-size:14px; color:#535353; line-height:25px; text-align:left; }
+.detialpp p img{ width:100%; display:block; margin:10px 0;}
+
+.motify{position:fixed;top:40%;left:50%;width:220px;padding:0.5em;margin:0 0 0 -110px;z-index:999999;background:rgba(0,0,0,.8);color:#fff;line-height:3em;border-radius:6px;-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);box-shadow: 0 1px 2px rgba(0,0,0,.2); text-align:center; display:none;}
+.motify p{ line-height:3em; text-align:center; font-size:12px; color:#fff;}
+
+.bgcolor{ background:#f3f3f3;}
+.meiheader{width:100%; background:#fff; height:44px; display:block; position:fixed; left:0; top:0; right:0; z-index:999;  border-bottom:1px solid #f3f3f3}
+.meiboxcon{ position:absolute; left:0; top:0; width:100%; height:44px; display:block;overflow:hidden;}
+.meiheader span{ float:left; width:15%; height:44px; text-align:center; display:block;}
+.meiheader span em{ font-size:14px; font-style:normal; display:inline-block; margin-right:4px;}
+
+.meiheader h2{ text-align:center; width:70%; line-height:44px; color:#333; font-size: 1.8em; float:left; font-family:Arial, Helvetica, sans-serif; font-weight:normal;font-family:"\5FAE\8F6F\96C5\9ED1";}
+.meiheader a span{
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    font-size: 1.6em;
+    color: #535353;
+    text-align: center;
+	margin:0 auto;
+}
+.icon-fanhui{ width:44px; height:44px; background:url(../images/fanhui.png) no-repeat center center; background-size:20px; display:block;}
+.quan-content{ padding-top:54px; display:block;}
+.quanshuru{ padding:10px 0;}
+.quanshuru .inputText,.quanshuru .submit-btn{ width:99.8%;}
+
+.quanma,.lingqu{background:#fff; overflow:hidden; display:block; border-radius:5px;}
+.quanma img{ width:50%; margin:30px auto; display:block; }
+.quanma p{ line-height:30px; font-size:18px; color:#535353; text-align:center;}
+
+.lingqu-icon{ padding:20px;display:block; text-align:center;}
+.lingqu-icon p{ background:url(../images/dui.png) no-repeat 0 center; background-size:20px; font-size:18px; display:inline-block; color:#29c230; line-height:30px; padding-left:30px;}
+.lingqu .quan-right-waper p{ color:#fff;}
+.lingqu p{ line-height:22px; color:#999; font-size:12px; padding:0 10px;}
+.lingqu p.quanma-show{ border-bottom:1px solid #f3f3f3; line-height:50px; height:50px; overflow:hidden; margin-bottom:10px; padding-bottom:5px;}
+.lingqu p.quanma-show strong{font-size:20px; color:#535353; font-weight:normal;}
+.lingqutop{ margin-top:100px;}

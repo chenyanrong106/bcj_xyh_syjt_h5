@@ -1,0 +1,168 @@
+﻿@charset "utf-8";
+*{margin:0; padding:0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;}
+html{ font-size:62.5%;}
+body{font-family:"微软雅黑"; margin:0px auto; padding:0px;width:100%;height:100%; max-width:75rem; background:#fff; overflow-x:hidden;-webkit-text-size-adjust:none;}
+ul,li,h1,h2,h3,h4,h5,p,input,dl,dt,dd,table,th,td,ol,form,bdo,em,i{margin:0;padding:0;list-style:none;}
+img{ border:0; vertical-align:top;}
+a:link,a:visited{ text-decoration:none; color:#333;webkit-touch-callout: none;} a:hover{ text-decoration:none;webkit-touch-callout: none;}
+
+
+.header_box{position:fixed; left:0; top:0; right:0; height:44px; background:#fff; z-index:99; display:block; width:100%; max-width:75rem; margin:0 auto; overflow:hidden; border-bottom:2px solid #1dae65;}
+.header_box p{ background:url(../images/xin.png) no-repeat 5px center; background-size:22px 16px; font-size:1.2rem; color:#1dae65; padding-left:30px; line-height:44px; font-family:Arial, Helvetica, sans-serif;}
+.header_box p em{ font-size:1.6rem; font-style:normal; font-weight:bold;}
+.header_box p span{ float:right; padding-right:5px;}
+.header_box p bdo{ padding:2px 5px; display:inline-block; height:22px; line-height:22px; background:#1dae65; border-radius:22px; font-size:12px; color:#fff;}
+
+.petchat{ display:block; overflow:hidden; max-width:75rem; margin:0 auto; padding-top:46px;}
+.petliang{ border-bottom:10px solid #eee; background:#fff; overflow:hidden;}
+.petliang ol{ float:left; width:33.33%;}
+.petliang ol p{ padding:0px 5px 0px 10px; margin:10px 0; text-align:left;border-left:1px dashed #ddd; line-height:25px; font-family:Arial, Helvetica, sans-serif;}
+.petliang ol strong{ display:block; font-size:1.8rem; color:#f60;}
+.petliang ol strong em{ font-size:12px; font-style:normal; font-weight:normal;}
+.petliang ol span{ display:block; font-size:1.4rem; color:#666;}
+.shopdd{ border-top:1px solid #eee;}
+
+.shoplist{ overflow:hidden; display:block;}
+.shoplist ul li{ border-bottom:10px solid #eee; padding:5px;}
+.shoplist .adminInfo{ display:block; overflow:hidden; line-height:40px; padding:5px 0;}
+.shoplist .adminInfo p{ font-size:1.2rem; color:#333; font-family:Arial, Helvetica, sans-serif;}
+.shoplist .adminInfo p em{ font-style:normal; color:#f00;}
+.shoplist .adminInfo p span{ float:right;color:#999; font-size:12px;}
+.shoplist .adminInfo p span.daizi{ width:50px; height:40px; display:block; background-size:20px 26px;}
+.shoplist .adminInfo p span em{ font-style:normal; color:#f00; font-size:1.4rem;}
+.shoplist .adminInfo bdo{ float:left; margin-right:5px;}
+.shoplist .adminInfo bdo.touxiang{ width:30px; height:30px; background:url(../images/morentou.png) no-repeat center center; background-size:30px;display:inline-block; padding:5px;}
+.shoplist .adminInfo bdo.touxiang img{ width:30px; height:30px; display:block; border-radius:30px;}
+.shoplist .adminInfo bdo.zhiding{ padding:0px 8px; font-size:1.2rem; color:#f90; border:1px solid #f90; height:22px; line-height:22px; margin-top:7px; border-radius:22px;}
+.shopTT{ border-top:1px solid #eee; display:block; padding:5px 0;font-family:Arial, Helvetica, sans-serif;}
+.shopTT h2{ font-size:1.8rem; color:#333; line-height:30px; text-align:left;padding:3px 0 5px;}
+.shopTT p{ font-size:1.2rem; color:#666; line-height:22px; text-indent:25px;}
+
+.shopimgbox{ display:block; overflow:hidden; padding:5px 0;}
+.shopimgbox ol{ float:left; width:25%; display:block;}
+.shopimgbox ol span{ margin:2px;display:block;}
+.shopimgbox ol span img{ width:100%;}
+
+.shopimgbox2{ display:block; overflow:hidden; padding:5px 0;}
+.shopimgbox2 ol{ float:left; width:33%; display:block;}
+.shopimgbox2 ol span{ margin:2px;display:block;}
+.shopimgbox2 ol span img{ width:100%;}
+
+.juanbtn{ position:fixed; width:100%; background:#fff; border-top:1px solid #eee; font-size:18px; color:#fff; bottom:0; left:0; right:0;height:44px; display:block; line-height:44px; text-align:center;max-width:75rem; margin:0 auto;}
+.juanbtn span{ float:left; width:25%; height:44px; display:block; color:#fff;}
+.juanbtn bdo{ float:left; width:50%; background:#fff; height:44px; display:block;}
+.juanbtn em{ font-family:Arial, Helvetica, sans-serif; color:#f00; font-style:normal;}
+.paybtn{ background:#1dae65; border-radius:30px; height:34px; margin:5px; display:inline-block; color:#fff; text-align:center; font-size:1.6rem; display:block; line-height:34px;}
+.shoucang{ font-weight:normal; font-size:12px; text-align:center; padding-top:9px; font-family:Arial, Helvetica, sans-serif; background:url(../images/xing.png) no-repeat center 5px; background-size:15px; display:block;}
+.sharetu{ font-weight:normal; font-size:12px; text-align:center; padding-top:9px; font-family:Arial, Helvetica, sans-serif; background:url(../images/share.png) no-repeat center 5px; background-size:16px 17px; display:block;}
+
+.helpTa,.helpNews{ border-bottom:10px solid #eee; display:block; padding-bottom:5px;}
+.helpTa h2,.helpNews h2{ font-size:1.6rem; color:#333; line-height:40px; border-bottom:1px solid #eee; display:block; padding:0 10px; margin-bottom:10px; font-weight:normal;font-family:Arial, Helvetica, sans-serif;}
+.helpTa h2 em,.helpNews h2 em{ font-style:normal; padding-left:5px; color:#1dae65;}
+.helpTa p{ font-size:1.2rem; line-height:30px; color:#999; padding:0 10px; font-family:Arial, Helvetica, sans-serif; overflow:hidden;}
+.helpTa strong{ font-size:2.4rem; color:#f00;}
+.helpTa p span{ float:right;}
+.helpTa p span.shuru{ width:75%; display:block; height:30px;}
+.helpTa p bdo{ float:left; font-size:1.4rem; color:#333; width:25%;}
+.helpTa .txt{ width:100%; border:none; height:30px; background:none; -webkit-appearance:none; font-size:1.6rem; line-height:30px; color:#f60;}
+
+.helpNews ul{ padding:10px; overflow:hidden;}
+.helpNews ul li{ padding:10px 0; border-bottom:1px solid #eee;}
+.helpNews .chouTT{ width:100%; height:44px; display:block; margin-bottom:10px;}
+.helpNews .chouTT img{ float:left; width:40px; height:40px; border-radius:40px; display:block; margin-right:10px;}
+.helpNews .chouTT strong{ display:block; line-height:22px; color:#333; font-size:1.4rem; color:#333;}
+.helpNews .chouTT strong em{ font-size:1.4rem; color:#666; font-style:normal; font-weight:normal;}
+.helpNews .chouTT span{ display:block; color:#999; line-height:22px; font-family:Arial, Helvetica, sans-serif;}
+.chouText{ padding-left:50px; display:block;}
+.chouText p{ font-size:1.2rem; color:#666; line-height:22px;}
+
+.comcon{ display:block;}
+.comcon ul li{border-bottom:1px dotted #eee; padding:5px 0; text-align:left; overflow:hidden;}
+.comcon ul li p{font-size:14px; color:#333; line-height:30px;}
+.comcon ul li p bdo{ padding-left:40px; font-size:12px; color:#999; line-height:22px; display:block;}
+.comcon ul li p bdo.txtinfo{ font-size:1.2rem; color:#333; padding:10px 0 10px 40px;}
+.comcon ul li p img{ float:left; margin-right:10px; width:25px; height:25px;}
+.comcon ul li p strong{ color:#f00; font-size:14px; display:inline;}
+.comcon ul li span{float:right; background:url(../images/xiaoxi.png) no-repeat center center; width:40px; height:40px; display:block; background-size:20px;} 
+
+.paylist{overflow:hidden; display:block; border-bottom:10px solid #eee;}
+.paylist ol{ line-height:44px; border-bottom:1px solid #eee; display:block; padding:0 10px; font-size:1.4rem; color:#333; height:44px; overflow:hidden;}
+.paylist ol span{ float:right;}
+.paylist ol em{ width:20px; height:20px; background:#fff; border:1px solid #ddd; display:inline-block; border-radius:20px; margin-top:11px;}
+.paylist ol em.curxuan{ background:url(../images/gouxuan.png) no-repeat center center #fff; border-color:#1dae65; background-size:18px; display:inline-block;}
+.paylist ol bdo.zhifubao{ background:url(../images/zhifubao.png) no-repeat 0 center; padding-left:25px; background-size:20px; display:block;}
+.paylist ol bdo.weixin{ background:url(../images/weixin.png) no-repeat 0 center; padding-left:25px; background-size:22px;display:block;}
+.paybeizhu{ padding:0 10px; background:#eee;}
+.paybeizhu textarea{-webkit-appearance:none; width:100%; height:100px; display:block; border:none; background:#fff; margin-bottom:20px; line-height:30px; font-size:1.4rem; color:#999; text-indent:10px;}
+
+.loginBox{ position:absolute; left:0; right:0; top:0; background:url(../images/bg.jpg) no-repeat center center; background-size:cover; width:100%; height:100%; overflow:hidden;max-width:75rem; margin:0 auto;}
+.logoImg{ position:absolute; left:0px; top:0px; background:url(../images/logo.png) no-repeat center center; background-size:80px 66px; width:100px; height:100px; display:block;}
+.loginBox .img01{ position:absolute; left:10%; width:80%; height:auto; top:8%;}
+.loginBox .img02{ position:absolute; left:10%; width:80%; height:auto; top:50%;}
+.loginBox .img03{ position:absolute; left:25%; width:50%; height:auto; bottom:5%;}
+.loginBox .logintxt{ position:absolute; left:10%; width:80%; height:auto; top:70%;}
+.loginBox .logintxt p{ text-align:center; font-size:1.6rem; color:#fff;}
+.choutag{ padding:0 5px; height:30px; line-height:30px; display:block; overflow:hidden; background:#f8f4ea;}
+.choutag ol{ float:left; width:33.33%; height:30px; line-height:30px; font-size:1.2rem; color:#787878; font-family:Arial, Helvetica, sans-serif;}
+.choutag ol span.mubiao{ background:url(../images/jindu.png) no-repeat 0 center; background-size:20px; padding-left:22px; display:block;}
+.choutag ol span.jine{ background:url(../images/qian.png) no-repeat 0 center; background-size:20px; padding-left:22px; display:block;}
+.choutag ol span.jindu{ background:url(../images/jindu2.png) no-repeat 0 center; background-size:20px; padding-left:22px; display:block;}
+.quananimate{-webkit-animation:zhuan 2s infinite ease-out;animation:zhuan 2s infinite ease-out;}
+.quananimate2{-webkit-animation:zhuan 2s 1s infinite ease-out;animation:zhuan 2s 1s infinite ease-out;}
+@keyframes zhuan{
+	 0%{ transform:scale(1); -webkit-transform:scale(1);}
+	 50%{ transform:scale(0.9); -webkit-transform:scale(0.9);}
+	100%{ transform:scale(1); -webkit-transform:scale(1);}
+}
+@-webkit-keyframes zhuan{
+    0%{ transform:scale(1); -webkit-transform:scale(1);}
+	 50%{ transform:scale(0.9); -webkit-transform:scale(0.9);}
+	100%{ transform:scale(1); -webkit-transform:scale(1);}
+}
+
+.choukuan-box{ border-bottom:10px solid #eee; display:block; width:100%;}
+.choukuan-box p{ line-height:40px; font-size:1.4rem; padding:5px;display:block; overflow:hidden; border-bottom:1px solid #eee;}
+.choukuan-box p strong{ color:#666; float:left; width:22%; height:40px; font-weight:normal; text-align:center;}
+.choukuan-box .txt{ border:none; width:70%; float:left;height:40px; line-height:40px; -webkit-appearance:none; font-size:14px;}
+.choukuan-box h2{ background:#1dae65; line-height:40px; height:40px; padding:0 10px; font-size:12px; color:#fff; font-weight:normal;}
+
+.choukuan-box ul li{ padding:5px 10px; border-bottom:1px solid #eee;}
+.choukuan-box .ptxt{ font-size:12px; color:#f90; background:#fffdf1; padding:5px; line-height:20px; border-bottom:none;}
+.choukuan-box .txt2{ border:none; width:100%; height:40px; line-height:40px; -webkit-appearance:none;font-size:14px;}
+.choukuan-box textarea{border:none; width:100%; height:120px;-webkit-appearance:none;font-size:14px; color:#666;}
+
+
+.upload_btn {background:url(../images/jpeg.png) center 0 no-repeat; background-size:60px; position:relative;width:60px;height:60px; display:block; float:left;}
+.upload_btn input { opacity:0;position: absolute;left: 0;top: 0;z-index:10;overflow: hidden;height: 60px;width:60px; -webkit-appearance:none; }
+
+.choukuan-box .post_imglist li {position:relative;float:left;padding:5px; width:60px; height:60px; display:block; border-bottom:none; margin:0;}
+.choukuan-box .post_imglist li .del {position:absolute;right:5px;top:-10px;background:url(../images/shanchu2.png) no-repeat 0px 0;background-size:20px;width:20px;height:20px;display: inline-block; }
+.post_imglist li .pic_time {display: inline-block;width: 60px;height: 60px;position: relative; }
+.post_imglist li .pic_time em {display: inline-block;width: 100%;height: 25%;line-height: 15px;font-size: 12px;color: #fff;background-color: #F1484A;position: absolute;top: 22px;left: 0; }
+.uploadtxt{line-height:30px; font-size:1.4rem; color:#666;}
+.post_imglist{ float:right;}
+.post_imglist li img.wh60 {margin: 0 auto;display: block;width:60px;height:60px;}
+.choukuan-box .upload{ width:100%; height:62px; line-height:62px; display:block; overflow:hidden; color:#fff; margin-bottom:1rem; padding:0; border:none; position:relative;}
+.choukuan-box .upload strong{ float:left; width:20%; text-align:left; font-size:1.4rem;}
+.choukuan-box .upload span{ float:right; width:80%; text-align:left; overflow:hidden;}
+
+.pays-info{ padding:30px 10px; margin:0 auto;}
+.pays-info  h2{ font-size:24px; color:#f00; line-height:50px; margin-bottom:10px;text-align:center;}
+.pays-info h6{ font-size:14px; color:#333; display:block; text-align:center; margin-bottom:20px; font-weight:normal;}
+
+.shoukuanfang{ background:#fffbed; padding:10px; margin:10px;}
+.shoukuanfang p{ line-height:30px; font-size:14px; color:#666;}
+.shoukuanfang p img{ float:left; width:60px; height:60px; margin-right:10px; border-radius:60px;}
+.shoukuanfang p strong{ color:#ff0000; font-family:Arial, Helvetica, sans-serif;}
+.weimaBox{ padding:10px 10px 40px 10px; display:block;}
+.weimaBox img{ text-align:center; width:50%;}
+.weimaBox p{ line-height:30px; color:#333; font-size:14px; text-align:center; overflow:hidden;}
+.weimaBox p bdo{ float:left; margin-right:2px;}
+.gantan{background:url(../images/gantan.png) no-repeat 0 center; background-size:20px; padding-left:25px; width:20px; height:30px; display:inline-block;}
+.payinfoss{ border:1px dotted #eee; padding:5px;}
+.payinfoss p{ font-size:12px; color:#999; line-height:20px; text-align:left;}
+
+.maskbg{ position:absolute; left:0; top:0; width:100%; height:100%; z-index:9992;background-color:rgba(0,0,0,.8); display:none; z-index:990;}
+.shuomingBox{ width:300px; position:absolute; left:50%; top:50%; margin-left:-150px; margin-top:-140px; display:block; background:#fff; border-radius:10px; z-index:999;}
+.shuomingBox p{ padding:5px 20px; font-size:12px; color:#666; line-height:22px;}
+.shuomingBox h3{ font-size:16px; line-height:40px; color:#333; font-weight:normal; display:block; text-align:center; padding-top:10px;}

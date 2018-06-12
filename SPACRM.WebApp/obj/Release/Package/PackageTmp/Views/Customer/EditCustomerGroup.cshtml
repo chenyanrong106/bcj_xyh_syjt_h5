@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "顾客分组维护";  
+}
+@model SPACRM.Entity.Entities.CUST_GROUP_EX
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+
+<link rel='stylesheet' type='text/css' href='../../assets/plugins/codeprettifier/prettify.css' /> 
+<link rel='stylesheet' type='text/css' href='../../assets/plugins/form-toggle/toggles.css' /> 
+
+}
+
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-group"></i>&nbsp;顾客分组维护</h2>
+    </div>
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>搜索选项</h4>
+        </div>
+        <div class="panel-body" style="min-height: 350px">
+            <form class="form-horizontal" id="frmSave" action="@Url.Action("SaveCustomerGroup")" method="post" role="form">
+                @Html.Hidden("ID", Model.ID)
+                @Html.Hidden("STRSQL", Model.STRSQL)
+                <div class="form-group">
+                    <div class="col-sm-1">
+                        <label for="NAME" class="control-label">分组名称</label>
+                    </div>
+                    <div class="col-sm-4">
+                         @Html.TextBox("NAME", Model.NAME, new { @class = "form-control", placeholder = "分组名称" })
+                    </div>   
+                    <div class="col-sm-1">
+                         <label for="CUST_GROUP_TYPE" class="control-label">分组类型</label>
+                    </div>
+                    <div class="col-sm-1">
+                         @Html.ResourceDropDownList("CUST_GROUP_TYPE", "CUST_GROUP_TYPE", Model.TYPE, new { @class = "form-control" })
+                    </div>        
+                     <div class="col-sm-5">
+                         </div>               
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="c1" id="c1" class="control-label" style="text-align: left">筛选条件</label>
+                    </div>
+                    <div class="col-sm-8" id="conditionTitle">
+                        @*<div class="col-sm-4">
+                            <label for="c2" id="c2" class="control-label" style="text-align: left">属性</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="c3" id="c3" class="control-label" style="text-align: left">条件</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="c4" id="c4" class="control-label" style="text-align: left">值</label>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>*@
+                    </div>
+                    <div class="col-sm-2">
+                     </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        @Html.ResourceDropDownList("CUST_GROUP_CONDITION", "CUST_GROUP_CONDITION", "", new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-8" id="conditionValue">
+                        <div class="col-sm-4" id="conDiv1">
+                        </div>
+                        <div class="col-sm-4" id="conDiv2">
+                        </div>
+                        <div class="col-sm-4" id="conDiv3">
+                            @*<input type="text" class="form-control mask" data-inputmask="'alias': 'yyyy-mm-dd'">*@
+                                          
+                        </div>
+                    </div>
+                    <div class="col-sm-1" style="text-align: right">
+                        <button type="button" class="btn btn-primary" id="btnAddOneCon">添加</button></div>
+                    <div class="col-sm-1"></div>
+                </div>
+                @Html.Hidden("GROUP_CONDITIONS_NAME", "")
+                @Html.Hidden("GROUP_CONDITIONS_VALUE", "")
+
+                @Html.Hidden("GROUP_CONDITIONS_SQL", "")
+                 
+                <div class="form-group">
+                    <div class="col-sm-11">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="tblCondition">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @*<div>
+                                    <table id="tblCondition">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-11" style="text-align: center">
+                        <div style="float: left">
+                            <button type="button" id="btnShowGC" class="btn btn-default">预览顾客</button>
+                            <button type="button" id="btnCancelGC" class="btn btn-default">取 消</button>
+                            <button type="button" id="btnSaveFrm" class="btn btn-primary">保 存</button>
+                        </div>
+                        <div class="btn-toolbar" style="float: right">
+                            <div class="btn-group hidden-xs">
+                                <a href='#' class="btn btn-default dropdown-toggle" data-toggle='dropdown'><i class="fa fa-cloud-download"></i><span class="hidden-sm">导出顾客 </span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" id="ExportTXT">Text File (*.txt)</a></li>
+                                    <li><a href="#" id="ExportExcel">Excel File (*.xlsx)</a></li>
+                                    <li><a href="#" id="ExportPDF">PDF File (*.pdf)</a></li>
+                                </ul>
+                            </div>
+                        </div>                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-11">
+                        <div id="gridlist" class="xjgrid">                             
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            indexUrl: "@Url.Action("CustomerGroup")",
+            showGroupCustomer: "@Url.Action("ShowGroupCustomer")",
+            getConditions: "@Url.Action("GetConditions")",
+            getChildreConds: "@Url.Action("GetChildrenConditions")",
+            getCustList: "@Url.Action("GetCustList")",
+            showGroupCondition: "@Url.Action("showGroupCondition")",
+            exportFile: "@Url.Action("ExportFile")",
+            @*     indexUrl: "@Url.Action("BuyGiveActivities")",
+           
+            proItemsUrl: "@Url.Action("GetProds")",
+            proTypeUrl: "@Url.Action("GetProdTypes")",
+            addProUrl: "@Url.Action("AddProd")",*@
+        };
+    </script>
+    
+@Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker",
+"plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "js/common",
+"app/customer/editcustomergroup", "plugins/form-inputmask/jquery.inputmask.bundle.min", "form-toggle/toggle.min")
+<script type='text/javascript' src='../../assets/demo/demo-mask.js'></script>
+    
+<script type='text/javascript' src='../../assets/plugins/sparklines/jquery.sparklines.min.js'></script> 
+<script type='text/javascript' src='../../assets/plugins/form-toggle/toggle.min.js'></script> 
+<script type='text/javascript' src='../../assets/plugins/form-inputmask/jquery.inputmask.bundle.min.js'></script>  
+   @*<script type='text/javascript' src='assets/plugins/form-inputmask/jquery.inputmask.bundle.min.js'></script>*@ 
+}
+
+
+
+

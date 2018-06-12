@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "编辑会员卡信息";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@model SPACRM.Entity.Entities.CardAndServiceAndPrdouct
+
+@section htmlhead{
+    @Html.Css("plugin/validator")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .col-sm-8 {
+            padding: 0;
+        }
+    </style>
+}
+<div style="margin: -2px 15px;">
+    <div class="h_title">会员卡信息维护</div>
+    <div>
+        <form id="frmEdit" action="@Url.Action("Save")" method="post" role="form">
+            <div class="form-group col-xs-6">
+                <label for="PC.NAME" class="col-sm-3 control-label">名称:</label>
+                <div class="col-sm-8">
+                    @Html.Hidden("ID", Model.PC.ID)
+                    @if (Model.PC.ID > 0)
+                    {
+                        @Html.TextBox("NAME", Model.PC.NAME, new { @class = "form-control", placeholder = "请输入会员卡名称", @readonly = "readonly" })
+                    }
+                    else
+                    {
+                        @Html.TextBox("NAME", Model.PC.NAME, new { @class = "form-control", placeholder = "请输入会员卡名称" })
+                    }
+
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label for="PAR_AMT" class="col-sm-3 control-label">卡内充值:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("PAR_AMT", Model.PC.PAR_AMT, new { @class = "form-control", placeholder = "请输入卡内充值" })
+
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="PRICE">售价:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("PRICE", Model.PC.PRICE, new { @class = "form-control", placeholder = "请输入售价" })
+                </div>
+            </div>
+
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="DISCOUNT_RATE">折扣:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("DISCOUNT_RATE", Model.PC.DISCOUNT_RATE, new { @class = "form-control", placeholder = "请输入折扣" })
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="col-sm-3 control-label" for="REMARK">说明:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("REMARK", Model.PC.REMARK, new { @class = "form-control", placeholder = "请输入说明" })
+                </div>
+                <div></div>
+            </div>
+            <div style="clear: both;"></div>
+            <br />
+            <label class="col-sm-8 control-label">适用项目:</label>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#service" data-toggle="tab">服务项目</a>
+                        </li>
+                        <li>
+                            <a href="#product" data-toggle="tab">产    品</a>
+                        </li>
+                    </ul>
+                    <div class="options">
+                        <a href="#"><i class="fa fa-cogs"></i></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="service">
+                            <div class="form-horizontal">
+                                <div class="form-group col-xs-3">
+                                    <label class="col-sm-3 control-label">名称:</label>
+                                    <div class="col-sm-3">
+                                        @Html.TextBox("NAMEPS", Model.PS.NAME, new { @class = "form-control", })
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    <label class="col-sm-3 control-label">SKU:</label>
+                                    <div class="col-sm-3">
+                                        @Html.TextBox("SKUPS", Model.PS.SKU, new { @class = "form-control", })
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    <label class="col-sm-3 control-label">类别:</label>
+                                    <div class="col-sm-3">
+                                        @Html.ResourceDropDownList("PROD_SERVICEByCard", "PROD_SERVICEByCard", null, new { @class = "form-control" }, true)
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    <label class="col-sm-3 control-label">子类别:</label>
+                                    <div class="col-sm-3">
+                                        @Html.ResourceDropDownList("PROD_SERVICEByCard", "PROD_SERVICEByCard", null, new { @class = "form-control" }, true)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <button class="btn-sky btn" id="select" type="button"><i class="fa fa-search"></i>查询</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    @* <table>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" id="allcheckbox" /></td>
+                                            <td>名称</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 10%">
+                                                <input id="checkbox" type="checkbox" /></td>
+                                            <td style="width: 60%">80分钟全身精油按摩</td>
+                                            <td style="width: 20%">折扣:</td>
+                                            <td style="width: 10%">
+                                                <input id="cardrate" type="text" /></td>
+                                        </tr>
+                                    </table>*@
+
+                                    <div id="gridlist">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="product">产品</div>
+                    </div>
+                </div>
+            </div>
+            @*            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="IS_CUST_STORE">客户是允许跨门店查询:</label>
+                <div class="col-sm-8">
+                    @Html.ResourceRadioList("IS_CUST_STORE", "IS_CUST_STORE", string.IsNullOrEmpty(Model.IS_CUST_STORE.ToString()) ? "" : Model.IS_CUST_STORE.ToString(), null)
+                </div>
+                <div></div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="IS_ONLINE_BOOKING">是否支持在线预约:</label>
+                <div class="col-sm-8">
+                    @Html.ResourceRadioList("IS_ONLINE_BOOKING", "IS_ONLINE_BOOKING", string.IsNullOrEmpty(Model.IS_ONLINE_BOOKING.ToString()) ? "" : Model.IS_ONLINE_BOOKING.ToString(), null)
+                </div>
+                <div></div>
+            </div>*@
+            <div class="btnpanel_right">
+                <button type="reset" id="btnCancel" class="btn btn-default">取 消  </button>
+                <button type="button" id="btnSave" class="btn btn-primary">保 存  </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("ListService")",
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/card/edit")
+}

@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "积分兑换";
+}
+@model SPACRM.Entity.Entities.CUST_INFO_EX
+@section htmlhead{
+
+    @Html.Css("plugin/validator")
+    <style type="text/css">
+        .h_title { padding: 5px 15px; border-bottom: solid 1px #e6e5e5; font-size: 18px; margin-bottom: 5px; }
+        .searchpanel { background-color: #f7f8fa; padding: 5px 15px; margin-left: 10px; border-radius: 4px; }
+        .searchpanel .form-group label { margin-bottom: 4px; }
+        .divHead { height: 25px; margin-bottom: 8px; background-color: #FCF3D0; border: 1px solid #F7DC6F; color: #927608; }
+    </style>
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-home"></i>积分兑换</h2>
+    </div>
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4></h4>
+        </div>
+        <form id="frmPointsSave" action="@Url.Action("PointsSave")" method="post" role="form">
+            <div class="panel-body" style="min-height: 350px">
+                <div class="row">
+                    <input type="hidden" id="outcid" name="outcid" />
+                    <input type="hidden" id="incid" name="incid" />
+                    <div class="col-md-12">
+                        <div class="form-group col-xs-12">
+                            <label class="col-sm-2 control-label">会员姓名：</label>
+                            <div class="col-sm-8 input-group">@Model.NAME
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-sm-2 control-label">会员卡号：</label>
+                            <div class="col-sm-8 input-group">@Model.CARD_NO
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-sm-2 control-label">卡内余额：</label>
+                            <div class="col-sm-8 input-group">@Model.BALANCE
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="col-sm-2 control-label">当前积分：</label>
+                            <div class="col-sm-8 input-group">
+                                <span id="CARD_POINTS" class="badge badge-warning">@Model.AVA_POINTS</span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label class="col-sm-2 control-label">&nbsp;&nbsp;可兑换产品/电子券：</label>
+                                <div class="col-sm-8 input-group">
+                                    <select class="form-control" id="SONTYPE" name="SONTYPE" style="width: 280px;">
+                                        <option value="">请选择产品/电子券</option>
+                                        @foreach (var item in ViewBag.GoodsList)
+                                        {
+                                            <option value="@item.ID" itemid="@item.POINT" prodtype="@item.ProdType">@item.NAME&nbsp;&nbsp;[@item.POINT 分]</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group btnpanel_right" style="margin-top: 5px;">
+
+                        <button type="button" id="btnSave" class="btn btn-primary">保存</button>
+                        <button type="button" id="btnReturn" class="btn btn-default">返回</button>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="CUST_ID" name="ID" value="@Model.ID" />
+            <input type="hidden" name="AVA_POINTS" value="@Model.AVA_POINTS" />
+            <input type="hidden" id="PRO_POINTS" name="PRO_POINTS" />
+            <input type="hidden" id="PROD_TYPE" name="PROD_TYPE" />
+
+        </form>
+    </div>
+</div>
+
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("List")",
+            editUrl: "@Url.Action("Edit")",
+            deleteUrl: "@Url.Action("Delete")",
+            queryProd: "@Url.Action("QueryPointProd")"
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "app/customer/memberpoints")
+
+}

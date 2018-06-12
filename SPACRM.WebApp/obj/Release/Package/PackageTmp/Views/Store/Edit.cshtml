@@ -1,0 +1,262 @@
+﻿@{
+    ViewBag.Title = "编辑门店信息";
+}
+@model SPACRM.Entity.Entities.ORG_STORE_EX
+@section htmlhead{
+
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+    <link rel='stylesheet' type='text/css' href='../../assets/css/tree.css' />
+
+
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label {
+                margin-bottom: 4px;
+            }
+    </style>
+}
+
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-cog"></i>&nbsp;门店信息维护</h2>
+    </div>
+
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>门店详情</h4>
+            </div>
+            <div class="panel-body">
+
+
+
+                <div class="modal-body col-xs-12" id="EditModelData">
+                    <form id="frmSave" method="post" action="@Url.Action("Save")" role="form">
+                        @Html.Hidden("ID", Model.ID)
+                        @Html.Hidden("REGION_ID", Model.REGION_ID)
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="STORE_NO" class="col-xs-2 control-label" style="text-align: right;"><span style="color: red">*</span>门店编号:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("STORE_NO", Model.STORE_NO, new { @class = "form-control", placeholder = "请输入门店编号" })
+                                </div>
+
+                                <label for="NAME" class="col-xs-2 control-label" style="text-align: right;"><span style="color: red">*</span>门店名称:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("NAME", Model.NAME, new { @class = "form-control", placeholder = "请输入门店名称" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="REGION_ID" style="text-align: right;">所属区域:</label>
+                                <div class="col-xs-4" id="REGION_ID_Str">
+                                    @Model.REGION_NAME
+
+
+                                </div>
+                                <label class="col-xs-2 control-label" for="STATUS" style="text-align: right;"><span style="color: red">*</span>门店类型:</label>
+                                <div class="col-xs-4">
+
+                                    @Html.ResourceDropDownList("TYPE", "StoreType", Model.TYPE, new { @class = "form-control" })
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="STORE_TYPE" style="text-align: right;">服务类别:</label>
+                                <div class="col-xs-9">
+                                    @Html.Hidden("SERVICE_TYPE")
+
+                                    @if (ViewBag.servicetypelist != null)
+                                    {
+                                        @Html.Hidden("count", ((List<SPACRM.Entity.Entities.ORG_DICT_EX>)ViewBag.servicetypelist).Count)
+                                        for (int i = 0; i < ((List<SPACRM.Entity.Entities.ORG_DICT_EX>)ViewBag.servicetypelist).Count; i++)
+                                        {  
+                   
+                                              
+                                        <span id="@ViewBag.servicetypelist[i].DICT_CODE">@ViewBag.servicetypelist[i].DICT_VALUE  </span>   
+                                            if (ViewBag.servicetypelist[i].check)
+                                            {      
+                                        <input   name="@ViewBag.servicetypelist[i].DICT_CODE" type="checkbox" checked="checked" value="@ViewBag.servicetypelist[i].DICT_CODE" />
+                
+                                            }
+                                            else
+                                            {
+                                        <input   name="@ViewBag.servicetypelist[i].DICT_CODE" type="checkbox" value="@ViewBag.servicetypelist[i].DICT_CODE" />
+                                            }
+                                        <span>&nbsp; </span>   
+                                        }
+
+
+                                    }
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="row">
+
+                                <label class="col-xs-2 control-label" for="BRAND" style="text-align: right;">品牌:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("BRAND", Model.BRAND, new { @class = "form-control", placeholder = "请输入品牌" })
+                                </div>
+                                <label class="col-xs-2 control-label" for="MANAGER" style="text-align: right;">管理者:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("MANAGER", Model.MANAGER, new { @class = "form-control", placeholder = "请输入管理者" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="TELEPHONE" style="text-align: right;">电话:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("TELEPHONE", Model.TELEPHONE, new { @class = "form-control", placeholder = "请输入电话" })
+                                </div>
+                                <label class="col-xs-2 control-label" for="PROVINCE" style="text-align: right;">省 份:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("PROVINCE", Model.PROVINCE, new { @class = "form-control", placeholder = "请输入省份市" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+
+                                <label class="col-xs-2 control-label" for="CITY" style="text-align: right;">城 市:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("CITY", Model.CITY, new { @class = "form-control", placeholder = "请输入城市" })
+                                </div>
+                                <label class="col-xs-2 control-label" for="CITY" style="text-align: right;">服务费:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("SERVICE_FEE_RATE", Model.SERVICE_FEE_RATE, new { @class = "form-control", placeholder = "请输入门店服务费" })
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="OPEN_DATE_Str" style="text-align: right;"><span style="color: red">*</span>开店日期:</label>
+                                <div class="col-xs-4">
+                                    <div class="input-group date">
+                                        @Html.TextBox("OPEN_DATE_Str", Model.OPEN_DATE_Str, new { @class = "form-control" })
+
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+
+                                </div>
+                                <label class="col-xs-2 control-label" for="CLOSE_DATE_Str" style="text-align: right;">关店日期:</label>
+                                <div class="col-xs-4">
+                                    <div class="input-group date">
+                                        @Html.TextBox("CLOSE_DATE_Str", Model.CLOSE_DATE_Str, new { @class = "form-control" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <label class="col-xs-2 control-label" for="STATUS" style="text-align: right;">门店状态:</label>
+                                <div class="col-xs-4">
+                                    @Html.ResourceDropDownList("STATUS", "OPEN_CLOSE", Model.STATUS, new { @class = "form-control" })
+                                </div>
+                                <label class="col-xs-2 control-label" for="QY" style="text-align: right;">所属区域:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("QY", Model.QY, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="ADDRESS" style="text-align: right;">地址:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("ADDRESS", Model.ADDRESS, new { @class = "form-control", placeholder = "请输入地址" })
+                                </div>
+                                <label class="col-xs-2 control-label" for="BQ" style="text-align: right;">门店便签:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("BQ", Model.BQ, new { @class = "form-control", placeholder = "多标签使用英文分好隔开" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="ADDRESS" style="text-align: right;">英文地址:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("ADDRESS_EN", Model.ADDRESS_EN, new { @class = "form-control", placeholder = "请输入英文地址" })
+                                </div>
+                                <label class="col-xs-2 control-label" for="Star" style="text-align: right;">门店星级:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("Star", Model.Star, new { @class = "form-control", type = "number", placeholder = "请输入英文地址" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="Lng" style="text-align: right;">经度:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("Lng", Model.Lng, new { @class = "form-control", @readonly = "readonly", placeholder = "请输入经度" })<a href="javascript:;" id="biaozhu" target="_blank">标注位置</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-2 control-label" for="Lat" style="text-align: right;">纬度:</label>
+                                <div class="col-xs-4">
+                                    @Html.TextBox("Lat", Model.Lat, new { @class = "form-control", @readonly = "readonly", placeholder = "请输入纬度" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btnpanel_right">
+                            <button type="reset" id="btnCancel" class="btn btn-default">取 消  </button>
+                            <button type="button" id="btnSave" class="btn btn-primary">保 存  </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+<!-- /.modal -->
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            indexUrl: "@Url.Action("Index")", querySerItemUrl: "@Url.Action("ListStoreType", "Resource")",
+            getTreeUrl: "@Url.Action("GetTreeList")"
+        };
+    </script>
+
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "plugins/xjdailog/xjdailog", "js/common", "app/company/jquery.tree", "app/store/edit")
+}

@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "预约列表";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@model SPACRM.Entity.CUST_BOOKING
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog")
+    @*    @Html.Css("pure-min", "glyphicons", "common", "plugin/xjgrid", "plugin/bdatetimepicker")*@
+    <style type="text/css">
+        .l-box {
+            padding: 10px;
+        }
+
+        .searchpanel {
+            padding: 4px 10px;
+        }
+    </style>
+}
+<div class="s_container">
+@*    <div id="page-heading">
+        <h2><i class="fa fa-calendar"></i> 预约管理</h2>
+    </div>*@
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>预约到家列表</h4>
+        </div>
+        <div class="panel-body" style="min-height: 350px">
+              <div class="text-right col-md-10">
+                    <form id="formQuery" class="form-inline" method="post" role="form">                     
+                        <div class="form-group">
+                             <input type="text" class="form-control" placeholder="顾客姓名" id="CUSTNAME" name="CUSTNAME" />
+                            <input type="text" class="form-control" placeholder="手机号" id="CUSTMOBLIE" name="CUSTMOBLIE" />
+                             
+                              @Html.TextBox("SearchDate", null, new { @class = "input-small form-control",placeholder="预约日期" })
+                             <div class="btn-group">
+                                <button class="btn-primary btn"><i class="fa fa-search"></i>查 询</button>
+                            </div>
+                        </div>                      
+                    </form>
+                </div>
+            <br />
+            <div class="col-md-12">
+                <div id="gridlist"></div>
+            </div>
+@*             <div class="form-group btnpanel_right" id="divBtnSave" style="margin-top: 5px;">
+                        <button type="button" id="btnReturn" class="btn btn-default">返回</button>
+                    </div>*@
+        </div>
+    </div>
+</div>
+ <div id="confirmModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">确认！</h4>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="modal-body">
+                        <p><span id="lbuserName"></span></p>
+                        <input id="hdCurrentId" type="hidden" value="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+                        <button type="button" id="btnConfirm" class="btn btn-primary">确 定</button>
+                        <button type="button" id="btnConfirmOk" class="btn btn-primary">确 定</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("QueryFailHomeList")",
+            updateUrl: "@Url.Action("UpdateFailList")",
+            setStatusUrl: "@Url.Action("UpdateBookingHomeStatus")"
+        };
+        $(function () {
+
+        });
+    </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker",
+    "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN") @*, "app/booking/failList"*@
+<script src="~/assets/app/booking/failhomeList.js"></script>
+}

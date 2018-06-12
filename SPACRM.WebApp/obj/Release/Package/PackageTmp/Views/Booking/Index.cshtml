@@ -1,0 +1,287 @@
+﻿@using ServiceStack.Text;
+
+@{
+    ViewBag.Title = "来电及预约管理";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+    var store = ViewData["store"] == null ? "0" : ViewData["store"].ToString();
+    var regionid = ViewData["region_id"] == null ? "0" : ViewData["region_id"].ToString();
+    //Layout = "~/Views/Shared/_LayoutA.cshtml";
+}
+@model SPACRM.WebApp.ViewModels.BookIndexModel
+@section htmlhead{
+    @*    @Html.Css("plugin/xjcalendar", "plugin/tip")
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog")*@
+    @Html.Css("plugin/xjcalendar", "plugin/xjdailog", "plugin/bdatetimepicker", "plugin/tip", "glyphicons")
+
+       
+    <style type="text/css">
+        .s_container {
+            padding: 5px;
+        }
+
+        #mainbody {
+            font-family: "Microsoft YaHei",Helvetica,Arial,simsun;
+            font-size: 12px;
+        }
+
+        .qpanel {
+            padding: 4px 14px;
+            overflow: hidden;
+            zoom: 1;
+        }
+
+            .qpanel select {
+                font-size: 13px;
+                padding: 3px;
+            }
+
+        .dateshow {
+            width: 160px;
+            float: left;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .l-box {
+            padding: 4px 6px;
+        }
+
+        .l-box-title {
+            padding: 2px;
+            border-bottom: solid 1px #ddd;
+            font-weight: bold;
+        }
+
+        .bitem {
+            padding: 2px;
+            margin-top: 2px;
+        }
+        /*#tiptip_content {
+padding: 4px 8px 5px 8px;
+}*/
+        #tiptip_contentMenu {
+            padding: 4px 8px 5px 8px;
+            /*background-color: #C4E1FF;*/
+            width: 100px;
+            filter: alpha(opacity=1);
+            -moz-opacity: 0.9;
+            opacity: 0.9;
+            /*-webkit-linear-gradient:top,#C4E1FF,#fff;
+             -moz-linear-gradient:top,#C4E1FF,#fff;
+             -o-linear-gradient:top,,#C4E1FF,#fff;*/
+            background: #C4E1FF; /* for non-css3 browsers */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#46A3FF', endColorstr='#C4E1FF');
+            /* for IE */
+            background: -webkit-gradient(linear, left top, left bottom, from(#46A3FF), to(#C4E1FF));
+            /* for webkit browsers */
+            background: -moz-linear-gradient(top, #46A3FF, #C4E1FF); /* for firefox 3.6+ */
+        }
+
+        #tiptip_content2 {
+            background-color: #fff;
+            color:#808080;
+            width: 350px;
+            height: 250px;
+            border: 1px solid #DDF4FA;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 0 3px #555;
+            -moz-box-shadow: 0 0 3px #555;
+            box-shadow: 0 0 3px #555;
+        }
+
+        #tiptip_contentTip {
+            padding: 15px 15px 15px 15px;
+            font-size: 11px;
+        }
+
+        #tiptipTitle {
+            padding: 0px;
+            font-weight: 800;
+            font-size: larger;
+            vertical-align: central;
+            color: #00AEAE;
+        }
+
+        #tiptipFoot {
+            width: 350px;
+        }
+        #tiptipFootContent {
+        
+            position: absolute;
+            width:330px;
+            margin-left:15px;
+            margin-right:15px;
+            bottom:0;
+            margin-bottom:15px;
+        }
+            #tiptipFoot button {
+                 border: none;
+            }
+            #tiptipFoot .btn1{
+                  /*-webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius:  3px 0px 0px 3px;
+            -webkit-box-shadow: 0 0 3px #555;
+            -moz-box-shadow: 0 0 3px #555;
+            box-shadow: 0 0 3px #555;*/
+                       -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius:  3px 0px 0px 3px;
+            -webkit-box-shadow: 0 0 0px #555;
+            -moz-box-shadow: 0 0 3px #555;
+            box-shadow: 0 0 3px #555;
+            }
+             #tiptipFoot .btn2{
+                  -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius:0px;
+            -webkit-box-shadow: 0 0 0px #555;
+            -moz-box-shadow: 0 0 0px #555;
+            box-shadow: 0 0 3px #555;
+            }
+              #tiptipFoot .btn3{
+                  -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius:0px;
+            -webkit-box-shadow: 0 0 0px #555;
+            -moz-box-shadow: 0 0 0px #555;
+            box-shadow: 0 0 3px #555;
+            }
+             #tiptipFoot .btn4{
+                  -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius:  0px 0px 0px 0px;
+            -webkit-box-shadow: 0 0 0px #555;
+            -moz-box-shadow: 0 0 0px #555;
+            box-shadow: 0 0 3px #555;
+            }
+            
+            .tEName { /*已排班*/
+            background-color: #f7f8fa;
+            }
+
+            .twpb {  /*未排班*/
+                background-color: #D1D1D1;
+            }
+
+            .yyy { /*新预约*/
+                background-color: green;
+            }
+
+            .yqx {  /*已取消*/
+                background-color: red;
+            }
+            .ydd {/*已到店*/
+                background-color: blue
+            }
+            .ykd {/*已开单*/
+                background-color: yellow
+            }
+            .yjz {/*已结转*/
+                background-color: orange
+            }
+    </style>
+}
+<div class="s_container">
+    <div class="row" id="mainbody">
+        <div class="qpanel">
+            <div class="form-group col-xs-12">
+                <div class="form-group">
+                  @*  @if (Model.AdminEdit)
+                    {
+                    *@
+                              <div class="col-xs-3">
+                        <div id="pdateshow" class="dateshow input-group date">
+                            <input class="form-control" id="hdshowday" type="text" data-date-format="mm/dd/yyyy" value="@(DateTime.Today.ToString("yyyy-MM-dd"))" readonly>
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+@*                     @Html.ResourceDropDownList("STORE_Id", "LoginStore", (string)@ViewBag.StoreId, new { @class = "form-control",style="" },(string)@ViewBag.OrgId,"0",(string)@ViewBag.StoreId,false)*@
+                        @Html.ResourceDropDownList("STORE_Id", "LoginStore",store, new { @class = "form-control" },orgId,regionid,store,false)         
+                @*   @Html.ResourceDropDownList("STORE", "LoginStore", "门店名称", new { @class = "form-control",style="width:170px;" },ViewBag.OrgId,ViewBag.StoreId,false)*@
+                          </div>
+                   @* }*@
+
+          
+                    <div class="col-xs-2">
+                        @Html.ResourceDropDownList("slColType", "ISStaff", null, new { @class = "form-control" })
+                    </div>
+                    <div class="col-xs-2">
+                        @Html.ResourceDropDownList("MasseurId", "Masseur", null, new { @class = "form-control",style="display:none;" }, @Model.StoreId.ToString(), false)
+                    </div>
+                    @* <div class="col-xs-2 pull-right">
+                         <a href="#" id="btnShowWxList" class="btn btn-inverse"><i class="fa fa-dot-circle-o"> 微信列表</i></a>
+                     </div>
+                     <div class="col-xs-2 pull-right">
+                         <a href="#" id="btnShowFailList" class="btn btn-inverse"><i class="fa fa-dot-circle-o"> 预约列表</i></a>
+                     </div>*@
+                    <ul class="cal-op">
+                         <li>&nbsp;&nbsp;<a href="javascript:;" id="ypb" class="tEName" style="width:28px;height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>已排班</li>
+                        <li>&nbsp;&nbsp;<a href="javascript:;" id="wpb" class="twpb" style="width:28px;height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>未排班</li>
+                         <li>&nbsp;&nbsp;<a href="javascript:;" id="yyy" class="yyy" style="width:28px;height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>新预约</li>
+                        @*<li>&nbsp;&nbsp;<a href="javascript:;" id="yqx" class="yqx" style="width:28px;height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>已取消</li>*@
+                        @*<li>&nbsp;&nbsp;<a href="javascript:;" id="ydd" class="ydd" style="width:28px;height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>已到店</li>*@
+                        <li>&nbsp;&nbsp;<a href="javascript:;" id="ykd" class="ykd" style="width:28px;height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>已开单</li>
+                        <li>&nbsp;&nbsp;<a href="javascript:;" id="yjz" class="yjz" style="width:28px;height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>已结账</li>
+                    </ul>
+                </div>
+            </div>
+            @* @if (Model.AdminEdit)
+            {
+                //@Html.ResourceDropDownList("STORE_ID", "STORE", Model.SubBranchId, new { style = "float: left;margin-right:10px;" }, Model.ParentSubId.ToString(), false)
+                 @Html.ResourceDropDownList("STORE_ID", "STORE", null, new { @class = "form-control" },@Model.SubBranchId.ToString(), true)
+            }
+            else
+            {
+                //<input type="hidden" name="STORE_ID" id="STORE_ID" value="@Model.SubBranchId" />
+            }*@
+            <input type="hidden" name="STORE_ID" id="hideSTORE_ID" value="@Model.StoreId" />
+
+
+
+            @*            <div style="float:right;margin-right:80px;width:70px">
+                <button id="btnShowFailList" class="btn btn-default" type="button" style="padding:4px 20px;">未约进列表</button>
+                <button id="btndialog" class="btn btn-default" type="button" style="padding:4px 20px;">弹出框</button>
+            </div*@
+            
+        </div>
+        <div style="clear: both;"></div>
+        <div class="form-group col-xs-12">
+                <div id="calendar" unselectable="on" style="-moz-user-select: none; -webkit-user-select: none; position: relative; z-index: 1;" onselectstart="return false;"></div>
+            </div>
+    </div>
+
+</div>
+
+<script src="~/assets/js/jquery-1.10.2.min.js"></script>
+
+@section jssection{
+    <script type="text/javascript">
+        var util ={};
+        var options ={
+            view360Url:"@Url.Action("View360", "Customer")",
+            getModelsUrl:"@Url.Action("GetModels")",
+            loginUrl:"@Url.Action("UserLogin", "Customer")",
+            checkInUrl:"@Url.Action("CardCheckIn", "Customer")",
+            tempLoginUrl:"@Url.Action("TempUserLogin", "Customer")",
+            viewBillUrl:"@Url.Action("ItemDetail", "Customer")",
+            getResourceUrl:"@Url.Action("List", "Resource")",
+            setStatusUrl:"@Url.Action("UpdateBookingStatus")",
+            editUrl:"@Url.Action("Edit")",
+            newListUrl:"@Url.Action("SNewList")",
+            failListUrl:"@Url.Action("FailList")",
+            calReqHandlerUrl:"@Url.Action("ReqViewHandler")",
+            queryMemberUrl: "@Url.Action("QueryCustomers", "Customer")",
+            startHour:@Model.StartHour,
+            endHour:@Model.EndHour
+            
+            };
+    </script>
+
+    @Html.Js("plugins/form-select2/select2.min", "plugins/xjcalendar/xjcalendar", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "plugins/jquery-tip/jquery.tip", "app/booking/index")
+}

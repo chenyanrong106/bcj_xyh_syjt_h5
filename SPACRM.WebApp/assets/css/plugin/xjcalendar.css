@@ -1,0 +1,378 @@
+.xjcalendar {
+    display: block;
+    position: relative;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    width: auto;
+    margin-left: 15px;
+    border-bottom: solid 1px #ccc;
+    top: 15px;
+    z-index: 1;
+}
+.xjcalendar-full {
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    top:0;
+    margin: 0;
+}
+
+.xjcal-fixed{
+    position:absolute;
+    z-index:9;
+}
+.xjcal-fixed .fix-tb-top{
+    text-align: center;
+    line-height: 33px;
+}
+
+.xjcal-fixed .fix-tb-top .xjcal-btn-fullscreen i{
+    color:#555;
+}
+.xjcal-fixed .fix-tb-top a.xjcal-btn-fullscreen:hover i{
+    color:#999;
+}
+.xjcal-hours-left
+{
+    position:absolute;
+    overflow: hidden;
+    z-index:8;
+    margin-top:33px;
+    border-bottom:solid 1px #ccc;
+
+}
+.xjcal-col-top{
+    margin-left:60px;
+    position:absolute;
+    overflow: hidden;
+    z-index:8;
+    border-right:solid 1px #ccc;
+}
+.xjcal-data-main{
+    position:relative;
+    left:60px;
+    top:32px;
+    overflow:auto;
+    border-bottom:solid 1px #ccc;
+    z-index:7;
+    background-color: #f2f2f2
+}
+.xjcal-hours-left table,
+.xjcal-col-top table,
+.xjcal-fixed table,
+.xjcal-data-main table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+.xjcal-hours-left table td,.xjcal-col-top table td,.xjcal-data-main table td,.xjcal-fixed table td
+{
+    padding: 0;
+    border-right: solid 1px #ddd;
+    border-left: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    background-color: #fff;
+}
+
+.xjcal-fixed table td{
+    padding:0;
+    width:60px;
+}
+.xjcal-hours-left table td em{
+    font-size:9px;
+    float: right;
+    margin-left: 10px;
+}
+.xjcal-hours-left table td div.left-tb-top,
+.xjcal-fixed table td div,
+.xjcal-col-top table td div.data-main-top{
+    padding: 0 2px;
+    height: 34px;
+    font-size: 13px;
+    /*background-color: #f7f6ec; */
+    background: -moz-linear-gradient(#F7F5F5, #D9DAD9); /* FF 3.6+ */
+    background: -ms-linear-gradient(#F7F5F5, #D9DAD9); /* IE10 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F7F5F5), color-stop(100%, #D9DAD9)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(#F7F5F5, #D9DAD9); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(#F7F5F5, #D9DAD9); /* Opera 11.10 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F7F5F5', endColorstr='#D9DAD9'); /* IE6 & IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#F7F5F5', endColorstr='#D9DAD9')"; /* IE8+ */
+    background: linear-gradient(#F7F5F5, #D9DAD9); /* the standard */
+}
+.xjcal-col-top table td div.data-main-top-highlight {
+    /* border: 1px solid #f69a01; */
+    background: -moz-linear-gradient(#fcde88, #e1a705);
+    background: -ms-linear-gradient(#fcde88, #e1a705);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcde88), color-stop(100%, #e1a705));
+    background: -webkit-linear-gradient(#fcde88, #e1a705);
+    background: -o-linear-gradient(#fcde88, #e1a705);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcde88', endColorstr='#e1a705')";
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcde88', endColorstr='#e1a705');
+    background: #edc541 linear-gradient(#fcde88, #e1a705);
+ }
+.xjcal-hours-left table td{
+    width:60px;
+    background-color: #CFCFCF;
+}
+.xjcal-hours-left table td div.left-tb-top{
+    width: 40px;
+}
+.xjcal-data-main table td div.data-main-top
+{
+    height:0;
+    font-size:0;
+    text-align: center;
+    border-right: solid 1px #ddd;
+}
+.xjcal-col-top table td div.data-main-top
+{
+    text-align: center;
+    overflow: hidden;
+    line-height: 30px;
+}
+
+.xjcal-data-main table td.tg-col
+{
+    background:#F0F0F0 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABlBMVEX39/fe3t61kj1FAAAAG0lEQVR4XgXAgRAAAAgDwMcKK5yQhjGUTq1x8g6iAukjuLmWAAAAAElFTkSuQmCC') /*../../img/plugin/calendar/unavailable.png*/;/* */
+}
+.tg-times {
+    padding:0;
+    background-color:#fff;
+    color:#333;
+    vertical-align:middle;
+    text-align:center;
+    overflow:hidden;
+}
+.tg-time {
+    border-bottom:1px solid #ddd;
+    font-family:Arial;
+}
+.tg-time span{
+    font-size:25px;
+}
+.tg-nowptr {
+    position:absolute;
+    background-position:-60px -68px;
+    width:5px;
+    height:9px;
+    background-image:url("../../img/plugin/calendar/combined_v40_vr.png");
+}
+.tg-hourmarkers {
+    position:absolute;
+    width:100%;
+}
+.tg-dualmarker {
+    border-top:1px solid #CDCDCD;
+    height:1em;
+    line-height:1em;
+    border-bottom:1px dotted #ddd;
+    margin-bottom:1em
+}
+.tg-dualmarker-active{
+    border-top:1px solid #a1d983;
+    border-bottom:1px dotted #a1d983;
+}
+.tgItemBGWrapper
+{
+    position:absolute;
+    width:100%;
+    background-color:#ff6a00;
+}
+.tgItemBG
+{
+    position: absolute;
+    overflow: hidden;
+    cursor: default;
+    background-color:#fff;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) { /* Webkit内核兼容CSS */
+    .tgItemBG
+    {
+        margin-left:1px;
+    }
+}
+.tg-nowmarker {
+    position:absolute;
+    left:0;
+    width:100%;
+    top:0;
+    height:0;
+    border-top:2px solid red;
+    overflow:hidden;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+}
+.itemWrapper
+{
+    position:relative;
+    cursor:default;
+    margin-right:5px;
+}
+.itemOverLayerWrapper
+{
+    position:relative;
+    height:0;
+}
+.tg-col {
+    overflow:hidden;
+    vertical-align:top;
+    border-right: solid 1px #ddd;
+    border-left: solid 1px #ddd;
+}
+.tg-spanningwrapper {
+    position:relative;
+    margin-left:0;
+    height:1px;
+    top:-1px;
+}
+
+
+.chip {
+    position: absolute;
+    overflow: hidden;
+    cursor: default;
+    color: #fff;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.chip dl {
+    margin:0;
+    padding-bottom:1px;
+    border-left:1px solid;
+    border-right:none;
+    overflow:hidden
+}
+.chip dt {
+    margin-top:-1px;
+    white-space:nowrap;
+    overflow:hidden;
+    padding:2px 0 2px 1px;
+    text-align:left;
+    font-size:12px;
+}
+.chip a:link, .chip a:visited, .chip a:active {
+    text-decoration:none;
+    color:#fff
+}
+.ie6 .chip dl {
+    zoom:1
+}
+.ie6 .chip dt {
+    width:100%;
+    margin-right:-1px
+}
+.chip dd {
+    margin: 0;
+    overflow: hidden;
+    padding: 2px;
+
+    text-align: left;
+    -ms-word-wrap: break-word ;
+    word-wrap:break-word;
+}
+.chip dd div{
+    margin:0px 1px 0 2px;
+    font-size:12px;
+}
+div.chip-tool{
+    position:absolute;
+    bottom:1px;
+}
+.chip div.chip-tool a{
+    margin-right:5px;
+    color:#333;
+}
+.cb1, .cb2 {
+    border-style:solid;
+    overflow:hidden;
+}
+.cb1 {
+    height:1px;
+    margin:0;
+    border-width:0 1px
+}
+.cb2 {
+    height:0;
+    margin:0;
+    border-width:0 0 1px
+}
+.ct {
+    height:0;
+    overflow:hidden;
+    border:0 solid;
+    border-color:transparent
+}
+
+.ie6 .ct {
+    border-style:solid dotted
+}
+
+.resizer {
+    position:absolute;
+    height:7px;
+    line-height:7px;
+    width:100%;
+    bottom:0;
+    cursor:s-resize;
+
+}
+.rszr_icon
+{
+    /*display:none;*/
+    border-top:3px double white;
+    font-size:0;
+    line-height:0;
+    height:0;
+    width:10px;
+    margin-left:auto;
+    margin-right:auto
+}
+
+.drag-chip-wrapper {
+    Z-INDEX: 1;
+    POSITION: absolute;
+    WIDTH: 100%;
+    LEFT: 0;
+}
+.drag-chip {
+    filter: alpha(opacity=80);
+    cursor: pointer;
+    opacity: .8;
+}
+
+
+/* 2014-10-28 add by xuanye*/
+.chip .cal-icon
+{
+    display: inline-block;
+    height: 10px;
+    overflow: hidden;
+    background-image: url("../../img/plugin/calendar/cal-sprite.png");
+    background-repeat: no-repeat;
+    padding-right: 3px;
+    width: 11px;
+}
+
+.chip .icon-new
+{
+    background-position: 0 -38px;
+    width: 20px;
+}
+
+.chip .icon-member
+{
+    background-position: 0 -59px;
+}
+
+.chip .icon-staff
+{
+    background-position: 0 -750px;
+    width: 20px;
+    height: 12px;
+}

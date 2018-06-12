@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "订单合并";
+}
+@using SPACRM.Entity.Entities;
+<style>
+    table {
+   width:100%;
+    }
+    .divHead {
+    height:30px; 
+    background-color:#FCF3D0;
+    border:1px solid #F7DC6F;
+    color:#927608;
+    }
+</style>
+<h2>订单合并</h2>
+<form action="@Url.Action("CombineSave")" id="formSave" method="post" role="form">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>合并项目</h4>
+                </div>
+                <div class="panel-body">
+                    <div style="height:30px;"><b>合并到顾客：</b>
+                        <select name="CUST_ID" style="width:150px;height:25px;">
+                            @foreach (var cust in (List<ORDER_HEAD_EX>)ViewBag.orderList)
+                            {
+                                <option value="@cust.CUST_ID">@cust.CUST_NAME</option> 
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;房&nbsp;间：@Html.ResourceDropDownList("ROOM_ID", "ROOM", "", new {style="width:120px;" }, null, true)
+                    </div>
+                     @foreach (var item in (List<ORDER_HEAD_EX>)ViewBag.orderList)
+                     {
+                                <div class="divHead">
+                                <table>
+                            <tr>
+                                <td><b>订单号：</b><span>@item.ORDER_NO</span></td>
+                                <td> <b>顾客姓名：</b><span>@item.CUST_NAME</span></td>
+                                <td><b>订单总额：￥</b><span>@item.PAY_AMT</span></td>
+                            </tr>
+                         </table>
+                         </div>
+                         
+                          <div>
+                             <table style="width: 100%">
+                                <thead>
+                                <tr>
+                                    <th style="width: 30%"># 项目名称
+                                    </th>
+                                     <th style="width: 15%">护理师
+                                    </th>
+                                     <th style="width: 15%">门市价
+                                    </th>
+                                    <th style="width: 30%">优惠/活动
+                                    </th>
+                                    <th style="width: 10%">最终价格
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var proitem in (List<ORDER_DETAIL_EX>)item.ORDER_DETAIL)
+                                {
+                                    <tr>
+                                    <td>@proitem.PROD_NAME</td>
+                                    <td>                   
+                                        @Html.ResourceDropDownList("Masseur", "Masseur", @proitem.EMP_ID, new {style="width:120px;" },@item.STORE_ID.ToString(), false)
+                                    </td>
+                                    <td>￥@proitem.PROD_PRICE</td>
+                                    <td>
+                                        @Html.ResourceDropDownList("PROMOTION", "PROMOTION", @proitem.PROMOTION_ID, new {style="width:120px;" },@item.CUST_ID+","+@proitem.PROD_ID+","+@proitem.PROD_TYPE, true)
+                                    </td>
+                                    <td>￥@proitem.PROD_AMT</td>
+                                    <td>
+                                        <input type="hidden" name="PROD_IDS" value="@proitem.PROD_ID" />
+                                        <input type="hidden" name="PROD_NAMES" value="@proitem.PROD_NAME" />
+                                        <input type="hidden" name="PROD_PRICES" value="@proitem.PROD_PRICE" />
+                                        <input type="hidden" name="PROD_TYPES" value="@proitem.PROD_TYPE" />
+                                        <input type="hidden" name="PROD_AMTS" value="@proitem.PROD_AMT" />
+                                    </td>
+                                </tr>
+                                }
+                                </tbody>
+                                </table>
+                              </div>
+                         <br />
+                     }
+                   <div class="form-group btnpanel_right" style="margin-top: 5px;float:right;"> 
+                       <span style="font-size:large"> <b> 订单总额：<span> ￥ @ViewBag.prodTotal</span></b></span>
+                       </div>
+                    <div style="clear:both;"></div>
+                     <div class="form-group btnpanel_right" style="margin-top: 0px;float:right;">     
+                  <span style="font-size:large"> <b> 应付总额：<span id="spanPayTotal" style="color:red;"> ￥ @ViewBag.payTotal</span></b></span>
+                           </div>  
+                    <div style="clear:both;"></div>
+                    <div class="form-group btnpanel_right"style="margin-top: 5px;">
+                       
+                        <button type="button" id="btnSave" class="btn btn-primary">合并订单</button>
+                        <button type="button" id="btnReturn" class="btn btn-default">返回</button>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="OLD_ODIDS" value="@ViewBag.OIDS" />
+    <input type="hidden" name="TOTAL_AMT" value="@ViewBag.prodTotal" />
+     <input type="hidden" name="PAY_AMT" value="@ViewBag.payTotal" />
+</form>
+@section jssection{
+    <script type="text/javascript">
+        var util = {}; var options = {
+            listUrl: "@Url.Action("List", "Customer")",
+            editUrl: "@Url.Action("Edit")",
+            deleteUrl: "@Url.Action("Delete")",
+            queryEmployeeBy: "@Url.Action("QueryEmployeeBy", "Common")",
+
+        };
+    </script>
+
+    @Html.Js("plugins/validator/validator", "app/order/ordercombine")
+}

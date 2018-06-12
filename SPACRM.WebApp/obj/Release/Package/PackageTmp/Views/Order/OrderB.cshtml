@@ -1,0 +1,685 @@
+﻿@{
+    ViewBag.Title = "订单管理";
+}
+@model SPACRM.Entity.Entities.ORDER_HEAD_EX
+@using SPACRM.Entity.Entities
+
+@section htmlhead{
+    @Html.Css("plugin/validator", "plugin/xjdailog")
+    <link href="~/assets/app/order/xjgrid.css" rel="stylesheet" />
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group, .searchpanel .btnpanel_right {
+                /*
+            display: block;
+            overflow: hidden;
+            zoom: 1;
+            margin-bottom: 0px;
+            */
+            }
+
+                .searchpanel .form-group label {
+                    margin-bottom: 4px;
+                }
+
+        #tSpeedyPro {
+            border: 1px solid #e6e5e5;
+            font-size: 12px;
+            margin-top: 0px;
+        }
+            /*#tService tr td .tdPrice
+        {
+            text-align:right;
+        }*/
+            #tSpeedyPro tr {
+            }
+
+        #tablePayList {
+            font-size: 12px;
+        }
+
+        .ui-timepicker-div .ui-widget-header {
+            margin-bottom: 8px;
+        }
+
+        .ui-timepicker-div dl {
+            text-align: left;
+        }
+
+            .ui-timepicker-div dl dt {
+                height: 25px;
+                margin-bottom: -25px;
+            }
+
+            .ui-timepicker-div dl dd {
+                margin: 0 10px 10px 65px;
+            }
+
+        .ui-timepicker-div td {
+            font-size: 90%;
+        }
+
+        .ui-tpicker-grid-label {
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ui_tpicker_hour_label, .ui_tpicker_minute_label, .ui_tpicker_second_label, .ui_tpicker_millisec_label, .ui_tpicker_time_label {
+            padding-left: 20px;
+        }
+    </style>
+
+    <style type="text/css">
+        .progress {
+            z-index: 2000;
+        }
+
+        .mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        #EMP_NAME {
+            height: 25px;
+        }
+
+        .artw_mask {
+            background-color: #000;
+            position: fixed;
+            overflow: auto;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            display: none;
+            z-index: 2;
+        }
+
+        .artw_boxcontain {
+            margin: 0 auto;
+            position: fixed;
+            overflow: auto;
+            z-index: 999;
+            line-height: 28px;
+            display: none;
+        }
+
+        .artw_showbox {
+            padding: 10px;
+            background: #FFF;
+            border-radius: 5px;
+            margin: 20px;
+            min-width: 300px;
+            min-height: 200px;
+        }
+
+        .artw_title {
+            position: relative;
+            height: 27px;
+            border-bottom: 1px solid #999;
+        }
+
+        .artw_close {
+            position: absolute;
+            cursor: pointer;
+            outline: none;
+            top: 0;
+            right: 0;
+            z-index: 4;
+            width: 42px;
+            height: 42px;
+            overflow: hidden;
+            background-image: url(../../assets/js/Index_files/feedback-close.png);
+            _background: none;
+        }
+
+        .artw_message {
+            padding: 10px 0px;
+            overflow: hidden;
+            line-height: 19px;
+        }
+
+
+
+
+
+
+
+        a.closeBtn {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 30px;
+            display: block;
+            border-left: 1px solid #85B6E2;
+            border-bottom: 1px solid #85B6E2;
+            padding: 4px 0;
+            text-align: center;
+            color: #333;
+        }
+
+            a.closeBtn:hover {
+                color: #fff;
+                border: 1px solid #85B6E2;
+                background: #85B6E2;
+            }
+
+        .windo {
+            position: absolute;
+            /*top:555px;
+left:200px;*/
+            font-size: 9pt;
+            display: block;
+            min-height: 250px;
+            max-height: 400px;
+            width: 400px;
+            background-color: transparent;
+            display: none;
+            height: 290px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px 0px 3px 3px;
+            -webkit-box-shadow: 0 0 3px #555;
+            -moz-box-shadow: 0 0 3px #555;
+            box-shadow: 0 0 3px #555;
+        }
+
+        s {
+            position: absolute;
+            top: -20px;
+            left: 190px;
+            display: block;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            line-height: 0;
+            border-color: transparent transparent #85B6E2 transparent;
+            border-style: dashed dashed solid dashed;
+            border-width: 10px;
+        }
+
+        .lil {
+            position: absolute;
+            top: -9px;
+            *top: -9px;
+            left: -10px;
+            display: block;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            line-height: 0;
+            border-color: transparent transparent #FFFFFF transparent;
+            border-style: dashed dashed solid dashed;
+            border-width: 10px;
+        }
+
+        .windo .content {
+            border: 1px solid #85B6E2;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            position: absolute;
+            background-color: #FFF;
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            *top: -2px;
+            *border-top: 1px solid #fff;
+            *border-top: 1px solid #fff;
+            *border-left: none;
+            *border-right: none;
+            *height: 102px;
+        }
+
+        .td-right {
+            text-align: left;
+            width: 7%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .td-left {
+            text-align: left;
+            width: 13%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .Query-td-right {
+            text-align: left;
+            width: 7%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .Query-td-left {
+            text-align: left;
+            width: 23%;
+            padding: 2px 5px 2px 5px;
+        }
+
+
+
+
+        #searchresult {
+            width: 130px;
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+            left: 130px;
+            top: 71px;
+            background: #ffffff;
+            border-top: none;
+        }
+
+        .line {
+            font-size: 12px;
+            background: #ffffff;
+            width: 130px;
+            padding: 2px;
+        }
+
+        .hover {
+            background: #007ab8;
+            width: 130px;
+            color: #fff;
+        }
+
+        .std {
+            width: 150px;
+        }
+    </style>
+
+}
+<form action="@Url.Action("Save")" id="formSave" method="post" role="form">
+    <input type="hidden" id="orgname" value="@ViewBag.orgname" />
+    <div class="s_container">
+        <div id="page-heading">
+            <h2>
+                <i class="fa fa-shopping-cart"></i>订单</h2>
+            <div>
+                <input id="btnPrint" class="Noprint" type="button" value="打印" />
+                @* <button type="button" id="btnPrint" class="btn btn-default" onclick="WindowPrint()"><i class="fa fa-print"></i>&nbsp;打印</button>*@
+                @if (Model.ORDER_STATUS != 2 && (Model.PROD_TYPE == "0" || Model.PROD_TYPE == "2" || Model.PROD_TYPE == "3"))
+                {
+                    <button type="button" style="float: right; margin-right: 0px;" id="btnInvalid" class="btn btn-primary">作废订单 </button>  
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                @*      <div class="panel" style="width: 100%">
+                    <input type="hidden" id="PROD_NAME_PRICE" style="width: 100%" />
+                </div>*@
+                <div class="panel panel-primary">
+                    <div id="panelService1" class="tab-container tab-gray">
+                        <div class="tab-content" style="background-color: white; height: 460px;">
+                            <!-- height:460px;-->
+                            <div class="tab-pane active" id="spro">
+                                <div class="list-group">
+                                    <table id="tSpeedyPro" class="table table-advance">
+                                        <tbody>
+                                            <tr style="background-color: #e6e5e5">
+                                                <td>订单备注</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background-color: #f7f8fa">
+                                                    <div class="col-sm-12">
+                                                        <textarea id="txtOrderRemark" rows="5" class="form-control autosize">@Model.REMARK</textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right;">
+
+                                                    <button type="button" id="btnSaveRemark" class="btn btn-primary">保存</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="divCustomer" class="col-md-8">
+                <div class="panel" style="background-color: white;">
+                    <div class="panel-body">
+                        <div class="col-md-5">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid red; border-top: 2px solid #ffffff">
+                                            <td style="width: 30%;">顾客姓名</td>
+                                            <td>
+                                                <span id="spanCustName">
+                                                    @if (Model.CUST_NAME == "散客")
+                                                    { 
+                                                         
+                                                        @Model.CUST_NAME
+                                                        <a id="blzl" href="#">补录资料</a>}
+                                                    else
+                                                    {
+                                                        <a href="/Customer/View360.do?cid=@Model.CUST_ID">@Model.CUST_NAME</a>
+                                                        <a href="@Url.Action("filesshow", "Customer", new { cid = Model.CUST_ID })" target="_blank">查看附件</a>
+                                                    }
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>联系电话</td>
+                                            <td><span id="spanCustMobile">@Model.MOBILE</span></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>会员卡号</td>
+                                            <td><span id="spanCustCard">@Model.CUST_NO</span></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>会员卡级 
+                                            </td>
+                                            <td>
+                                                <span id="spanCardName">@Model.CARD_NAME</span>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>卡内余额</td>
+                                            <td><span id="spanBalance">@Model.BALANCE</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                @if (Model.ORDER_STATUS == 2)
+                                {
+                                    <div style="float: right; position: absolute; z-index: 100; margin-top: -65px; margin-left: 180px;">
+                                        <img src="~/assets/img/order_status.jpg" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid red; border-top: 2px solid #ffffff">
+                                        <td>订单号</td>
+                                        <td><span id="spanOrder_No">@Model.ORDER_NO</span></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e6e5e5;">
+                                        <td>订单时间</td>
+                                        <td>
+                                            <span id="spanTransDate">
+                                                <span id="spanTransDateValue" style="width: 150px; display: inline-block;">@Model.TRANS_DATE.ToString("yyyy/MM/dd HH:mm:ss")</span>
+                                                @if (ViewBag.HasRight_ModifyOrderTransDate == true)
+                                                {
+                                                    <a href="javascript:;" id="btnModifyTrans">修改</a>
+                                                }
+                                            </span>
+                                            <span id="spanTransDate2" style="display: none;">
+                                                <input type="text" id="txtTransDate" readonly="readonly" style="height:20px;width:150px;" value="@Model.TRANS_DATE.ToString("yyyy/MM/dd HH:mm:ss")"/>
+                                                <a href="javascript:;" id="btnConfirmTrans">确定</a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e6e5e5;">
+                                        <td>创建人 
+                                        </td>
+                                        <td>
+                                            <span id="spanSYY">@Model.SYY</span>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e6e5e5;">
+                                        <td>创建时间
+                                        </td>
+                                        <td>
+                                            <span id="spanCreateDate">@Model.CREATE_DATE.ToString("yyyy/MM/dd HH:mm:ss")</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8" style="margin-top: -20px; margin-bottom: -20px;">
+                <div class="panel" style="background-color: #54800F; color: white; height: 25px;">
+                    &nbsp;<i class="fa fa-check-circle-o"></i> <b>订单完成！全部收费￥@Model.PAYED_AMT
+                    </b>
+                </div>
+                @* <div class="alert alert-dismissable alert-info">
+								&nbsp;<i class="fa fa-check-circle-o"></i> <b>订单完成！全部收费￥320.00</b>
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							</div>*@
+
+            </div>
+
+
+            <div class="col-md-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4>订购项目</h4>
+                        @*            <div class="options">
+                            <span onclick="showPayList()">
+                                <h4 style="color: white;">作废订单</h4>
+                            </span>
+                        </div>*@
+                    </div>
+                    <div class="panel-body">
+                        <div id="divProds">
+                            <table id="tableProds" border="0" style="width: 100%;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid #e6e5e5;">
+                                        <th style="width: 2%">#</th>
+                                        <th style="width: 33%">项目名称</th>
+                                        <th style="width: 25%; text-align: left">员工(工号)</th>
+                                        <th style="width: 12%; text-align: left">门市价</th>
+                                        <th style="width: 15%; text-align: left">优惠/活动</th>
+                                        <th style="width: 13%; text-align: center">最终价格</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="font-size: 12px;">
+                                    @foreach (var item in (List<ORDER_DETAIL_EX>)ViewBag.proItemList)
+                                    {
+                                        <tr class="odd gradeX" style="height: 30px;">
+                                            <td><i class="fa fa-caret-right"></i></td>
+                                            <td>@item.PROD_NAME</td>
+                                            <td style="text-align: left;">@(item.EMPLOYEE_NAME + "(" + item.EMPLOYEE_NO + ")") </td>
+                                            <td style="text-align: left;">@item.PROD_PRICE</td>
+                                            <td style="text-align: left;">@item.PROMOTIONNAME</td>
+                                            <td style="text-align: center;">@item.PROD_AMT</td>
+                                        </tr>  
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="divPrice" style="margin-top: 10px; margin-right: 20px;">
+                            <table border="0" style="width: 100%">
+                                <tr>
+                                    <td style="text-align: right;">
+                                        <div>
+                                            门市总价： <b>¥<span id="spanMSZJ">@Model.TOTAL_AMT</span> </b>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: right;">
+                                        <div style="border-bottom: 1px solid #e6e5e5; width: 20%; float: right;">
+                                            优惠： <b>¥<span id="spanYH">@ViewBag.privilege</span>  </b>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: right;">
+
+                                        <h3>实际支付：<b style="color: red">¥<span id="spanZJ">@Model.PAYED_AMT</span></b></h3>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="divPayMoney" class="panel panel-primary" style="margin-top: -15px;">
+                    <div class="panel-heading">
+                        <h4>付款方式</h4>
+                    </div>
+                    <div class="panel-body" style="display: block;">
+                        <div id="divPayList">
+                            <table id="tablePayList" style="width: 100%;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid #e6e5e5">
+                                        <th>#日期</th>
+                                        <th>付款方式</th>
+                                        @*  <th>类型</th>*@
+                                        <th>金额</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in (List<ORDER_PAYMENT_EX>)ViewBag.proPayList)
+                                    {
+                                        if (item.PAYMENT_TYPE == 999)
+                                        {
+                                        <tr style="height: 30px;">
+                                            <td>@item.CREATE_DATE.ToString("yyyy年MM月dd日")</td>
+                                            <td>会员卡疗程</td>
+                                            @* <td>@item.CASH_TYPE_NAME</td>*@
+                                            <td>@item.PAY_AMT</td>
+                                        </tr>  
+                                        }
+                                        else
+                                        {
+                                        <tr style="height: 30px;">
+                                            <td>@item.CREATE_DATE.ToString("yyyy年MM月dd日")</td>
+                                            <td>@item.PAY_TYPE_NAME</td>
+                                            @* <td>@item.CASH_TYPE_NAME</td>*@
+                                            <td>@item.PAY_AMT</td>
+                                        </tr>  
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @*              <div class="form-group btnpanel_right" id="divBtnSave" style="display: block">
+                     <button type="button" id="btnInvalid" class="btn btn-primary">作废订单 </button>
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+
+    <form id="SearchProdInfo2" method="post" role="form">
+        <div id="QueryProdInfo_mask2" class="artw_mask"></div>
+        <div id="QueryProdInfo_boxcontain2" class="artw_boxcontain" style="width: 490px; height: 400px;">
+            <a id="QueryProdInfo_close2" href="javascript:void(0);" title="Close" class="artw_close"></a>
+            <div id="QueryProdInfo_showbox2" class="artw_showbox">
+                <div id="QueryProdInfo_title2" class="artw_title">
+                    <h5>新增会员</h5>
+                </div>
+                <div id="QueryProdInfo_message2" class="artw_message" style="width: 430px; height: 300px;">
+
+                    <div>
+                        <table style="width: 100%; line-height: 45px;" id="Cust_Card_List">
+                            <tr>
+                                <td>姓名：<input id="custname" style="width: 380px; line-height: 28px;" /></td>
+                            </tr>
+                            <tr>
+                                <td>电话：<input id="mobile" style="width: 380px; line-height: 28px;" /></td>
+                            </tr>
+                            <tr>
+                                <td>性别：<input type="radio" name="sex" id="man" checked="checked" value="男" />男&nbsp;&nbsp;<input type="radio" name="sex" id="woman" value="女" />女</td>
+                            </tr>
+                            <tr>
+                                <td>来源：<select id="khly" style="width: 380px; line-height: 39px;"><option value="0">门面客</option>
+                                    <option value="1">合作商户</option>
+                                    <option value="2">微信公众号</option>
+                                    <option value="3">媒体杂志</option>
+                                    <option value="5">会员或朋友介绍</option>
+                                    <option value="6">团购(大众点评,美团,其它)</option>
+                                    <option value="7">户外广告</option>
+                                    <option value="8">门店异业合作</option>
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <button type="button" id="btnSaveCust" class="btn btn-primary">
+                                        保存</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <div style="display: none;">
+        <textarea readonly="readonly" class="fullscreen" style="display: none; height: 0px; width: 0px;"></textarea>
+    </div>
+    <input type="hidden" id="custId" />
+    <input type="hidden" id="hide_CUST_NAME" />
+    <input type="hidden" id="hide_MOBILE" />
+
+    <input type="hidden" id="hide_Cid" name="CUST_ID" value="@Request.QueryString["cid"]" />
+    <input type="hidden" id="hide_OrderId" name="CUST_ID" value="@Request.QueryString["oid"]" />
+
+    <input type="hidden" id="hide_MSZJ" name="TOTAL_AMT" />
+    <input type="hidden" id="hide_ZJ" name="PAY_AMT" />
+    <input type="hidden" id="hidePAYED_AMT" name="PAYED_AMT" />
+    <input type="hidden" id="hide_SubmitType" name="SubmitType" />
+
+    <input type="hidden" id="payStatus" value="@Request.QueryString["status"]" />
+</form>
+<link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' />
+@section jssection{
+    <script type="text/javascript">
+        var util = {}; var options = {
+            listUrl: "@Url.Action("List", "Customer")",
+            editUrl: "@Url.Action("Edit")",
+            deleteUrl: "@Url.Action("Delete")",
+            queryCustomerUrl: "@Url.Action("QueryCustomer", "Customer", new { type = "name" })",
+            queryGodSerCardUrl: "@Url.Action("QueryGodSerCard")",
+            servicelistUrl: "@Url.Action("List", "Service")",
+            goodslistUrl: "@Url.Action("List", "Goods")",
+            cardlistUrl: "@Url.Action("List", "Card")",
+            returnListUrl: "@Url.Action("OrderList")",
+            saveOrderRemarkUrl: "@Url.Action("SaveRemark")",
+            UpdateStatusUrl: "@Url.Action("UpdateStatus")",
+            updateTransDateUrl: "@Url.Action("UpdateOrderTransDate")"
+        };
+
+
+    </script>
+
+    @Html.Js("app/order/xjgrid", "plugins/xjdailog/xjdailog", "js/jquery-ui-1.10.4.custom.min", "plugins/datetimepicker/jquery-ui-timepicker-addon", "app/order/orderb")
+
+}
+

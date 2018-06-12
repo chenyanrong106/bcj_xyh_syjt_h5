@@ -1,0 +1,15 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ include file="Base.ttinclude" #>
+<#@ include file="MSSql.ttinclude"  #>
+
+<#
+	ConnectionString = "Data Source=122.152.207.240;database=XYH_COUPON_ACTIVITY;uid=sa;pwd=PuMan2017!!;";
+    Namespace       = "SPACRM.Entity";
+    DataContextName = "DataContext";
+	BaseEntityClass = "BaseEntity";
+	RenderForeignKeys = false;
+	RenderBackReferences = false;
+    GenerateModel();
+
+#>

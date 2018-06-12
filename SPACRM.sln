@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPACRM.WebApp", "SPACRM.WebApp\SPACRM.WebApp.csproj", "{FD00A2E6-370F-4C11-972B-30486126C2A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "REFDLL", "REFDLL", "{9712468F-BED3-4341-9F48-185839314AB3}"
+	ProjectSection(SolutionItems) = preProject
+		C:\RD800\com组件库\comdll\comRD800.dll = C:\RD800\com组件库\comdll\comRD800.dll
+		REFDLL\Ionic.Zip.dll = REFDLL\Ionic.Zip.dll
+		REFDLL\Nancy.dll = REFDLL\Nancy.dll
+		REFDLL\Nancy.Hosting.Aspnet.dll = REFDLL\Nancy.Hosting.Aspnet.dll
+		REFDLL\Nancy.Hosting.Aspnet.xml = REFDLL\Nancy.Hosting.Aspnet.xml
+		REFDLL\Nancy.Testing.dll = REFDLL\Nancy.Testing.dll
+		REFDLL\Nancy.Testing.xml = REFDLL\Nancy.Testing.xml
+		REFDLL\Nancy.XML = REFDLL\Nancy.XML
+		REFDLL\Newtonsoft.Json.dll = REFDLL\Newtonsoft.Json.dll
+		REFDLL\NLog.dll = REFDLL\NLog.dll
+		REFDLL\NLog.xml = REFDLL\NLog.xml
+		REFDLL\NPOI.dll = REFDLL\NPOI.dll
+		REFDLL\nunit.framework.dll = REFDLL\nunit.framework.dll
+		REFDLL\ServiceStack.Text.dll = REFDLL\ServiceStack.Text.dll
+		REFDLL\StructureMap.dll = REFDLL\StructureMap.dll
+		REFDLL\StructureMap.xml = REFDLL\StructureMap.xml
+		REFDLL\Vulcan.dll = REFDLL\Vulcan.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPACRM.Common", "SPACRM.Common\SPACRM.Common.csproj", "{3B727FCD-290B-4571-A96C-978763ECDC77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPACRM.Business", "SPACRM.Business\SPACRM.Business.csproj", "{0A3552C4-AA93-4637-945E-0366C7CC8EF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPACRM.Interface", "SPACRM.Interface\SPACRM.Interface.csproj", "{957A25A3-AD39-4B99-A8EE-B725FDC0DA3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPACRM.Entity", "SPACRM.Entity\SPACRM.Entity.csproj", "{84C5A1AB-0FF6-41F4-8BED-7939C0860B3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPACRM.DataAccess", "SPACRM.DataAccess\SPACRM.DataAccess.csproj", "{8B49D35A-24D3-47F2-BE58-9BB2B0A2C98D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPACRM.Extension", "SPACRM.Extension\SPACRM.Extension.csproj", "{83A876CB-95B5-415A-AD4A-B8779E8DB8C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hmj.WebService", "Hmj.WebService\Hmj.WebService.csproj", "{0D56C92A-2F23-4995-8DAB-62612827FE69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD00A2E6-370F-4C11-972B-30486126C2A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD00A2E6-370F-4C11-972B-30486126C2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD00A2E6-370F-4C11-972B-30486126C2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD00A2E6-370F-4C11-972B-30486126C2A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B727FCD-290B-4571-A96C-978763ECDC77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B727FCD-290B-4571-A96C-978763ECDC77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B727FCD-290B-4571-A96C-978763ECDC77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B727FCD-290B-4571-A96C-978763ECDC77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3552C4-AA93-4637-945E-0366C7CC8EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3552C4-AA93-4637-945E-0366C7CC8EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3552C4-AA93-4637-945E-0366C7CC8EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3552C4-AA93-4637-945E-0366C7CC8EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{957A25A3-AD39-4B99-A8EE-B725FDC0DA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957A25A3-AD39-4B99-A8EE-B725FDC0DA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957A25A3-AD39-4B99-A8EE-B725FDC0DA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{957A25A3-AD39-4B99-A8EE-B725FDC0DA3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C5A1AB-0FF6-41F4-8BED-7939C0860B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C5A1AB-0FF6-41F4-8BED-7939C0860B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C5A1AB-0FF6-41F4-8BED-7939C0860B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C5A1AB-0FF6-41F4-8BED-7939C0860B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B49D35A-24D3-47F2-BE58-9BB2B0A2C98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B49D35A-24D3-47F2-BE58-9BB2B0A2C98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B49D35A-24D3-47F2-BE58-9BB2B0A2C98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B49D35A-24D3-47F2-BE58-9BB2B0A2C98D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A876CB-95B5-415A-AD4A-B8779E8DB8C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A876CB-95B5-415A-AD4A-B8779E8DB8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A876CB-95B5-415A-AD4A-B8779E8DB8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A876CB-95B5-415A-AD4A-B8779E8DB8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D56C92A-2F23-4995-8DAB-62612827FE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D56C92A-2F23-4995-8DAB-62612827FE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D56C92A-2F23-4995-8DAB-62612827FE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D56C92A-2F23-4995-8DAB-62612827FE69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5F2725C-4249-4360-8103-91C0884023B0}
+	EndGlobalSection
+EndGlobal

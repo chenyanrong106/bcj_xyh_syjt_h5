@@ -1,0 +1,870 @@
+﻿@{
+    ViewBag.Title = "订单管理"; 
+}
+@model SPACRM.Entity.Entities.ORDER_HEAD_EX
+@using SPACRM.Entity.Entities
+@section htmlhead{
+    @Html.Css("plugin/validator")
+    <link href="~/assets/app/order/xjgrid.css" rel="stylesheet" />
+    <link href="~/assets/layer/tipdiv/core.css" rel="stylesheet" />
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label {
+                margin-bottom: 4px;
+            }
+
+        #goodsGridlist {
+            /*color: #fff;*/
+        }
+
+        #service #serGridMenu ul {
+            list-style: none;
+            text-align: left;
+            margin-left: -40px;
+            overflow: auto;
+            overflow-x: hidden;
+        }
+
+            #service #serGridMenu ul li {
+                float: left;
+                margin: 5px;
+                font-weight: 600;
+            }
+
+                #service #serGridMenu ul li a {
+                    text-decoration: none;
+                }
+
+                #service #serGridMenu ul li:hover {
+                    height: 20px;
+                    cursor: pointer;
+                    background-color: #e6e5e5;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                    -webkit-box-shadow: 0 0 3px #555;
+                    -moz-box-shadow: 0 0 3px #555;
+                    box-shadow: 0 0 3px #555;
+                }
+        /*产品*/
+        #goods #proGridMenu ul {
+            list-style: none;
+            text-align: left;
+            margin-left: -40px;
+            overflow: auto;
+            overflow-x: hidden;
+        }
+
+            #goods #proGridMenu ul li {
+                float: left;
+                margin: 5px;
+                font-weight: 600;
+            }
+
+                #goods #proGridMenu ul li a {
+                    text-decoration: none;
+                }
+
+                #goods #proGridMenu ul li:hover {
+                    height: 20px;
+                    cursor: pointer;
+                    background-color: #e6e5e5;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                    -webkit-box-shadow: 0 0 3px #555;
+                    -moz-box-shadow: 0 0 3px #555;
+                    box-shadow: 0 0 3px #555;
+                }
+
+        .serSelected {
+            background-color: #e6e5e5;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 0 3px #555;
+            -moz-box-shadow: 0 0 3px #555;
+            box-shadow: 0 0 3px #555;
+        }
+
+        #tSpeedyPro, #tTreatmentPro {
+            border: 1px solid #e6e5e5;
+            font-size: 12px;
+            margin-top: 0px;
+        }
+
+            #tSpeedyPro tr {
+                cursor: pointer;
+            }
+
+            #tTreatmentPro tr {
+                cursor: pointer;
+            }
+
+        #tab-content {
+            background-color: white;
+        }
+
+        .tdPice {
+            text-align: right;
+        }
+
+        #divCustomer {
+            height: 190px;
+            display: none;
+        }
+
+            #divCustomer .panel {
+                background-color: white;
+                height: 190px;
+            }
+
+                #divCustomer .panel .divCustomer-tr {
+                    border-bottom: 1px solid red;
+                    border-top: 2px solid #fff;
+                }
+
+        #divNewCustomer {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+            #divNewCustomer .panel {
+                background-color: white;
+                height: 50px;
+            }
+
+                #divNewCustomer .panel #divNewCustomer_tr {
+                    border-top: 2px solid #fff;
+                }
+
+        #divProds .divProds_tr {
+            border-bottom: 1px solid #e6e5e5;
+        }
+
+        #divPrice {
+            margin-top: 10px;
+            margin-right: 50px;
+            display: none;
+        }
+
+        #divYH {
+            border-bottom: 1px solid #e6e5e5;
+            width: 20%;
+            float: right;
+        }
+
+        .progress {
+            z-index: 2000;
+        }
+
+        .mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        #EMP_NAME {
+            height: 25px;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .progress {
+            z-index: 2000;
+        }
+
+        .mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        #EMP_NAME {
+            height: 25px;
+        }
+
+        .artw_mask {
+            background-color: #000;
+            position: fixed;
+            overflow: auto;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            display: none;
+            z-index: 2;
+        }
+
+        .artw_boxcontain {
+            margin: 0 auto;
+            position: fixed;
+            overflow: auto;
+            z-index: 999;
+            line-height: 28px;
+            display: none;
+        }
+
+        .artw_showbox {
+            padding: 10px;
+            background: #FFF;
+            border-radius: 5px;
+            margin: 20px;
+            min-width: 300px;
+            min-height: 200px;
+        }
+
+        .artw_title {
+            position: relative;
+            height: 27px;
+            border-bottom: 1px solid #999;
+        }
+
+        .artw_close {
+            position: absolute;
+            cursor: pointer;
+            outline: none;
+            top: 0;
+            right: 0;
+            z-index: 4;
+            width: 42px;
+            height: 42px;
+            overflow: hidden;
+            background-image: url(../../assets/js/Index_files/feedback-close.png);
+            _background: none;
+        }
+
+        .artw_message {
+            padding: 10px 0px;
+            overflow: hidden;
+            line-height: 19px;
+        }
+
+
+
+
+
+
+
+        a.closeBtn {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 30px;
+            display: block;
+            border-left: 1px solid #85B6E2;
+            border-bottom: 1px solid #85B6E2;
+            padding: 4px 0;
+            text-align: center;
+            color: #333;
+        }
+
+            a.closeBtn:hover {
+                color: #fff;
+                border: 1px solid #85B6E2;
+                background: #85B6E2;
+            }
+
+        .windo {
+            position: absolute;
+            /*top:555px;
+left:200px;*/
+            font-size: 9pt;
+            display: block;
+            min-height: 250px;
+            max-height: 400px;
+            width: 400px;
+            background-color: transparent;
+            display: none;
+            height: 290px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px 0px 3px 3px;
+            -webkit-box-shadow: 0 0 3px #555;
+            -moz-box-shadow: 0 0 3px #555;
+            box-shadow: 0 0 3px #555;
+        }
+
+        s {
+            position: absolute;
+            top: -20px;
+            left: 190px;
+            display: block;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            line-height: 0;
+            border-color: transparent transparent #85B6E2 transparent;
+            border-style: dashed dashed solid dashed;
+            border-width: 10px;
+        }
+
+        .lil {
+            position: absolute;
+            top: -9px;
+            *top: -9px;
+            left: -10px;
+            display: block;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            line-height: 0;
+            border-color: transparent transparent #FFFFFF transparent;
+            border-style: dashed dashed solid dashed;
+            border-width: 10px;
+        }
+
+        .windo .content {
+            border: 1px solid #85B6E2;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            position: absolute;
+            background-color: #FFF;
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            *top: -2px;
+            *border-top: 1px solid #fff;
+            *border-top: 1px solid #fff;
+            *border-left: none;
+            *border-right: none;
+            *height: 102px;
+        }
+
+        .td-right {
+            text-align: left;
+            width: 7%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .td-left {
+            text-align: left;
+            width: 13%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .Query-td-right {
+            text-align: left;
+            width: 7%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .Query-td-left {
+            text-align: left;
+            width: 23%;
+            padding: 2px 5px 2px 5px;
+        }
+
+
+
+
+        #searchresult {
+            width: 130px;
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+            left: 130px;
+            top: 71px;
+            background: #ffffff;
+            border-top: none;
+        }
+
+        .line {
+            font-size: 12px;
+            background: #ffffff;
+            width: 130px;
+            padding: 2px;
+        }
+
+        .hover {
+            background: #007ab8;
+            width: 130px;
+            color: #fff;
+        }
+
+        .std {
+            width: 150px;
+        }
+    </style>
+
+}
+<form action="@Url.Action("Save")" id="formSave" method="post" role="form">
+    <div class="s_container">
+        <div id="page-heading">
+            <h2>
+                <i class="fa fa-shopping-cart"></i>订单</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel" style="width: 100%">
+                    <input type="hidden" id="PROD_NAME_PRICE" style="width: 100%" />
+                </div>
+                <div class="panel panel-primary">
+                    <div id="panelService1" class="tab-container tab-gray">
+                        <ul class="nav nav-tabs" id="ultab">
+                            <li><a href="#spro" data-toggle="tab">常用</a></li>
+                            <li class="active"><a href="#service" data-toggle="tab">服务</a></li>
+                            <li><a href="#goods" data-toggle="tab">产品</a></li>
+                            <li style="display: none"><a href="#treatment" data-toggle="tab">可用疗程</a></li>
+                        </ul>
+                        <div id="tab-content" class="tab-content">
+                            <div class="tab-pane" id="spro">
+                                <div class="list-group">
+
+                                    <table id="tSpeedyPro" class="table table-advance table-hover">
+                                        <tbody>
+                                            @foreach (var item in (List<PROD_GOODS_EX>)ViewBag.proList)
+                                            {
+                                                <tr id="@item.ID" itemid="@item.TABLE">
+                                                    <td>@item.NAME</td>
+                                                    <td>
+                                                        <input type='hidden' name='is_cpay_dist' value="@item.PRICE,@item.IS_CARDPAY.ToString(),@item.IS_DISCOUNT.ToString()" /></td>
+                                                    <td class="tdPice"><span class="badge">￥@item.PRICE</span></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane active" id="service">
+                                <div class="form-group">
+                                    <div id="serGridMenu">
+                                        <ul>
+                                            @if (ViewBag.SerCategoryList != null)
+                                            {
+                                                foreach (var item in ViewBag.SerCategoryList)
+                                                {
+                                                <li><a onclick="util.checkSerMenu(this)" itemid='@item.ID'>@item.CATE_NAME</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div id="serGridlist" style="height: 460px; overflow: auto; overflow-x: hidden;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="goods">
+                                <div class="form-group">
+                                    <div id="proGridMenu">
+                                        <ul>
+                                            @if (ViewBag.ProCategoryList != null)
+                                            {
+                                                foreach (var item in ViewBag.ProCategoryList)
+                                                {
+                                                <li><a onclick="util.checkProMenu(this)" itemid='@item.ID'>@item.CATE_NAME</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div id="goodsGridlist" style="height: 460px; overflow: auto; overflow-x: hidden;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="treatment">
+                                <div id="treatmentlist" class="list-group" style="height: 440px; overflow: auto; overflow-x: hidden;">
+                                    <table id="tTreatmentPro" class="table table-advance table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>暂无疗程卡信息</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="divCustomer" class="col-md-8">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                        <tr class="divCustomer-tr">
+                                            <td style="width: 30%;">顾客姓名</td>
+                                            <td>
+                                                <span id="spanCustName"></span>&nbsp;<a onclick="util.updateCust()" href="javascript:;">更换顾客</a>&nbsp;<a id="filelist" href="javascript:;">查看附件</a>&nbsp;<a id="buycard" href="javascript:;">充值</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>联系电话</td>
+                                            <td><span id="spanCustMobile"></span></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>会员卡号</td>
+                                            <td><span id="spanCustCard"></span></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>会员卡级</td>
+                                            <td><span id="spanCustCardLevel"></span></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>会员人数</td>
+                                            <td>@Html.TextBox("MEMBER_NUM", Model.MEMBER_NUM, new { @type = "number" })</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                        @if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
+                                        {
+                                            <tr style="border-bottom: 1px solid red; border-top: 2px solid #ffffff;">
+
+                                                <td>订单号</td>
+                                                <td><span id="spanOrder_No"></span></td>
+
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            <tr style="border-top: 2px solid #ffffff;">
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>  
+                                        }
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>创建时间</td>
+                                            <td><span id="spanOrder_Date">@DateTime.Now.ToString("yyyy年MM月dd日")</span>
+                                                <input type="hidden" id="hideOrder_Date" value="@DateTime.Now.ToString()" />
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>房&nbsp;&nbsp;&nbsp;&nbsp;间</td>
+                                            <td>
+                                                @Html.ResourceDropDownList("ROOM_ID", "ROOM", "", new { style = "width:120px;" }, (string)ViewBag.STORE_ID, true)
+
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>卡内余额</td>
+                                            <td><span id="spanCustCardBalance"></span></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e6e5e5;">
+                                            <td>散客人数</td>
+                                            <td>@Html.TextBox("WALKIN_NUM", Model.WALKIN_NUM, new { @type = "number" })</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div id="divNewCustomer" class="col-md-8">
+                <div class="panel">
+                    <div class="panel-body2">
+                        <div class="">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                        <tr class="divNewCustomer_tr">
+                                            <td style="">
+                                                <span>顾客姓名</span>
+
+                                                <input type="hidden" id="CUST_NAME" style="width: 240px;" />
+
+                                                <a href="javasrcipt:;" id="firstname" data-type="text" data-pk="2" data-placement="right" data-title="新增顾客信息"><span id="spanCust"></span></a>
+                                                <button type="button" id="btnOrderBill" class="btn btn-primary">散客开单</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4>订购项目</h4>
+                    </div>
+                    <div id="divloading" class="panel-body">
+                        <div id="divCart">
+                            <img src="~/assets/img/cart.jpg" />
+                        </div>
+
+                        <div id="divProds" style="display: none;">
+                            <div style="float: left;">
+                                <table id="tableProds" border="0" style="width: 100%;">
+                                    <thead>
+                                        <tr class="divProds_tr">
+                                            <th style="width: 2%">#</th>
+                                            <th style="width: 30%">项目名称</th>
+                                            <th style="width: 20%; text-align: left">护理师</th>
+                                            <th style="width: 10%; text-align: left">门市价</th>
+                                            <th style="width: 13%; text-align: left">优惠/活动</th>
+                                            <th style="width: 13%; text-align: center">最终价格</th>
+                                            <th style="width: 8%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="font-size: 12px;">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div style="margin: 0 auto; position: absolute; float: left; left: 40%; top: 30%;">
+                                <div id="progressImgage" style="display: none; margin: 0px auto; float: left;">
+                                    <img src="~/assets/img/loading2.gif" />
+                                </div>
+                                <div id="maskOfProgressImage" class="mask" style="display: none;"></div>
+                            </div>
+                        </div>
+                        <div id="divPrice">
+                            <table border="0" style="width: 100%">
+                                <tr style="width: 50%">
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="alert alert-dismissable alert-warning">
+                                                        <span class="fa fa-exclamation-triangle"></span>
+                                                        支付提醒：<br />
+                                                        必须现金支付金额：<span id="spanCashPay"></span><br />
+                                                        允许卡支付但不享受折扣金额：<span id="spanCardPay">0.00</span><br />
+                                                        允许卡支付并享受折扣金额：<span id="spanCardDistPay">0.00</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border="0" style="width: 100%">
+                                            <tr style="width: 50%">
+                                                <td style="text-align: right;">
+                                                    <div>
+                                                        门市总价： <b>¥<span id="spanMSZJ">0.00</span>   </b>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right;">
+                                                    <div id="divYH" style="width: 100px;">
+                                                        优惠： ¥<span id="spanYH">0.00</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @{ string display = (ViewBag.HasServiceFee == 1) ? "" : "none"; }
+                                            <tr style='display: @display;'>
+                                                <td style="text-align: right;">
+                                                    <div>
+                                                        <input type="checkbox" id="chkFWF" name="chkFWF" />
+                                                        收取服务费(@ViewBag.ServiceFeeRate)： <b style="color: blue;">¥<span id="spanFWF">0.00</span></b>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right;">
+
+                                                    <h3>应付：<b style="color: red">¥<span id="spanZJ">0.00</span></b></h3>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="form-group btnpanel_right">
+                            <button type="button" id="btnCheckIn" style="display: none;" class="btn btn-primary">保存并支付</button>
+                            <button type="button" id="btnSave" style="display: none;" class="btn btn-primary">保存订单</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                    <h4 class="modal-title">请输入操作密码！</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <input type="text" />
+                    </p>
+                    <input id="hdCurrentId" type="hidden" value="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        取 消</button>
+                    <button type="button" id="btnConfirm" class="btn btn-primary">
+                        确 定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <div class="windo" id="windo">
+        <div class="content">
+            <div class="title">
+                <a href="javascript:void(0)" id="closewin" class="closeBtn">关闭</a>
+            </div>
+            <div style="margin-left: 5px; width: 332px;">
+                <input type="text" id="EMP_NAME" class="form-control" placeholder="输入姓名/工号检索" />
+            </div>
+            <div class="main">
+                <div id="divcontent" class="divcontent">
+                    <ul style="float: left; padding: 2px 0px 2px 2px;" id="ulcontent">
+                        @foreach (var item in (List<ORG_EMPLOYEE_EX>)ViewBag.employeeList)
+                        {
+                            <li onclick="addEmp(this)" id="@item.NAME" itemid="@item.ID">
+                                <div class="contentemp">
+                                    <div>@item.EMPLOYEE_NO</div>
+                                    <div>@item.NAME</div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+                <div id="divcontentone" class="divcontent" style="display: none;">
+                    <ul style="float: left; padding: 2px 0px 2px 2px;" id="ulcontentone">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <s><i class="lil"></i></s>
+    </div>
+
+
+
+
+    <input type="hidden" id="hide_Cid" name="CUST_ID" value="@Request.QueryString["cid"]" />
+    <input type="hidden" id="hide_Oid" name="ID" value="@Request.QueryString["oid"]" />
+    <input type="hidden" id="hide_Bid" name="BOOKING_ID" value="@Request.QueryString["bid"]" />
+    <input type="hidden" id="hide_MSZJ" name="TOTAL_AMT" />
+    <input type="hidden" id="hide_ZJ" name="PAY_AMT" />
+    <input type="hidden" id="hidePAYED_AMT" name="PAYED_AMT" />
+    <input type="hidden" id="hide_SubmitType" />
+    <input type="hidden" id="hide_Employee" />
+    <input type="hidden" id="hideCATE_ID" name="CATE_ID" />
+    <input type="hidden" id="hideFWF_AMT" name="FWF_AMT" />
+    <input type="hidden" id="hideFWF_Rate" name="FWF_Rate" value="@ViewBag.ServiceFeeRate" />
+    <input type="hidden" id="ZJ2" name="YF_AMT" value="0.00" />
+
+</form>
+
+<form id="SearchProdInfo2" method="post" role="form">
+    <div id="QueryProdInfo_mask2" class="artw_mask"></div>
+    <div id="QueryProdInfo_boxcontain2" class="artw_boxcontain" style="width: 490px; height: 400px;">
+        <a id="QueryProdInfo_close2" href="javascript:void(0);" title="Close" class="artw_close"></a>
+        <div id="QueryProdInfo_showbox2" class="artw_showbox">
+            <div id="QueryProdInfo_title2" class="artw_title">
+                <h5>新增会员</h5>
+            </div>
+            <div id="QueryProdInfo_message2" class="artw_message" style="width: 430px; height: 300px;">
+
+                <div>
+                    <table style="width: 100%; line-height: 45px;" id="Cust_Card_List">
+                        <tr>
+                            <td>姓名：<input id="custname" style="width: 380px; line-height: 28px;" /></td>
+                        </tr>
+                        <tr>
+                            <td>电话：<input id="mobile" style="width: 380px; line-height: 28px;" /></td>
+                        </tr>
+                        <tr>
+                            <td>性别：<input type="radio" name="sex" id="man" checked="checked" value="男" />男&nbsp;&nbsp;<input type="radio" name="sex" id="woman" value="女" />女</td>
+                        </tr>
+                        <tr>
+                            <td>来源：<select id="khly" style="width: 380px; line-height: 39px;"><option value="0">门面客</option>
+                                <option value="1">合作商户</option>
+                                <option value="2">微信公众号</option>
+                                <option value="3">媒体杂志</option>
+                                <option value="5">会员或朋友介绍</option>
+                                <option value="6">团购(大众点评,美团,其它)</option>
+                                <option value="7">户外广告</option>
+                                <option value="8">门店异业合作</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">
+                                <button type="button" id="btnSaveCust" class="btn btn-primary">
+                                    保存</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' />
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            queryCustomerUrl: "@Url.Action("QueryCustomer", "Customer", new { type = "name" })",
+            queryGodSerCardUrl: "@Url.Action("QueryGodSerCard", new { type = "service" })",
+            servicelistUrl: "@Url.Action("GetServiceList")",
+            goodslistUrl: "@Url.Action("GetGoodsList")",
+            returnListUrl: "@Url.Action("OrderList")",
+            queryEmployeeBy: "@Url.Action("QueryEmployeeByQ", "Common")",
+            queryTreamentCard: "@Url.Action("getTreamentCard")",
+            queryGodSer: "@Url.Action("QueryGodSer")",
+            queryOrder: "@Url.Action("QueryOrder")",
+            queryBookingService: "@Url.Action("QueryBookService")",
+            queryPromotionUrl: "@Url.Action("QueryPromotion")",
+            customerDetailUrl: "@Url.Action("Detail", "Customer")",
+            hasServiceFee: "@ViewBag.HasServiceFee"
+        };
+    </script>
+    @Html.Js("plugins/validator/validator")
+    @Html.Js("app/order/xjgrid", "plugins/jquery-tip/jquery.tip", "app/order/orderd")
+
+    @Html.Js("plugins/form-typeahead/typeahead.min", "plugins/xjdailog/xjdailog", "plugins/form-select2/select2", "plugins/bootbox/bootbox.min", "plugins/bootbox/bootbox2")
+
+}
+

@@ -1,0 +1,529 @@
+﻿@{
+    ViewBag.Title = "会员卡充值";
+}
+@model SPACRM.Entity.Entities.CUST_INFO_EX
+@using SPACRM.Entity
+
+@section htmlhead{
+    @Html.Css("plugin/validator", "plugin/xjgrid", "plugin/xjdailog")
+    <style type="text/css">
+        .h_title { padding: 5px 15px; border-bottom: solid 1px #e6e5e5; font-size: 18px; margin-bottom: 5px; }
+
+        .searchpanel { background-color: #f7f8fa; padding: 5px 15px; margin-left: 10px; border-radius: 4px; }
+
+        .searchpanel .form-group label { margin-bottom: 4px; }
+
+        #tCustInfo { border: 0px solid #e6e5e5; margin-top: 0px; line-height: 30px; }
+
+        #divPaymentMode ul { list-style: none; }
+
+        #divPaymentMode ul li { float: left; width: 280px; }
+
+        #divPaymentMode ul li label { width: 100px; text-align: right; }
+
+        #spanPresent { cursor: pointer; }
+
+        #divLCPaymentMode .ul { list-style: none; }
+
+        #divLCPaymentMode .ul li { float: left; width: 280px; }
+
+        #divLCPaymentMode ul li label { width: 100px; text-align: right; }
+    </style>
+}
+<form action="@Url.Action("BuyCardSave")" id="formSave" method="post" role="form">
+    <div class="s_container">
+        <div id="page-heading">
+            <h2>
+                <i class="fa fa-group"></i>购卡/充值</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4>会员信息</h4>
+                    </div>
+                    <div class="panel-body">
+                        <table id="tCustInfo">
+                            <tr>
+                                <td style="width: 80px;"><b>会员姓名：</b></td>
+                                <td>@Html.ActionLink(Model.NAME, "View360", "Customer", new { cid = Model.ID }, new { }) </td>
+                            </tr>
+                            <tr>
+                                <td><b>联系电话：</b></td>
+                                <td>@Model.MOBILE</td>
+                            </tr>
+                            <tr>
+                                <td><b>会员卡号：</b></td>
+                                <td>@Model.CARD_NO</td>
+                            </tr>
+                        </table>
+                        @if (ViewBag.custCardList != null)
+                        {
+                            var _ci = 1;
+                            foreach (var item in (List<SPACRM.Entity.Entities.CUST_CARD_EX>)ViewBag.custCardList)
+                            {
+                            <div style="height: 1px; background-color: #e6e5e5;"></div>
+                            <table style="margin-top: 5px;">
+                                <tr>
+                                    <td style="width: 80px;" colspan="2"><b>NO.@_ci</b></td>
+
+                                </tr>
+                                <tr>
+                                    <td><b>会员卡级：</b></td>
+                                    <td>@item.CARD_NAME</td>
+                                </tr>
+                                <tr>
+                                    <td><b>总存款额：</b></td>
+                                    <td>@item.PAR_AMT</td>
+                                </tr>
+                                <tr>
+                                    <td><b>卡内余额：</b></td>
+                                    <td>@item.BALANCE</td>
+                                </tr>
+                                <tr>
+                                    <td><b>欠款额：</b></td>
+                                    <td>@item.ARREARS</td>
+                                </tr>
+                            </table>
+                                _ci++;
+                            }
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="panel panel-primary">
+                    <div id="panelService1" class="tab-container tab-gray" style="background-color: white;">
+                        <ul class="nav nav-tabs">
+
+                            <li id="VipCard" class="active"><a href="#spro" data-toggle="tab">会员充值购卡</a></li>
+                            <li id="LCCard"><a href="#service" data-toggle="tab">购买疗程</a></li>
+                        </ul>
+                        <div style="background-color: white;">
+                            <div id="tab-content" class="tab-content">
+                                <div class="tab-pane active" id="spro">
+                                    <div class="list-group">
+                                        <!--begin-->
+                                        <div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-4 control-label" for="CARD_ID">会员卡级：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.ResourceDropDownList("CARD_ID", "VIPCARD", null, new { @class = "form-control" }, (string)ViewBag.STORE_ID_ORG_ID, false)
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-4 control-label" for="Masseur">销售员(美疗师)：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.ResourceDropDownList("Masseur", "Masseur", null, new { @class = "form-control" }, (string)ViewBag.STORE_ID, false)
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-4 control-label" for="BUY_AMT">销售金额：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.TextBox("BUY_AMT", null, new { @class = "form-control", maxlength = "10", placeholder = "请输入销售金额", @readonly = "readonly" })
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-4 control-label" for="YH_AMT">优惠额：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.TextBox("YH_AMT", null, new { @class = "form-control", maxlength = "10", placeholder = "请输入优惠额", @readonly = "readonly" })
+                                                </div>
+                                            </div>
+                                            @if (!string.IsNullOrEmpty(Request.QueryString["ccid"]))
+                                            {
+                                                <div class="form-group col-xs-6">
+                                                    <label class="col-sm-4 control-label" for="PAYED_AMT">付款金额：</label>
+                                                    <div class="col-sm-8 input-group">
+                                                        @Html.TextBox("PAYED_AMT", null, new { @class = "form-control", maxlength = "10", placeholder = "付款金额", onkeypress = "util.keyPress(this)", onkeyup = "util.keyUpPayedCash(this)", onblur = "util.onBlur(this)" })
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group col-xs-6">
+                                                    <label class="col-sm-4 control-label" for="ARREARS">未付金额：</label>
+                                                    <div class="col-sm-8 input-group">
+                                                        @Html.TextBox("ARREARS", null, new { @class = "form-control", maxlength = "10", placeholder = "未付金额", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="form-group col-xs-6">
+                                                    <label class="col-sm-4 control-label" for="BUY_AMT">付款金额：</label>
+                                                    <div class="col-sm-8 input-group">
+                                                        @Html.TextBox("PAYED_AMT", null, new { @class = "form-control", maxlength = "10", placeholder = "付款金额", onkeypress = "util.keyPress(this)", onkeyup = "util.keyUpCash(this)", onblur = "util.onBlur(this)" })
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group col-xs-6">
+                                                    <label class="col-sm-4 control-label" for="ARREARS">未付金额：</label>
+                                                    <div class="col-sm-8 input-group">
+                                                        @Html.TextBox("ARREARS", null, new { @class = "form-control", maxlength = "10", placeholder = "未付金额", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                            }
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-4 control-label" for="BEGIN_DATE">开卡日期：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.TextBox("BEGIN_DATE", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control", placeholder = "请选择开卡日期" })
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-4 control-label" for="END_DATE">有效期：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.TextBox("END_DATE", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control", placeholder = "请输入有效期" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-8">
+                                                <label class="col-sm-3 control-label" for="REMARK">备注信息：</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextArea("REMARK", "", new { @class = "form-control", placeholder = "备注信息", style = "resize:none" })
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-12">
+                                                <b>支付方式</b>
+                                                <div style="margin-left: 100px;">还需支付￥：<span id="spanPayed" class="badge badge-info">0</span></div>
+                                                <div id="divPaymentMode" style="padding: 5px; width: 100%;">
+                                                    <ul style="float: left;">
+                                                        @if (ViewBag.paymentList != null)
+                                                        {
+                                                            foreach (var item in (List<PAYMENT_MODE>)ViewBag.paymentList)
+                                                            {
+                                                            <li class="mode">
+                                                                <label>@item.NAME：</label>
+                                                                <input type="hidden" name="PaymentModeType" value="@item.TYPE" />
+                                                                <input type="hidden" name="PaymentModeCode" value="@item.ID" />
+                                                                <input name="PaymentMode" maxlength="10" type="text" onkeypress="util.keyPress(this)" onkeyup="util.keyUpPayment(this)" onblur="util.onBlur(this)" />
+                                                            </li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-xs-12">
+                                                <b><span id="spanPresent">赠送项目【收起】</span> </b>
+                                                <div id="divPresent" style="padding: 5px; width: 100%; display: block;">
+                                                    <div class="col-sm-4 input-group">
+                                                        <select id="Present_Prod" class="form-control" disabled="disabled">
+                                                            <option>请选择...</option>
+                                                        </select>赠送上限金额￥：<span id="spanPLPRICE" class="badge badge-info">0</span>
+
+                                                    </div>
+                                                    <div class="form-group col-xs-6">
+                                                        <table id="tProdItem" style="margin-top: 5px; margin-left: -10px;" class="table table-advance table-hover">
+                                                            <thead style="background-color: #f7f8fa">
+                                                                <tr>
+                                                                    <td style="width: 15%">选择</td>
+                                                                    <td style="width: 50%">项目名称</td>
+                                                                    <td style="width: 15%">单价</td>
+                                                                    <td style="width: 20%">次数</td>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <td colspan="2" style="text-align: left;">
+                                                                        <span class="badge badge-info">注：</span>如有欠款系统不赠送项目,续清赠送。
+                                                                    </td>
+                                                                    <td colspan="2" style="text-align: right;">合计￥：<span id="spanTotalPrice" class="badge badge-info">0</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tfoot>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div style="clear: both;"></div>
+                                            <div class="form-group btnpanel_right" id="divBtnSave" style="margin-top: 5px;">
+                                                <button type="button" id="btnSave" disabled="disabled" class="btn btn-primary">结账</button>
+                                                <button type="button" id="btnReturn" class="btn btn-default">返回</button>
+                                            </div>
+                                        </div>
+
+                                        <!--end-->
+
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="service">
+                                    <div id="serGridlist" style="overflow: auto; overflow-x: hidden;">
+                                        <!--height:420px;-->
+                                        <div class="form-group col-xs-6">
+                                            <div class="row">
+                                                <label class="col-sm-4 control-label" for="EMAIL">疗程套餐：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.ResourceDropDownList("LCCARD_PACK", "LCCARD_PACK", null, new { @class = "form-control" }, (string)ViewBag.STORE_ID_ORG_ID, false)
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group col-xs-6">
+                                            <div class="row">
+                                                <label class="col-sm-4 control-label" for="Masseur">(销售员)美疗师：</label>
+                                                <div class="col-sm-8 input-group">
+                                                    @Html.ResourceDropDownList("MasseurLCC", "Masseur", null, new { @class = "form-control" }, (string)ViewBag.STORE_ID, false)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="height: 400px;">
+                                            <table id="tSpeedyPro" class="table table-advance table-hover">
+                                                <thead style="background-color: #f7f8fa">
+                                                    <tr>
+                                                        <td style="width: 40%">项目名称</td>
+                                                        <td style="width: 10%">单价</td>
+                                                        <td style="width: 10%">次数</td>
+                                                        <td style="width: 15%">小计</td>
+                                                        <td style="width: 15%">操作</td>
+                                                        <td style="width: 5%"></td>
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td>
+
+                                                            @if (!string.IsNullOrEmpty(Request.QueryString["ccid"]))
+                                                            {
+                                                                <span>已付金额：￥</span><span id="spanPayedAmt"></span>
+                                                                <br />
+                                                                <span>欠款金额：￥</span><span id="spanArrearsAmt" class="badge badge-danger">0</span>
+                                                                <br />
+                                                                <span>付款金额：</span><input id="lcPayedAmt" name="lcPayedAmt" maxlength="6" onkeypress="util.keyPress(this)" onkeyup="util.keyUpXQLCPayed(this)" onblur="util.onBlur(this)" type="text" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>付款金额：</span><input id="lcPayedAmt" name="lcPayedAmt" maxlength="6" onkeypress="util.keyPress(this)" onkeyup="util.keyUpLCPayed(this)" onblur="util.onBlur(this)" type="text" />
+                                                            }
+
+                                                        </td>
+                                                        <td colspan="4" style="text-align: right;">
+                                                            <div>应付总额：￥<span id="spanTotalAmt" class="badge badge-info">0</span></div>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+
+                                            <!--支付方式Begin-->
+                                            <b>支付方式</b>
+                                            <div style="margin-left: 100px;">还需支付￥：<span id="spanLCPayed" class="badge badge-info">0</span></div>
+                                            <div id="divLCPaymentMode" style="padding: 5px; width: 100%;">
+                                                <ul class="ul" style="float: left;">
+                                                    @if (ViewBag.paymentList != null)
+                                                    {
+                                                        foreach (var item in (List<PAYMENT_MODE>)ViewBag.paymentList)
+                                                        {
+                                                        <li class="mode">
+                                                            <label>@item.NAME：</label>
+
+                                                            <input type="hidden" name="LCPaymentModeType" value="@item.TYPE" />
+                                                            <input type="hidden" name="LCPaymentModeCode" value="@item.ID" />
+                                                            <input name="LCPaymentMode" maxlength="10" type="text" onkeypress="util.keyPress(this)" onkeyup="util.keyUpLCPayment(this)" onblur="util.onBlur(this)" />
+                                                        </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                                <ul style="list-style: none; margin-left: 20px;">
+                                                    <li>会员卡支付：
+                                                        @Html.ResourceDropDownList("VIPCARD_TYPE", "VIPCARD_TYPE", "类型", new { @width = "120px" }, Model.ID.ToString(), false)
+                                                        <input id="LCVIPPaymentMode" name="LCVIPPaymentMode" maxlength="10" type="text" onkeypress="util.keyPress(this)" onkeyup="util.keyUpVipLCPayment(this)" onblur="util.onBlur(this)" />
+                                                    </li>
+                                                </ul>
+
+
+                                            </div>
+                                            <div class="form-group col-xs-8" style="display: none;">
+                                                <input type="checkbox" id="cbxIsLcdy" name="cbxIsLcdy" style="width: 15px; height: 15px;" />使用疗程抵扣
+                                            </div>
+                                            <div id="divIsLcdy" class="form-group col-xs-8" style="display: none;">
+                                                <!--抵用疗程-->
+                                                <button id="btnSelectLC" class="btn btn-green mr5">选择疗程抵扣..</button>
+                                                <label>
+                                                    疗程抵扣￥：<span id="spanDYAmt">0</span>
+                                                    @*<span id="spanDYLC" style="display:none;"><input type="checkbox" id="cbxDYLC" name="cbxDYLC" style="width:15px;height:15px;" /></span>*@
+                                                </label>
+                                                <label id="labelRetAmt" style="display: none;">&nbsp;退款：<span id="spanRetAmt">0</span></label>
+                                            </div>
+
+                                            <div class="form-group btnpanel_right" id="divBtnSave1" style="margin-top: 5px;">
+                                                <button type="button" id="btnSaveOrder" disabled="disabled" class="btn btn-primary">结账</button>
+                                                <button type="button" id="btnReturnList" class="btn btn-default">返回</button>
+                                            </div>
+                                            <!--支付方式End-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @*    <input type="hidden" name="ID" value="@Model.CARD_ID" />*@
+    <input type="hidden" id="hideCUST_ID" name="CUST_ID" value="@Model.ID" />
+    <input type="hidden" id="hidePROD_NAME" name="CARD_NAME" />
+    <input type="hidden" id="hide_Type" name="BuyType" />
+    <input type="hidden" id="hideLCCARD_PACK" name="LCCARD_NAME" />
+    <input type="hidden" id="hidePayAmt" name="TOTAL_AMT" />
+    <input type="hidden" id="hideBeginDate" name="BeginDate" />
+    <input type="hidden" id="hideEndDate" name="EndDate" />
+    <input type="hidden" id="hideCard_Id" name="PayedType" value="@Request.QueryString["ccid"]" />
+    <input type="hidden" id="hideCustCardId" name="CustCardId" /><!--卡级 CARD_ID-->
+    <input type="hidden" id="hideARREARS" />
+    <input type="hidden" id="hideCardType" name="CARD_TYPE" value="@Request.QueryString["type"]" />
+    <input type="hidden" id="hidePERIOD" name="PERIOD" /><!--有效期-->
+    <input type="hidden" id="hideLCDYAmt" value="0" name="LCDYAmt" /><!--疗程抵用-->
+    <input type="hidden" id="hideCardArrears" value="@ViewBag.isCardArrears" /><!--是否有卡欠费-->
+
+
+    <!--我的疗程-->
+    <div id="LCModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">我的疗程</h4>
+                </div>
+                <div>
+                    <div></div>
+                    <div class="modal-body">
+                        <div>
+                            <div style="height: 300px; overflow-x: auto; overflow-y: auto;">
+                                <table id="tLCPro" class="table table-advance table-hover">
+                                    <thead style="background-color: #f7f8fa">
+                                        <tr class='thead'>
+
+                                            @*<td style="width: 5%;">
+                                <div style="text-align: left;"><input type="checkbox" id="cbxLCAll" /> </div>
+                            </td>*@
+                                            <td style="width: 30%;">
+                                                <div style="text-align: left;">疗程名称</div>
+                                            </td>
+                                            <td style="width: 15%;">
+                                                <div style="text-align: left;">单价</div>
+                                            </td>
+                                            <td style="width: 15%;">
+                                                <div style="text-align: left;">剩余次数</div>
+                                            </td>
+                                            <td style="width: 15%;">
+                                                <div style="text-align: left;">抵用次数</div>
+                                            </td>
+                                            <td style="width: 20%;">
+                                                <div style="text-align: left;">抵用金额</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (ViewBag.CUST_CDETAIL != null)
+                                        {
+                                            foreach (var c in ViewBag.CUST_CDETAIL)
+                                            {
+                                            <tr class='strip'>
+                                                @* <td><input type="checkbox" name="SelectCbx" onchange="util.SelectCbx(this)" /></td>*@
+                                                <td>@c.SERVICE_NAME</td>
+                                                <td>@c.UNIT_PRICE</td>
+                                                <td>@c.AVA_QTY</td>
+                                                <td>
+                                                    <input type="text" onkeypress="util.keyPress(this)" name="txtDYCount" onkeyup="util.keyUpDYLC(this)"
+                                                        onblur="util.onBlur(this)" maxlength="3" value="0" style="width: 60px; text-align: center;" />
+                                                </td>
+                                                <td>0</td>
+                                                <td>
+                                                    <input type="hidden" name="hideLCId" value="@c.ID" />
+                                                    <input type="hidden" name="hideDYAmt" /><!--抵用金额-->
+                                                </td>
+                                            </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3>
+                        <label style="float: left; text-align: left;">抵用金额：<span id="spanDYPrice">0</span></label></h3>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+                    <button type="button" id="btnLCSave" class="btn btn-primary">保 存</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+</form>
+<div id="confirmModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="frmEdit" method="post" role="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">赠送项目<span id="spanEName"></span></h4>
+                </div>
+                <div>
+                    <div></div>
+                    <div class="modal-body">
+                        <div class="form-group col-xs-10">
+
+                            <div class="col-sm-7 input-group">
+                                @Html.ResourceDropDownList("SER_TYPE", "SER_TYPE", null, new { @class = "form-control" }, (string)ViewBag.Org_Id, false)
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            @Html.TextBox("SER_NAME", null, new { @class = "form-control", maxlength = "50", placeholder = "输入项目名称检索" })
+                        </div>
+                        <div class="form-group col-xs-4">
+                            <button type="button" id="btnSerSearch" class="btn btn-primary">检 索</button>
+                        </div>
+                        <div id="gridlist"></div>
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
+@section jssection{
+    <script type="text/javascript">
+        var util = {}; var options = {
+            QuerySerlistUrl: "@Url.Action("List", "SERVICE")",
+            QueryCardByIDUrl: "@Url.Action("getCardByID", "Order")"
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN")
+    @Html.Js("app/order/buycards")
+}
+

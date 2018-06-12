@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Execute";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+    <link rel='stylesheet' type='text/css' href='../../assets/css/tree.css' />
+    <link href="~/assets/css/select2.css" rel="stylesheet" />
+    <style type="text/css">
+         th {
+ text-align: center;
+    height:35px;
+} 
+                td {
+text-align: center;
+    height:35px;
+} 
+    </style>
+}
+<form action="SaveSMS.do" id="form1" method="post" role="form">
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-gear"></i>&nbsp;MOT详情</h2>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                    策略列表</h4>
+                <div class="options">
+                    <a class="panel-collapse" href="#"><i class="fa fa-chevron-down"></i></a>
+                     
+                </div>
+             
+            </div>
+            <div class="panel-body">
+                  <table  width="480" border="1" align="center" cellpadding="0" cellspacing="0" class="tableborder">
+                          <tr ><th  >待处理事项</th><th>客户生命周期</th><th>重要程度</th><th>策略客户数</th><th>完成数</th></tr>
+                          <tr><td  >策略1</td><td>开发阶段</td><td>非常重要</td><td><a  id="tr1">4</a></td><td>1</td></tr>
+                          <tr><td  >策略2</td><td>成长阶段</td><td>重要</td><td><a id="tr2">1</a></td><td>1</td></tr>
+                          <tr><td  >策略3</td><td>开发阶段</td><td>重要</td><td><a id="tr3">3</a></td><td>1</td></tr>
+                          <tr><td  >策略4</td><td>开发阶段</td><td>非常重要</td><td ><a id="tr4"> 3</a></td><td>1</td></tr>
+                          <tr><td  >策略5</td><td>成长阶段</td><td>非常重要</td><td><a id="tr5">2</a></td><td>1</td></tr>
+
+                        
+                        </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                    顾客列表</h4>
+                <div class="options">
+                    <a class="panel-collapse" href="#"><i class="fa fa-chevron-down"></i></a>
+                </div>
+            </div>
+            <div class="panel-body" id="custlist">
+   <div class="col-md-2 form-group">
+                    <button type="button" class="btn default" id="btnAdd">
+                        <i class="fa fa-plus"></i> 新 增</button>
+                </div>
+       <table  width="480" border="1" align="center" cellpadding="0" cellspacing="0" class="tableborder" id="table">
+                         @* <tr ><th  >待处理事项</th><th>客户生命周期</th><th>重要程度</th><th>策略客户数</th><th>完成数</th></tr>
+                          <tr><td  >策略1</td><td>开发阶段</td><td>非常重要</td><td><a  >4</a></td><td>1</td></tr>
+                          <tr><td  >策略2</td><td>成长阶段</td><td>重要</td><td><a >1</a></td><td>1</td></tr>
+                          <tr><td  >策略3</td><td>开发阶段</td><td>重要</td><td><a id="tr3">3</a></td><td>1</td></tr>
+                          <tr><td  >策略4</td><td>开发阶段</td><td>非常重要</td><td><a id="tr4">3</a></td><td>1</td></tr>
+                          <tr><td  >策略5</td><td>成长阶段</td><td>非常重要</td><td><a id="tr5">2</a></td><td>1</td></tr>*@
+
+                        
+                        </table>
+            </div>
+        </div>
+         
+    </div>
+
+
+    <div id="EditModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加顾客</h4>
+            </div>
+          
+            <div class="modal-body">
+                 <form id="frmSave" method="post" action="@Url.Action("PostSave")" role="form">
+                          
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>顾客名称:</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("PROD_SKU", "", new { @class = "form-control", placeholder = "请输入顾客名称", maxlength = "10", required = "required" })
+                                </div>
+                            </div>
+                     <br />
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>账号:</label>
+                                <div class="col-sm-6">
+                                      @Html.TextBox("PROD_NAME", "", new { @class = "form-control", placeholder = "请输入顾客账号", maxlength = "10", required = "required" })
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="help-block" style="color: red;"></p>
+                                </div>
+                            </div>
+
+                         <br />
+                         <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>电话:</label>
+                                <div class="col-sm-6">
+                                      @Html.TextBox("PROD_NAME", "", new { @class = "form-control", placeholder = "请输入顾客电话号", maxlength = "10", required = "required" })
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="help-block" style="color: red;"></p>
+                                </div>
+                            </div>
+
+                        
+                     </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+                <button type="button" id="btnConfirm" class="btn btn-primary">确 定</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+ 
+</div>
+</form>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+
+        };
+    </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog",
+    "plugins/validator/validator", "plugins/form-datepicker/js/bootstrap-datepicker",
+    "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN",
+   "app/company/jquery.tree", "app/systemset/select2", "app/systemset/SMSSettings","app/mot/group")
+}

@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.ControllerName = this.ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    var cuOrgName = MyContext.CurrentLoginUser == null ? "" : MyContext.CurrentLoginUser.ORG_NAME;
+    var cuUserName = MyContext.CurrentLoginUser == null ? "" : MyContext.CurrentLoginUser.EMPLOYEE_NAME;
+    var cuStoreName = MyContext.CurrentLoginUser == null ? "" : MyContext.CurrentLoginUser.STORE_NAME;
+    var cuROLE_NAM = MyContext.CurrentLoginUser == null ? "" : MyContext.CurrentLoginUser.USER_TYPE_STR;
+    var cuROLE_NAME = MyContext.CurrentLoginUser == null ? "" : MyContext.CurrentLoginUser.ROLE_NAME;
+    //var menu = SPACRM.WebApp.Controllers.SystemMenuController.GetMenu();
+    var storeId = MyContext.CurrentLoginUser.STORE_ID.ToString();
+    
+}
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <title>Puman - @ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Puman">
+    <meta name="author" content="Puman tech">
+    <!-- <link href="assets/less/styles.less" rel="stylesheet/less" media="all"> -->
+    <link rel="stylesheet" href="../../assets/css/styles.css?=122" />
+    <link rel="stylesheet" href="../../assets/css/app.css?=122" />
+    <link rel='stylesheet' type='text/css' href='../../assets/demo/variations/header-blue.css' media='all' id='headerswitcher' />
+    <link rel='stylesheet' type='text/css' href='../../assets/demo/variations/default.css' media='all' id='styleswitcher' />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="assets/css/ie8.css" />
+    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/charts-flot/excanvas.min.js"></script>
+    <![endif]–>
+    <!-- The following CSS are included as plugins and can be removed if unused-->
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-daterangepicker/daterangepicker-bs3.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/fullcalendar/fullcalendar.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-markdown/css/bootstrap-markdown.min.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/codeprettifier/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-toggle/toggles.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/progress-skylo/skylo.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/js/jqueryui.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/pines-notify/jquery.pnotify.default.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-xeditable/bootstrap3-editable/css/bootstrap-editable.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/codeprettifier/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-toggle/toggles.css' />
+    <link rel='stylesheet' type='text/css' href="../../assets/css/window.css" />
+
+
+
+    @RenderSection("htmlhead", false)
+    <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
+</head>
+<body >
+
+
+
+                    @RenderBody()
+
+    <input type="hidden" id="hideStoreId" value="@storeId" />
+
+     <input type="hidden" value="0" id="CallCustID" />
+    <input type="hidden" value="" id="CallCustName" />
+    <input type="hidden" value="" id="CallCustPhone" />
+
+    <!-- page-container -->
+
+    <script type='text/javascript' src='../../assets/js/jquery-1.10.2.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/jqueryui-1.10.3.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/enquire.js'></script>
+    <script type='text/javascript' src='../../assets/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='../../assets/js/jquery.nicescroll.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/highcharts.js'></script>
+    <script type='text/javascript' src='../../assets/js/exporting.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/codeprettifier/prettify.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/easypiechart/jquery.easypiechart.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/sparklines/jquery.sparklines.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/form-toggle/toggle.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/fullcalendar/fullcalendar.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/form-daterangepicker/daterangepicker.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/form-daterangepicker/moment.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/pulsate/jQuery.pulsate.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/placeholdr.js'></script>
+    <script type='text/javascript' src='../../assets/js/application.js'></script>
+    <script type='text/javascript' src='../../assets/js/common.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo.js'></script>
+    <script type='text/javascript' src='../../assets/app/home/indexhead.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/validator/validator.js'></script>
+
+    <script type='text/javascript' src='../../assets/plugins/knob/jquery.knob.min.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-slider.js'></script>
+
+    <script type='text/javascript' src='../../assets/plugins/form-xeditable/bootstrap3-editable/js/bootstrap-editable.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-xeditable.js'></script>
+
+
+
+    <script type='text/javascript' src='../../assets/plugins/pines-notify/jquery.pnotify.js'></script>
+
+
+    <script type='text/javascript' src='../../assets/plugins/knob/jquery.knob.min.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-slider.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/form-xeditable/bootstrap3-editable/js/bootstrap-editable.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-xeditable.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/pines-notify/jquery.pnotify.js'></script>
+
+    <script type='text/javascript' src="../../assets/js/qnviccub.js"></script>
+    <script type='text/javascript' src="../../assets/js/qnvfunc.js"></script>
+    @*<script src="~/assets/layer/layer.min.js"></script>*@
+
+    @RenderSection("jssection", false)
+</body>
+</html>

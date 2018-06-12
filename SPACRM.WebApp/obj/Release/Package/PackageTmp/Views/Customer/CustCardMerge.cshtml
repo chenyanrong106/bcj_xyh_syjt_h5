@@ -1,0 +1,181 @@
+﻿@{
+    ViewBag.Title = "会员卡卡级合并";
+}
+@section htmlhead{
+
+    @Html.Css("plugin/validator")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label {
+                margin-bottom: 4px;
+            }
+
+        .divHead {
+            height: 32px;
+            margin-bottom: 8px;
+            background-color: #FCF3D0;
+            border-bottom: 1px solid #F7DC6F;
+            color: #927608;
+        }
+
+        .item_block {
+            float: left;
+            width: 48%;
+            height: auto;
+            border: 1px solid #F7DC6F;
+        }
+    </style>
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-home"></i>@ViewBag.Title</h2>
+    </div>
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4></h4>
+        </div>
+        <div class="panel-body" style="min-height: 350px">
+            <div class="row">
+                <div class="form-group">
+                    <div class="item_block">
+                        <div>
+                            <div class="divHead">&nbsp;转出卡号</div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">转出卡号:</label>
+                                <div class="col-sm-8 input-group">
+                                    @Html.TextBox("CardNoOut", "", new { @class = "form-control", style = "width:260px;" })
+                                    <button class="btn-primary btn" id="btnSearchOut"><i class="fa fa-search"></i>查 询</button>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">会员姓名:</label>
+                                <div class="col-sm-8 input-group">
+                                    <input name="CUST_NAME_OUT" id="CUST_NAME_OUT" type="text" readonly="readonly" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">会员手机号:</label>
+                                <div class="col-sm-8 input-group">
+                                    <input name="CUST_Mobile_OUT" id="CUST_Mobile_OUT" type="text" readonly="readonly" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">会员卡级:</label>
+                                <div class="col-sm-8 input-group">
+                                    <select id="CardType" name="selectlink" class="form-control">
+                                        <option value="0">--请选择会员卡级--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">卡内余额:</label>
+                                <div class="col-sm-8 input-group">
+                                    <input name="BALANCE_OUT" id="BALANCE_OUT" type="text" readonly="readonly" class="form-control" />
+                                </div>
+                            </div>
+
+                            @* <div class="form-group">
+                                <label class="col-sm-3 control-label">:</label>
+                                <div class="col-sm-8 input-group">
+                                </div>
+                            </div>*@
+
+                        </div>
+                    </div>
+                    <div class="item_block" style="border-left: 0px;">
+                        <div>
+                            <div class="divHead">&nbsp;转入卡号</div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">转入卡号:</label>
+                                <div class="col-sm-8 input-group">
+                                    @Html.TextBox("CardNoIn", "", new { @class = "form-control", style = "width:261px;" })
+                                    <button class="btn-primary btn" id="btnSearchIn"><i class="fa fa-search"></i>查 询</button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">会员姓名:</label>
+                                <div class="col-sm-8 input-group">
+                                    <input name="CUST_NAME_IN" id="CUST_NAME_IN" type="text" readonly="readonly" class="form-control" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">会员手机号:</label>
+                                <div class="col-sm-8 input-group">
+                                    <input name="CUST_Mobile_IN" id="CUST_Mobile_IN" type="text" readonly="readonly" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">会员卡级:</label>
+                                <div class="col-sm-8 input-group">
+                                    <select id="CardType_IN" name="selectlink" class="form-control">
+                                        <option value="0">--请选择会员卡级--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">卡内余额:</label>
+                                <div class="col-sm-8 input-group">
+                                    <input name="BALANCE_IN" id="BALANCE_IN" type="text" readonly="readonly" class="form-control" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="form-group btnpanel_right" style="margin-top: 5px;">
+
+                    <button type="button" id="btnSave" class="btn btn-primary">合 并</button>
+                    <button type="button" id="btnReturn" class="btn btn-default">返 回</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+                <input type="hidden" id="outcid" name="outcid" />
+                <input type="hidden" id="incid" name="incid" />
+                <input type="hidden" id="CUST_ID_OUT" name="CUST_ID_OUT" />
+                <input type="hidden" id="CUST_ID_IN" name="CUST_ID_IN" />
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("List")",
+            editUrl: "@Url.Action("Edit")",
+            deleteUrl: "@Url.Action("Delete")",
+            mergeCardUrl: "@Url.Action("SaveCardMerge")",
+            getCardUrl: "@Url.Action("GetCard")"
+        };
+    </script>
+    @Html.Js("app/customer/custcardmerge")
+
+}

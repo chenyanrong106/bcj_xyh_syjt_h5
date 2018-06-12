@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "打印小票";
+    Layout = "~/Views/Shared/_LayoutD.cshtml";
+}
+@using SPACRM.Entity.Entities;
+@section htmlhead{
+    @* @page { margin: 0; }*@
+
+
+    <style type="text/css">
+        .h_title { 
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5; 
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .col-sm-8 {
+            padding: 0;
+        }
+
+        #td1 {
+            border-bottom: 1px solid black;
+        }
+        .tb_border {
+            border: 1px solid #808080;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .td_border {
+            border: 1px solid #808080;
+            text-indent: 1em;
+        }
+    </style>
+    <style media="print">
+        .Noprint {
+            display: none;
+        }
+
+        .PageNext {
+            page-break-after: always;
+        }
+    </style>
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>sss</title>
+</head>
+<body style="text-align: left" onload=" window.print();">
+    <object id="printFactory" style="display: none"
+        classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" codebase="ScriptX.cab#Version=5,0,4,185">
+    </object>
+    <div style="text-align: left">
+
+        <table border="0" width="180" id="table6">
+            @*   <tr>
+           <td align="center">
+                    <h3></h3>
+                </td>
+                  </tr>*@
+            <tr>
+                <td align="center">
+                    <h3>
+                        <br />
+                        收银日结统计表</h3>
+                </td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Garamond" size="2">门店名称:@Request.QueryString["StoreName"] </font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Garamond" size="2">开始日期:@Request.QueryString["startDate"]</font></td>
+            </tr>
+            <tr>
+                <td align="left"><font face="Garamond" size="2">结束日期:@Request.QueryString["endDate"]</font></td>
+            </tr>
+
+            @* <tr>
+                <td align="left" height="1" color="00cccc" id="td1"></td>
+            </tr>*@
+        </table>
+
+
+
+        <table width="180" id="table1" class="tb_border">
+            <tbody>
+                @if (ViewBag.dclist != null)
+                {
+                    foreach (var item in (List<DailyCheck_EX>)ViewBag.dclist)
+                    {
+                        if (item.PAY_AMT == null)
+                        {
+                    <tr style="background-color: #e6e5e5; height: 30px">
+                        <th colspan="2"><font face="Garamond" size="2">@item.PAYMENT_TYPE</font></th>
+
+                    </tr>
+                        }
+                        else
+                        {  <tr>
+                     <td style="width: 50%" class="td_border"><font face="Garamond" size="2">@item.PAYMENT_TYPE</font></td>
+                     <td class="td_border"><font face="Garamond" size="2">@item.PAY_AMT</font></td>
+                 </tr>
+                        }
+
+
+
+
+                    }
+                }
+
+
+
+            </tbody>
+        </table>
+
+
+        @*   <table border="0">
+
+        
+            <tr>
+                <td style="width: 70px;"><font face="Garamond" size="2">打印时间:</font></td>
+                <td style="text-align: left;"><font face="Garamond" size="2">@DateTime.Now.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+
+          
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+           
+      
+        </table>
+        *@
+
+
+
+
+    </div>
+</body>
+
+</html>
+
+@section jssection{
+
+    <script type="text/javascript" language="JavaScript">
+
+        var HKEY_Root, HKEY_Path, HKEY_Key;
+        HKEY_Root = "HKEY_CURRENT_USER";
+        HKEY_Path = "\\Software\\Microsoft\\Internet Explorer\\PageSetup\\";
+        //设置网页打印的页眉页脚为空
+        function PageSetup_Null() {
+            var Wsh = new ActiveXObject("WScript.Shell");
+            HKEY_Key = "header";
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "");
+            HKEY_Key = "footer";
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "");
+            HKEY_Key = "margin_left"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0.2");  //键值设定--左边边界
+
+            HKEY_Key = "margin_top"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--上边边界
+
+            HKEY_Key = "margin_right"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--右边边界
+
+            HKEY_Key = "margin_bottom"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--下边边界
+        }
+        function WindowPrint() {
+            /// 隐藏不需要打印的内容
+            try {
+                PageSetup_Null();
+            }
+            catch (e) {
+                var errorMsg = e.message + "\r" + "请设置:IE选项->安全->Internet->" + "ActiveX控件和插件" + "\r" + "对未标记为可安全执行脚本的ActiveX的控件初始化并执行脚本->允许/提示";
+                //alert(errorMsg);
+                return;
+            }
+            window.print();
+        }
+    </script>
+
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+
+        };
+    </script>
+    @*    @Html.Js("app/customer/edit")*@
+}

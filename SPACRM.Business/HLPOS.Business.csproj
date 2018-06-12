@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A3552C4-AA93-4637-945E-0366C7CC8EF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPACRM.Business</RootNamespace>
+    <AssemblyName>SPACRM.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\REFDLL\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vulcan">
+      <HintPath>..\REFDLL\Vulcan.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceImpl\AppiService.cs" />
+    <Compile Include="ServiceImpl\BookingService.cs" />
+    <Compile Include="ServiceImpl\CardService.cs" />
+    <Compile Include="ServiceImpl\CommonService.cs" />
+    <Compile Include="ServiceImpl\CompanyService.cs" />
+    <Compile Include="ServiceImpl\CustMsgHisService.cs" />
+    <Compile Include="ServiceImpl\CustomerService.cs" />
+    <Compile Include="ServiceImpl\CustomMenuService.cs" />
+    <Compile Include="ServiceImpl\EmployeeService.cs" />
+    <Compile Include="ServiceImpl\FollowService.cs" />
+    <Compile Include="ServiceImpl\GoodsService.cs" />
+    <Compile Include="ServiceImpl\LoginService.cs" />
+    <Compile Include="ServiceImpl\LogService.cs" />
+    <Compile Include="ServiceImpl\OrderMemCardService.cs" />
+    <Compile Include="ServiceImpl\OrderService.cs" />
+    <Compile Include="ServiceImpl\OrgDictService.cs" />
+    <Compile Include="ServiceImpl\PaymentModeService.cs" />
+    <Compile Include="ServiceImpl\PROD_CATEGORYService.cs" />
+    <Compile Include="ServiceImpl\PromotionService.cs" />
+    <Compile Include="ServiceImpl\ReportService.cs" />
+    <Compile Include="ServiceImpl\ResourceService.cs" />
+    <Compile Include="ServiceImpl\RoomService.cs" />
+    <Compile Include="ServiceImpl\ServiceService.cs" />
+    <Compile Include="ServiceImpl\SMSService.cs" />
+    <Compile Include="ServiceImpl\StoreService.cs" />
+    <Compile Include="ServiceImpl\SystemService.cs" />
+    <Compile Include="ServiceImpl\UserService.cs" />
+    <Compile Include="ServiceImpl\TreatmentcardService.cs" />
+    <Compile Include="ServiceImpl\RoleService.cs" />
+    <Compile Include="ServiceImpl\ScheduleService.cs" />
+    <Compile Include="WXService\WXBookingService.cs" />
+    <Compile Include="WXService\WXDictCityService.cs" />
+    <Compile Include="WXService\WXDXLogService.cs" />
+    <Compile Include="WXService\WXLogService.cs" />
+    <Compile Include="WXService\WXMessageRecordService.cs" />
+    <Compile Include="WXService\WXPersonInfoService.cs" />
+    <Compile Include="WXService\WXResourceService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SPACRM.Common\HLPOS.Common.csproj">
+      <Project>{3b727fcd-290b-4571-a96c-978763ecdc77}</Project>
+      <Name>HLPOS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPACRM.DataAccess\HLPOS.DataAccess.csproj">
+      <Project>{8b49d35a-24d3-47f2-be58-9bb2b0a2c98d}</Project>
+      <Name>HLPOS.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPACRM.Entity\HLPOS.Entity.csproj">
+      <Project>{84c5a1ab-0ff6-41f4-8bed-7939c0860b3b}</Project>
+      <Name>HLPOS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPACRM.Interface\HLPOS.Interface.csproj">
+      <Project>{957a25a3-ad39-4b99-a8ee-b725fdc0da3a}</Project>
+      <Name>HLPOS.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

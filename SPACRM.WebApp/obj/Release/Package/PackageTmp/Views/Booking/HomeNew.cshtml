@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "预约登记";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@model SPACRM.Entity.Entities.CUST_BOOKING_HOME_EX
+@section htmlhead{
+    @Html.Css("plugin/validator")
+    <link href="~/assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .col-sm-8 {
+            padding: 0;
+        }
+
+        #CUST_MOBILE, #CUST_NAME {
+            height: 23px;
+            width: 400px;
+        }
+
+        label {
+            vertical-align: text-bottom;
+        }
+    </style>
+}
+<div style="margin: -2px 15px;">
+    <div id="h_title" class="h_title">预约登记</div>
+    <div>
+        <form id="frmEdit" action="@Url.Action("NewHomeSave")" method="post" role="form" >
+            <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="ORG_NAME">顾客电话</label>
+                    <div class="col-xs-9">
+                        @Html.TextBox("CUST_MOBILE", Model.CUST_MOBILE, new { @class = "form-control", placeholder = "请输入顾客电话", maxlength = "16" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="ORG_NAME">顾客姓名</label>
+                    <div class="col-xs-9">
+                        @Html.TextBox("CUST_NAME", Model.CUST_NAME, new { @class = "form-control", placeholder = "请输入顾客姓名", maxlength = "32" })
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="ORG_NAME">项目类别</label>
+                    <div class="col-xs-9">
+                        @Html.ResourceDropDownList("SER_TYPE", "SER_TYPE", Model.SERVICE_TYPE, new { @class = "form-control" }, (string)ViewBag.Org_Id, false)
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="SERVICE_NAME">服务项目</label>
+                    <div class="col-xs-9">
+                        <input type="hidden" class="populate" name="SERVICE_NAME" id="SERVICE_PRODUCT" style="width:100%" value="@Model.SERVICE_NAME" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="SERVICE_NAME">日期</label>
+                    <div class="col-xs-9">
+                        @Html.TextBox("CREATE_DATE", @Request.QueryString["date"] == null ? Model.BEGIN_DATE.ToString("yyyy-MM-dd") : @Request.QueryString["date"], new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="BRAND">时  间</label>
+                    <div class="col-xs-9">
+                        <div class="input-group date">
+                            @Html.TextBox("BEGINTIME", Request.QueryString["starthm"] == null ? Model.BEGIN_DATE.ToString() : Request.QueryString["starthm"], new { @class = "form-control col-xs-4" })
+                            <span class="input-group-addon">到</span>
+                            @Html.TextBox("ENDTIME", Request.QueryString["endhm"] == null ? Model.END_DATE.ToString() : Request.QueryString["endhm"], new { @class = "form-control col-xs-4" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="MANAGER"></label>
+                    <div class="col-xs-9">
+                        <label class="col-xs-3">
+                            @Html.CheckBox("IS_STAFF", Model.IS_STAFF)
+                            指定技师
+                        </label>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="divStaff" class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="MANAGER">技  师</label>
+                    <div class="col-xs-9">
+                        @Html.ResourceDropDownList("STAFF_ID", "Masseur", Request.QueryString["mid"], new { @class = "form-control" }, (string)ViewBag.Store_ID, false)
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="BED">地址</label>
+                    <div class="col-xs-9">
+                         @Html.TextBox("HOME_ADDRESS", Model.HOME_ADDRESS, new { @class = "form-control", placeholder = "请输入地址" })
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="BED">预约人数</label>
+                    <div class="col-xs-9">
+                        @Html.TextBox("BOOKING_NUM", Model.BOOKING_NUM==null?1:Model.BOOKING_NUM, new { @class = "form-control",type="number", placeholder = "请输入预约人数", maxlength = "32" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-xs-2 control-label" for="BED">备  注</label>
+                    <div class="col-xs-9">
+                        @Html.TextArea("REMARK", Model.REMARK, new { @class = "form-control", placeholder = "请输入备注信息", maxlength = "120" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="btnpanel_right">
+                <button type="reset" id="btnCancel" class="btn btn-default">取 消  </button>
+                <button type="button" id="btnSave" class="btn btn-primary">保 存  </button>
+            </div>
+
+            <input type="hidden" id="CUST_ID" name="CUST_ID" />
+            <input type="hidden" name="STORE_ID" id="STORE_ID" value="@ViewBag.Store_ID" />
+            <input type="hidden" name="STORE_NAME" id="STORE_NAME" value="@ViewBag.Store_Name" />
+            <input type="hidden" id="hideSERVICE_TYPE" name="SERVICE_TYPE" />
+        </form>
+
+
+
+    </div>
+</div>
+<link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' />
+
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            queryMemberUrl: "@Url.Action("QueryCustomers", "Customer")",
+            querySerItemUrl: "@Url.Action("ServiceItem", "Service")",
+            querySerCateItemUrl: "@Url.Action("ServiceCatrgoryItem", "Service")",
+            checkMobile: "@Url.Action("CheckMobile")",
+            validStaffConfict: "@Url.Action("ValidStaffConfict")"
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/booking/homenew")
+    @Html.Js("plugins/form-select2/select2")
+}
+
+
+

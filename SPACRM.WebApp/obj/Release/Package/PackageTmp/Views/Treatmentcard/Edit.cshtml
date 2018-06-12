@@ -1,0 +1,295 @@
+﻿@{
+    ViewBag.Title = "编辑疗程卡信息";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+
+@model SPACRM.Entity.Entities.CARD_TREAT_SERVICE_EX
+
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+ <link rel='stylesheet' type='text/css' href='../../assets/css/tree.css' />
+<style type="text/css">
+    .btnpanel {
+        text-align: center;
+    }
+</style>
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/codeprettifier/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-toggle/toggles.css' />
+}
+<div style="margin: -2px 15px;background-color:#fff;">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-tags"></i>&nbsp;疗程卡信息维护</h2>
+    </div>
+    <div >
+     @*   <div class="panel-heading">
+            <h4></h4>
+        </div>*@
+
+         <div class="tab-container">
+            <ul class="nav nav-tabs" id="nav-tabs">
+                <li class="active" id="foundli"><a href="#BASE_INFO" data-toggle="tab">基础信息</a></li>           
+                <li id="storeli"><a href="#STORE" id="tab_store" data-toggle="tab">适用的门店</a></li>
+            </ul>
+             <div class="tab-content">
+                <div class="tab-pane active" id="BASE_INFO" style="overflow:hidden;zoom:1">
+      
+            <form class="form-horizontal" id="frmSave" action="@Url.Action("Save")" method="post" role="form">
+                  @Html.Hidden("ID", Model.ID)
+                   @Html.Hidden("flag", 0)
+                  @Html.Hidden("PROD_INFO", Model.PROD_INFO)
+                    @Html.Hidden("cuAllProInfos", "")
+             @*   <div class="form-group">
+                  
+                  
+                </div>*@
+                <div class="form-group">
+                    <label for="NAME" class="col-sm-2 control-label"><abbr>*</abbr>名称：</label>
+                    <div class="col-sm-4">
+                        @Html.TextBox("NAME", Model.NAME, new { @class = "form-control", placeholder = "请输入疗程名称" })
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="help-block" style="color: red;"></p>
+                    </div>
+
+                    <label for="PERIOD" class="col-sm-2 control-label"><abbr>*</abbr>有效期(月)：</label>
+                    <div class="col-sm-4">
+                        @Html.TextBox("PERIOD", Model.PERIOD, new { @class = "form-control", placeholder = "持续月数，单位为月" })
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+                <div class="form-group">
+                     <label class="col-sm-2 control-label" for="PAR_AMT"><abbr></abbr>原价：</label>
+                    <div class="col-sm-4">
+                        @Html.TextBox("PAR_AMT", Model.PAR_AMT, new { @class = "form-control", @readonly = "true" })
+                    </div>
+                    <label class="col-sm-2 control-label" for="PRICE"><abbr></abbr>售价：</label>
+                    <div class="col-sm-4">
+                        @Html.TextBox("PRICE", Model.PRICE, new { @class = "form-control", @readonly = "true" })
+                    </div>
+                </div>
+                @*<div class="form-group">
+                   
+
+
+
+                </div>
+                <div class="form-group">
+                    
+                </div>*@
+
+                @*  <div class="form-group">
+                                <label for="BEGIN_DATE" class="col-sm-2 control-label"><span style="color: red">*</span>销售开始日期</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date" id="BEGIN_DATE_picker">
+                                        @Html.TextBox("BEGIN_DATE", "", new { @class = "form-control" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <p class="help-block" style="color: red;"></p>
+                                </div>
+                            </div>
+                          <div class="form-group">
+                                <label for="END_DATE" class="col-sm-2 control-label"><span style="color: red">*</span>销售结束日期</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date" id="END_DATE_picker">
+                                        @Html.TextBox("END_DATE", "", new { @class = "form-control" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <p class="help-block" style="color: red;"></p>
+                                </div>
+                            </div>*@
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="REMARK">说明：</label>
+                        <div class="col-sm-4">
+                            @Html.TextArea("REMARK", Model.REMARK, new { @class = "form-control", rows = "3" })
+                        </div>
+                </div>
+               @* <div class="form-group" id="p1">
+                    <label class="col-sm-2 control-label">选择产品类型：</label>
+                    <div class="col-sm-4">
+                        @Html.ResourceDropDownList("PROMISSION_PRO_TYPE", "PROMISSION_PRO_TYPE2", "", new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-primary" id="btnAddPros">添加</button>
+                    </div>
+                    <div class="col-sm-5">
+                    </div>
+                </div>*@
+                <div class="form-group" id="p2">
+                    <label class="col-sm-2 control-label">项目大类：</label>
+                    <div class="col-sm-4" id="pro_type_div">
+                        @Html.ResourceDropDownList("TYPE", "SER_TYPE_EX", "", new { @class = "form-control" }, orgId, true)
+                       @* <input type="text" id="TYPE" name="TYPE" class="form-control" />*@
+                                @Html.Hidden("PARENT_ID")
+                                @Html.Hidden("ORG_ID")
+                                @Html.Hidden("PROD_TYPE")
+                            <div  id="confirmModal" class="modal-content" style="display:none;height: 180px;overflow:auto;border:1px solid #808080;float:left;position:absolute;z-index:5555;">@*background-color:#ededed*@
+                                
+                                <div id="ptree">
+                                </div>          
+                            </div>
+                        @*@Html.ResourceDropDownList("TYPE", "SER_TYPE", "", new { @class = "form-control" },orgId,false)*@
+                    </div>
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-5">
+                    </div>
+                </div>
+                 <div class="form-group" id="p2">
+                    <label class="col-sm-2 control-label">项目小类：</label>
+                    <div class="col-sm-4" id="pro_type2_div">
+                        <select class="form-control" id="TYPE2" name="TYPE2"  onchange="util.TYPE2ONCHANGE()">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-5">
+                    </div>
+                </div>
+                <div class="form-group" id="p3">
+                    <label class="col-sm-2 control-label">项目名称：</label>
+                    <div class="col-sm-4" id="pro_items_div">
+                        <select class="form-control" id="PRO_ITEMS" name="PRO_ITEMS">
+                        </select>
+                        @*@Html.ResourceDropDownList("PRO_TYPE", "PRO_TYPE", "", new { @class = "form-control" })*@
+                    </div>
+                       <input type="text" class = "col-sm-2" style="height:33px;width:80px" placeholder = "数量" id="COUNT" name="COUNT" 
+                           onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"  
+                                    onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}" />
+                             @*&nbsp;&nbsp; *@  <button type="button" class="btn btn-primary"  id="btnAddOnePro">添加</button>   
+                       
+                       @*  <div class="col-sm-1">*@
+                </div>
+                  @*<div class="form-group" id="p5">
+                    <label class="col-sm-2 control-label"></label>
+                 
+                        <div class="col-sm-2" >
+                   @Html.ResourceDropDownList("SelectOrNot", "SelectOrNot", "", new { @class = "form-control",style="width:170px"})
+                                             
+                             </div>
+                        <div class="col-sm-4">
+                        @Html.TextBox("COUNT","", new { @class = "col-sm-2",style="height:33px;",placeholder = "数量" })
+                            <div id="show">
+                         
+                    </div>
+                    </div>
+                 
+                  
+                </div>*@
+                <div class="form-group" id="p4">
+                    <label class="col-sm-2 control-label"></label>
+                    <div  class="col-md-12" >@*class="col-sm-7"*@
+                        <div id="gridlist" class="xjgrid">
+                            <div class='grid-body'>
+                                <div class='grid-body-inner'>
+                                    <table id="tableProds" style="width: 100%">
+                                        <thead>
+                                            <tr class='thead'>
+                                                 <td style="width: 8%;">
+                                                    <div style="text-align: left;">@*<input type='checkbox' name='Isselect'> &nbsp;&nbsp; *@ 必选</div>
+                                                </td>
+                                                <td style="width: 5%;">
+                                                    <div style="text-align: left;">类型</div>
+                                                </td>
+                                                <td style="width: 20%;">
+                                                    <div style="text-align: left;">产品名称</div>
+                                                </td>
+                                                  <td style="width: 10%;">
+                                                    <div style="text-align: left;">标准价</div>
+                                                </td>
+                                                   <td style="width: 10%;">
+                                                    <div style="text-align: left;">数量</div>
+                                                </td>
+                                                   <td style="width: 15%;">
+                                                    <div style="text-align: left;">折扣</div>
+                                                </td>
+                                                 <td style="width: 10%;">
+                                                    <div style="text-align: left;">单价</div>
+                                                </td>
+                                                <td style="width: 10%;">
+                                                    <div style="text-align: left;">金额</div>
+                                                </td>
+                                                <td style="width: 10%;">
+                                                    <div style="text-align: left;">操作</div>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnCloseFrm" class="btn btn-default" data-dismiss="modal">取 消</button>
+                    <button type="button" id="btnSaveFrm" class="btn btn-primary">保 存</button>
+                </div>
+            </form>
+    
+         </div>
+
+              <div class="tab-pane" id="STORE" style="margin:5px 0;">
+                    <div class="filter_panel">
+                     @*   <form id="store_frm_q" class="form-inline" role="form" onsubmit="return false;">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="exampleInputEmail2">产品名称:</label>
+                                <input type="text" class="form-control" id="P_QTEXT" placeholder="按产品名称筛选">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="exampleInputPassword2">
+                                    类别:
+                                </label>                                
+                                @Html.ResourceDropDownList("P_Category", "PROD_CATEGORY", "", new { @class = "form-control", style = "width:160px;" }, parentCode, true)
+                            </div>
+                            <button type="button" id="P_Filter" class="btn btn-default">筛 选</button>
+                        </form>*@
+                    </div>
+                    <div id="STORE_INFO" style="margin:5px 0;">
+
+                    </div>
+                    <div class="btnpanel">
+                        <button type="button" id="btnStoreSave" style="width:100px;" class="btn btn-primary">  保 存  </button>
+                    </div>
+                </div>
+
+
+
+              
+       </div>
+      </div>
+    </div>
+</div>
+<!-- /.modal -->
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            indexUrl: "@Url.Action("Index")",
+            proLisUrl: "@Url.Action("GetRPPByPrId", "Promotion")",
+            Sto_QueryUrl: "@Url.Action("ListStore")",
+            proItemsUrl: "@Url.Action("GetProds", "Promotion")",
+            proTypeUrl: "@Url.Action("GetProdTypes", "Promotion")",
+            Sto_SaveUrl: "@Url.Action("SaveStore")",
+            proSerURL: "@Url.Action("GetServiceByCId")",
+            proSerURL2: "@Url.Action("GetServiceByPId")",
+            addProUrl: "@Url.Action("AddProd")",
+            queryLeftUrl: "@Url.Action("QueryServiceLeft", "ProdCategory")",
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "js/common", "app/company/jquery.tree", "app/treatmentcard/edit")
+    <script type='text/javascript' src='../../assets/plugins/form-inputmask/jquery.inputmask.bundle.min.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-mask.js'></script>
+
+}

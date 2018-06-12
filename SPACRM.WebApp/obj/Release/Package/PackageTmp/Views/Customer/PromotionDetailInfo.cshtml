@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "PromotionDetailInfo";
+}
+
+
+@model SPACRM.Entity.Entities.PROMOTION_VOUCHER_EX
+@using SPACRM.Entity
+@section htmlhead{
+    @Html.Css("plugin/validator", "plugins/form-select2/select2")
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label {
+                margin-bottom: 4px;
+            }
+
+        .panel-body {
+            /*height:450px;*/
+        }
+    </style>
+
+    <style>
+        #tCustInfo {
+            border: 0px solid #e6e5e5;
+            margin-top: 0px;
+            line-height: 30px;
+        }
+
+        #divPaymentMode ul {
+            list-style: none;
+        }
+
+            #divPaymentMode ul li {
+                float: left;
+                width: 280px;
+            }
+
+                #divPaymentMode ul li label {
+                    width: 100px;
+                    text-align: right;
+                }
+
+        #spanPresent {
+            cursor: pointer;
+        }
+    </style>
+    <link rel='stylesheet' type='text/css' href='../../assets/css/tree.css' />
+}
+
+
+@*<form action="@Url.Action("ChangeCardLevelSave")" id="frmSave" method="post">*@
+    <div class="s_container">
+        <div id="page-heading">
+            <h2>
+                <i class="fa fa-group"></i>赠卷详细信息</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4>详细信息</h4>
+                    </div>
+                    <div style="background-color: white;">
+                        <div id="tab-content" class="tab-content">
+                            <div class="tab-pane active" id="spro">
+
+                                <div id="serGridlist" style="overflow: auto; overflow-x: hidden;">
+                                    <div class="list-group">
+                                        <!--begin-->
+                                        <div style="height: 450px;">
+                                            @*  <div class="form-group col-xs-12">&nbsp;</div>*@
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-2 control-label" for="CARD_ID">发放门店:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.ResourceDropDownList("NEW_CARD_ID", "VIPCARD", null, new { @class = "form-control" }, (string)ViewBag.STORE_ID, false)
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-2 control-label" for="BUY_AMT">赠券编号:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextBox("VOUCHER_NO", Model.VOUCHER_NO, new { @class = "form-control", maxlength = "10" })
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-2 control-label" for="BUY_AMT">面值:</label>
+                                                <div class="col-sm-6 input-group">
+
+                                                    @Html.TextBox("FACE_VALUE", Model.FACE_VALUE, new { @class = "form-control", maxlength = "10", @readonly = "readonly" })
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-2 control-label" for="YH_AMT">状态:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextBox("STATUS_NAME", Model.STATUS_NAME, new { @class = "form-control", maxlength = "6", @readonly = "readonly" })
+
+                                                    @* <input type="checkbox" name="IsOfUse" id="IsOfUse" value="1" onclick="util.click(this)" /><span>是否用余额</span><input type="text" style="width: 50px;" size="15" name="OfUseAmt" id="OfUseAmt" onchange="util.onChangeAmt(this)" /><span>抵扣</span>*@
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-2 control-label" for="BUY_AMT">失效日期:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextBox("INVALID_DATE", Model.INVALID_DATE, new { @class = "form-control", @readonly = "true" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-2 control-label" for="BUY_AMT">可使用门店:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextBox("Need_PAY_AMT", 0, new { @class = "form-control", @readonly = "true" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-6" id="isQuitAmt" hidden="hidden">@*当"还需支付金额"为负数时 此处才可见*@
+                                                <label class="col-sm-2 control-label" for="YH_AMT">使用门店:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextBox("USED_STORE_ID", Model.USED_STORE_ID, new { @class = "form-control", @readonly = "true" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-6" id="isQuitAmt" hidden="hidden">@*当"还需支付金额"为负数时 此处才可见*@
+                                                <label class="col-sm-2 control-label" for="YH_AMT">使用日期:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextBox("USED_TIME", Model.USED_TIME, new { @class = "form-control", @readonly = "true" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label class="col-sm-2 control-label" for="REMARK">备注信息:</label>
+                                                <div class="col-sm-6 input-group">
+                                                    @Html.TextArea("REMARK", Model.REMARK, new { @class = "form-control", placeholder = "备注信息", style = "resize:none" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+@*</form>*@
+
+
+<link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' />
+@section jssection{
+
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid",
+ "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker",
+ "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN",
+ "js/common", "app/customer/promotiondetailinfo")
+
+    @Html.Js("plugins/form-typeahead/typeahead.min", "plugins/form-select2/select2")
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN")
+
+
+}

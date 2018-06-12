@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "计次疗程补录";
+}
+@model SPACRM.Entity.CUST_INFO
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/validator")
+}
+<style type="text/css">
+    .h_title {
+        padding: 5px 15px;
+        border-bottom: solid 1px #e6e5e5;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .btnpanel_right {
+        float: right;
+    }
+
+    .btnpanel {
+        text-align: center;
+    }
+
+    .col-sm-8 {
+        padding: 0;
+    }
+
+    .filter_panel {
+    }
+</style>
+<div style="margin: 10px 15px; background-color: #fff;">
+     <div id="page-heading">
+        <h2>
+            <i class="fa fa-home"></i>计次疗程补录</h2>
+    </div>
+
+    <div id="mainbody" class=" panel-primary">
+        <div style="padding: 10px 15px;">
+    <div class="panel-heading">
+            <h4></h4>
+        </div>
+            <br />
+            <form id="formSave" action="@Url.Action("SaveLCCard", new { id = Model.ID })" method="post" role="form"  class="form-horizontal">
+
+
+
+                <div class="form-group">
+                    <label for="NAME" class="col-sm-2 control-label">
+                        姓 名：</label>
+                    <div class="col-sm-6">
+                        @Html.TextBox("NAME", Model.NAME, new { @class = "form-control", @readonly="readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="NAME" class="col-sm-2 control-label">
+                        手机号：</label>
+                    <div class="col-sm-6">
+                        @Html.TextBox("NAME", Model.MOBILE, new { @class = "form-control", @readonly="readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="NAME" class="col-sm-2 control-label">
+                        工 号：</label>
+                    <div class="col-sm-6">
+                        @Html.TextBox("NAME", Model.CUST_NO, new { @class = "form-control", @readonly="readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="NAME" class="col-sm-2 control-label">
+                        卡 号：</label>
+                    <div class="col-sm-6">
+                        @Html.TextBox("NAME", Model.CARD_NO, new { @class = "form-control", @readonly="readonly" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">疗程套餐：</label>
+                    <div class="col-sm-6">
+                        @Html.ResourceDropDownList("CARD_ID", "LCCARD_PACK", null, new { @class = "form-control" }, (string)ViewBag.STORE_ID_ORG_ID, false)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div style="" class="xjgrid">
+                            <div class="grid-body">
+                                <table id="tSpeedyPro" class="table table-advance table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td style="width: 40%;height:30px;"><div style="text-align: left;">项目名称</div></td>
+                                            <td style="width: 10%"><div style="text-align: left;">单 价</div></td>
+                                            <td style="width: 10%"><div style="text-align: left;">购买数量</div></td>
+                                            <td style="width: 10%"><div style="text-align: left;">已使用数量</div></td>
+                                            <td style="width: 10%"><div style="text-align: left;">剩余数量</div></td>
+                                            <td style="width: 10%"><div style="text-align: left;">赠送数量</div></td>
+                                            <td style="width: 10%"><div style="text-align: left;">小 计</div></td>
+                                            <td style="width: 15%"><div style="text-align: left;">操 作</div></td>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                @Html.Hidden("ID", Model.ID)
+
+            </form>
+            <div class="modal-footer" style="border:none;">
+                            <button type="button" id="btnSave" class="btn btn-primary">保存</button>&nbsp;&nbsp;&nbsp;
+                                <button type="button" id="btnReturn" class="btn btn-default">返回</button>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            view360Url: "@Url.Action("View360", new { cid = Model.ID })"
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "app/customer/BuLCCard")
+
+}

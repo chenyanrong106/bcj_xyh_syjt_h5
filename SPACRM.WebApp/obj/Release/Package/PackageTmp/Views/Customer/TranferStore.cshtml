@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "会员转店";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@section htmlhead{
+    @Html.Css("plugin/validator")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .col-sm-8
+        {
+            padding:0;
+        }
+    </style>
+
+}
+
+<div style="margin:-2px 15px;">
+    <div id="h_title" class="h_title">会员转店</div>
+    <div>
+        <form id="frmFaCardSave" action="@Url.Action("TranferStoreSave")" method="post" role="form" name="myform">
+              <div class="form-group">
+                                <div class="row">
+                                    <label class="col-xs-3 control-label" for="ORG_NAME">顾客姓名：</label>
+                                    <div class="col-xs-7">
+                                      <span id="spanCUST_NAME">@Request.QueryString["name"]</span>
+                                        <input type="hidden" id="CUST_ID" name="ID" value="@Request.QueryString["cid"]" />
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="form-group" >
+                                <div class="row">
+                                    <label class="col-xs-3 control-label" for="ORG_NAME" >手机号码：</label>
+                                    <div class="col-xs-7">
+                                  <span id="spanPHONE">@Request.QueryString["phone"]</span>
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group" >
+                                <div class="row">
+                                    <label class="col-xs-3 control-label" for="ORG_NAME" >转出门店：</label>
+                                    <div class="col-xs-7">
+                                  <span id="spanStore">@Request.QueryString["store"]</span>
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="col-xs-3 control-label" for="BRAND">转入门店：</label>
+                                    <div class="col-xs-7">
+                             @Html.ResourceDropDownList("STORE_Id", "ORG_STORE", null, new { @class = "form-control",style="width:150px" },orgId,false)
+                                         
+                                    </div>
+                                </div>
+                            </div>
+                         
+                        
+            <div class="btnpanel_right">
+                <button type="reset" id="btnCancel" class="btn btn-default" >  取 消  </button>
+                <button type="button" id="btnSave" class="btn btn-primary">  保 存  </button>
+            </div>
+
+        </form>
+
+
+
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+
+        };
+    </script>
+    @Html.Js("plugins/validator/validator", "app/customer/tranferstore")
+}

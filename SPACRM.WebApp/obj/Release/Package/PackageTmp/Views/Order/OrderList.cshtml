@@ -1,0 +1,387 @@
+﻿@{
+    ViewBag.Title = "订单列表";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+    var store = ViewData["store"] == null ? "0" : ViewData["store"].ToString();
+    var regionid = ViewData["region_id"] == null ? "0" : ViewData["region_id"].ToString();
+}
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog")
+    <link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' />
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label {
+                margin-bottom: 4px;
+            }
+
+        .form-control[readonly] {
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .progress {
+            z-index: 2000;
+        }
+
+        .mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        #EMP_NAME {
+            height: 25px;
+        }
+
+        .artw_mask {
+            background-color: #000;
+            position: fixed;
+            overflow: auto;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            display: none;
+            z-index: 2;
+        }
+
+        .artw_boxcontain {
+            margin: 0 auto;
+            position: fixed;
+            overflow: auto;
+            z-index: 999;
+            line-height: 28px;
+            display: none;
+        }
+
+        .artw_showbox {
+            padding: 10px;
+            background: #FFF;
+            border-radius: 5px;
+            margin: 20px;
+            min-width: 300px;
+            min-height: 200px;
+        }
+
+        .artw_title {
+            position: relative;
+            height: 27px;
+            border-bottom: 1px solid #999;
+        }
+
+        .artw_close {
+            position: absolute;
+            cursor: pointer;
+            outline: none;
+            top: 0;
+            right: 0;
+            z-index: 4;
+            width: 42px;
+            height: 42px;
+            overflow: hidden;
+            background-image: url(../../assets/js/Index_files/feedback-close.png);
+            _background: none;
+        }
+
+        .artw_message {
+            padding: 10px 0px;
+            overflow: hidden;
+            line-height: 19px;
+        }
+
+        a.closeBtn {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 30px;
+            display: block;
+            border-left: 1px solid #85B6E2;
+            border-bottom: 1px solid #85B6E2;
+            padding: 4px 0;
+            text-align: center;
+            color: #333;
+        }
+
+            a.closeBtn:hover {
+                color: #fff;
+                border: 1px solid #85B6E2;
+                background: #85B6E2;
+            }
+
+        .windo {
+            position: absolute;
+            /*top:555px;
+            left:200px;*/
+            font-size: 9pt;
+            display: block;
+            min-height: 250px;
+            max-height: 400px;
+            width: 400px;
+            background-color: transparent;
+            display: none;
+            height: 290px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px 0px 3px 3px;
+            -webkit-box-shadow: 0 0 3px #555;
+            -moz-box-shadow: 0 0 3px #555;
+            box-shadow: 0 0 3px #555;
+        }
+
+        s {
+            position: absolute;
+            top: -20px;
+            left: 190px;
+            display: block;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            line-height: 0;
+            border-color: transparent transparent #85B6E2 transparent;
+            border-style: dashed dashed solid dashed;
+            border-width: 10px;
+        }
+
+        .lil {
+            position: absolute;
+            top: -9px;
+            *top: -9px;
+            left: -10px;
+            display: block;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            line-height: 0;
+            border-color: transparent transparent #FFFFFF transparent;
+            border-style: dashed dashed solid dashed;
+            border-width: 10px;
+        }
+
+        .windo .content {
+            border: 1px solid #85B6E2;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            position: absolute;
+            background-color: #FFF;
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            *top: -2px;
+            *border-top: 1px solid #fff;
+            *border-top: 1px solid #fff;
+            *border-left: none;
+            *border-right: none;
+            *height: 102px;
+        }
+
+        .td-right {
+            text-align: left;
+            width: 7%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .td-left {
+            text-align: left;
+            width: 13%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .Query-td-right {
+            text-align: left;
+            width: 7%;
+            padding: 2px 5px 2px 5px;
+        }
+
+        .Query-td-left {
+            text-align: left;
+            width: 23%;
+            padding: 2px 5px 2px 5px;
+        }
+
+
+        #searchresult {
+            width: 130px;
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+            left: 130px;
+            top: 71px;
+            background: #ffffff;
+            border-top: none;
+        }
+
+        .line {
+            font-size: 12px;
+            background: #ffffff;
+            width: 130px;
+            padding: 2px;
+        }
+
+        .hover {
+            background: #007ab8;
+            width: 130px;
+            color: #fff;
+        }
+
+        .std {
+            width: 150px;
+        }
+    </style>
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-shopping-cart"></i>订单管理</h2>
+    </div>
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>订单列表</h4>
+        </div>
+        <div class="panel-body" style="min-height: 350px">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <button type="button" class="btn default" id="btnAdd">
+                            <i class="fa fa-plus"></i>新 增</button>
+                        <button type="button" class="btn default" id="btnCombine">
+                            <i class="fa fa-plus"></i>合 并</button>
+                    </div>
+                </div>
+                <form class="form-inline" id="formQuery" role="form">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="input-group date" id="birthday_picker">
+                                @Html.TextBox("ORDER_START_DATE", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control", style = "width:150px;" })
+                                <span class="input-group-addon">to</span>
+                                @Html.TextBox("ORDER_END_DATE", DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"), new { @class = "form-control", style = "width:150px;" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right col-md-7">
+                        <div class="form-group">
+                            @Html.ResourceDropDownList("ORDER_STATUS", "ORDER_STATUS", "0", new { @class = "form-control", @placeholder = "所有订单", style = "width:120px;" })
+                        </div>
+                        <div class="form-group">
+                            @Html.ResourceDropDownList("STORE_ID", "LoginStore", "门店名称", new { @class = "form-control" }, orgId, regionid, store, false)
+                            <input type="text" maxlength="16" class="form-control" placeholder="输入订单号查询..." id="ORDER_NO"
+                                name="ORDER_NO" style="width: 150px;" />
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <button id="btnSearch" class="btn-primary btn">
+                                    <i class="fa fa-search"></i>查 询</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="table-responsive" id="gridlist">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="confirmModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;</button>
+                        <h4 class="modal-title">确认！</h4>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            你确认要删除订单 [ <span id="lbuserName"></span>] 吗？
+                        </p>
+                        <input id="hdCurrentId" type="hidden" value="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            取 消</button>
+                        <button type="button" id="btnConfirm" class="btn btn-primary">
+                            确 定</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <form id="SearchProdInfo2" method="post" role="form">
+            <div id="QueryProdInfo_mask2" class="artw_mask">
+            </div>
+            <div id="QueryProdInfo_boxcontain2" class="artw_boxcontain" style="width: 390px; height: 300px;">
+                <a id="QueryProdInfo_close2" href="javascript:void(0);" title="Close" class="artw_close"></a>
+                <div id="QueryProdInfo_showbox2" class="artw_showbox">
+                    <div id="QueryProdInfo_title2" class="artw_title">
+                        <h5>修改会员</h5>
+                    </div>
+                    <div id="QueryProdInfo_message2" class="artw_message" style="width: 330px; height: 200px;">
+                        <div>
+                            <table style="width: 100%; line-height: 45px;" id="Cust_Card_List">
+                                <tr>
+                                    <td>选择会员：
+                                    </td>
+                                    <td style="text-align: left;">
+                                        <input type="hidden" id="CUST_NAME" style="width: 200px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" id="NewCust" style="text-align: center;">&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="hidden" id="CustID" value="0" /><input type="hidden" id="OrderID" value="0" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;" colspan="2">
+                                        <button type="button" id="btnSaveCust" class="btn btn-primary">
+                                            保存</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- /.modal -->
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("List")",
+            editUrl: "@Url.Action("Edit")",
+            deleteUrl: "@Url.Action("Delete")",
+            queryCustomerUrl: "@Url.Action("QueryCustomer", "Customer", new { type = "name" })",
+            beginTime: "@(" " + ViewData["Begin_End_Time"].ToString().Split(',')[0])",
+            endTime: "@(" " + ViewData["Begin_End_Time"].ToString().Split(',')[1])"
+        };
+    </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/order/orderlist", "plugins/form-select2/select2")
+}

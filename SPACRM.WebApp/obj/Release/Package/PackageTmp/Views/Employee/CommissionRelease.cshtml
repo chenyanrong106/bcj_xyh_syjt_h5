@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "佣金发布";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+}
+
+@model SPACRM.Entity.Entities.EMPLOYEE_COMMISSION_EX
+@section htmlhead{
+    @Html.Css("plugin/validator")
+  @Html.Css("plugin/validator", "plugin/xjgrid")
+    <style type="text/css">
+        .h_title
+        {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+          .btnpanel {
+            text-align: center;
+        }
+    </style>
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-user"></i>&nbsp;佣金发布/取消</h2>
+    </div>
+    <div >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                    <ul class="nav nav-tabs">
+                        <li class="active" id="foundli"><a href="#BASE_INFO" id="tab_info" data-toggle="tab">未发布</a></li>
+                        <li id="storeli"><a href="#STORE" id="tab_store" data-toggle="tab">已发布</a></li>
+                    </ul>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="BASE_INFO" style="overflow: hidden; zoom: 1">
+                        <div class="row">
+                            <form class="form-horizontal" id="frmVALID" method="post" role="form">
+                              @*  @Html.Hidden("SID", Model.ID)*@
+                                <div class="col-md-12">
+                                  @*  <div id="gridlist">
+                                    </div>*@
+                                </div>
+                            </form>
+                        </div>
+                    <div id="VALID" style="margin:5px 0;">
+                      
+                    </div>
+                        <div class="btnpanel">
+                      
+                            <button type="button" id="btnVALIDSave" style="width:100px;" class="btn btn-primary">发布</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="STORE">
+                        <div class="row">
+                            <form class="form-horizontal" id="frmUNVALID" method="post" role="form">
+                           
+                                <input type="hidden" id="un" name="un"/>
+                                <div class="col-md-12">
+                                   @* <div id="gridlist">
+                                    </div>*@
+                                </div>
+                            </form>
+                        </div>
+                    <div id="UNVALID" style="margin:5px 0;">
+                      
+                    </div>
+                        <div class="btnpanel">
+                      
+                            <button type="button" id="btnUNVALIDSave" style="width:100px;" class="btn btn-primary">取消发布</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+         
+            ValidSaveUrl: "@Url.Action("SaveCommissionValid")",          
+            ValidQueryUrl: "@Url.Action("ListCommissionValid")"
+        };
+    </script>
+    @Html.Js("plugins/validator/validator","plugins/xjgrid/xjgrid", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/employee/commissionrelease")
+}

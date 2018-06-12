@@ -1,0 +1,300 @@
+﻿@{
+    ViewBag.Title = "订单支付";
+    var orgId = ViewData["ORG_ID"] == null ? "0" : ViewData["ORG_ID"].ToString();
+}
+@model SPACRM.Entity.Entities.ORDER_HEAD_EX
+@using SPACRM.Entity.Entities
+<h2>订单支付</h2>
+<style>
+    table {
+        width: 100%;
+    }
+
+        table tbody {
+           
+        }
+
+    .divHead {
+        height: 30px;
+        background-color: #FCF3D0;
+        border: 1px solid #F7DC6F;
+        color: #927608;
+    }
+</style>
+<form action="@Url.Action("PaymentSave")" id="formPaySave" method="post" role="form">
+     <input type="hidden" id="orgname" value="@ViewBag.orgname" />
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>订单详情</h4>
+                    <div style="float:right;padding:2px;">
+                        <a href="#" id="btnOrderPrint" class="form-control">[打印订单]</a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div style="color: #927608; height: 120px;">
+                        <b>订单号：<span> @Model.ORDER_NO</span></b><br />
+                        <b>顾客姓名：<span> @Model.CUST_NAME</span></b><br />
+                        <b>应付总额：￥<span style="color: red;"> 
+                            @{
+                                @(Model.PAY_AMT);
+                            }
+                                 </span> <br />
+                            @if (!string.IsNullOrEmpty(ViewBag.OpName))
+                            {
+                                @ViewBag.OpName <span>优惠：￥</span><span style="color: red;"> @ViewBag.OpDisAmt</span><br />
+                            }
+
+                            本次疗程支付：￥<span style="color: red;"> @ViewBag.Proc_Amt</span><br />
+                            还需支付：￥<span id="spanResAmount" style="color: red;">
+                                @{
+                                    @(ViewBag.BlanceAmt);
+                                }
+                                  </span></b>
+                        <br />
+                    </div>
+                    <div style="height: 1px; background-color: #ede8e8; width: 100%;"></div>
+                    <div style="margin-top: 5px;">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 60%">#名称
+                                    </th>
+                                    <th style="width: 20%">价格
+                                    </th>
+                                   @* <th style="width: 20%">折扣后价格
+                                    </th>*@
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                          @*      <tr><td colspan="3">
+                                    <input type="radio" name="cbxPay" style="width:18px;height:18px;"  />
+                                    <span style="color:#927608;"><b>项目应付</b></span>
+                                    <span style="color:red;"><b>￥200</b></span>
+
+                                    </td></tr>*@
+                                 @foreach (var item in (List<ORDER_DETAIL_EX>)ViewBag.proItemList)
+                                 { 
+                                      <tr>
+                                    <td>@item.PROD_NAME</td>
+                                    <td>￥@item.PROD_AMT</td>
+                                  @*  <td>￥@item.PROD_AMT</td>*@
+                                </tr>
+                                 }
+                                   @*     <tr style="height:30px;">
+                                         <td colspan="3"><input type="radio" name="cbxPay" style="width:18px;height:18px;" /><span style="color:#927608;"><b>产品应付</b></span> <span style="color:red;"><b>￥280</b></span></td>
+                                     </tr>*@
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert alert-dismissable alert-warning" style="margin-top: 10px;">
+                        <span class="fa fa-exclamation-triangle"></span>
+                        支付提醒：<br />
+                        必须现金支付金额：￥<span id="spanCashPay">@ViewBag.cashPay</span><br />
+                        允许卡支付但不享受折扣金额：￥<span id="spanCardPay">@ViewBag.cardPayPrice</span><br />
+                        允许卡支付并享受折扣金额：￥<span id="spanCardDistPay">@ViewBag.cardDistPayPrice</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>支付方式</h4>
+
+                </div>
+             
+                <div class="panel-body" style="display: block;">
+                    <div id="divPayType" class="tab-container tab-gray">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#home1" data-toggle="tab">会员卡</a></li>
+                            <li><a href="#profile1" data-toggle="tab">现金</a></li>
+                            <li><a href="#profile2" data-toggle="tab">银联POS</a></li>
+                            <li><a href="#profile3" data-toggle="tab">应收帐款</a></li>
+                            <li><a href="#profile4" data-toggle="tab">代金券</a></li>
+  
+                        </ul>
+                        <div id="divPayTypeContent" class="tab-content">
+                             <!--会员卡-->
+                            <div class="tab-pane active" id="home1">
+                                <div class="form-group">
+                                    <div style="width: 50%;">
+                                        @Html.ResourceDropDownList("VIPCARD_TYPE", "VIPCARD_TYPE", "类型", new { @class = "form-control" }, Request.QueryString["cid"], false)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="width: 50%;float:left;">
+                                        项目抵扣金额：<span id="spanSerAmt">@ViewBag.ser_Amt</span>
+                                        <input  style="width: 200px;" type="text" maxlength="8" id="payMoneyVIPCARD" onkeypress="util.keyPress(this)" onkeyup="util.keyUp(this)" onblur="util.onBlur(this)" name="payMoneyVIPCARD" class="form-control mask" placeholder="请输入抵扣金额">
+                                        实际卡付：
+                                        <input style="width: 200px;" type="text" maxlength="8" id="payedMoneyVIPCARD" onkeypress="util.keyPress(this)" onkeyup="util.keyUpPay(this)" onblur="util.onBlur(this)" name="payedMoneyVIPCARD" class="form-control mask" placeholder="请输入实际卡付金额">
+                                    </div>
+                                    <div style="width: 50%; float:left;">
+                                        产品抵扣金额：<span id="spanProAmt">@ViewBag.prod_Amt</span>
+                                        <input style="width: 200px;" type="text" maxlength="8" id="payMoneyProCARD" onkeypress="util.keyPress(this)" onkeyup="util.keyUpPro(this)" onblur="util.onBlur(this)" name="payMoneyProCARD" class="form-control mask" placeholder="请输入抵扣金额">
+                                        实际卡付：
+                                        <input style="width: 200px;" type="text" maxlength="8" id="payedMoneyProCARD" onkeypress="util.keyPress(this)" onkeyup="util.keyUpPayPro(this)" onblur="util.onBlur(this)" name="payedMoneyProCARD" class="form-control mask" placeholder="请输入实际卡付金额">
+                                    </div>
+                                </div>
+                                <div> 
+                                        <button type="button" id="btnVIPCARD" class="btn btn-primary">添加这个付款</button>
+                                </div>
+                            </div>
+                            <!--现金-->
+                            <div class="tab-pane" id="profile1">
+                                <div class="form-group">
+                                    <div style="width: 50%;">
+                                        <input style="width: 200px;" type="text" maxlength="8" onkeypress="util.keyPress(this)" onkeyup="util.keyUpCash(this)" onblur="util.onBlur(this)" id="payedMoney" name="payedMoney" class="form-control mask" placeholder="请输入金额">
+                                    </div>
+                                </div>
+                                <div>
+                                        <button type="button" id="btnCash" class="btn btn-primary">添加这个付款</button>
+                                </div>
+
+                            </div>
+                            <!--银联POS-->
+                            <div class="tab-pane" id="profile2">
+                                <div class="form-group">
+                                    <div style="width: 50%;">
+                                        @Html.ResourceDropDownList("POSTCARD_TYPE", "PAYCARD_TYPE", "类型", new { @class = "form-control" }, orgId, false)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="width: 50%;">
+                                        <input type="text" class="form-control" maxlength="8" onkeypress="util.keyPress(this)" onkeyup="util.keyUpCash(this)" onblur="util.onBlur(this)" placeholder="请输入支付金额" id="payMoneyPOSTCARD" name="payMoneyPOSTCARD" />
+                                    </div>
+
+                                </div>
+                                <div>
+                                        <button type="button" id="btnPOSTCARD" class="btn btn-primary">添加这个付款</button>
+                                </div>
+                            </div>
+                            <!--应收帐款-->
+                             <div class="tab-pane" id="profile3">
+                                <div class="form-group">
+                                    <div style="width: 50%;">
+                                        @Html.ResourceDropDownList("RECEIVABLES", "RECEIVABLES", "类型", new { @class = "form-control" }, orgId, false)@*Request.QueryString["cid"]*@
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <div style="width: 50%;">
+                                        <input type="text" class="form-control" maxlength="8" onkeypress="util.keyPress(this)" onkeyup="util.keyUpCash(this)" onblur="util.onBlur(this)" placeholder="请输入支付金额" id="payYSZK" name="payYSZK" />
+                                    </div>
+
+                                </div>
+                                <div>
+                                        <button type="button" id="btnYSZK" class="btn btn-primary">添加这个付款</button>
+                                </div>
+
+                            </div>  
+                            <!--代金券-->
+                            <div class="tab-pane" id="profile4">
+                                <div class="form-group">
+                                    <div style="width: 40%; float: left;">
+                                        <input type="text" class="form-control" maxlength="30" placeholder="编码" id="txtVOUCHAR_NO" name="VOUCHAR_NO" />
+
+                                    </div>
+                                    <div style="float: left;">
+
+                                        <button type="button" id="btnCheckPROM" class="btn btn-primary">校验</button>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="clear: both;">
+                                    <div>
+                                        校验信息：
+                                            <label id="Pro_Voucher"></label>
+                                        <input id="Pro_FaceValue" value="0" type="hidden" />
+                                        <input id="Pro_No" type="hidden" />
+                                        <input id="Pro_Id" type="hidden" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <button type="button" id="btnPROM" class="btn btn-primary">添加这个付款</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="divPayList">
+                        <table id="tablePayList" style="width: 100%;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid #e6e5e5">
+                                    <th style="width: 20%">#付款方式</th>
+                                    <th style="width: 35%">支付类型</th>
+                                    <th style="width: 20%">抵扣金额</th>
+                                    <th style="width: 20%">实付金额</th>
+                                    <th style="width: 10%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (@ViewBag.Proc_Amt > 0)
+                                { 
+                                    <tr>
+                                        <td>疗程支付</td>
+                                        <td>会员卡</td>
+                                        <td>￥@ViewBag.Proc_Amt</td>
+                                        <td>￥@ViewBag.Proc_Amt</td>
+                                        <td></td>
+                                        <td><input type="hidden" name="payType" value='999'/>
+                                            <input type="hidden" name="cashType" value='999' />
+                                            <input type="hidden" name="deduMoney" value='@ViewBag.Proc_Amt' />
+                                            <input type="hidden" name="payMoney" value='@ViewBag.Proc_Amt' />
+                                             <input type="hidden" name="prodType" value='' />
+                                        </td>
+                                    </tr>   
+                                }
+                                 @if (@ViewBag.BlanceAmt == 0 && @ViewBag.Proc_Amt<=0)
+                                { 
+                                    <tr>
+                                        <td>现金</td>
+                                        <td>现金</td>
+                                        <td>￥@ViewBag.BlanceAmt</td>
+                                        <td>￥@ViewBag.BlanceAmt</td>
+                                        <td></td>
+                                        <td><input type="hidden" name="payType" value='0'/>
+                                            <input type="hidden" name="cashType" value='0' />
+                                            <input type="hidden" name="deduMoney" value='@ViewBag.BlanceAmt' />
+                                            <input type="hidden" name="payMoney" value='@ViewBag.BlanceAmt' /></td>
+                                    </tr>   
+                                 }         
+                            </tbody>        
+                        </table>
+                    </div>
+
+                     <div class="form-group btnpanel_right" id="divBtnSave" style="margin-top: 5px;">
+                <button type="button" id="btnSave" class="btn btn-primary">结账</button>
+                <button type="button" id="btnReturn" class="btn btn-default">返回</button>
+            </div>
+                </div>
+
+            </div>
+
+           
+        </div>
+    </div>
+
+        <input type="hidden" id="hide_ProCARD_RATE" /><!--产品扣率-->
+        <input type="hidden" id="hide_SerCARD_RATE" /><!--项目折扣-->
+        <input type="hidden" id="hide_Arrears" /><!--欠款-->
+        <input type="hidden" id="hide_oid" name="oid" value="@Request.QueryString["oid"]" />
+        <input type="hidden" id="hide_cid" name="cid" value="@Request.QueryString["cid"]" />
+        <input type="hidden" id="hide_Point_Mode" value="@ViewBag.PointMode" />
+
+</form>
+@section jssection{
+    <script type="text/javascript">
+        var util = {}; var options = {
+            queryCardDetail: "@Url.Action("CustCardDetail","Common")",
+            checkVOCHER_NO: "@Url.Action("CheckVocherNo")"
+
+        };
+    </script>
+
+    @Html.Js("plugins/validator/validator", "app/order/payment")
+}
+

@@ -1,0 +1,287 @@
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonBinaryType 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonBinaryWriter 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonToken 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonObject 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonArray 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonValue 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonString 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonRegex 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonProperty 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonType 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IBinary 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IEntityKeyMember 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ConstructorHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonDictionaryAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DateFormatHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DateParseHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DateTimeZoneHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Formatting 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonConstructorAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonContainerType 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonPosition 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JPropertyKeyedCollection 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonContract 生成存根: 类型没有系列可见的构造函数。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonContainerContract 生成存根: 类型没有系列可见的构造函数。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.StringEscapeHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicProxy`1 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JPath 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JToken 生成存根: 类型没有系列可见的构造函数。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JValue 生成存根: method Newtonsoft.Json.Linq.JToken Newtonsoft.Json.Linq.JToken.CloneToken() unstubbable: 方法是抽象的，因此无法用作存根，方法签名类型对于 exported or assembly(Newtonsoft.Json.Fakes) or subtype(JValue in assembly Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JRaw 生成存根: method Newtonsoft.Json.Linq.JToken Newtonsoft.Json.Linq.JToken.CloneToken() unstubbable: 方法是抽象的，因此无法用作存根，方法签名类型对于 exported or assembly(Newtonsoft.Json.Fakes) or subtype(JRaw in assembly Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Required 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonFormatterConverter 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.DefaultReferenceResolver 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.PreserveReferencesHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonArrayAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DefaultValueHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonConverterAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonObjectAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.MemberSerialization 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ObjectCreationHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlNode 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlNodeWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlDocument 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlDocumentWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlElement 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlElementWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlDeclaration 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlDeclarationWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XObjectWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XDeclarationWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XContainerWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XDocumentWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XTextWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XCommentWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XProcessingInstructionWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XAttributeWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XElementWrapper 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ReadType 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonPropertyAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonIgnoreAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonConvert 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.Extensions 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JContainer 生成存根: 类型没有系列可见的构造函数。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JConstructor 生成存根: method Newtonsoft.Json.Linq.JToken Newtonsoft.Json.Linq.JToken.CloneToken() unstubbable: 方法是抽象的，因此无法用作存根，方法签名类型对于 exported or assembly(Newtonsoft.Json.Fakes) or subtype(JConstructor in assembly Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JEnumerable`1 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JObject 生成存根: method Newtonsoft.Json.Linq.JToken Newtonsoft.Json.Linq.JToken.CloneToken() unstubbable: 方法是抽象的，因此无法用作存根，方法签名类型对于 exported or assembly(Newtonsoft.Json.Fakes) or subtype(JObject in assembly Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JArray 生成存根: method Newtonsoft.Json.Linq.JToken Newtonsoft.Json.Linq.JToken.CloneToken() unstubbable: 方法是抽象的，因此无法用作存根，方法签名类型对于 exported or assembly(Newtonsoft.Json.Fakes) or subtype(JArray in assembly Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JProperty 生成存根: method Newtonsoft.Json.Linq.JToken Newtonsoft.Json.Linq.JToken.CloneToken() unstubbable: 方法是抽象的，因此无法用作存根，方法签名类型对于 exported or assembly(Newtonsoft.Json.Fakes) or subtype(JProperty in assembly Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JTokenType 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.Extensions 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaModel 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaModelBuilder 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaNodeCollection 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaNode 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaWriter 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.UndefinedSchemaIdHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.ValidationEventArgs 生成存根: 类型没有系列可见的构造函数。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.ValidationEventHandler 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.ResolverContractKey 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.ErrorContext 生成存根: 类型没有系列可见的构造函数。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonContractType 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.MissingMemberHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.NullValueHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ReferenceLoopHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaBuilder 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaConstants 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaType 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerInternalBase 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerInternalReader 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerProxy 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.IMetadataTypeAttribute 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonTypeReflector 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.CachedAttributeGetter`1 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.LateBoundMetadataTypeAttribute 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.OnErrorAttribute 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.Base64Encoder 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicProxyMetaObject`1 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicWrapperBase 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicWrapper 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.WrapperMethodBuilder 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.WrapperDictionary 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ReflectionDelegateFactory 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicReflectionDelegateFactory 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.ObjectConstructor`1 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ILGeneratorExtensions 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.LateBoundReflectionDelegateFactory 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.MethodCall`2 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.StringReference 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ThreadSafeStore`2 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.TypeNameHandling 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.BidirectionalDictionary`2 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ConvertUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.IWrappedCollection 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.CollectionWrapper`1 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DateTimeUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.IWrappedDictionary 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DictionaryWrapper`2 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.EnumUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.EnumValue`1 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.EnumValues`1 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.JavaScriptUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonToken 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.StringBuffer 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.CollectionUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.IWrappedList 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ListWrapper`1 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.MathUtils 生成存根: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.Creator`1 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.MiscellaneousUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ReflectionUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.StringUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.TypeExtensions 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ValidationUtils 生成存根: 类型已密封。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.WriteState 生成存根: 类型是一个值类型。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 <PrivateImplementationDetails>{D3D508B0-2E3E-471A-9A4E-E30085FC408A} 生成存根: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonBinaryType 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonBinaryWriter 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonReader+State 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonReader+BsonReaderState 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonReader+ContainerContext 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonToken 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonObject 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonArray 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonValue 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonString 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonRegex 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonProperty 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Bson.BsonType 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonWriter+State 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IBinary 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IEntityKeyMember 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ConstructorHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DateFormatHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DateParseHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DateTimeZoneHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Formatting 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonContainerType 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonPosition 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JPropertyKeyedCollection 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.ITraceWriter 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.StringEscapeHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicProxy`1 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JPath 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.IJEnumerable`1 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.IJsonLineInfo 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JToken+<AfterSelf>d__4 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JToken+<Ancestors>d__0 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JToken+<BeforeSelf>d__8 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JValue+JValueDynamicProxy 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Required 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonFormatterConverter 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.IValueProvider 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.IReferenceResolver 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.DefaultReferenceResolver 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.PreserveReferencesHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.DefaultValueHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonValidatingReader+SchemaScope 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.MemberSerialization 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ObjectCreationHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlNode 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlNodeWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlDocument 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlDocumentWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlElement 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlElementWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.IXmlDeclaration 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlDeclarationWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XObjectWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XDeclarationWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XContainerWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XDocumentWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XTextWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XCommentWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XProcessingInstructionWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XAttributeWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XElementWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlNodeConverter+<>c__DisplayClass4 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlNodeConverter+<>c__DisplayClass8 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Converters.XmlNodeConverter+<>c__DisplayClassc 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ReadType 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonConvert+<>c__DisplayClass2 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonConvert+<>c__DisplayClass6`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonConvert+<>c__DisplayClass9 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonConvert+<>c__DisplayClassc 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.Extensions+<Convert>d__f`2 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.Extensions+<Values>d__4`2 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JContainer+<Descendants>d__0 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JContainer+JTokenReferenceEqualityComparer 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JObject+<GetEnumerator>d__2 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JObject+JObjectDynamicProxy 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Linq.JTokenType 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.Extensions+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.Extensions+<>c__DisplayClass4 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaModel 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaModelBuilder 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaNodeCollection 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaNode 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaResolver+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaWriter 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.UndefinedSchemaIdHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.ValidationEventHandler 生成填充码: 类型是一个委托。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.IContractResolver 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.DefaultContractResolver+<>c__DisplayClass10 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.DefaultContractResolver+<>c__DisplayClass8 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.DefaultContractResolver+<>c__DisplayClassd 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.ResolverContractKey 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.DefaultSerializationBinder+TypeNameKey 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonContractType 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.MissingMemberHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.NullValueHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.ReferenceLoopHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaBuilder 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaConstants 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaGenerator+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaGenerator+TypeSchema 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Schema.JsonSchemaType 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerInternalBase 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerInternalReader 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonSerializerProxy 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.IMetadataTypeAttribute 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.JsonTypeReflector 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.CachedAttributeGetter`1 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.LateBoundMetadataTypeAttribute 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.Base64Encoder 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicProxyMetaObject`1 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicWrapperBase 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicWrapper 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.WrapperMethodBuilder 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.WrapperDictionary 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ReflectionDelegateFactory 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DynamicReflectionDelegateFactory 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Serialization.ObjectConstructor`1 生成填充码: 类型是一个委托。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ILGeneratorExtensions 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.LateBoundReflectionDelegateFactory 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.MethodCall`2 生成填充码: 类型是一个委托。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.StringReference 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ThreadSafeStore`2 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.TypeNameHandling 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.BidirectionalDictionary`2 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ConvertUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.IWrappedCollection 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.CollectionWrapper`1 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DateTimeUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.IWrappedDictionary 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.DictionaryWrapper`2 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.EnumUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.EnumValue`1 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.EnumValues`1 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.JavaScriptUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.JsonToken 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.StringBuffer 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.CollectionUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.IWrappedList 生成填充码: 类型是一个接口。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ListWrapper`1 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.MathUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.Creator`1 生成填充码: 类型是一个委托。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.MiscellaneousUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ReflectionUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.StringUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.TypeExtensions 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.Utilities.ValidationUtils 生成填充码: 类型对 exported or assembly(Newtonsoft.Json.Fakes) 不可见。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 Newtonsoft.Json.WriteState 生成填充码: 类型是一个枚举。
+F:\Temp\myopensource\oschina\PumanSpaCRM\WeChat.WeApp\Fakes\Newtonsoft.Json.fakes : warning : 无法为 <PrivateImplementationDetails>{D3D508B0-2E3E-471A-9A4E-E30085FC408A} 生成填充码: 类型不受支持，因为存在内部限制。

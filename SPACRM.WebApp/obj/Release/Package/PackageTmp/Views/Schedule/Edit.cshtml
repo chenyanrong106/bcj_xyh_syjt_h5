@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "排班信息";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@model SPACRM.Entity.EMPLOYEE_SCHEDULE
+@section htmlhead{
+    @Html.Css("plugin/validator")
+<link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' />
+<link rel='stylesheet' type='text/css' href='~/assets/plugins/form-multiselect/css/multi-select.css' />
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .col-sm-8 {
+            padding: 0;
+        }
+        .selectStyle option {
+        
+           border-bottom:1px solid #e6e5e5;
+           margin:0px;
+           padding:-5px;
+        }
+    </style>
+}
+<div style="margin: -2px 15px;">
+    <div id="h_title" class="h_title">排班</div>
+   
+
+
+        <form id="frmEdit" action="@Url.Action("Save")" method="post" class="form-horizontal">
+            <div class="form-group col-xs-10">
+                <label class="col-xs-4 control-label">时间范围</label>
+             <div class="col-xs-8">
+                 <div class="col-sm-8 input-group date" id="birthday_picker">
+                    @Html.TextBox("startDate", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control" })
+                    <span class="input-group-addon">to</span>
+                     @Html.TextBox("endDate", DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd"), new { @class = "form-control" })
+                </div>
+
+                  </div>
+      @*          <div class="input-daterange input-group" id="datepicker">
+                        <input type="text" class="input-sm form-control" name="start" />
+                        <span class="input-group-addon">to</span>
+                        <input type="text" class="input-sm form-control" name="end" />
+                    </div>*@
+            </div>
+            <div class="form-group col-xs-10">
+                <label class="col-xs-4 control-label">星期选择</label>
+                <div class="col-xs-8">
+                   @Html.ResourceDropDownList("WEEK", "WEEK", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group col-xs-10">
+                <label class="col-xs-4 control-label">班次选择</label>
+                <div class="col-xs-8">
+                    @Html.ResourceDropDownList("SCHEDULE", "SCHEDULE", null, new { @class = "form-control" },Model.ORG_ID.ToString(),false  )
+                    @*<select class = "form-control">
+                    @foreach (var item in (List< SPACRM.Entity.SCHEDULE_INFO>)ViewBag.sch_infoList)
+                    {
+                         <option value="@item.ID" style="background-clip:padding-box; background-position:right; background-color:aliceblue; padding-left:20px;">@item.NAME</option>
+                    }
+                  </select>*@
+                </div>
+            </div>
+    
+
+            <div class="form-group">
+            <div class="col-xs-6">
+                   
+                <div class="col-xs-8">
+                    <label class="col-xs-8 control-label">请选择人员</label>
+                    <select id="selectEmployee" name="selectEmployee" class="selectStyle" multiple="multiple"  size="10" style="width:220px;" >
+                    </select>
+                    </div>
+            </div>
+            
+            
+            <div class="col-xs-6">
+                 
+                <div class="col-xs-8">
+                     <label class="col-xs-8 control-label">已选中人员</label>
+                     <select id="selectedEmployee" name="selectedEmployee" class="selectStyle" multiple="multiple" size="10"  style="width:220px;">
+                    </select>
+                    </div>
+            </div>
+
+                 
+                </div>
+            <div class="btnpanel_right">
+                <button type="reset" id="btnCancel" class="btn btn-default">  取 消  </button>
+                <button type="button" id="btnSave" class="btn btn-primary">  保 存  </button>
+            </div>
+
+            <input type="hidden" id="SCHEDULE_DATE" name="SCHEDULE_DATE" />
+            <input type="hidden" id="SCHEDULE_ID" name="SCHEDULE_TYPE" />
+            <input type="hidden" id="EMPLOYEE_ID" name="EMPLOYEE_ID" />
+        </form>
+       
+       
+    </div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            eNamelistUrl: "@Url.Action("EmployeeNameList")",
+        };
+    </script>     
+     
+    @Html.Js("plugins/validator/validator", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/schedule/edit")
+
+}

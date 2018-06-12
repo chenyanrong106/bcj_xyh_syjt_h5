@@ -1,0 +1,292 @@
+﻿@{
+    ViewBag.Title = "打印未付款订单小票";
+    Layout = "~/Views/Shared/_LayoutD.cshtml";
+}
+
+@using SPACRM.Entity.Entities;
+
+@section htmlhead{
+       
+    <link href="~/assets/css/plugin/AdminStyle.css" rel="stylesheet" />
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .col-sm-8 {
+            padding: 0;
+        }
+
+        #td1 {
+            border-bottom: 1px solid black;
+        }
+    </style>
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>打印</title>
+</head>
+<body style="text-align: left" onload=" window.print()">
+    <div style="text-align: left">
+         @*      <table  border="0" width="190" >
+           <tr>
+               <td>
+                   <input id="btnPrint" class="Noprint" onclick="window.print();" type="button" value="打印" />
+               </td>
+           </tr>
+       </table>*@
+        <table border="0" width="190" id="table4">
+            <tr>
+                <td align="center">
+                    <h3>消费明细单</h3>
+                </td>
+            </tr>
+        </table>
+        <table border="0" width="190" id="table6">
+              <tr>
+                <td>门店名称:@ViewBag.head.STORE_NAME </td>
+            </tr>
+            <tr>
+                <td>消费日期:@DateTime.Now.ToString("yyyy-MM-dd") </td>
+            </tr>
+            <tr>
+                <td>会员卡号:@ViewBag.custinfo.CARD_NO</td>
+            </tr>
+             <tr>
+                <td>会员姓名:@ViewBag.custinfo.NAME</td>
+            </tr>
+            <tr>
+                <td balance="@ViewBag.head.BALANCE">会员卡级:@ViewBag.head.CARD_NAME</td>
+            </tr>
+
+            <tr>
+                <td  height="1" color="00cccc" id="td1"></td>
+            </tr>
+        </table>
+
+
+
+        <table border="0" width="190" id="table1">
+
+            <tr>
+                <th  >名称</th>
+                 <th>单价</th>
+                <th >金额</th>
+                 <th  >技师</th>
+            </tr>
+            <tr>
+               
+               
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <hr size="0">
+                </td>
+            </tr>
+            @foreach (var item in (List<ORDER_DETAIL_EX>)ViewBag.proItemList)
+            {
+                if(item.PROD_TYPE==3)
+                {
+                <tr>
+                    <td width="60%" colspan="4">@item.PROD_NAME (计次)</td>
+                
+                </tr>
+            }
+            else
+            { 
+                    <tr>
+                    <td colspan="4">@item.PROD_NAME</td>
+                 
+                </tr>
+                }
+                  if(item.PROD_TYPE==3)
+                {
+                <tr>
+                        <td colspan="2" align="center" ><font face="Garamond" size="2" >0</td>
+                    <td  align="center">0</td>
+                    <td align="center" >@item.EMPLOYEE_NAME</td>
+                </tr>	
+            }
+            else
+            {
+                    <td  colspan="2" align="center">@Convert.ToInt32(item.PROD_PRICE)</td>
+                    <td align="center">@Convert.ToInt32(item.PROD_PRICE)</td>
+                   <td align="center" >@item.EMPLOYEE_NAME</td>
+             }
+            }
+        </table>
+
+
+        
+          @if (ViewBag.custdetail != null && ((List<CUST_CDETAIL_EX>)ViewBag.custdetail).Count > 0)
+          {
+              <h3>疗程明细</h3>
+               @*<table border="0" width="190" id="table4">
+                <tr>
+                    <td >
+                       
+                    </td>
+                </tr>
+            </table>*@
+         
+              foreach (var item in (List<CUST_CDETAIL_EX>)ViewBag.custdetail)
+              {   
+            <table border="0" width="190" id="table1">
+                <tr>
+                    <th style="width: 20%">名称</th>
+                    <th style="width: 30%">总次数</th>
+                     <th style="width: 20%" >余次</th>
+                   <th style="width: 30%">有效期</th>
+                </tr>              
+                    <tr>
+                        <td width="50%" colspan="2">@item.SERVICE_NAME</td>
+                      
+                        <td width="50%" align="right" colspan="2">@Convert.ToDateTime(item.VALID_EDATE).ToString("yyyy-MM-dd")</td>
+                    </tr>
+                  <tr>                        
+                        <td width="30%" colspan="2" align="right">@item.SERVICE_QTY</td>
+                          <td width="10%" align="center">@item.AVA_QTY</td>                       
+                    </tr>
+            </table>
+                 
+              }
+          }
+
+
+
+      
+        <table border="0" width="190" id="table10">
+            <tr>
+                <td colspan="2">
+                    <hr size="0">
+                </td>
+            </tr>
+            <tr>
+                <td  width="70%">总计:</td>
+                <td align="right" width="30%">@ViewBag.head.PAY_AMT</td>
+            </tr>
+           
+            <tr>
+                <td colspan="2">
+                    <hr size="0">
+                </td>
+            </tr>
+        </table>
+
+        <table border="0">
+
+            <tr>
+                <td style="width: 70px;">备注:</td>
+                <td style="text-align: left;">@ViewBag.head.REMARK</td>
+            </tr>
+
+           @* <tr>
+                <td>收银员:</td>
+                <td>@ViewBag.head.SYY</td>
+            </tr>*@
+              <tr>
+                <td>预约电话:</td>
+                <td>@ViewBag.head.TELEPHONE</td>
+            </tr>  <tr>
+                <td>门店地址:</td>
+                <td>@ViewBag.head.ADDRESS</td>
+            </tr>
+            <tr>
+                <td style="width: 10px;">打印时间:</td>
+                <td style="text-align: left;">@DateTime.Now.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+
+            <tr>
+                <td >客户签名:</td>
+                <td ></td>
+            </tr>
+
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+             <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+
+           @* <tr>
+                <td colspan="2" align="center"><font face="Times New Roman">扑满技术支持:021-62595122</td>
+
+            </tr>*@
+        </table>
+
+    </div>
+</body>
+
+</html>
+
+@section jssection{
+
+    <script type="text/javascript" language="JavaScript">
+        var HKEY_Root, HKEY_Path, HKEY_Key;
+        HKEY_Root = "HKEY_CURRENT_USER";
+        HKEY_Path = "\\Software\\Microsoft\\Internet Explorer\\PageSetup\\";
+        //设置网页打印的页眉页脚为空
+        function PageSetup_Null() {
+            var Wsh = new ActiveXObject("WScript.Shell");
+            HKEY_Key = "header";
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "");
+            HKEY_Key = "footer";
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "");
+            HKEY_Key = "margin_left"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0.2");  //键值设定--左边边界
+
+            HKEY_Key = "margin_top"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--上边边界
+
+            HKEY_Key = "margin_right"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--右边边界
+
+            HKEY_Key = "margin_bottom"
+            Wsh.RegWrite(HKEY_Root + HKEY_Path + HKEY_Key, "0"); //键值设定--下边边界
+        }
+        PageSetup_Null();
+        function WindowPrint() {
+            /// 隐藏不需要打印的内容
+            try {
+                PageSetup_Null();
+            }
+            catch (e) {
+                var errorMsg = e.message + "\r" + "请设置:IE选项->安全->Internet->" + "ActiveX控件和插件" + "\r" + "对未标记为可安全执行脚本的ActiveX的控件初始化并执行脚本->允许/提示";
+                //alert(errorMsg);
+                return;
+            }
+            window.print();
+        }
+    </script>
+
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+
+        };
+    </script>
+}

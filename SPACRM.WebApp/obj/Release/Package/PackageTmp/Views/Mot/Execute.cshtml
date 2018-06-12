@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Execute";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+    <link rel='stylesheet' type='text/css' href='../../assets/css/tree.css' />
+    <link href="~/assets/css/select2.css" rel="stylesheet" />
+    <style type="text/css">
+         th {
+ text-align: center;
+    height:35px;
+} 
+                td {
+text-align: center;
+    height:35px;
+} 
+    </style>
+}
+<form action="SaveSMS.do" id="form1" method="post" role="form">
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-gear"></i>&nbsp;MOT执行</h2>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                    选择策略</h4>
+                <div class="options">
+                    <a class="panel-collapse" href="#"><i class="fa fa-chevron-down"></i></a>
+                </div>
+            </div>
+            <div class="panel-body">
+                    <table  width="480" border="1" align="center" cellpadding="0" cellspacing="0" class="tableborder">
+                          <tr><th  >选择</th><th>策略名称</th><th>成功案列</th></tr>
+                          <tr><td  ><input  type="radio" checked="checked" name="1" /></td><td>策略1</td><td><a>王晓成功案列.pdf</a></td></tr>
+                          <tr><td  ><input  type="radio"  name="1"/></td><td>策略2</td><td><a>lee解决策略案列.pdf</a></td></tr>
+                           <tr><td  ><input  type="radio"  name="1"/></td><td>策略3</td><td><a>ed解决策略案列.pdf</a></td></tr>
+                          <tr><td  ><input  type="radio"  name="1"/></td><td>策略4</td><td><a>李凌成功案列.pdf</a></td></tr>                                           
+                        </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                    MOT处理</h4>
+                <div class="options">
+                    <a class="panel-collapse" href="#"><i class="fa fa-chevron-down"></i></a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-group col-xs-12">
+                    <input type="checkbox" id="sms" name="sms" checked="true" />
+                    <label for="sms">
+                        短信</label>
+                    <input type="checkbox" id="phone" name="phone" checked="true" />
+                    <label for="phone">
+                        电话</label>
+                    <input type="checkbox" id="email" name="email" />
+                    <label for="email">
+                        邮件</label>
+                </div>
+                <div class="form-group col-xs-12">
+                    <div class="col-sm-12" style="text-align: left;">
+                        短信内容：</div>
+                </div>
+                <div class="form-group col-xs-12">
+                    <div class="col-sm-12" style="text-align: left;">
+                        <textarea rows="3" cols="40">
+亲爱的会员，您好！基于对市场的判断，向您提供以下信息。。。。。
+</textarea>
+                          <button type="button" id="btnSave1" class="btn btn-primary" style="margin-top:-22px;">
+                        处 理</button>
+                    </div>
+                  
+                </div>
+                <div class="form-group col-xs-12">
+                    <div class="col-sm-12" style="text-align: left;">
+                        电话内容：</div>
+                </div>
+                <div class="form-group col-xs-12">
+                    <div class="col-sm-12" style="text-align: left;">
+                        <textarea rows="3" cols="40">
+亲爱的会员，您好！基于对市场的判断，向您提供以下信息。。。。。
+</textarea>
+                           <button type="button" id="btnSave2" class="btn btn-primary"  style="margin-top:-22px;"> 
+                        处 理</button>
+                    </div>
+                 
+                </div>
+                <div class="form-group col-xs-12">
+                    <div class="col-sm-12" style="text-align: left;">
+                        备注：</div>
+                </div>
+                <div class="form-group col-xs-12">
+                    <div class="col-sm-12" style="text-align: left;">
+                        <textarea rows="3" cols="50">
+根据和顾客的沟通过程和沟通情况，采用了短信、电话、邮件三种方式，并向顾客提供了参考和建议。
+</textarea></div>
+                </div>
+                  <div class="modal-footer">
+        <button type="button" id="btnSave" class="btn btn-primary">
+            处理完成</button>
+        <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">
+            取 消</button>
+    </div>
+            </div>
+        </div>
+         
+    </div>
+ 
+</div>
+</form>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+
+        };
+    </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog",
+    "plugins/validator/validator", "plugins/form-datepicker/js/bootstrap-datepicker",
+    "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN",
+   "app/company/jquery.tree", "app/systemset/select2", "app/systemset/SMSSettings")
+}

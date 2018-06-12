@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84C5A1AB-0FF6-41F4-8BED-7939C0860B3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPACRM.Entity</RootNamespace>
+    <AssemblyName>SPACRM.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\REFDLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vulcan">
+      <HintPath>..\REFDLL\Vulcan.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Entities\CustomMenu_EX.cs" />
+    <Compile Include="Entities\CUST_FANS_EX.cs" />
+    <Compile Include="Entities\Cust_Old_New_EX.cs" />
+    <Compile Include="Entities\Graphic_Detail_EX.cs" />
+    <Compile Include="Entities\Information_EX.cs" />
+    <Compile Include="Entities\PVData.cs" />
+    <Compile Include="Entities\TokeRes.cs" />
+    <Compile Include="Entities\WxResBase.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Jsons\CodeValue.cs" />
+    <Compile Include="Jsons\JsonQTable.cs" />
+    <Compile Include="Jsons\JsonSMsg.cs" />
+    <Compile Include="Jsons\JsonTreeNode.cs" />
+    <Compile Include="ORMapping\ColumnAttribute.cs" />
+    <Compile Include="ORMapping\EntityReflect.cs" />
+    <Compile Include="ORMapping\EntitySQLBuilder.cs" />
+    <Compile Include="ORMapping\TableNameAttribute.cs" />
+    <Compile Include="PageSearch\PageList.cs" />
+    <Compile Include="PageSearch\PageView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeekReport.cs" />
+    <Compile Include="_Generated\EntityGenerate1.cs">
+      <DependentUpon>EntityGenerate.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\SPACRM.Entity.csprojResolveAssemblyReference.cache" />
+    <None Include="packages.config" />
+    <None Include="_Generated\Base.ttinclude" />
+    <None Include="_Generated\MSSQL.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\SPACRM.Entity.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SPACRM.Entity.dll" />
+    <Content Include="obj\Debug\SPACRM.Entity.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="SearchEntity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="_Generated\EntityGenerate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityGenerate1.cs</LastGenOutput>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

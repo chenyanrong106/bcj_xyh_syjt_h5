@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "房间视图";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@model SPACRM.Entity.Entities.STORE_ROOM_EX
+@section htmlhead{
+    @Html.Css("plugin/validator")
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog")
+    <style type="text/css">
+        .s_container
+        {
+        }
+    </style>
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-cog"></i>&nbsp;房间视图</h2>
+    </div>
+    <div id="mainbody" class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>
+                房间视图</h4>
+        </div>
+        <div class="tab-content">
+            <div class="panel-body" style="min-height: 350px">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="#" class="shortcut-tiles tiles-info">
+                            <div class="tiles-body">
+                                <div class="pull-left">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <span class="badge">2</span></div>
+                            </div>
+                            <div class="tiles-footer">
+                                房间abc
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#" class="shortcut-tiles tiles-warning">
+                            <div class="tiles-body">
+                                <div class="pull-left">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <span class="badge">2</span></div>
+                            </div>
+                            <div class="tiles-footer">
+                                房间abc
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#" class="shortcut-tiles tiles-info">
+                            <div class="tiles-body">
+                                <div class="pull-left">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <span class="badge">2</span></div>
+                            </div>
+                            <div class="tiles-footer">
+                                房间abc
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#" class="shortcut-tiles tiles-info">
+                            <div class="tiles-body">
+                                <div class="pull-left">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <span class="badge">2</span></div>
+                            </div>
+                            <div class="tiles-footer">
+                                房间abc
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                <div class="col-md-2">
+                        <a href="#" class="shortcut-tiles tiles-warning">
+                            <div class="tiles-body">
+                                <div class="pull-left">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <span class="badge">2</span></div>
+                            </div>
+                            <div class="tiles-footer">
+                                房间abc
+                            </div>
+                        </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="shortcut-tiles tiles-info">
+                        <div class="tiles-body">
+                            <div class="pull-left">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <div class="pull-right">
+                                <span class="badge">2</span></div>
+                        </div>
+                        <div class="tiles-footer">
+                            房间abc
+                        </div>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            listUrl: "@Url.Action("List")",
+        };       
+    </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "plugins/validator/validator", "plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/room/view")
+}

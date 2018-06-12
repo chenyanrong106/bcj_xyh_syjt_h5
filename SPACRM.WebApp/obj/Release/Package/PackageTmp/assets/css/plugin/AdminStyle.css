@@ -1,0 +1,146 @@
+BODY {
+	FONT-SIZE: 10px;
+	MARGIN: 0px;
+	OVERFLOW: auto;
+}
+TABLE {
+	FONT-SIZE: 10px;
+}
+form{margin:0px;}
+.text {
+	COLOR: #333333;
+	text-decoration: none;
+	line-height: 16px;
+}
+.black {COLOR: #333333;	TEXT-DECORATION: none;}
+
+A:link {COLOR: #000000;	text-decoration: none;}
+A:visited {COLOR: #000000;	text-decoration: none;}
+A:hover {COLOR: #FF3300;	text-decoration: none;}
+
+a.a_blue_1:visited { text-decoration: none; color: #0000FF;} 
+a.a_blue_1:link    { text-decoration: none; color: #0000FF;} 
+a.a_blue_1:hover   { text-decoration: none; color: #0000FF;}
+
+a.a_blue_2:visited { text-decoration: none; color: #000066;} 
+a.a_blue_2:link    { text-decoration: none; color: #000066;} 
+a.a_blue_2:hover   { text-decoration: none; color: #FF3300;}
+
+a.neirong:visited { text-decoration: none; color: #FF3300;} 
+a.neirong:link    { text-decoration: none; color: #FF3300;} 
+a.neirong:hover   { text-decoration: none; color: #FF3300;}
+
+.top {
+	COLOR: #FFFFFF; 
+	TEXT-DECORATION: none;
+}
+.hui {
+	COLOR: #444444;
+	TEXT-DECORATION: none;
+	font-weight: bold;
+}
+.blue {
+	COLOR: #003366;
+	TEXT-DECORATION: none;
+}
+.input {
+	color: #000000;
+	text-decoration: none;
+	border: 2px groove;
+	background-color: #eeeeee;
+}
+.yuanjia {
+	color: #666666;
+	text-decoration: line-through;
+}
+.mouseOver1{
+	background-color: #EEEEEE;
+}
+.mouseOut1{
+	background-color: #FFFFFF;
+}
+.mouseOver2{
+	background-color: #cccccc;
+}
+.mouseOut2{
+	background-color:;
+}
+.bg-white{
+	background-color:#FFFFFF;
+}
+.bg-gray-1{
+	background-color:#CCCCCC;
+}
+.font-title-1{
+	COLOR: #003366;
+	font-weight: bold;
+}
+.font-red{
+	COLOR: #FF0000;
+}
+.bg-red {
+	background-color:#FF0000;
+	color: #000000;
+
+}
+.bg-blue {
+
+	background-color:#77C1EE;
+	color: #000000;
+}
+.bg-yellow {
+
+
+	background-color:#EDEFC9;
+	color: #000000;
+}
+.bg-gray-2 {
+
+	background-color:#eeeeee;
+}
+
+.border-all {
+	BORDER-RIGHT: #006699 1px solid; BORDER-TOP: #006699 1px solid; BORDER-LEFT: #006699 1px solid; BORDER-BOTTOM: #006699 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.editbox {
+	BORDER-RIGHT: #ffffff 1px groove; BORDER-TOP: #ffffff 1px groove; FONT: 12px verdana,geneva,sans-serif; BORDER-LEFT: #ffffff 1px groove; COLOR: #000000; BORDER-BOTTOM: #ffffff 1px groove; BACKGROUND-COLOR: #dff1f9
+}
+.button {
+	BORDER-RIGHT: #cccccc 1px groove; FONT-WEIGHT: normal; FONT-SIZE: 9pt; LINE-HEIGHT: normal; BORDER-BOTTOM: #cccccc 1px groove; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; FONT-VARIANT: normal
+}
+.tablehead {
+	COLOR: #ffffff; BACKGROUND-COLOR: #429ede
+}
+.tablebody {
+	BACKGROUND-COLOR: #def3ff
+}
+#DataEmpty 
+{ 
+width: 400px; 
+height: 120px; 
+border: solid 1px gray; 
+background-color: Yellow; 
+text-align: center; 
+vertical-align: middle; 
+} 
+a.muen:link
+{
+	font-family:ËÎÌו;
+	font-size:12px;
+	text-decoration:none;
+	color:#FFFFFF;
+}
+a.muen:visited
+{
+	font-family:ËÎÌו;
+	font-size:12px;
+	text-decoration:none;
+	color: #FFFFFF;
+}
+a.muen:hover
+{
+	font-family:ËÎÌו;
+	font-size:12px;
+	text-decoration:underline;
+	color:#FF0000;
+}

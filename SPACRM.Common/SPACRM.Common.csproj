@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B727FCD-290B-4571-A96C-978763ECDC77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPACRM.Common</RootNamespace>
+    <AssemblyName>SPACRM.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\REFDLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\REFDLL\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vulcan, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\REFDLL\Vulcan.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig.cs" />
+    <Compile Include="AppUserManager.cs" />
+    <Compile Include="AppValidIPManager.cs" />
+    <Compile Include="CacheManager\AspNetCache.cs" />
+    <Compile Include="CacheManager\CacheFactory.cs" />
+    <Compile Include="CacheManager\ICache.cs" />
+    <Compile Include="CacheManager\SessionCache.cs" />
+    <Compile Include="CacheManager\SessionManager.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="CryptographyManager.cs" />
+    <Compile Include="Exceptions\BOException.cs" />
+    <Compile Include="Exceptions\DataConvertException.cs" />
+    <Compile Include="Exceptions\NoAuthorizeExecption.cs" />
+    <Compile Include="Exceptions\NoPermissionExecption.cs" />
+    <Compile Include="IdentityUser.cs" />
+    <Compile Include="JsConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceFactory.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Utils\AssertUtils.cs" />
+    <Compile Include="Utils\Base64Util.cs" />
+    <Compile Include="Utils\ConstParams.cs" />
+    <Compile Include="Utils\ConvertHelper.cs" />
+    <Compile Include="Utils\DateUtils.cs" />
+    <Compile Include="Utils\FileDownLoadUtils.cs" />
+    <Compile Include="Utils\IdUtils.cs" />
+    <Compile Include="Utils\JsonHelper.cs" />
+    <Compile Include="Utils\MailManager.cs" />
+    <Compile Include="Utils\NetHelper.cs" />
+    <Compile Include="Utils\NumberUtils.cs" />
+    <Compile Include="Utils\PinYinUtils.cs" />
+    <Compile Include="Utils\SqlWhereUtils.cs" />
+    <Compile Include="Utils\StreamHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SPACRM.Interface\SPACRM.Interface.csproj">
+      <Project>{957a25a3-ad39-4b99-a8ee-b725fdc0da3a}</Project>
+      <Name>SPACRM.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

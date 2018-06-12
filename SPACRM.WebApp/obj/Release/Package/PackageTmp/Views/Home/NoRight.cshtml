@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "无权限";
+}
+
+<h2>权限不足</h2>
+
+<script>
+    document.ready = function () {
+        alert('您没有该操作权限，请联系管理员授权。');
+        window.history.go(-1);
+    }
+</script>

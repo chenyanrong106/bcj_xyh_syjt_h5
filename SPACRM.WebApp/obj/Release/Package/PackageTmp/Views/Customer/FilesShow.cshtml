@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "FilesList";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+
+}
+@using SPACRM.Entity.Entities;
+
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog")
+    <style type="text/css">
+        ul li {
+            list-style-type: decimal;
+        } 
+    </style>
+}
+
+
+<div class="table-responsive" id="gridlist">
+    <ul>
+        @foreach (var item in (List<Cust_Files_EX>)ViewBag.CustFileList)
+        {
+            <li>
+                <div>@item.REMARK</div>
+                <div>
+                    <img contentType="@item.CONTENT_TYPE" src="@Url.Action("Image", new { fileName = item.FILE_NAME, contentType = item.CONTENT_TYPE })" />
+                </div>
+            </li> 
+        }
+    </ul>
+</div>
+@section jssection{
+    <script type="text/javascript"> var util = {}; var options = {
+     linkUrl: "@Url.Action("QueryFileList", "customer", new { CUST_ID = Request.QueryString["cid"] })"
+ }; </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog")
+}

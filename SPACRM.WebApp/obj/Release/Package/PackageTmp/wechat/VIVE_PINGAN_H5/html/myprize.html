@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <title>平安献礼30年</title>
+</head>
+<body>
+    <div class="wrap my-page">
+        <div class="logo-tit"><img src="../images/jp-logo.jpg" alt=""></div>
+        <div class="prize-list" > 
+            <ul id="myPrizeList" >
+                <!--<li class="jp-xs">
+                    <img src="../images/jp-xs.jpg" alt="">
+                    <span><img src="../images/nylq.png" alt="">	</span>
+                </li>
+                <li>
+                    <img src="../images/jp-jt.png" alt="">
+                    <span><img src="../images/ljlq-1.png" alt=""></span>
+                </li>
+                <li>
+                    <img src="../images/jp-yt.png" alt="">
+                    <span><img src="../images/ljlq-1.png" alt="">	</span>
+                </li>
+                <li class="jp-yhq">
+                    <img src="../images/jp-10.png" alt="">
+                    <span><img src="../images/ljlq-1.png" alt="">	</span>
+                </li>
+                <li class="jp-yhq">
+                    <img src="../images/jp-50.png" alt="">
+                    <span><img src="../images/ljlq-1.png" alt="">	</span>
+                </li>
+                <li class="jp-yhq">
+                    <img src="../images/jp-100.png" alt="">
+                    <span><img src="../images/ljlq-1.png" alt="">	</span>
+                </li>-->
+            </ul>
+        </div>
+        <div class="back-btn">
+            <a href="./index.html"><img src="../images/rules-btn.png" alt=""></a>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wxshare.js"></script>
+    <script src="../js/pv.record.js"></script>
+    <script>
+        $(function () {
+            var flag = true;
+            var url = $.domainUrl + "GetMyPrizeList";
+            $.get(url, function (result) {
+                var res = $.parseJSON(result);
+                if (res.Status == 1) {
+                    var list = res.Data;
+                    if (list.length == 0) {
+                        var $prize = $('.prize-list');
+                            $prize.text('您还没有获得奖品，快去参加活动吧！');
+                            $prize.css('line-height', 'calc(100vh - 13.5rem)');
+                       
+                    }
+                    $.each(list, function (i, e) {
+                        var _class = "",
+                            _statusImg = "",
+                            _url = "";
+                        //已经领取
+                        if (e.is_get) {
+                            _statusImg = '<img src="../images/nylq.png" alt="">';
+                        } else {//待领取
+                            if (e.type == "2")//优惠券
+                            {
+                                _url = "yhq";
+                               // _class = "jp-yhq";
+                            }
+                            else {
+                                _url = "prize";
+                                if (e.prize_code == "P0003") _class = "jp-xs"
+                            }
+                            _statusImg = '<a href="' + _url + '.html?prizename=' + e.prize_name + '&id=' + e.id + '&prizecode=' + e.prize_code + '"><img src="../images/ljlq-1.png" alt=""></a>';
+                        }
+                        var html = '<li class="' + _class + '">\
+                                        <img src="'+ e.img_src + '" alt="">\
+                                            <span>'+ _statusImg + '</span>\
+                                    </li>';
+                        $("#myPrizeList").append(html);
+                    });
+                } else if (res.Status == -5) {
+                    window.location.href = "index.aspx";
+                }
+            });
+
+           
+          
+
+
+
+
+         
+        });
+    </script>
+</body>
+</html>

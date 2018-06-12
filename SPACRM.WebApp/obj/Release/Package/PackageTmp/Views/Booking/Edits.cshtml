@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "预约登记";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@*@model SPACRM.Entity.CUST_BOOKING*@
+@model SPACRM.WebApp.ViewModels.EditBookModel
+@section htmlhead{
+@Html.Css("plugin/validator")
+@Html.Css("js/jquery-ui-1.10.4.custom.min")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .col-sm-8
+        {
+            padding:0;
+        }
+    </style>
+}
+<div style="margin:-2px 15px;">
+    
+    <div class="h_title">预约登记</div>
+     <div class="pure-u-1"><a id="abtnclose" href="#" title="关闭" class="abtnclose"><i class="aclose"></i></a></div>
+    <div>
+        <form id="frmEdit" action="@Url.Action("Save")" method="post" role="form">
+            <div class="form-group col-xs-6">
+                <label for="STORE_ID" class="col-sm-3 control-label">门 店:</label>
+                <div class="col-sm-8">
+                     @if (Model.AdminEdit)
+                    {
+                        @Html.ResourceDropDownList("STORE_ID", "STORE", Model.STORE_ID, new { style = "float: left;margin-right:10px;" }, Model.ParentSubId.ToString(), false)
+                    }
+                    else
+                    {
+                                 @Html.ResourceDropDownList("STORE_ID", "STORE", null, new { @class = "form-control" },@Model.STORE_ID.ToString(), true)
+                    }   
+                    <input type="hidden" id="STORE_NAME" name="STORE_NAME" value="@Model.STORE_NAME" />   
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                 <label class="col-sm-3 control-label" for="CUST_NAME">顾客姓名:</label>
+               <div class="col-sm-8">
+                    <div class="ui-widget" style="background-color:white;">
+                     @Html.TextBox("CUST_NAME", Model.CUST_NAME, new { @class = "form-control", placeholder = "请输入顾客姓名" })   
+                        </div>
+                  @* <input type="hidden" name="CUST_NAME" id="CUST_NAME" style="width: 100%" />
+                   <input type="hidden" name="CUST_ID" id="CUST_ID" style="width: 100%" />*@
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="MOBILE">电 话:</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("CUST_MOBILE", Model.CUST_MOBILE, new { @class = "form-control", placeholder = "请输入手机号码" })
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                  <label class="col-sm-3 control-label" for="PROD_SERVICE">会员卡号:</label>
+                <div class="col-sm-8">
+                      @*@Html.ResourceDropDownList("SERVICE_PRODUCT1", "PROD_SERVICE", null, new { @class = "form-control" }, @Model.STORE_ID.ToString(), true)*@
+                    @Html.TextBox("CUST_MOBILE", Model.CUST_MOBILE, new { @class = "form-control", placeholder = "请输入会员卡号" })
+                </div>
+            </div>
+            
+            <div class="form-group col-xs-6">
+                 <label class="col-sm-3 control-label" for="MOBILE">预约日期:</label>
+                <div class="col-sm-8 input-group date" id="birthday_picker">
+                     @Html.TextBox("CREATE_DATE", @Model.OrderDate, new { @class = "form-control", placeholder = "请选择预约日期" })
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label for="NAME" class="col-sm-3 control-label">时 间:</label>
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        @Html.ResourceDropDownList("BEGIN_DATE","DATETIME",@Model.StartTime.ToString(), new { @class = "form-control" })
+                    </div>
+                    <div class="col-xs-6">
+                        @Html.ResourceDropDownList("END_DATE", "DATETIME", @Model.EndTime.ToString(), new { @class = "form-control" })
+                    </div>    
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="form-group col-xs-6">
+                 <label class="col-sm-3 control-label" for="WECHAT">预约技师:</label>
+                 <div class="col-sm-8">
+                      @Html.ResourceDropDownList("STAFF_ID", "Masseur", @Model.STAFF_ID, new { @class = "form-control" }, @Model.STORE_ID.ToString(), true)
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-sm-3 control-label" for="WECHAT">房 间:</label>
+                <div class="col-sm-8">
+                  @Html.ResourceDropDownList("BED_ID", "BED", null, new { @class = "form-control" }, @Model.STORE_ID.ToString(), true)
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-sm-3 control-label">服务项目</label>
+                <div class="col-sm-6">
+                    <input type="hidden" name="SERVICE_PRODUCT" id="SERVICE_PRODUCT" style="width:100%" value="面部护理,头部护理,全身护理,混合护理,洗剪吹"/>
+                </div>
+            </div>          
+            <div class="btnpanel_right">
+                <button type="reset" id="btnCancel" class="btn btn-default">  取 消  </button>
+                <button type="button" id="btnSave" class="btn btn-primary">  保 存  </button>
+            </div>          
+        </form>
+    </div>
+    </div>
+<div style="display:none;">
+<textarea  readonly="readonly" class="fullscreen" style="display:none;height:0px; width:0px;"></textarea>
+</div>
+
+
+<link rel='stylesheet' type='text/css' href='~/assets/plugins/form-select2/select2.css' /> 
+<script src="~/assets/js/jquery-1.10.2.min.js"></script>
+<script src="~/assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            queryMemberUrl: "@Url.Action("QueryCustomers","Customer")",
+            queryCustomerUrl: "@Url.Action("QueryCustomer", "Customer", new { type = "name" })"
+        };
+        //$(function () {
+        //    $("#e12").select2({ width: "resolve", tags: ["面部护理", "头部护理", "全身护理", "混合护理", "洗剪吹", "面部护理1", "头部护理1", "全身护理1", "混合护理1", "洗剪吹1"] });
+        //});
+
+        //    $("#e12").select2({ width: "resolve", tags: ["面部护理", "头部护理", "全身护理", "混合护理", "洗剪吹", "面部护理1", "头部护理1", "全身护理1", "混合护理1", "洗剪吹1"] });
+
+
+    </script>
+@*     <script src="~/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="~/assets/js/jquery.autocomplete.min.js"></script>*@
+    @Html.Js("plugins/validator/validator","plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/booking/edit")
+    @Html.Js("plugins/form-select2/select2.min")
+}

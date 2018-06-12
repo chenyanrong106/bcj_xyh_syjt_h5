@@ -1,0 +1,488 @@
+﻿@{
+    ViewBag.ControllerName = this.ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    var cuUserName = WXMyContext.CurrentLoginUser == null ? "" : WXMyContext.CurrentLoginUser.USER_NO;
+    var cuStoreName = WXMyContext.CurrentLoginUser == null ? "" : WXMyContext.CurrentLoginUser.STORE_NAME;
+    var cuName = WXMyContext.CurrentLoginUser == null ? "" : WXMyContext.CurrentLoginUser.ORG_NAME;
+    var menu =WeChat.WebApp.Controllers.SystemMenuController.GetMenu();
+    var storeId = WXMyContext.CurrentLoginUser.STORE_ID.ToString();
+    
+}
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <title>Puman-@cuStoreName-@cuName</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Puman">
+    <meta name="author" content="Puman tech">
+    <!-- <link href="assets/less/styles.less" rel="stylesheet/less" media="all"> -->
+    <link rel="stylesheet" href="../../assets/css/styles.css?=122" />
+    <link rel="stylesheet" href="../../assets/css/app.css?=122" />
+    <link rel='stylesheet' type='text/css' href='../../assets/demo/variations/header-blue.css' media='all' id='headerswitcher' />
+    <link rel='stylesheet' type='text/css' href='../../assets/demo/variations/default.css' media='all' id='styleswitcher' />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="assets/css/ie8.css" />
+    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/charts-flot/excanvas.min.js"></script>
+    <![endif]–>
+    <!-- The following CSS are included as plugins and can be removed if unused-->
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-daterangepicker/daterangepicker-bs3.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/fullcalendar/fullcalendar.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-markdown/css/bootstrap-markdown.min.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/codeprettifier/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-toggle/toggles.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/progress-skylo/skylo.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/js/jqueryui.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/pines-notify/jquery.pnotify.default.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-xeditable/bootstrap3-editable/css/bootstrap-editable.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/codeprettifier/prettify.css' />
+    <link rel='stylesheet' type='text/css' href='../../assets/plugins/form-toggle/toggles.css' />
+
+
+
+    @RenderSection("htmlhead", false)
+    <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
+</head>
+<body class="">
+    <!-- Preloader -->
+    
+    <div id="preloader">
+        <div id="loading_status"><i class="fa fa-spinner fa-spin"></i></div>
+    </div>
+    <!--快捷菜单-->
+    <div id="headerbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-2">
+                    <a href="/Customer/Index.do" class="shortcut-tiles tiles-brown">
+                        <div class="tiles-body">
+                            <div class="pull-left">
+                                <i class="fa fa-group"></i>
+                            </div>
+                        </div>
+                        <div class="tiles-footer">
+                            创建顾客
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-2">
+                    <a href="/Order/OrderNew.do" class="shortcut-tiles tiles-grape">
+                        <div class="tiles-body">
+                            <div class="pull-left">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                            <div class="pull-right">
+                                <span class="badge">2</span>
+                            </div>
+                        </div>
+                        <div class="tiles-footer">
+                            创建订单
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-2">
+                    <a href="/Booking/Index.do" class="shortcut-tiles tiles-primary">
+                        <div class="tiles-body">
+                            <div class="pull-left">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div class="pull-right">
+                                <span class="badge">10</span>
+                            </div>
+                        </div>
+                        <div class="tiles-footer">
+                            预约视图
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-2">
+                    <a href="/Schedule/Index.do" class="shortcut-tiles tiles-inverse">
+                        <div class="tiles-body">
+                            <div class="pull-left">
+                                <i class="fa fa-calendar-o"></i>
+                            </div>
+                            <div class="pull-right">
+                                <span class="badge">3</span>
+                            </div>
+                        </div>
+                        <div class="tiles-footer">
+                            排班表
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-2">
+                    <a href="#" class="shortcut-tiles tiles-midnightblue">
+                        <div class="tiles-body">
+                            <div class="pull-left">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                        </div>
+                        <div class="tiles-footer">
+                            门店设置
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-2">
+                    <a href="#" class="shortcut-tiles tiles-orange">
+                        <div class="tiles-body">
+                            <div class="pull-left">
+                                <i class="fa fa-wrench"></i>
+                            </div>
+                        </div>
+                        <div class="tiles-footer">
+                            Plugins
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--头部，顶部-->
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="切换侧边栏菜单"></a>
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand" href="@Url.Action("Index")"><img src="../../assets/img/logo_w.png" style="width:42px; height:50px;" alt="Logo" class="brand" />扑满微信CRM-@cuStoreName</a>
+        </div>
+        <div class="navbar-header pull-left" style="width:200px">
+            <a href="#" class="navbar-brand" style="width:200px; color:white">@*(@cuStoreName)*@</a>
+        </div>
+        <ul class="nav navbar-nav pull-right toolbar">
+            <!--登录用户-->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
+                    <span class="hidden-xs">@cuUserName <i class="fa fa-caret-down"></i></span>
+                    @*<img src="../../assets/demo/avatar/dangerfield.png" alt="Dangerfield" />*@
+                </a>
+                <ul class="dropdown-menu userinfo arrow">
+                    <li class="username">
+                        <a href="#">
+                            <div class="pull-left">
+                                @*<img class="userimg" src="../../assets/demo/avatar/dangerfield.png" alt="" />*@
+                                @*<i class="fa fa-user"></i>*@
+                                <img class="userimg" src="~/favicon.ico" alt="" />
+                            </div>
+                            <div class="pull-right">
+                                <h5>欢迎您，@cuUserName</h5>
+                               所属商户 @cuStoreName
+                            </div>
+                        </a>
+                    </li>
+                    <li class="userlinks">
+                        <ul class="dropdown-menu">
+                            <li><a href="#">修改信息 <i class="pull-right fa fa-pencil"></i></a></li>
+                            <li><a href="#">帮助 <i class="pull-right fa fa-question-circle"></i></a></li>
+                            <li class="divider"></li>
+                            <li><a href="/Home/Login.do" class="text-right">注 销</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!--你有新的消息-->
+            <li class="dropdown">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><i class="fa fa-envelope"></i><span class="badge">6</span></a>
+                <ul class="dropdown-menu messages arrow">
+                    <li class="dd-header">
+                        <span>未付款订单</span>
+                        <span><a href="#"></a></span>
+                    </li>
+                    <div id="divOrderList" class="scrollthis">
+                        
+                       @* <li><a href="#">
+                            <span class="time">6 mins</span>
+                            <img src="../../assets/demo/avatar/doyle.png" alt="avatar" />
+                            <div><span class="name">Alan Doyle</span><span class="msg">Please mail me the files by tonight.</span></div>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="time">12 mins</span>
+                            <img src="../../assets/demo/avatar/paton.png" alt="avatar" />
+                            <div><span class="name">Polly Paton</span><span class="msg">Uploaded all the files to server. Take a look.</span></div>
+                        </a></li>*@
+                    </div>
+                    <li class="dd-footer"><a href="/Order/OrderList.do">查看全部订单</a></li>
+                </ul>
+            </li>
+            <!--下拉快捷功能-->
+            <li class="dropdown">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><i class="fa fa-bell"></i><span class="badge">5</span></a>
+                <ul class="dropdown-menu notifications arrow">
+                    <li class="dd-header">
+                        <span>未约进顾客列表</span>
+                        <span><a href="#"></a></span>
+                    </li>
+                    <div id="DivBookingList" class="scrollthis">
+                       @* <li>
+                            <a href="#" class="notification-user active">
+                                <span class="time">4 mins</span>
+                                <i class="fa fa-user"></i>
+                                <span class="msg">陈梦蝶 13764300199</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-danger active">
+                                <span class="time">20 mins</span>
+                                <i class="fa fa-user"></i>
+                                <span class="msg">王岩芷 13763960199</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-success active">
+                                <span class="time">1 hr</span>
+                                <i class="fa fa-user"></i>
+                                <span class="msg">甘泉 13612230169</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-warning">
+                                <span class="time">2 hrs</span>
+                                <i class="fa fa-user"></i>
+                                <span class="msg">杨立敏 13662001179</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="notification-order">
+                                <span class="time">10 hrs</span>
+                                <i class="fa fa-user"></i>
+                                <span class="msg">陈琪 13613460189</span>
+                            </a>
+                        </li>*@
+                    </div>
+                    <li class="dd-footer"><a href="/Booking/Index.do">查看预约视图</a></li>
+                </ul>
+            </li>
+            <!--下拉快捷功能-->
+            <li>
+                <a href="#" id="headerbardropdown"><span><i class="fa fa-level-down"></i></span></a>
+            </li>
+            <!--下拉改变头部主题-->
+            @*<li class="dropdown demodrop">
+                <a href="#" class="dropdown-toggle tooltips" data-toggle="dropdown"><i class="fa fa-magic"></i></a>
+                <ul class="dropdown-menu arrow dropdown-menu-form" id="demo-dropdown">
+                    <li>
+                        <label for="demo-header-variations" class="control-label">头部颜色主题</label>
+                        <ul class="list-inline demo-color-variation" id="demo-header-variations">
+                            <li><a class="color-black" href="javascript:;" data-headertheme="header-black.css"></a></li>
+                            <li><a class="color-dark" href="javascript:;" data-headertheme="default.css"></a></li>
+                            <li><a class="color-red" href="javascript:;" data-headertheme="header-red.css"></a></li>
+                            <li><a class="color-blue" href="javascript:;" data-headertheme="header-blue.css"></a></li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <label for="demo-color-variations" class="control-label">导航菜单颜色主题</label>
+                        <ul class="list-inline demo-color-variation" id="demo-color-variations">
+                            <li><a class="color-lite" href="javascript:;" data-theme="default.css"></a></li>
+                            <li><a class="color-steel" href="javascript:;" data-theme="sidebar-steel.css"></a></li>
+                            <li><a class="color-lavender" href="javascript:;" data-theme="sidebar-lavender.css"></a></li>
+                            <li><a class="color-green" href="javascript:;" data-theme="sidebar-green.css"></a></li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <label for="fixedheader">固定头部</label>
+                        <div id="fixedheader" style="margin-top: 5px;"></div>
+                    </li>
+                </ul>
+            </li>*@
+              <li style="margin-top:10px;">
+                <input id="txtMemberSearch" type="text" placeholder="输入会员卡号 / 手机号"  style="background-color:#dedada;border:none;width:230px;height:25px;" />
+            </li>
+        </ul>
+    </header>
+    <div id="page-container">
+        <!-- BEGIN SIDEBAR -->
+        @{
+            var cssCurrent = Html.Raw("class=\"active\"");
+            var cssNone = Html.Raw("");
+        }
+        <nav id="page-leftbar" role="navigation" class="leftbar-fixed-top">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul class="acc-menu" id="sidebar">
+                <li id="search">
+                    <a href="javascript:;"><i class="fa fa-search opacity-control"></i></a>
+                    <form>
+                        <input type="text" class="search-query" placeholder="Search...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+               @* <li class="divider"></li>
+               @Html.Raw( @menu)*@
+                 <li class="divider"></li>
+               <li><a href="/Home/Index.do"><i class="fa fa-home"></i><span>仪表盘</span></a></li>                <li><a href="javascript:;"><i class="fa fa-rss"></i><span>微信运营</span></a>                    <ul class="acc-menu">                        <li><a href="/home/index.do">微信概况</a></li>                        @*<li><a href="/wechat/graphiclist.do">图文素材</a></li>*@                        <li><a href="/wechat/GraphicShow.do">图文素材</a></li>                        <li><a href="/wechat/Informations.do">自动回复设置</a></li>                        @*<li><a href="#">-群发信息-</a></li>*@                        <li><a href="/custommenu/index.do">微信菜单管理</a></li>                        <li><a href="/wechat/custmsghis.do">实时消息</a></li>
+                    </ul>
+                </li>                                <li><a href="javascript:;"><i class="fa fa-user"></i><span>粉丝管理</span></a><ul class="acc-menu"><li><a href="/wechat/fanslist.do">粉丝概览</a></li></ul></li>                <li>                    <a href="javascript:;"><i class="fa fa-tasks"></i><span>营销管理</span></a>                    <ul class="acc-menu">
+                        <li><a href="/wechat/memcard.do">会员卡</a></li>
+                        <li><a href="/wechat/Ticket.do">优惠券</a></li>
+                    </ul>
+
+                </li>                <li>                    <a href="javascript:;"><i class="fa fa-tags"></i><span>预约管理</span></a>                    <ul class="acc-menu"><li><a href="/booking/storelist.do">微店铺管理</a></li></ul>
+                </li>                @*<li><a href="javascript:;"><i class="fa fa-gear"></i><span>系统管理</span></a><ul class="acc-menu"><li><a href="/Employee/UserInfo.do">用户管理</a></li><li><a href="/systemset/systemmenu.do">权限菜单</a></li><li><a href="/Role/Index.do">角色管理</a></li><li><a href="/OrgDict/Index.do">数据字典</a></li></ul></li>*@                <li><a href="javascript:;"><i class="fa fa-briefcase"></i><span>商户管理</span></a><ul class="acc-menu"><li><a href="/systemset/Merchant.do">商户管理</a></li></ul></li>
+
+
+                @*<li><a href="/Home/Index.do"><i class="fa fa-home"></i><span>仪表盘</span></a></li>
+                <li><a href="javascript:;"><i class="fa fa-group"></i><span>顾客管理</span> </a>
+                    <ul class="acc-menu">
+                        <li><a href="/Customer/Index.do"><span>顾客列表</span></a></li>
+                        <li><a href="/Customer/CustomerGroup.do"><span>顾客分组</span></a></li>
+                   
+                    </ul>
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-calendar"></i><span>预约管理</span> <span class="badge badge-indigo">4</span></a>
+                    <ul class='acc-menu'>
+                        <li><a href="/Booking/Index.do">预约日历</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-tasks"></i><span>订单管理</span> <span class="badge badge-info">12</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="/Order/OrderList.do">查询订单</a></li>
+                        <li><a href="/Order/OrderD.do">新建订单</a></li>
+                         <li><a href="/Order/OrderCard.do">购卡</a></li>
+                        <li><a href="/OrderMemCard/Member.do">会员卡</a></li>
+                        <li><a href="/OrderMemCard/Treatment.do">疗程卡</a></li>
+                        <li><a href="/Promotion/VoucherManager.do">代金券管理</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-tags"></i><span>促销管理</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="/Promotion/ElectronicCoupon.do/0">渠道优惠券</a></li>
+                        <li><a href="/Promotion/ElectronicCoupon.do/1">团购活动</a></li>
+                        <li><a href="/Promotion/BuyGiveActivities.do">买赠活动</a></li>
+                        <li><a href="/Promotion/ElectronicCoupon.do/3">自定义活动</a></li>
+                        <li><a href="/Promotion/ElectronicCoupon.do/4">发放代金券</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-calendar-o"></i><span>考勤排班</span> <span class="badge badge-danger">1</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="/Schedule/Index.do">员工排班表</a></li>
+                        <li><a href="/Schedule/ScheduleSet.do">班次管理</a></li>
+                      
+                    </ul>
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-bar-chart-o"></i><span>数据报表</span><span class="badge badge-primary">5</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="#">粉丝概览</a></li>
+                        <li><a href="#">分组管理</a></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li><a href="javascript:;"><i class="fa fa-cog"></i><span>公司管理</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="/Company/Index.do">公司管理</a></li>
+                        <li><a href="/Store/Index.do">门店管理</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-sitemap"></i><span>门店管理</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="javascript:;">基本设置</a>
+                            <ul class="acc-menu">
+                                <li><a href="javascript:;">业务信息</a></li>
+                                <li><a href="javascript:;">常规设置</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/Room/Index.do">房间管理</a>
+                        </li>
+                        <li><a href="javascript:;">员工管理</a>
+                            <ul class="acc-menu">
+                                <li><a href="/Employee/Index.do">员工管理</a></li>
+                                <li><a href="/Employee/Post.do">员工级别管理</a></li>
+                                <li><a href="/Employee/Commission.do">佣金方案</a></li>
+                            </ul>
+                        </li>
+                          <li><a href="/ProdCategory/Index.do">产品类别管理</a>
+                        </li>
+                        <li><a href="/Service/Index.do">服务项目管理</a>
+                        </li>
+                        <li><a href="/Goods/Index.do">产品管理</a>
+                        </li>
+                        <li><a href="/Card/Index.do">储值卡管理</a>
+                        </li>
+                        <li><a href="/Treatmentcard/Index.do">疗程卡管理</a>
+                        </li>
+                        <li><a href="/Role/Index.do">角色管理</a>
+                        </li>
+                        <li><a href="/OrgDict/Index.do">数据字典</a>
+                        </li>
+
+                        <li>
+                            <a href="/SystemSet/paymentmode.do">支付方式管理</a>
+                         <li><a href="/systemset/systemmenu.do">权限菜单</a>
+                        </li>
+
+                    </ul>
+                </li>*@
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </nav>
+        <div id="page-content">
+            <div id='wrap'>
+                <div class="container">
+                    @RenderBody()
+                </div>
+                <!-- container -->
+            </div>
+            <!--wrap -->
+        </div>
+        <!-- page-content -->
+        <footer role="contentinfo">
+            <div class="clearfix">
+                <ul class="list-unstyled list-inline pull-left">
+                    <li>PUMAN &copy; 2014</li>
+                </ul>
+                <button class="pull-right btn btn-inverse-alt btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+            </div>
+        </footer>
+    </div>
+    <input type="hidden" id="hideStoreId" value="@storeId" />
+    <!-- page-container -->
+    <!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery-1.10.2.min.js"%3E%3C/script%3E'))</script>
+<script type="text/javascript">!window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jqueryui-1.10.3.min.js'))</script>
+-->
+    <script type='text/javascript' src='../../assets/js/jquery-1.10.2.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/jqueryui-1.10.3.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/enquire.js'></script>
+    <script type='text/javascript' src='../../assets/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='../../assets/js/jquery.nicescroll.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/highcharts.js'></script>
+    <script type='text/javascript' src='../../assets/js/exporting.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/codeprettifier/prettify.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/easypiechart/jquery.easypiechart.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/sparklines/jquery.sparklines.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/form-toggle/toggle.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/fullcalendar/fullcalendar.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.min.js'></script> 
+    <script type='text/javascript' src='../../assets/plugins/form-daterangepicker/daterangepicker.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/form-daterangepicker/moment.min.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/pulsate/jQuery.pulsate.min.js'></script>
+    <script type='text/javascript' src='../../assets/js/placeholdr.js'></script>
+    <script type='text/javascript' src='../../assets/js/application.js'></script>
+    <script type='text/javascript' src='../../assets/js/common.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo.js'></script>
+@*    <script type='text/javascript' src='../../assets/app/home/index.js'></script>*@
+
+    <script type='text/javascript' src='../../assets/plugins/knob/jquery.knob.min.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-slider.js'></script>
+
+    <script type='text/javascript' src='../../assets/plugins/form-xeditable/bootstrap3-editable/js/bootstrap-editable.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-xeditable.js'></script>
+
+
+
+    <script type='text/javascript' src='../../assets/plugins/pines-notify/jquery.pnotify.js'></script>
+
+
+    <script type='text/javascript' src='../../assets/plugins/knob/jquery.knob.min.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-slider.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/form-xeditable/bootstrap3-editable/js/bootstrap-editable.js'></script>
+    <script type='text/javascript' src='../../assets/demo/demo-xeditable.js'></script>
+    <script type='text/javascript' src='../../assets/plugins/pines-notify/jquery.pnotify.js'></script>
+        
+    @RenderSection("jssection", false)
+</body>
+</html>

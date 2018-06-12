@@ -1,0 +1,296 @@
+﻿#wrap > .container {
+    padding: 5px;
+}
+
+
+.view-main{    
+}
+.view-main .view-wrap{
+    padding: 5px;
+}
+.view-main .view-toolbar{
+    position: relative;
+    padding: 0 5px;
+}
+.view-toolbar select.view-col-type{
+    display: block;
+    width: 100%;
+    height: 30px;
+    padding: 3px 12px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.view-toolbar .pull-left
+{
+    margin-left: 10px;
+}
+.view-toolbar .pull-right{
+    margin-right: 30px;
+}
+.view-toolbar  .dp-panel{
+    line-height: 30px;
+}
+.view-toolbar  .dp-panel .dateshow{
+    float: left;
+    margin:0 10px;
+    display: inline-block;
+    width: 170px;
+    background-color: #E3E4E2;
+    padding: 0 6px;
+    text-align: center;
+}
+ul.cal-op{
+    margin: 0 0 0 10px;
+    padding: 0;
+    float: left;
+}
+ul.cal-op li{
+    float: left;
+    list-style: none;
+}
+ul.cal-op li>a,ul.cal-op li>a.link{
+    color:#555;
+}
+ul.cal-op li>a.prev-cal,ul.cal-op li>a.next-cal{
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: #FAFAFA;
+    border: 1px solid #ccc;
+    line-height: 20px;
+    margin: 0 5px;
+}
+ul.cal-op li>a.filter,ul.cal-op li>a.changesize{
+    display: inline-block;
+    padding: 2px 8px;
+    line-height: 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    /* */
+    background-color: #FAFAFA;
+    border: 1px solid #ccc;
+
+}
+ul.cal-op li>a.prev-cal:hover,ul.cal-op li>a.next-cal:hover{
+    border-color:#999;
+}
+ul.cal-op li>a.choose-cal{
+    margin: 0 5px;
+    font-size: 18px;
+}
+.slider-wrapper{
+    position: absolute;
+    top: 80px;
+    left:55%;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    background-color: #fefefe;
+    padding: 10px 20px;
+    z-index: 999;
+    display: none;
+}
+.slider-wrapper .sliderpanel{
+    padding:10px 0;
+}
+.slider-wrapper .sliderinput{
+    width: 330px;
+}
+.slider-wrapper .split{
+    padding: 2px;
+    border-bottom: 1px solid #ddd;
+    margin:8px 0 10px 0;
+}
+ul.cal-op li>a.droptricker{
+    border: 2px solid #ddd;
+    padding:1px 7px;
+    border-radius: 4px 4px 0 0 ;
+    border-bottom: none;
+}
+.filter-wrapper{
+    position: absolute;
+    top: 80px;
+    left:580px;
+    width: 610px;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    background-color: #fefefe;
+    z-index: 999;
+    display: none;
+}
+.filter-wrapper .filter-title{
+    margin: 10px 10px 0 10px;
+    padding: 4px 0px;
+}
+.filter-wrapper .filter-content{
+    margin: 0 20px;
+    padding: 5px 10px;
+    overflow: hidden;
+    zoom: 1;
+}
+.filter-wrapper .filter-content label{
+    float: left;
+    display: inline-block;
+    width: 180px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.filter-wrapper .filter-content label input[type='checkbox']{
+    margin-right: 5px;
+}
+.filter-wrapper .filter-btn-panel{
+    background-color:#dbdfe5;
+    padding:6px 10px;
+    zoom:1;
+    overflow: hidden;
+    line-height: 30px;
+}
+.filter-wrapper .filter-btn-panel a{
+    margin-right: 10px;
+    font-size: 12px;
+    color: #333;
+}
+.filter-wrapper .filter-btn-panel .btn{
+    width: 100px;
+}
+
+
+.itemop-wrapper{
+    position: absolute;
+    top: 190px;
+    left:580px;
+    width: 100px;
+    border-radius: 6px;
+    border: 2px solid #3E62A4;
+    background-color: #fefefe;
+    z-index: 99999;
+    display: none;
+}
+.itemop-wrapper ul{
+    margin: 0 0 0 10px;
+    padding:4px 5px;
+    list-style: none;
+}
+.itemop-wrapper ul li{
+  padding: 1px 0;
+}
+.itemop-wrapper ul li.separator{
+    border-bottom: solid 1px #ddd;
+}
+
+
+
+/* TipTip CSS - Version 1.2 */
+#tiptip_holder {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
+
+#tiptip_holder.tip_top {
+    padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_bottom {
+    padding-top: 5px;
+}
+
+#tiptip_holder.tip_right {
+    padding-left: 5px;
+}
+
+#tiptip_holder.tip_left {
+    padding-right: 5px;
+}
+
+#tiptip_content {
+    font-size: 11px;
+    color: #fff;
+    -webkit-text-shadow: 0 0 2px #000;
+    text-shadow: 0 0 2px #000;
+    padding: 4px 8px;
+    border: 1px solid #191919;
+    background-color: #191919;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 3px #555;
+    -moz-box-shadow: 0 0 3px #555;
+    box-shadow: 0 0 3px #555;
+}
+
+#tiptip_arrow, #tiptip_arrow_inner {
+    position: absolute;
+    border: transparent solid 6px;
+    height: 0;
+    width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow {
+    border-top-color: #fff;
+    border-top-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow {
+    border-bottom-color: #fff;
+    border-bottom-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow {
+    border-right-color: #fff;
+    border-right-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow {
+    border-left-color: #fff;
+    border-left-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+    margin-top: -7px;
+    margin-left: -6px;
+    border-top-color: rgb(25,25,25);
+    border-top-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+    margin-top: -5px;
+    margin-left: -6px;
+    border-bottom-color: rgb(25,25,25);
+    border-bottom-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+    margin-top: -6px;
+    margin-left: -5px;
+    border-right-color: rgb(25,25,25);
+    border-right-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+    margin-top: -6px;
+    margin-left: -7px;
+    border-left-color: rgb(25,25,25);
+    border-left-color: rgba(25,25,25,0.92);
+}
+
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #tiptip_content {
+        padding: 4px 8px 5px 8px;
+        background-color: rgba(45,45,45,0.88);
+    }
+    #tiptip_holder.tip_bottom #tiptip_arrow_inner {
+        border-bottom-color: rgba(45,45,45,0.88);
+    }
+    #tiptip_holder.tip_top #tiptip_arrow_inner {
+        border-top-color: rgba(20,20,20,0.92);
+    }
+}

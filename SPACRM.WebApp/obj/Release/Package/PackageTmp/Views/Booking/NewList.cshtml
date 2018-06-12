@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Html.Css("pure-min",  "common", "plugin/xjgrid")
+    <meta name="viewport" content="width=device-width" />
+    <title>预约历史</title>
+    <style type="text/css">
+        .l-box {
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pure-g l-box">
+        <div class="pure-u-1" style="clear:both;">
+            <div id="gridlist"></div>
+        </div>
+    </div>
+    @Html.Js("common", "sea")
+    <script type="text/javascript">
+        var util = {};
+        seajs.use('view/booking/newlist', function (app) {
+            var opt = {
+                setStatusUrl:"@Url.Action("Remind")",
+                listUrl: '@Url.Action("NewList")'
+            };
+            app.init(opt);
+        });
+    </script>
+</body>
+</html>

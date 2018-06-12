@@ -1,0 +1,210 @@
+﻿@{
+    ViewBag.Title = "MOT策略定义";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@section htmlhead{
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "plugins/progress-skylo/skylo", "js/jqueryui")
+    <style type="text/css">
+        .h_title {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+                .searchpanel .form-group label {
+                    margin-bottom: 4px;
+                }
+
+
+                 th {
+ text-align: center;
+    height:35px;
+} 
+                td {
+text-align: center;
+    height:35px;
+} 
+    </style>
+
+}
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-tasks"></i> MOT策略管理</h2>
+    </div>    
+        <div id="mainbody" class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>
+                MOT策略管理
+                </h4>
+            </div>
+            <div class="panel-body" style="min-height: 350px">
+                 <div class="row">
+                <div class="col-md-2 form-group">
+                    <button type="button" class="btn default" id="btnAdd">
+                        <i class="fa fa-plus"></i> 新 增</button>
+                </div>
+
+
+                      <div class="text-right col-md-10">
+                
+                <form id="formQuery"  class="form-inline" role="form">
+                   
+                     <div class="form-group">
+                      <input type="text" class="form-control" placeholder="请输入策略名称" id="NAME" name="NAME" />
+
+                        <select class="form-control" id="PRO_TYPE" name="SONTYPE">
+                            <option value="">请选择策略类型</option>
+                             <option value="">短信</option>
+                             <option value="">电话</option>
+                             <option value="">邮件</option>
+                        </select>                       
+                   
+                          <div class="btn-group">
+                           <button class="btn-primary btn"><i class="fa fa-search"></i> 查 询</button>
+                        </div>      
+                    </div>
+             
+                </form>
+                </div>
+                <div class="col-md-12">
+                    <div >
+                          
+                        
+                        <table  width="1050" border="1" align="center" cellpadding="0" cellspacing="0" class="tableborder">
+                            <tr><th  >策略名称</th><th>版本号</th><th>策略类型</th><th>策略描述</th><th>创建人</th><th>创建日期</th><th>操作</th></tr>
+                          <tr><td  >策略1</td><td>1.0</td><td>短信</td><td>情况紧急</td><td>门店前台</td><td>2014-07-28 </td><td><a href="#" id="x1">修改</a> <a id="d1">删除</a></td></tr>
+                              <tr><td  >策略2</td><td>1.0</td><td>邮件</td><td>情况紧急</td><td>门店前台</td><td>2014-08-08</td><td><a href="#" id="x2">修改</a> <a id="d2">删除</a></td></tr>
+                              <tr><td  >策略3</td><td>1.1</td><td>短信</td><td>情况紧急</td><td>门店前台</td><td>2014-08-08 </td><td><a href="#" id="x3">修改</a> <a id="d3">删除</a></td></tr>
+                              <tr><td  >策略4</td><td>1.2</td><td>电话</td><td>情况紧急</td><td>门店前台</td><td>2014-08-08 </td><td><a href="#" id="x4">修改</a> <a id="d4">删除</a></td></tr>
+                              <tr><td  >策略5</td><td>1.3</td><td>短信</td><td>情况紧急</td><td>门店前台</td><td>2014-08-08 </td><td><a href="#" id="x5">修改</a> <a id="d5">删除</a></td></tr>
+
+                        
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+    
+            </div>
+
+
+<div id="EditModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">策略信息维护</h4>
+            </div>
+            <div>
+            </div>
+            <div class="modal-body">
+                 <form class="form-horizontal" id="frmSave" method="post" action="@Url.Action("PostSave")" role="form">
+                          
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>策略名称:</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("PROD_SKU", "", new { @class = "form-control", placeholder = "请输入策略名称", maxlength = "10", required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>版本号:</label>
+                                <div class="col-sm-6">
+                                      @Html.TextBox("PROD_NAME", "", new { @class = "form-control", placeholder = "请输入策略版本号", maxlength = "10", required = "required" })
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="help-block" style="color: red;"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>策略类型:</label>
+                                 
+                                <div class="col-sm-6">
+                                    <select class="form-control" name="SONTYPE">
+                            <option value="">请选择策略类型</option>
+                             <option value="">短信</option>
+                             <option value="">电话</option>
+                             <option value="">邮件</option>
+                         </select>                                         
+                                </div>
+                            </div>
+
+                         <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>策略描述:</label>
+                                <div class="col-sm-6">
+                                      @Html.TextBox("PROD_NAME", "", new { @class = "form-control", placeholder = "请输入策略描述", maxlength = "10", required = "required" })
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="help-block" style="color: red;"></p>
+                                </div>
+                            </div>
+
+                         <div class="form-group">
+                                <label class="col-sm-3 control-label"><span style="color: red">*</span>创建人:</label>
+                                <div class="col-sm-6">
+                                      @Html.TextBox("PROD_NAME", "", new { @class = "form-control", placeholder = "请输入创建人", maxlength = "10", required = "required" })
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="help-block" style="color: red;"></p>
+                                </div>
+                            </div>
+                     </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+                <button type="button" id="btnConfirm" class="btn btn-primary">确 定</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+ <div id="confirmModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;</button>
+                        <h4 class="modal-title">
+                            确认！</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            你确认要删除策略吗？</p>
+                        <input id="hdCurrentId" type="hidden" value="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            取 消</button>
+                        <button type="button" id="btnConfirm" class="btn btn-primary">
+                            确 定</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+<!-- /.modal -->
+        </div>
+    </div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {}; var options = {
+           @* listUrl: "@Url.Action("List")",*@
+            editUrl: "@Url.Action("Edit")",
+            deleteUrl: "@Url.Action("Delete")"
+        };
+    </script>
+    @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog","app/mot/index")
+}

@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "CustExpandInfo";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@model SPACRM.Entity.Customer360
+@section htmlhead{
+    @Html.Css("view360")
+}
+@Html.Css("plugin/xjgrid", "plugin/xjdailog")
+@helper DisplayOption(string text)
+{ 
+    if (string.IsNullOrEmpty(text))
+    {
+    @:-
+    }
+    else
+    {
+    @text
+    }
+}
+
+
+<form id="frmExpand" class="form-horizontal " method="post" role="form">
+   <div id="content" >
+  
+       @if (Model.First_Cust_Exinfo!=null)
+       {
+            var count=0;
+           var flag=0;
+           var group="";
+           for (int i = 0; i < Model.First_Cust_Exinfo.Count; i++)
+                {
+                    if (Model.First_Cust_Exinfo[i].newid ==1)
+                    {
+                        count++;
+                       <br />  <br />   <span class="badge badge-info"  style="font-size:large;">@count</span><span style="font-size:large;"> @Model.First_Cust_Exinfo[i].FNAME</span>
+
+                    }
+                  
+                    if (Model.First_Cust_Exinfo[i].newid == 2)
+                    { 
+                        flag=(int)Model.First_Cust_Exinfo[i].CHOICE_TYPE;
+                        group=Model.First_Cust_Exinfo[i].SID.ToString();
+                          <span  >  
+                         
+                  <br />   <br /><span style="margin:100px,200px;" id="@Model.First_Cust_Exinfo[i].SID" > &nbsp;&nbsp;
+                         @Model.First_Cust_Exinfo[i].SNAME  : &nbsp;&nbsp;&nbsp;&nbsp;   </span>                                                                                                                                                                                                                                                      
+           </span> 
+          
+                    }
+                    if (Model.First_Cust_Exinfo[i].newid ==3)
+                      {   
+                        <span >  
+                       @if (flag== 0)
+                        {
+                         
+                               @Html.RadioButton(group,Model.First_Cust_Exinfo[i].TID,Model.First_Cust_Exinfo[i].check)  
+                          
+                        }
+                        else{
+                           if(Model.First_Cust_Exinfo[i].check)
+                           {
+                            <input  id="@group" name="@group" type="checkbox" value="@Model.First_Cust_Exinfo[i].TID"  checked="checked"/>
+                       }
+                       else
+                       {  <input  id="@group" name="@group" type="checkbox" value="@Model.First_Cust_Exinfo[i].TID" />
+                       }
+                      //@Html.CheckBox(group)  
+                    }
+                                <span id="@Model.First_Cust_Exinfo[i].TID"> @Model.First_Cust_Exinfo[i].TNAME  </span>   
+                           <span> &nbsp; </span>   
+                               </span>               
+                    }                    
+                 
+       }
+            
+       } 
+          </div>     
+    
+     <input  type="hidden" id="check" name="check"/>
+     <input  type="hidden" id="radio" name="radio"/>
+        <input type="hidden" id="CUST_ID" name="CUST_ID" value="@Request.QueryString["cid"]" />
+        <div class="panel-footer">
+       
+            <span id="btnSave" class="btn btn-primary pull-right">  保 存  </span>
+         @*   <span id="btnSaves" class="btn btn-primary pull-right">  保 存  </span>*@
+        </div><!-- panel-footer -->
+   
+    </form>
+  
+
+@section jssection{
+
+       @Html.Js("plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "app/customer/custexpandinfo")
+}
+

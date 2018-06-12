@@ -1,0 +1,266 @@
+﻿@{
+    ViewBag.Title = "CardList";
+    Layout = "~/Views/Shared/_LayoutB.cshtml";
+}
+@model SPACRM.Entity.Customer360
+@section htmlhead{
+    @Html.Css("view360")
+}
+@Html.Css("plugin/xjgrid", "plugin/xjdailog", "plugin/validator", "plugin/tip")
+@helper DisplayOption(string text)
+{ 
+    if (string.IsNullOrEmpty(text))
+    {
+    @:-
+    }
+    else
+    {
+    @text
+    }
+}
+<div class="panel-body">
+    <div class="tab-pane">
+        @if (Model.CustomerCard != null)
+        {
+            foreach (var cc in Model.CustomerCard)
+            {
+
+            <div class="row">
+
+                <div class="col-sm-4 col-md-3">
+                    <img src="@Url.Content("~/assets/img/photos/card.jpg")" style="width:200px; height:140px;" alt="会员卡卡样" class="thumbnail">
+                </div>
+                <div class="col-sm-8 col-md-9">
+                    <div class="mb10">
+                    </div>
+                    <h5 id="card@(cc.ID)">
+                        @cc.CARD_NAME  <span class="badge badge-warning">
+                            @if (cc.CARD_TYPE == 1)
+                            {
+                                @(" 储值卡 ")
+                            }
+                            else if (cc.CARD_TYPE == 2)
+                            {
+                                @(" 疗程卡 ")
+                            }
+                            else if (cc.CARD_TYPE == 5)
+                            {
+                                @(" 项目券 ")
+                            }
+                            else if (cc.CARD_TYPE == 6)
+                            {
+                                @(" 现金券 ")
+                            }
+                            else if (cc.CARD_TYPE == 7)
+                            {
+                                @(" 赠送卡 ")
+                            }
+                        </span>
+                        @if (ViewBag.HasRight_ModifyCard == true)
+                        {
+                            <a href="javascript:;" onclick="util.editcardid(this, @(cc.ID), @(cc.CARD_TYPE))">修改卡级</a>
+                        }
+                    </h5>
+                    <h5 id="card2@(cc.ID)" style="display:none;">
+                        @Html.ResourceDropDownList("CARD_ID", "VIPCARD", cc.CARD_ID, new { @class = "form-control", @onchange = "util.editcard(this," + cc.ID + ");" }, "_" + Model.BaseInfo.ORG_ID.ToString(), false)
+                    </h5>
+                    <div class="profile-location">
+                        <i class="fa fa-external-link-square"></i>注册时间 @(cc.BEGIN_DATE.HasValue ? cc.BEGIN_DATE.Value.ToString("yyyy-MM-dd") : "")
+                        <i class="fa fa-external-link"></i>
+                        过期时间 
+
+                        <span id="spanEndDate@(cc.ID)">
+                            <span id="endDateValue@(cc.ID)" style="display: inline-block;">
+                                @(cc.END_DATE.HasValue ? cc.END_DATE.Value.ToString("yyyy-MM-dd") : "")</span>
+                            @if (ViewBag.HasRight_ModifyCardExpire == true)
+                            {
+                                <a href="javascript:;" onclick="util.modify(this,@(cc.ID))">修改</a>
+                            }
+                        </span>
+
+                        <span id="spanEndDate2@(cc.ID)" style="display: none;">
+                            <input type="text" class="end_date" style="width:85px;" value="@(cc.END_DATE.HasValue ? cc.END_DATE.Value.ToString("yyyy-MM-dd") : "")" />
+                            <a href="javascript:;" onclick="util.confirmSave(this,@(cc.ID));">确定</a>
+                        </span>
+                        @if (ViewBag.HasRight_RemoveCard == true)
+                        {
+                            if (cc.STATUS == 1 && (cc.CARD_TYPE == 5 || cc.CARD_TYPE == 6))
+                            {
+                                <a href="javascript:;" onclick="util.revokeCard(this,@(cc.ID))">作废</a>
+                            }
+                        }
+                    </div>
+                    @if (cc.CARD_TYPE == 1)
+                    {
+                        <div class="profile-position">
+                            <i class="fa fa-credit-card"></i>卡内总额 @cc.PAR_AMT
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="profile-position">
+                            <i class="fa fa-credit-card"></i>销售金额 @cc.BUY_AMT
+                        </div>
+                    }
+                    @if (cc.CARD_TYPE == 1)
+                    {
+                        <div class="profile-position">
+                            <i class="fa fa-credit-card"></i>卡内余额 @cc.BALANCE
+                        </div>
+                    }
+                    @if (cc.ARREARS > 0)
+                    {
+                        <div class="profile-position">
+                            <i class="fa fa-credit-card"></i>欠款 @cc.ARREARS
+                        </div>   
+                    }
+                    @if (cc.yh != 0)
+                    {
+                        <div class="profile-position">
+                            <i class="fa fa-credit-card"></i>赠送 @cc.yh
+                        </div>   
+                    }
+
+                    <div class="profile-position">
+                        @if (cc.STATUS == 3)
+                        {
+                            <span class="badge">
+                                @if ((cc.CARD_TYPE == 5 || cc.CARD_TYPE == 6))
+                                {
+                                    if (cc.BALANCE <= 0)
+                                    { @("已使用") }
+                                    else
+                                    { @("已作废") }
+                                }
+                                else
+                                {
+                                    @("已退卡")
+                                }
+                            </span>
+                        }
+                        else if (cc.STATUS == 0)
+                        {
+                            <span class="badge badge-info">未发卡</span> 
+                        }
+                        else if (cc.STATUS == 1)
+                        {
+                            <span class="badge badge-info">正常</span> 
+                        }
+                        else if (cc.STATUS == 8)
+                        {
+                            <span class="badge badge-info">已挂失</span> 
+                        }
+                        else if (cc.STATUS == 9)
+                        {
+                            <span class="badge badge-info">已过期</span> 
+                        }
+                    </div>
+                    <div class="mb10">
+                    </div>
+                    <div class="mb10">
+                    </div>
+                    <div class="mb10">
+                    </div>
+                    @* <button class="btn btn-green mr5">
+                    <i class="fa fa-money"></i>充值</button>
+                <button class="btn btn-white">
+                    <i class="fa fa-ban"></i>冻结</button>*@
+                </div>
+                @*如果是疗程卡显示疗程信息*@
+            </div>
+            <div class="l-box-title">
+            </div>
+            <div class="mb10">
+            </div>
+            }
+            //显示会有疗程
+            if (Model.CUST_CDETAIL != null && Model.CUST_CDETAIL.Count > 0)
+            {
+            <div style="height: 400px;">
+                <table id="tSpeedyPro" class="table table-advance table-hover">
+                    <thead style="background-color: #f7f8fa">
+                        <tr class='thead'>
+
+                            <td style="width: 5%;">
+                                <div style="text-align: left;">SKU</div>
+                            </td>
+                            <td style="width: 20%;">
+                                <div style="text-align: left;">疗程名称</div>
+                            </td>
+                            <td style="width: 10%;">
+                                <div style="text-align: left;">总次数</div>
+                            </td>
+                            <td style="width: 10%;">
+                                <div style="text-align: left;">购买次数</div>
+                            </td>
+                            <td style="width: 10%;">
+                                <div style="text-align: left;">赠送次数</div>
+                            </td>
+                            <td style="width: 10%;">
+                                <div style="text-align: left;">已用次数</div>
+                            </td>
+                            <td style="width: 10%;">
+                                <div style="text-align: left;">剩余次数</div>
+                            </td>
+                            <td style="width: 10%;">
+                                <div style="text-align: left;">退卡次数</div>
+                            </td>
+                            <td style="width: 15%;">
+                                <div style="text-align: left;">有效期</div>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.CUST_CDETAIL != null)
+                        {
+                            foreach (var c in Model.CUST_CDETAIL)
+                            {
+                            <tr class='strip'>
+                                <td>@c.SERVICE_ID</td>
+                                <td>@c.SERVICE_NAME</td>
+                                <td>@c.SERVICE_QTY</td>
+                                <td>@c.BUY_QTY</td>
+                                <td>@c.PRESENT_QTY</td>
+                                <td>@c.USED_QTY</td>
+                                <td>@c.AVA_QTY</td>
+                                <td>@c.REFUND_QTY</td>
+                                <td>@DateTime.Parse(c.VALID_EDATE.ToString()).ToString("yyyy-MM-dd")</td>
+                                @*<td>@c.STATUS</td>*@@*0--停用,1--正常;9--已过期,8--已冻结*@
+                            </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+                       
+
+            }
+            <div class="col-sm-3">
+            </div>
+            if (Model.CustomerCard.Count <= 0)
+            {
+            <div class="row">
+                <div class="alert alert-dismissable alert-info">
+                    <strong>提示!</strong> 该会员没有任何会员卡记录。
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    &times;</button>
+                </div>
+            </div>
+            }
+        }
+
+    </div>
+</div>
+@section jssection{
+    <script type="text/javascript">
+        var util = {};
+        var options = {
+            cardUrl: "@Url.Action("CardList", "Customer", new { cid = Request.QueryString["cid"] })",
+            modifyEndDateUrl: "@Url.Action("ModifyCardEndDate", "Customer", new { custID = Request.QueryString["cid"] })",
+            modifyCardID: "@Url.Action("ModifyCardID", "Customer", new { custID = Request.QueryString["cid"] })",
+            revokeCardUrl: "@Url.Action("RevokeCard", new { custID = Request.QueryString["cid"] })"
+        };
+
+    </script>
+    @Html.Js("plugins/form-datepicker/js/bootstrap-datepicker", "plugins/form-datepicker/js/locales/bootstrap-datepicker.zh-CN", "app/customer/cardlist")
+}

@@ -1,0 +1,313 @@
+﻿@{
+    ViewBag.Title = "编辑公司信息";
+}
+@model SPACRM.Entity.Entities.ORG_INFO_EX
+@section htmlhead{
+    
+    @Html.Css("plugin/xjgrid", "plugin/xjdailog", "common", "plugin/validator", "plugin/tip")
+    <link rel='stylesheet' type='text/css' href='../../assets/css/tree.css' />
+     
+
+    <style type="text/css">
+        .h_title
+        {
+            padding: 5px 15px;
+            border-bottom: solid 1px #e6e5e5;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .searchpanel
+        {
+            background-color: #f7f8fa; /*border: 1px solid #ccc;*/
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+        }
+
+            .searchpanel .form-group label
+            {
+                margin-bottom: 4px;
+            }
+    </style>
+}
+
+<div class="s_container">
+    <div id="page-heading">
+        <h2>
+            <i class="fa fa-cog"></i>&nbsp;公司信息维护</h2>
+    </div>
+    <form id="frmEdit" method="post" action="@Url.Action("SaveCompany")" role="form">
+        <div id="mainbody" class="panel panel-primary">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>公司详细</h4>
+                </div>
+                <div class="panel-body">
+
+                    @Html.Hidden("ID", Model.ID)
+                    @Html.Hidden("USER_ID", Model.USER_ID)
+                    @Html.Hidden("ROLE_ID", Model.ROLE_ID)
+                    @Html.Hidden("EMPLOYEEID", Model.EMPLOYEEID)
+
+                    <div class="form-group col-xs-6">
+                        <label for="ORG_NO" class="col-sm-3 control-label"><span style="color: red">*</span>公司编号:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("ORG_NO", Model.ORG_NO, new { @class = "form-control", placeholder = "请输入公司编号" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label for="ORG_NAME" class="col-sm-3 control-label"><span style="color: red">*</span>公司名称:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("ORG_NAME", Model.ORG_NAME, new { @class = "form-control", placeholder = "请输入公司名称" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="CONTACT"><span style="color: red">*</span>联系人:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("CONTACT", Model.CONTACT, new { @class = "form-control", placeholder = "请输入联系人" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="TELEPHONE">电话:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("TELEPHONE", Model.TELEPHONE, new { @class = "form-control", placeholder = "请输入电话" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                   @* <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="WEBSITE">官网:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("WEBSITE", Model.WEBSITE, new { @class = "form-control", placeholder = "请输入官网" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>*@
+                   @* <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="SALES">销售:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("SALES", Model.SALES, new { @class = "form-control", placeholder = "请输入销售" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>*@
+                    <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="CHANNEL">渠道:</label>
+                        <div class="col-sm-6">
+                            @Html.ResourceDropDownList("CHANNEL", "ORG_XSQD", "渠道", new { @class = "form-control" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                        
+                    </div>
+                         <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="CHANNEL">LOGO:</label>
+                      
+                            <img id="IMAGE_SHOW" src="@(Model.LOGO_PIC.HasValue ? Url.Action("ViewImage", "Helper", new { id =Model.LOGO_PIC.Value}) : Url.Content("~/assets/img/photos/female.jpg"))" style="width:250px;height:250px;" class="thumbnail img-responsive" alt="" />
+                    <iframe src="@Url.Action("UploadImage", "Helper", new { upid = "smallimg", showtip = "选择小图", type = 1 })" frameborder="0" style="width: 62px; height: 20px; border: none; padding: 5; margin: 5; float: left;">
+                    </iframe>
+                                 <input type="hidden" id="LOGO_PIC" name="LOGO_PIC" value="@Model.LOGO_PIC" />
+                    </div>
+                    @*  <div class="form-group col-xs-6">
+                            <label class="col-sm-3 control-label"  style="text-align:right;">图片:</label>
+                            <div class="col-sm-6">
+                                <div >
+                                    <iframe src="@Url.Action("UploadImage", "Helper", new { upid = "smallimg", showtip = "选择小图", type = 1 })" frameborder="0" style="width: 167px; height:102px; border: none; margin: 0; float: left;"></iframe>
+                                </div>
+                                <div style="margin: 1px 4px; border: solid 1px #ccc; padding: 4px; float: left; display: inline-block;">
+                                    <img style="width:200px;height:140px;" id="IMAGE_SHOW"  alt="" />
+                                </div>
+                           
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+
+            <div style="clear: both; height: 5px;"></div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>地址详细</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="CITY">城市:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("CITY", Model.CITY, new { @class = "form-control", placeholder = "请输入城市" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                   @* <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="REGION">地区:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("REGION", Model.REGION, new { @class = "form-control", placeholder = "请输入地区" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>*@
+                    <div class="form-group col-xs-6">
+                        <label class="col-sm-3 control-label" for="ADDRESS">地址:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("ADDRESS", Model.ADDRESS, new { @class = "form-control", placeholder = "请输入地址" })
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear: both; height: 5px;"></div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>管理账户</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group col-xs-12">
+                        <label class="col-sm-2 control-label" for="USER_NO"><span style="color: red">*</span>用户名:</label>
+                        <div class="col-sm-6">
+                            @Html.TextBox("USER_NO", Model.USER_NO, new { @class = "form-control", placeholder = "请输入用户名" })
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12">
+                        <label class="col-sm-2 control-label" for="USER_PASS"><span style="color: red">*</span>密码:</label>
+                        <div class="col-sm-6">
+                            @Html.Password("USER_PASS", Model.USER_PASS, new { @class = "form-control", placeholder = "请输入密码" })
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="col-sm-2 control-label" for="USER_PASS"><span style="color: red">*</span>重复密码:</label>
+                        <div class="col-sm-6">
+                            @Html.Password("USER_PASS1", Model.USER_PASS, new { @class = "form-control", placeholder = "请输入密码" })
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear: both; height: 5px;"></div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>权限</h4>
+                </div>
+                <div class="panel-body">
+                    @* <textarea id="nestable_list_1_output" style="width: 100%" rows="3" class="form-group">
+                        </textarea>*@
+                    @* <div class="dd" id="nestable_list_1">
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="1">
+                                <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 1</div>
+                            </li>
+                            <li class="dd-item" data-id="2">
+                                <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 2</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="3">
+                                      <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 3</div>
+                                    </li>
+                                    <li class="dd-item" data-id="4">
+                                        <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 4</div>
+                                    </li>
+                                    <li class="dd-item" data-id="5">
+                                        <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 5</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="6">
+                                                <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 6</div>
+                                            </li>
+                                            <li class="dd-item" data-id="7">
+                                                <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 7</div>
+                                            </li>
+                                            <li class="dd-item" data-id="8">
+                                                <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 8</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="dd-item" data-id="9">
+                                        <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 9</div>
+                                    </li>
+                                    <li class="dd-item" data-id="10">
+                                        <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 10</div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="dd-item" data-id="11">
+                                <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 11</div>
+                            </li>
+                            <li class="dd-item" data-id="12">
+                                <div class="dd-handle" style="cursor:pointer">  <input type="checkbox" />&nbsp;&nbsp;Item 12</div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="dd" id="nestable_list_2">
+                    </div>*@
+
+
+                    <div id="usertree" style="overflow: auto;"></div>
+                    @Html.Hidden("AddIDS", "")
+                    @*  @Html.Hidden("MinusIDS", "")*@
+                </div>
+            </div>
+
+            <div class="btnpanel_right">
+                <button type="reset" id="btnCancel" class="btn btn-default">取 消  </button>
+                <button type="button" id="btnSave" class="btn btn-primary">保 存  </button>
+            </div>
+            <div style="display: none;">
+                <textarea readonly="readonly" class="fullscreen" style="display: none; height: 0px; width: 0px;"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- /.modal -->
+@section jssection{
+    <script type="text/javascript">
+        var _utils = {};
+        var options = {
+            indexUrl: "@Url.Action("Index")",
+            getTreeUrl: "@Url.Action("GetTreeList")"
+        };
+    </script>
+
+    @Html.Js("plugins/validator/validator", "plugins/xjgrid/xjgrid", "plugins/xjdailog/xjdailog", "js/common", "app/company/jquery.tree", "app/company/editcompany") 
+
+
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+
+
+            $("#usertree").treeview(
+                      {
+                          url: '@Url.Action("GetTreeList")?orgId=@ViewData["ORG_ID"]',
+                          showcheck: true,
+                          cascadecheck: true,
+                          onnodeclick: TreeNode_Click,
+                          theme: "bbit-tree-no-lines" //bbit-tree-lines ,bbit-tree-no-lines,bbit-tree-arrows
+                      }
+             );
+
+            function TreeNode_Click(data) {
+                data.expand();
+            }
+
+        });
+
+    </script>
+    @*  <script type='text/javascript' src='../../assets/plugins/form-nestable/ui-nestable.js'></script>*@
+    @*  <script type='text/javascript' src='../../plugins/form-nestable/ui-nestable.js'></script>*@
+    @* <script type='text/javascript' src='../../assets/demo/demo.js'></script> *@
+
+}
