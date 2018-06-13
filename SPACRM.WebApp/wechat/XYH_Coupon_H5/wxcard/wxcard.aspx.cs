@@ -24,8 +24,8 @@ namespace SPACRM.WebApp.wechat.XYH_Coupon_H5.wxcard
         //创建卡券
         protected void btnCreateCoupon_Click(object sender, EventArgs e)
         {
-            long begin_timestamp = 1527177600;//2018-05-25 00:00:00
-            long end_timestamp = 1528646399;//2018-06-10 23:59:59
+            long begin_timestamp = 1528732800;//2018-06-12 00:00:00
+            long end_timestamp = 1530372239;//2018-06-30 23:59:59
             string resmsg = NetHelper.HttpRequest(AppConfig.TokenUrl, "", "GET", 2000,
                         Encoding.UTF8, "application/json");
 
@@ -39,9 +39,9 @@ namespace SPACRM.WebApp.wechat.XYH_Coupon_H5.wxcard
                   ""base_info"": {
                       ""logo_url"": 
             ""https://mmbiz.qlogo.cn/mmbiz_jpg/c8icWUnxBQmEib9ZUicSFGkBiaRg4cbYxq1p3JygXK3eC0Rfy5HocvYdbOJGQaRJNfCDfFJBib7AsRQeZFqFtNADwBw/0"",
-                      ""brand_name"":""佰草集"",
+                      ""brand_name"":""佰草集心约会"",
                       ""code_type"":""CODE_TYPE_TEXT"",
-                      ""title"": ""5折优惠券"",
+                      ""title"": ""夏日璀璨大礼包"",
                       ""sub_title"": ""新恒美紧肤洁面乳爆款招新"",
                       ""color"": ""Color020"",
                       ""notice"": ""请出示您的唯一优惠券码"",
@@ -155,7 +155,7 @@ namespace SPACRM.WebApp.wechat.XYH_Coupon_H5.wxcard
 
             TokeRes toke = JsonHelper.DeserializeObject<TokeRes>(resmsg);
             string token = toke.Access_Token;
-            List<WXCouponNoInfo> list = _xyhservice.QueryWXCouponNoInfo();
+            List<WXCouponNoInfo> list = _xyhservice.QueryWXCouponNoInfo(cardid);
 
             int succ_cnt = 0;
             string codes = "";

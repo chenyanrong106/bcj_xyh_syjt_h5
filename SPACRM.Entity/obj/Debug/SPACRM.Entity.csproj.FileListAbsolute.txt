@@ -53,3 +53,14 @@ D:\puman\bcj_xyh_pt_h5\SPACRM.Entity\obj\Debug\SPACRM.Entity.dll
 D:\puman\bcj_xyh_pt_h5\SPACRM.Entity\obj\Debug\SPACRM.Entity.pdb
 D:\puman\bcj_xyh_pt_h5\SPACRM.Entity\bin\Debug\Newtonsoft.Json.dll
 D:\puman\bcj_xyh_pt_h5\SPACRM.Entity\bin\Debug\Newtonsoft.Json.xml
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\bin\Debug\SPACRM.Entity.dll.config
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\bin\Debug\SPACRM.Entity.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\bin\Debug\SPACRM.Entity.pdb
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\bin\Debug\Newtonsoft.Json.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\bin\Debug\Vulcan.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\bin\Debug\Newtonsoft.Json.xml
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\obj\Debug\SPACRM.Entity.csprojResolveAssemblyReference.cache
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\obj\Debug\SPACRM.Entity.csproj.CoreCompileInputs.cache
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\obj\Debug\SPACRM.Entity.csproj.CopyComplete
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\obj\Debug\SPACRM.Entity.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Entity\obj\Debug\SPACRM.Entity.pdb

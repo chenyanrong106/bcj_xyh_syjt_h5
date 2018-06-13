@@ -66,3 +66,16 @@ D:\puman\bcj_xyh_pt_h5\SPACRM.Interface\bin\Debug\SPACRM.Entity.dll.config
 D:\puman\bcj_xyh_pt_h5\SPACRM.Interface\obj\Debug\SPACRM.Interface.csproj.CopyComplete
 D:\puman\bcj_xyh_pt_h5\SPACRM.Interface\bin\Debug\Newtonsoft.Json.dll
 D:\puman\bcj_xyh_pt_h5\SPACRM.Interface\bin\Debug\Newtonsoft.Json.xml
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\SPACRM.Interface.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\SPACRM.Interface.pdb
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\SPACRM.Entity.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\Vulcan.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\Newtonsoft.Json.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\SPACRM.Entity.pdb
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\SPACRM.Entity.dll.config
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Debug\Newtonsoft.Json.xml
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Debug\SPACRM.Interface.csprojResolveAssemblyReference.cache
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Debug\SPACRM.Interface.csproj.CoreCompileInputs.cache
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Debug\SPACRM.Interface.csproj.CopyComplete
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Debug\SPACRM.Interface.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Debug\SPACRM.Interface.pdb

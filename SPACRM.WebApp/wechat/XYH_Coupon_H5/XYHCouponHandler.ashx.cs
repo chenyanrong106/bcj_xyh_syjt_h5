@@ -76,19 +76,13 @@ namespace SPACRM.WebApp.wechat.XYH_Coupon_H5
                     catch (Exception ex) { WriteTxt("新增pv数据-异常" + ex.Message); }
                     result = "";
                     break;
-                case "GetCardDetail":
-                    result=GetCardDetail(RequestParams["code"], RequestParams["card_id"]);
-                    break;
-                case "HXCoupon":
-                    result = HXCoupon(RequestParams["code"], RequestParams["card_id"]);
-                    break;
-                case "SendMsg":
-                    result = SendMsg(RequestParams["mobile"]);
-                    break;
-                case "IsMember":
-                    result = IsMember("IsMember", openid);
-                    break;
+                case "GetCardDetail":result=GetCardDetail(RequestParams["code"], RequestParams["card_id"]);break;
+                case "HXCoupon":result = HXCoupon(RequestParams["code"], RequestParams["card_id"]);break;
+                case "SendMsg":result = SendMsg(RequestParams["mobile"]);break;
+                case "IsMember":result = IsMember("IsMember", openid); break;
                 case "WXShare": result = WXShare(openid, int.Parse(RequestParams["type"])); break;
+                case "VerificaMobile": result = VerificaMobile(RequestParams["mobile"]); break;
+                case "VerificaOpenId": result = VerificaOpenId(openid); break;
 
             }
             context.Response.Write(result);
@@ -246,6 +240,67 @@ namespace SPACRM.WebApp.wechat.XYH_Coupon_H5
                 response.Data = ex.Message;
                 return JsonHelper.ToJSON(response);
             }
+        }
+        #endregion
+
+        #region 验证手机是否参加过活动
+        public string VerificaMobile(string Mobile)
+        {
+            try
+            {
+                WXCouponGiveInfo model = _xyhService.GetWXCouponGiveInfoByMobile(Mobile);
+                if (model == null)
+                {
+                    response.Status = 1;
+                    
+                }
+                else
+                {
+                    response.Status = 0;
+                    response.Message = "该手机已经参加过活动";
+                }
+
+                WriteTxt("验证手机是否参加过活动，结果" + response.Status);
+            }
+            catch (Exception ex)
+            {
+                response.Status = 0;
+                response.Message = "操作异常：" + ex.Message;
+                WriteTxt("验证手机是否参加过活动，异常" + ex.Message);
+            }
+
+            return JsonHelper.ToJSON(response);
+        }
+        #endregion
+
+        #region 验证微信号是否参加过活动，并返回是否有资格
+        public string VerificaOpenId(string OpenId)
+        {
+            try
+            {
+                WXCouponGiveInfo model = _xyhService.GetWXCouponGiveInfoByOpenid(OpenId);
+                if (model == null)
+                {
+                    response.Status = 1;//没有参加过活动
+
+                }
+                else
+                {
+                    response.Status = 0;
+                    response.Data = model;
+                    response.Message = "参加过活动";
+                }
+
+                WriteTxt("验证微信号是否参加过活动，结果" + response.Status);
+            }
+            catch (Exception ex)
+            {
+                response.Status = 0;
+                response.Message = "操作异常：" + ex.Message;
+                WriteTxt("验证微信号是否参加过活动，异常" + ex.Message);
+            }
+
+            return JsonHelper.ToJSON(response);
         }
         #endregion
 

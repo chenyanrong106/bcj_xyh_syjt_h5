@@ -9,6 +9,9 @@ namespace SPACRM.Interface.XYH_Coupon
     public interface IXHYCouponService
     {
         long AddLodInfo(Tb_log log);
+
+        WXCouponGiveInfo GetWXCouponGiveInfoByOpenid(string Openid);
+
         List<WXCouponNoInfo> QueryWXCouponNoInfo();
         
         int UpdateWXCouponNoInfoIsImport(long id);
@@ -29,5 +32,7 @@ namespace SPACRM.Interface.XYH_Coupon
         List<WXCouponGiveInfo> GetWXCouponGiveInfo(string openid, string cardid);
 
         long AddWXCouponGiveInfo(WXCouponGiveInfo model);
+
+        WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile);
     }
 }

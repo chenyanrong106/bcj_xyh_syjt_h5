@@ -16,10 +16,10 @@ namespace SPACRM.DataAccess.XYH_Coupon
         }
 
 
-        public List<WXCouponNoInfo> QueryWXCouponNoInfo()
+        public List<WXCouponNoInfo> QueryWXCouponNoInfo(string cardId)
         {
-            string sql = "select id,CouponNo from WXCouponNoInfo where isnull(IsImport,0)=0";
-            return base.Query<WXCouponNoInfo>(sql, new { });
+            string sql = "select id,CouponNo from WXCouponNoInfo where isnull(IsImport,0)=0 and cardId=@cardId";
+            return base.Query<WXCouponNoInfo>(sql, new { cardId= cardId });
         }
 
         public int UpdateWXCouponNoInfoIsImport(long id)
@@ -57,5 +57,12 @@ namespace SPACRM.DataAccess.XYH_Coupon
 
             return base.Query<WXCouponGiveInfo>(sql, new { openid = openid, cardid = cardid });
         }
+
+        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile)
+        {
+            string sql = "select Id, Openid, Mobile, GetCoupon, CouponNo, Status, CardId, CreateDate, CouponGetDate, UseDate, UseStoreCode from WXCouponGiveInfo with(nolock) where Mobile = @Mobile";
+            return base.Get<WXCouponGiveInfo>(sql, new { Mobile = Mobile });
+        }
+        
     }
 }

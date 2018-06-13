@@ -18,7 +18,7 @@
             <br />
             <br />
             card_id:
-            <asp:TextBox ID="txtCardId" runat="server" Width="388px"></asp:TextBox>
+            <asp:TextBox ID="txtCardId" runat="server" Width="388px" Text="pdvypuCMzmv2vXcrjdopljVRZnkM"></asp:TextBox>
 &nbsp;&nbsp;
             <asp:Button ID="btnImportCoupon" runat="server" OnClick="btnImportCoupon_Click" Text="导入卡券" />
             <br />

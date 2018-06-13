@@ -28,9 +28,9 @@ namespace SPACRM.Business.XYH_Coupon
         }
 
 
-        public List<WXCouponNoInfo> QueryWXCouponNoInfo()
+        public List<WXCouponNoInfo> QueryWXCouponNoInfo(string cardId)
         {
-            return _repo.QueryWXCouponNoInfo();
+            return _repo.QueryWXCouponNoInfo(cardId);
         }
         public int UpdateWXCouponNoInfoIsImport(long id)
         {
@@ -70,6 +70,11 @@ namespace SPACRM.Business.XYH_Coupon
         public long AddWXCouponGiveInfo(WXCouponGiveInfo model)
         {
             return _repo.Insert(model);
+        }
+
+        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile)
+        {
+            return _repo.GetWXCouponGiveInfoByMobile(Mobile);
         }
     }
 }
