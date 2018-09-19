@@ -131,6 +131,67 @@ namespace SPACRM.Entity
 		{ get{ return _Jie; } 	set{ _Jie = value ;  OnPropertyChanged("Jie"); } }
 	}
 
+	[TableName("MessageHis")]
+	public partial class MessageHis : BaseEntity
+	{
+		private int _Id;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Identity, PrimaryKey(1)] 
+		public int Id
+		{ get{ return _Id; } 	set{ _Id = value ; } }
+		private string _Mobile;
+		/// <summary>
+		/// 
+		///  nvarchar(20)
+		/// </summary>
+		[Nullable  ] 
+		public string Mobile
+		{ get{ return _Mobile; } 	set{ _Mobile = value ;  OnPropertyChanged("Mobile"); } }
+		private string _Content;
+		/// <summary>
+		/// 
+		///  nvarchar(2000)
+		/// </summary>
+		[Nullable  ] 
+		public string Content
+		{ get{ return _Content; } 	set{ _Content = value ;  OnPropertyChanged("Content"); } }
+		private int? _TgId;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Nullable  ] 
+		public int? TgId
+		{ get{ return _TgId; } 	set{ _TgId = value ;  OnPropertyChanged("TgId"); } }
+		private int? _IsSend;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Nullable  ] 
+		public int? IsSend
+		{ get{ return _IsSend; } 	set{ _IsSend = value ;  OnPropertyChanged("IsSend"); } }
+		private DateTime? _SendTime;
+		/// <summary>
+		/// 
+		///  datetime(3)
+		/// </summary>
+		[Nullable  ] 
+		public DateTime? SendTime
+		{ get{ return _SendTime; } 	set{ _SendTime = value ;  OnPropertyChanged("SendTime"); } }
+		private int? _Result;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Nullable  ] 
+		public int? Result
+		{ get{ return _Result; } 	set{ _Result = value ;  OnPropertyChanged("Result"); } }
+	}
+
 	[TableName("OAauth_Log")]
 	public partial class OAauth_Log : BaseEntity
 	{
@@ -461,6 +522,107 @@ namespace SPACRM.Entity
 		{ get{ return _LOGO_PIC; } 	set{ _LOGO_PIC = value ;  OnPropertyChanged("LOGO_PIC"); } }
 	}
 
+	[TableName("pv_data_collect")]
+	public partial class Pv_data_collect : BaseEntity
+	{
+		private int _ID;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Identity, PrimaryKey(1)] 
+		public int ID
+		{ get{ return _ID; } 	set{ _ID = value ; } }
+		private string _DOMAIN;
+		/// <summary>
+		/// 
+		///  nvarchar(2000)
+		/// </summary>
+		[Nullable  ] 
+		public string DOMAIN
+		{ get{ return _DOMAIN; } 	set{ _DOMAIN = value ;  OnPropertyChanged("DOMAIN"); } }
+		private string _URL;
+		/// <summary>
+		/// 
+		///  nvarchar(4000)
+		/// </summary>
+		[Nullable  ] 
+		public string URL
+		{ get{ return _URL; } 	set{ _URL = value ;  OnPropertyChanged("URL"); } }
+		private string _TITLE;
+		/// <summary>
+		/// 
+		///  nvarchar(2000)
+		/// </summary>
+		[Nullable  ] 
+		public string TITLE
+		{ get{ return _TITLE; } 	set{ _TITLE = value ;  OnPropertyChanged("TITLE"); } }
+		private string _REFERRER;
+		/// <summary>
+		/// 
+		///  nvarchar(500)
+		/// </summary>
+		[Nullable  ] 
+		public string REFERRER
+		{ get{ return _REFERRER; } 	set{ _REFERRER = value ;  OnPropertyChanged("REFERRER"); } }
+		private string _SH;
+		/// <summary>
+		/// 
+		///  nvarchar(200)
+		/// </summary>
+		[Nullable  ] 
+		public string SH
+		{ get{ return _SH; } 	set{ _SH = value ;  OnPropertyChanged("SH"); } }
+		private string _SW;
+		/// <summary>
+		/// 
+		///  nvarchar(200)
+		/// </summary>
+		[Nullable  ] 
+		public string SW
+		{ get{ return _SW; } 	set{ _SW = value ;  OnPropertyChanged("SW"); } }
+		private string _CD;
+		/// <summary>
+		/// 
+		///  nvarchar(50)
+		/// </summary>
+		[Nullable  ] 
+		public string CD
+		{ get{ return _CD; } 	set{ _CD = value ;  OnPropertyChanged("CD"); } }
+		private string _ACCOUNT;
+		/// <summary>
+		/// 
+		///  nvarchar(200)
+		/// </summary>
+		[Nullable  ] 
+		public string ACCOUNT
+		{ get{ return _ACCOUNT; } 	set{ _ACCOUNT = value ;  OnPropertyChanged("ACCOUNT"); } }
+		private string _LTIME;
+		/// <summary>
+		/// 
+		///  nvarchar(4000)
+		/// </summary>
+		[Nullable  ] 
+		public string LTIME
+		{ get{ return _LTIME; } 	set{ _LTIME = value ;  OnPropertyChanged("LTIME"); } }
+		private DateTime? _CREATE_DATE;
+		/// <summary>
+		/// 
+		///  datetime(3)
+		/// </summary>
+		[Nullable  ] 
+		public DateTime? CREATE_DATE
+		{ get{ return _CREATE_DATE; } 	set{ _CREATE_DATE = value ;  OnPropertyChanged("CREATE_DATE"); } }
+		private string _OPENID;
+		/// <summary>
+		/// 
+		///  nvarchar(200)
+		/// </summary>
+		[Nullable  ] 
+		public string OPENID
+		{ get{ return _OPENID; } 	set{ _OPENID = value ;  OnPropertyChanged("OPENID"); } }
+	}
+
 	[TableName("tb_log")]
 	public partial class Tb_log : BaseEntity
 	{
@@ -586,6 +748,22 @@ namespace SPACRM.Entity
 		[Identity, PrimaryKey(1)] 
 		public long Id
 		{ get{ return _Id; } 	set{ _Id = value ; } }
+		private int? _TgId;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Nullable  ] 
+		public int? TgId
+		{ get{ return _TgId; } 	set{ _TgId = value ;  OnPropertyChanged("TgId"); } }
+		private string _ActivityName;
+		/// <summary>
+		/// 
+		///  nvarchar(50)
+		/// </summary>
+		[Nullable  ] 
+		public string ActivityName
+		{ get{ return _ActivityName; } 	set{ _ActivityName = value ;  OnPropertyChanged("ActivityName"); } }
 		private string _Openid;
 		/// <summary>
 		/// 
@@ -687,6 +865,14 @@ namespace SPACRM.Entity
 
 		public string CouponNo
 		{ get{ return _CouponNo; } 	set{ _CouponNo = value ;  OnPropertyChanged("CouponNo"); } }
+		private string _CardId;
+		/// <summary>
+		/// 
+		///  nvarchar(200)
+		/// </summary>
+		[Nullable  ] 
+		public string CardId
+		{ get{ return _CardId; } 	set{ _CardId = value ;  OnPropertyChanged("CardId"); } }
 		private bool _IsImport;
 		/// <summary>
 		/// 
@@ -1419,4 +1605,190 @@ namespace SPACRM.Entity
 		public string CON
 		{ get{ return _CON; } 	set{ _CON = value ;  OnPropertyChanged("CON"); } }
 	}
+
+	[TableName("WXTG_INFO")]
+	public partial class WXTG_INFO : BaseEntity
+	{
+		private int _Id;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Identity, PrimaryKey(1)] 
+		public int Id
+		{ get{ return _Id; } 	set{ _Id = value ; } }
+		private string _OpenId;
+		/// <summary>
+		/// 
+		///  nvarchar(50)
+		/// </summary>
+
+		public string OpenId
+		{ get{ return _OpenId; } 	set{ _OpenId = value ;  OnPropertyChanged("OpenId"); } }
+		private string _Mobile;
+		/// <summary>
+		/// 
+		///  nvarchar(50)
+		/// </summary>
+
+		public string Mobile
+		{ get{ return _Mobile; } 	set{ _Mobile = value ;  OnPropertyChanged("Mobile"); } }
+		private string _JoinOpenId;
+		/// <summary>
+		/// 
+		///  nvarchar(50)
+		/// </summary>
+		[Nullable  ] 
+		public string JoinOpenId
+		{ get{ return _JoinOpenId; } 	set{ _JoinOpenId = value ;  OnPropertyChanged("JoinOpenId"); } }
+		private string _JoinMobile;
+		/// <summary>
+		/// 
+		///  nvarchar(50)
+		/// </summary>
+		[Nullable  ] 
+		public string JoinMobile
+		{ get{ return _JoinMobile; } 	set{ _JoinMobile = value ;  OnPropertyChanged("JoinMobile"); } }
+		private DateTime _OpenTime;
+		/// <summary>
+		/// 
+		///  datetime(3)
+		/// </summary>
+
+		public DateTime OpenTime
+		{ get{ return _OpenTime; } 	set{ _OpenTime = value ;  OnPropertyChanged("OpenTime"); } }
+		private int? _Status;
+		/// <summary>
+		/// 
+		///  int(10)
+		/// </summary>
+		[Nullable  ] 
+		public int? Status
+		{ get{ return _Status; } 	set{ _Status = value ;  OnPropertyChanged("Status"); } }
+		private DateTime? _JoinTime;
+		/// <summary>
+		/// 
+		///  datetime(3)
+		/// </summary>
+		[Nullable  ] 
+		public DateTime? JoinTime
+		{ get{ return _JoinTime; } 	set{ _JoinTime = value ;  OnPropertyChanged("JoinTime"); } }
+		private DateTime? _CloseTime;
+		/// <summary>
+		/// 
+		///  datetime(3)
+		/// </summary>
+		[Nullable  ] 
+		public DateTime? CloseTime
+		{ get{ return _CloseTime; } 	set{ _CloseTime = value ;  OnPropertyChanged("CloseTime"); } }
+		private string _Remark;
+		/// <summary>
+		/// 
+		///  nvarchar(500)
+		/// </summary>
+		[Nullable  ] 
+		public string Remark
+		{ get{ return _Remark; } 	set{ _Remark = value ;  OnPropertyChanged("Remark"); } }
+	}
+
+    [TableName("WXCRMCustLog")]
+    public partial class WXCRMCustLog : BaseEntity
+    {
+        private int _Id;
+        /// <summary>
+        /// 
+        ///  int(10)
+        /// </summary>
+        [Identity, PrimaryKey(1)]
+        public int Id
+        { get { return _Id; } set { _Id = value; } }
+        private string _OpenId;
+        /// <summary>
+        /// 
+        ///  nvarchar(50)
+        /// </summary>
+        [Nullable]
+        public string OpenId
+        { get { return _OpenId; } set { _OpenId = value; OnPropertyChanged("OpenId"); } }
+        private string _Mobile;
+        /// <summary>
+        /// 
+        ///  nvarchar(20)
+        /// </summary>
+        [Nullable]
+        public string Mobile
+        { get { return _Mobile; } set { _Mobile = value; OnPropertyChanged("Mobile"); } }
+        private string _NAME1_TEXT;
+        /// <summary>
+        /// 
+        ///  nvarchar(200)
+        /// </summary>
+        [Nullable]
+        public string NAME1_TEXT
+        { get { return _NAME1_TEXT; } set { _NAME1_TEXT = value; OnPropertyChanged("NAME1_TEXT"); } }
+        private string _DATA_SOURCE;
+        /// <summary>
+        /// 
+        ///  nvarchar(200)
+        /// </summary>
+        [Nullable]
+        public string DATA_SOURCE
+        { get { return _DATA_SOURCE; } set { _DATA_SOURCE = value; OnPropertyChanged("DATA_SOURCE"); } }
+        private string _LOYALTY_BRAND;
+        /// <summary>
+        /// 
+        ///  nvarchar(200)
+        /// </summary>
+        [Nullable]
+        public string LOYALTY_BRAND
+        { get { return _LOYALTY_BRAND; } set { _LOYALTY_BRAND = value; OnPropertyChanged("LOYALTY_BRAND"); } }
+        private string _SOURCE_SYSTEM;
+        /// <summary>
+        /// 
+        ///  nvarchar(200)
+        /// </summary>
+        [Nullable]
+        public string SOURCE_SYSTEM
+        { get { return _SOURCE_SYSTEM; } set { _SOURCE_SYSTEM = value; OnPropertyChanged("SOURCE_SYSTEM"); } }
+        private string _VGROUP;
+        /// <summary>
+        /// 
+        ///  nvarchar(200)
+        /// </summary>
+        [Nullable]
+        public string VGROUP
+        { get { return _VGROUP; } set { _VGROUP = value; OnPropertyChanged("VGROUP"); } }
+        private int? _Result;
+        /// <summary>
+        /// 
+        ///  int(10)
+        /// </summary>
+        [Nullable]
+        public int? Result
+        { get { return _Result; } set { _Result = value; OnPropertyChanged("Result"); } }
+        private string _Remark;
+        /// <summary>
+        /// 
+        ///  nvarchar(4000)
+        /// </summary>
+        [Nullable]
+        public string Remark
+        { get { return _Remark; } set { _Remark = value; OnPropertyChanged("Remark"); } }
+        private string _ActivityName;
+        /// <summary>
+        /// 
+        ///  nvarchar(50)
+        /// </summary>
+        [Nullable]
+        public string ActivityName
+        { get { return _ActivityName; } set { _ActivityName = value; OnPropertyChanged("ActivityName"); } }
+        private DateTime? _CreateDate;
+        /// <summary>
+        /// 
+        ///  datetime(3)
+        /// </summary>
+        [Nullable]
+        public DateTime? CreateDate
+        { get { return _CreateDate; } set { _CreateDate = value; OnPropertyChanged("CreateDate"); } }
+    }
 }

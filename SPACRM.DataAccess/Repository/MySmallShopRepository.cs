@@ -259,8 +259,8 @@ namespace SPACRM.DataAccess.Repository
 
         public int InsertPVData(PVData pv)
         {
-            string sql = @"insert into pv_data_collect(DOMAIN,URL,TITLE,REFERRER,SH,SW,CD,ACCOUNT,LTIME)
-                            values(@DOMAIN,@URL,@TITLE,@REFERRER,@SH,@SW,@CD,@ACCOUNT,@LTIME)";
+            string sql = @"insert into pv_data_collect(DOMAIN,URL,TITLE,REFERRER,SH,SW,CD,ACCOUNT,LTIME,OPENID)
+                            values(@DOMAIN,@URL,@TITLE,@REFERRER,@SH,@SW,@CD,@ACCOUNT,@LTIME,@OPENID)";
             return base.Excute(sql, new {
                 DOMAIN =pv.DOMAIN,
                 URL=pv.URL,
@@ -270,8 +270,20 @@ namespace SPACRM.DataAccess.Repository
                 SW=pv.SW,
                 CD=pv.CD,
                 ACCOUNT=pv.ACCOUNT,
-                LTIME=pv.LTIME
+                LTIME=pv.LTIME,
+                OPENID=pv.openid
             });
+        }
+
+        /// <summary>
+        /// 获取授权信息
+        /// </summary>
+        /// <param name="FromUserName"></param>
+        /// <returns></returns>
+        public OAauth_Log GetOA(string FromUserName,string ToUserName)
+        {
+            string sql = "SELECT * FROM dbo.OAauth_Log WHERE FromUserName=@openid and ToUserName=@ToUserName";
+            return Get<OAauth_Log>(sql, new { openid = FromUserName, ToUserName= ToUserName });
         }
     }
 }

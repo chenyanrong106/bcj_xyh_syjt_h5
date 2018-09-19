@@ -16,7 +16,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <StartPageUrl>wechat/VIVE_PINGAN_H5/html/index.aspx</StartPageUrl>
+          <StartPageUrl>wechat/XYH_2TG_Coupon_H5/html/index.aspx</StartPageUrl>
           <StartAction>CurrentPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>

@@ -73,6 +73,7 @@
     <Compile Include="WXService\WXMessageRecordService.cs" />
     <Compile Include="XYH_Coupon\WebApiHelp.cs" />
     <Compile Include="XYH_Coupon\XHYCouponService.cs" />
+    <Compile Include="XYH_Coupon\XYHCoupon2TGService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hmj.WebService\Hmj.WebService.csproj">

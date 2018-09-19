@@ -57,6 +57,7 @@
     <Compile Include="Repository\WXMessageRecordRepository.cs" />
     <Compile Include="TransScope.cs" />
     <Compile Include="XYH_Coupon\XHYCouponRepository.cs" />
+    <Compile Include="XYH_Coupon\XYHCoupon2TGRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SPACRM.Common\SPACRM.Common.csproj">

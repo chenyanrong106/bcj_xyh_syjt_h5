@@ -10,15 +10,15 @@ namespace SPACRM.Interface.XYH_Coupon
     {
         long AddLodInfo(Tb_log log);
 
-        WXCouponGiveInfo GetWXCouponGiveInfoByOpenid(string Openid);
+        WXCouponGiveInfo GetWXCouponGiveInfoByOpenid(string Openid, string ActivityName);
 
-        List<WXCouponNoInfo> QueryWXCouponNoInfo();
+        List<WXCouponNoInfo> QueryWXCouponNoInfo(string cardId);
         
         int UpdateWXCouponNoInfoIsImport(long id);
 
-        WXCouponGiveInfo CanGetCoupon(string OpenId, string cardId);
+        WXCouponGiveInfo CanGetCoupon(string OpenId, string cardId, string ActivityName);
 
-        int UpdateWXCouponGiveInfoIsHX(string CouponNo);
+        int UpdateWXCouponGiveInfoIsHX(string CouponNo, string ActivityName);
 
         CardApiTicket GetModelCardApi();
 
@@ -29,10 +29,14 @@ namespace SPACRM.Interface.XYH_Coupon
         /// </summary>
         /// <param name="openid"></param>
         /// <returns></returns>
-        List<WXCouponGiveInfo> GetWXCouponGiveInfo(string openid, string cardid);
+        List<WXCouponGiveInfo> GetWXCouponGiveInfo(string openid, string cardid, string ActivityName);
 
         long AddWXCouponGiveInfo(WXCouponGiveInfo model);
 
-        WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile);
+        WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile, string ActivityName);
+
+        WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile, string CardId, string ActivityName);
+
+        long InsertWXCRMCustLog(WXCRMCustLog model);
     }
 }

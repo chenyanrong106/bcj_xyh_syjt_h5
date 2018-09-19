@@ -36,5 +36,16 @@ namespace SPACRM.Common
             byte[] b = Convert.FromBase64String(input);
             return Encoding.UTF8.GetString(b);
         }
+        /// <summary>
+        /// datetime时间转换为unix
+        /// </summary>
+        /// <param name="timeStamp"></param>
+        /// <returns></returns>
+        public static int ConvertDateTimeInt(System.DateTime time)
+        {
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+            return (int)(time - startTime).TotalSeconds;
+        }
+
     }
 }

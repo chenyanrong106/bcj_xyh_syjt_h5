@@ -28,3 +28,16 @@ D:\puman\vive_pingan_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.csproj.Cor
 D:\puman\vive_pingan_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.dll
 D:\puman\vive_pingan_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.pdb
 D:\puman\vive_pingan_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.csproj.CopyComplete
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\SPACRM.Interface.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\SPACRM.Interface.pdb
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\SPACRM.Entity.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\Vulcan.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\Newtonsoft.Json.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\SPACRM.Entity.pdb
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\SPACRM.Entity.dll.config
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\bin\Release\Newtonsoft.Json.xml
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.csprojResolveAssemblyReference.cache
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.csproj.CoreCompileInputs.cache
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.csproj.CopyComplete
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.dll
+D:\puman\bcj_xyh_syjt_h5\SPACRM.Interface\obj\Release\SPACRM.Interface.pdb

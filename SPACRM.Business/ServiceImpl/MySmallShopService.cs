@@ -267,5 +267,15 @@ namespace SPACRM.Business.ServiceImpl
         {
             return _set.InsertPVData(pv);
         }
+
+        /// <summary>
+        /// 获取授权信息
+        /// </summary>
+        /// <param name="FromUserName"></param>
+        /// <returns></returns>
+        public OAauth_Log GetOA(string FromUserName, string ToUserName)
+        {
+            return _set.GetOA(FromUserName, ToUserName);
+        }
     }
 }

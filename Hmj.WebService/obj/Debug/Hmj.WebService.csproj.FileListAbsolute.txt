@@ -20,3 +20,15 @@ D:\puman\bcj_xyh_pt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.csproj.CopyComple
 D:\puman\bcj_xyh_pt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.dll
 D:\puman\bcj_xyh_pt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.pdb
 D:\puman\bcj_xyh_pt_h5\Hmj.WebService\bin\Debug\System.Net.Http.dll
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\bin\Debug\Hmj.WebService.dll
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\bin\Debug\Hmj.WebService.pdb
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\bin\Debug\NLog.dll
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\bin\Debug\StructureMap.dll
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\bin\Debug\System.Net.Http.dll
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\bin\Debug\NLog.xml
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\bin\Debug\StructureMap.xml
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.csprojResolveAssemblyReference.cache
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.csproj.CoreCompileInputs.cache
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.csproj.CopyComplete
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.dll
+D:\puman\bcj_xyh_syjt_h5\Hmj.WebService\obj\Debug\Hmj.WebService.pdb

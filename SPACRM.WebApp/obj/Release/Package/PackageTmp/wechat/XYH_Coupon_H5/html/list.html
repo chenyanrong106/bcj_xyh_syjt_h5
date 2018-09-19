@@ -1,0 +1,283 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/new_style.css" />
+    <title>佰草集璀璨礼</title>
+</head>
+<body>
+    <!--<div class="wrap list-page">
+        <div class="logo"><img src="../images/logo.png" alt=""></div>
+        <div class="list">
+            <ul>
+                <li>
+                    <div class="left">
+                        <img src="../images/pic1.png" alt="" width="100%">
+                    </div>
+                    <div class="right">
+                        <h2 class="tit">佰草集 新·瓷意系列</h2>
+                        <h3>（<em>体验装组合</em> 图片仅供参考）</h3>
+                        <p>佰草集新七白洁面喱 30ml</p>
+                        <p>佰草集新七白美白柔肤水 30ml</p>
+                        <p>佰草集新七白美白嫩肤露 15ml</p>
+                        <b>产品中小样以门店实际领取为准</b>
+                    </div>
+                </li>
+                <li>
+                    <p><b>¥<em>30 </em></b><span><i>无门槛</i>抵用券</span></p>
+                    <p class="b_small">  （新客专享）</p>
+                </li>
+                <li>
+                    <p><b>面部护理</b> 体验券</p>
+                </li>
+            </ul>
+        </div>
+        <p class="b_text">数量有限 领完即止</p>
+        <a href="javascript:void(0);" class="ljlq" style="display:none;">立即领取</a>
+    </div>-->
+
+    <div class="wrap list-page">
+        <div class="logo"><img src="../images/logo.png" alt=""></div>
+        <div class="list">
+            <ul>
+                <li>
+                    <div class="left">
+                        <img src="../images/pic1.png" alt="" width="100%" style="padding-top: 0.35rem;">
+                    </div>
+                    <div class="right">
+                        <h2 class="tit">佰草集 新·瓷意系列</h2>
+                        <h3>（<em>体验装组合</em> 图片仅供参考）</h3>
+                        <p>佰草集新七白洁面喱 30ml</p>
+                        <p>佰草集新七白美白柔肤水 30ml</p>
+                        <p>佰草集新七白美白嫩肤露 15ml</p>
+                        <b>产品中小样以门店实际领取为准</b>
+                    </div>
+                </li>
+                <li>
+                    <p><span><i>无门槛</i>抵用券</span></p>
+                    <p class="b_small">  （新客专享）</p>
+                </li>
+                <li>
+                    <p><b>面部护理</b> 体验券</p>
+                </li>
+            </ul>
+        </div>
+        <p class="b_text">数量有限 领完即止</p>
+        <a href="javascript:void(0);" class="ljlq" >立即领取</a>
+    </div>
+    <!-- layOut -->
+    <div class="layout">
+        <div class="share">
+            <img src="../images/share.png" alt="">
+        </div>
+        <div class="text">
+            <p>感谢您的参与，欢迎邀请</p>
+            <p>非佰草集/华美家的闺蜜参与哦！</p>
+        </div>
+    </div>
+    <div class="layer modaltips" id="modaltips"></div>
+
+    <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wxshare.js"></script>
+    <script src="../js/requestparams.js"></script>
+    <script src="../js/pv.record.js"></script>
+    <script src="../js/validate.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+
+        var phone = $.getQueryString("mobile");
+        //监听领取卡券关闭事件
+        document.addEventListener('visibilitychange',
+            () => {
+                if (document.visibilityState != 'hidden') {
+                    //window.location.href = 'list.html?mobile=' + phone;
+                    $("#modaltips").hide();
+                }
+            });
+
+        $('.ljlq').click(function () {
+
+            LQCoupon();
+        });
+
+        $('.layout').click(function (e) {
+            var even = e.target
+            if (even.classList.contains('layout')) {
+                $('.layout').fadeOut();
+            }
+        })
+
+        //setTimeout(function () {
+
+        //if (phone) {
+        //    $.ajax({
+        //        type: "get",
+        //        url: $.domainUrl + 'VerificaMobile?mobile=' + phone,
+        //        dataType: "json",
+        //        success: function (data) {
+        //            var res = data;// $.parseJSON(data);
+        //            if (res.Status == 1) {
+        //                //判断是否是新客
+        //                window.location.href = "home.aspx";
+        //            } else if (res.Status == 2) {
+        //                if (res.Data.GetCoupon == 1) {
+        //                    //满足领取资格
+        //                    //判断卡券是否被领取
+        //                    $(".ljlq").css("display", "block");
+        //                    if (res.Data.Status == 0) {
+        //                        $(".ljlq").html("立即领取");
+        //                        $(".ljlq").removeAttr("disabled");
+        //                    } else {
+        //                        $(".ljlq").html("已领取");
+        //                        $(".ljlq").attr("disabled", "disabled");
+        //                    }
+        //                } else {
+        //                    //不满足领取资格
+        //                    $(".ljlq").css("display", "none");
+        //                    $('.layout').fadeIn();
+        //                }
+        //            } else if (res.Status ==0 ){
+        //                //不满足领取资格
+        //                $(".ljlq").css("display", "none");
+        //                $('.layout').fadeIn();
+        //            }else if (res.Status == -5) {
+        //                window.location.href = "home.aspx";
+        //            }
+
+        //        },
+        //        error: function () {
+
+        //        }
+        //    });
+        //}
+        //else { window.location.href = "home.aspx"; }
+
+        //}, 100);
+
+
+
+
+        var isProcessing = false;
+        function LQCoupon() {
+            if (isProcessing) {
+                return;
+            }
+            else {
+                tips("正在加载，请耐心等待", true, 600000, true, true);
+            }
+            $.ajax({
+                type: "get",
+                url: $.domainUrl + 'LQCoupon',
+                dataType: "json",
+                success: function (data) {
+                    var res = data;//  $.parseJSON(data);
+                    if (res.Status == 1) {
+                        //调到领取卡券页面
+                        var cardId = res.Data.cardId;
+                        var cardExt = res.Data.cardExt;
+                        if (cardId) {
+                            isProcessing = false;
+                            $.ajax({
+                                url: '../../../HanderAjax.ashx?para=jsapi&apiurl=' + encodeURIComponent(location.href),
+                                type: 'GET',
+                                data: {},
+                                dataType: 'html',
+                                timeout: 1000,
+                                error: function (e) { },
+                                success: function (result) {
+                                    result = JSON.parse(result);
+
+                                    if (result.state == 0) {
+                                        wx.config({
+                                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                            appId: result.appId, // 必填，公众号的唯一标识
+                                            timestamp: result.timestamp, // 必填，生成签名的时间戳
+                                            nonceStr: result.nonceStr, // 必填，生成签名的随机串
+                                            signature: result.signature,// 必填，签名，见附录1
+                                            jsApiList: ["addCard", "chooseCard", "openCard"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                                        });
+                                        wx.ready(function () {
+                                            wx.addCard({
+                                                cardList: [{
+                                                    cardId: cardId,
+                                                    cardExt: cardExt
+                                                }], // 需要添加的卡券列表
+                                                success: function (res) {
+                                                    var cardList = res.cardList; // 添加的卡券列表信息
+                                                }
+                                            });
+                                        });
+
+                                        wx.error(function (res) {
+                                            alert(res);
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    else if (res.Status == 2) {
+                        tips("您已领取，请查看微信卡包", true, 2000, true, true);
+                    }
+                    else {
+                        tips("对不起，您不满足领取条件", true, 2000, true, true);
+                    }
+                },
+                error: function () {
+
+                }
+            });
+
+        }
+
+        var total;
+        var count = 0;
+        var images = new Array();
+        function preload() {
+            var len = preload.arguments.length;
+            for (var i = 0; i < len; i++) {
+                if (images[i] == "") { len = len - 1; return; };//容错处理
+                len = preload.arguments.length;
+                console.log(total);
+                images[i] = new Image();
+                images[i].onload = function () {
+                    count++;
+                    var scale = count / len;
+
+                    if (count == len - 1) {
+                        //$("#content").show();
+                        // $('#modaltips').hide();
+                        isFinished = true;
+                    }
+                };
+                images[i].src = preload.arguments[i]
+            }
+        }
+        preload(
+            '../images/30.png',
+            '../images/bg.jpg',
+            '../images/bg1.jpg',
+            '../images/flower.png',
+            '../images/home.png',
+            '../images/list-bg.jpg',
+            '../images/list.png',
+            '../images/list1.png',
+            '../images/list2.png',
+            '../images/list3.png',
+            '../images/logo.png',
+            '../images/logo.jpg',
+            '../images/pic1.png',
+            '../images/share.png',
+            '../images/sign-check-icon.png'
+        )
+
+
+    </script>
+</body>
+</html>

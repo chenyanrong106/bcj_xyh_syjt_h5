@@ -58,6 +58,7 @@
     <Compile Include="Service\ISystemService.cs" />
     <Compile Include="WXService\IWXMessageRecord.cs" />
     <Compile Include="XYH_Coupon\IXHYCouponService.cs" />
+    <Compile Include="XYH_Coupon\IXYHCoupon2TGService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SPACRM.Entity\SPACRM.Entity.csproj">

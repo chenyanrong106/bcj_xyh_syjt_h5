@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\wwwroot\vive_pingan_h5</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\wwwroot\xyh_syjt_h5</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="AddFenSi.aspx">
@@ -4272,11 +4272,20 @@
     <File Include="bin/FluentScheduler.pdb">
       <publishTime>04/18/2018 10:37:02</publishTime>
     </File>
+    <File Include="bin/Hmj.WebService.dll">
+      <publishTime>09/19/2018 18:43:24</publishTime>
+    </File>
+    <File Include="bin/Hmj.WebService.pdb">
+      <publishTime>09/19/2018 18:43:24</publishTime>
+    </File>
     <File Include="bin/Ionic.Zip.dll">
       <publishTime>04/18/2018 10:34:38</publishTime>
     </File>
     <File Include="bin/LitJSON.DLL">
       <publishTime>04/18/2018 10:34:38</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>04/18/2018 10:37:02</publishTime>
@@ -4294,52 +4303,55 @@
       <publishTime>04/18/2018 10:34:40</publishTime>
     </File>
     <File Include="bin/SPACRM.Business.dll">
-      <publishTime>05/09/2018 17:17:46</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.Business.pdb">
-      <publishTime>05/09/2018 17:17:46</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.Common.dll">
-      <publishTime>05/07/2018 19:52:00</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.Common.pdb">
-      <publishTime>05/07/2018 19:52:00</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.DataAccess.dll">
-      <publishTime>05/09/2018 17:17:46</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.DataAccess.pdb">
-      <publishTime>05/09/2018 17:17:46</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.Entity.dll">
-      <publishTime>05/07/2018 19:51:58</publishTime>
+      <publishTime>09/19/2018 18:43:22</publishTime>
     </File>
     <File Include="bin/SPACRM.Entity.dll.config">
-      <publishTime>04/18/2018 10:34:42</publishTime>
+      <publishTime>06/07/2018 14:45:28</publishTime>
     </File>
     <File Include="bin/SPACRM.Entity.pdb">
-      <publishTime>05/07/2018 19:51:58</publishTime>
+      <publishTime>09/19/2018 18:43:22</publishTime>
     </File>
     <File Include="bin/SPACRM.Extension.dll">
-      <publishTime>05/07/2018 19:52:02</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.Extension.pdb">
-      <publishTime>05/07/2018 19:52:02</publishTime>
+      <publishTime>09/19/2018 18:43:24</publishTime>
     </File>
     <File Include="bin/SPACRM.Interface.dll">
-      <publishTime>05/07/2018 19:52:00</publishTime>
+      <publishTime>09/19/2018 18:43:22</publishTime>
     </File>
     <File Include="bin/SPACRM.Interface.pdb">
-      <publishTime>05/07/2018 19:52:00</publishTime>
+      <publishTime>09/19/2018 18:43:22</publishTime>
     </File>
     <File Include="bin/SPACRM.WebApp.dll">
-      <publishTime>05/09/2018 17:17:48</publishTime>
+      <publishTime>09/19/2018 18:59:52</publishTime>
     </File>
     <File Include="bin/SPACRM.WebApp.pdb">
-      <publishTime>05/09/2018 17:17:48</publishTime>
+      <publishTime>09/19/2018 18:59:52</publishTime>
     </File>
     <File Include="bin/StructureMap.dll">
       <publishTime>04/18/2018 10:34:40</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>07/10/2012 21:52:12</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>04/18/2018 10:37:02</publishTime>
@@ -4384,7 +4396,7 @@
       <publishTime>04/18/2018 10:35:04</publishTime>
     </File>
     <File Include="Configs/StructureMap/Service.config">
-      <publishTime>04/18/2018 10:35:04</publishTime>
+      <publishTime>05/30/2018 18:25:48</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>04/27/2018 17:53:18</publishTime>
@@ -4401,6 +4413,9 @@
     <File Include="Global.asax">
       <publishTime>04/18/2018 10:35:06</publishTime>
     </File>
+    <File Include="HanderAjax.ashx">
+      <publishTime>06/14/2018 14:54:12</publishTime>
+    </File>
     <File Include="NLog.config">
       <publishTime>04/18/2018 10:35:06</publishTime>
     </File>
@@ -4411,7 +4426,7 @@
       <publishTime>04/26/2018 19:23:28</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/19/2018 13:52:06</publishTime>
+      <publishTime>06/12/2018 10:44:32</publishTime>
     </File>
     <File Include="SendTmpMessage.aspx">
       <publishTime>04/25/2018 14:15:00</publishTime>
@@ -4933,10 +4948,10 @@
       <publishTime>04/18/2018 10:35:06</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/07/2018 19:52:32</publishTime>
+      <publishTime>06/29/2018 14:45:42</publishTime>
     </File>
     <File Include="wechat/Business.ashx">
-      <publishTime>04/18/2018 10:36:00</publishTime>
+      <publishTime>06/14/2018 15:07:26</publishTime>
     </File>
     <File Include="wechat/ceshi/Map.aspx">
       <publishTime>04/18/2018 10:36:04</publishTime>
@@ -6914,6 +6929,324 @@
     </File>
     <File Include="wechat/VIVE_PINGAN_H5/VIVE_PINGANHandler.ashx">
       <publishTime>04/26/2018 11:59:06</publishTime>
+    </File>
+    <File Include="wechat/wxcard/test.aspx">
+      <publishTime>06/13/2018 15:54:28</publishTime>
+    </File>
+    <File Include="wechat/wxcard/wxcard.aspx">
+      <publishTime>06/19/2018 11:55:58</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/css/public.css">
+      <publishTime>06/21/2018 13:15:02</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/font/yue.otf">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/endpage.html">
+      <publishTime>06/21/2018 11:12:40</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/endpage2.html">
+      <publishTime>06/15/2018 16:47:48</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/fail_group.html">
+      <publishTime>06/15/2018 16:47:48</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/group.html">
+      <publishTime>06/21/2018 10:57:30</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/hxcoupon.html">
+      <publishTime>06/15/2018 13:43:06</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/hxcouponok.html">
+      <publishTime>06/11/2018 14:40:22</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/index.aspx">
+      <publishTime>06/21/2018 13:14:24</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/index2.html">
+      <publishTime>06/19/2018 19:04:02</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/index3.html">
+      <publishTime>06/15/2018 16:47:48</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/html/register.html">
+      <publishTime>06/20/2018 16:21:24</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/addFriend.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/bg.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/chidao .png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/close.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/cpn1.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/cup2.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/cyptpng.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/endlogo.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/endtxt.png">
+      <publishTime>06/21/2018 13:15:22</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/ercode.png">
+      <publishTime>06/21/2018 13:15:22</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/index_bg.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/jian.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/layer1.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/layer2.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/layer3.png">
+      <publishTime>06/21/2018 13:15:22</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/ljkt.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/ljlq.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/logo.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/nocup.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/nocup2.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/nocup6.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/pao.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/person.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/rules.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/tips1.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/tips2.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/validata.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/wlq.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/xinke.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/ylq.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/ysy .png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/ztcg.png">
+      <publishTime>06/19/2018 17:35:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/image/您还没有券哦， 快去邀请闺蜜吧！.png">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/base.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/city.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/city2.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/common.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/iosSelect.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/jfmx.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/jquery.cookie.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/jquery.json.min.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/jquery.min.js">
+      <publishTime>06/19/2018 18:33:16</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/jquery.session.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/layer.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/loadmoreinfo.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/mobileSelect.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/m_trueart.min.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/pv.record.js">
+      <publishTime>06/19/2018 10:20:10</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/requestparams.js">
+      <publishTime>06/19/2018 10:20:10</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/swiper.min.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/validate.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/vconsole.min.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/wxshare.js">
+      <publishTime>06/20/2018 14:54:12</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/js/zepto.js">
+      <publishTime>06/15/2018 16:48:34</publishTime>
+    </File>
+    <File Include="wechat/XYH_2TG_Coupon_H5/XYHCoupon2TGHandler.ashx">
+      <publishTime>06/15/2018 16:50:58</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/css/libs/style.css">
+      <publishTime>06/15/2018 11:41:36</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/css/libs/style.css.map">
+      <publishTime>06/15/2018 09:44:16</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/css/new_style.css">
+      <publishTime>06/13/2018 11:33:54</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/css/public.css">
+      <publishTime>06/11/2018 14:36:12</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/css/style.css">
+      <publishTime>06/15/2018 17:56:42</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/css/style.css.map">
+      <publishTime>06/15/2018 09:44:16</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/fonts/fangzhengyouti.ttf">
+      <publishTime>06/15/2018 09:44:28</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/fonts/PingFang SC Regular.ttf">
+      <publishTime>06/14/2018 15:32:44</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/fonts/PingFangSCRegular.ttf">
+      <publishTime>06/15/2018 09:44:28</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/html/Home.aspx">
+      <publishTime>06/23/2018 14:16:20</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/html/hxcoupon.html">
+      <publishTime>06/15/2018 13:43:06</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/html/hxcouponok.html">
+      <publishTime>06/11/2018 14:40:22</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/html/list.html">
+      <publishTime>09/19/2018 18:53:02</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/30.png">
+      <publishTime>06/15/2018 11:15:28</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/bg.jpg">
+      <publishTime>06/15/2018 09:44:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/bg1.jpg">
+      <publishTime>06/15/2018 09:44:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/flower.png">
+      <publishTime>06/15/2018 09:44:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/home.png">
+      <publishTime>06/15/2018 09:44:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/list-bg.jpg">
+      <publishTime>06/15/2018 09:44:40</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/list.png">
+      <publishTime>06/15/2018 09:44:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/list1.png">
+      <publishTime>06/15/2018 09:44:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/list2.png">
+      <publishTime>06/15/2018 09:44:38</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/list3.png">
+      <publishTime>06/15/2018 09:44:40</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/logo.jpg">
+      <publishTime>06/15/2018 15:19:46</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/logo.png">
+      <publishTime>06/15/2018 09:44:40</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/pic1.png">
+      <publishTime>06/15/2018 09:44:40</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/share.png">
+      <publishTime>06/15/2018 09:44:40</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/images/sign-check-icon.png">
+      <publishTime>06/11/2018 14:39:14</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/js/jquery.cookie.js">
+      <publishTime>06/11/2018 18:48:46</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/js/jquery.min.js">
+      <publishTime>06/11/2018 14:35:04</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/js/pv.record.js">
+      <publishTime>06/13/2018 15:15:06</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/js/requestparams.js">
+      <publishTime>06/11/2018 14:33:46</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/js/validate.js">
+      <publishTime>06/11/2018 18:49:32</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/js/wxshare.js">
+      <publishTime>06/23/2018 14:21:40</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/wxcard/test.aspx">
+      <publishTime>06/13/2018 15:54:28</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/wxcard/wxcard.aspx">
+      <publishTime>06/14/2018 15:49:04</publishTime>
+    </File>
+    <File Include="wechat/XYH_Coupon_H5/XYHCouponHandler.ashx">
+      <publishTime>06/07/2018 16:03:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

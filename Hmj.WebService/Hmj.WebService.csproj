@@ -70,21 +70,6 @@
     <Compile Include="HMJService\si_SMSInsert_real_obService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HMJService\si_Dyn_ActCreateTel_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_ActCreateTel_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_ChangeMemberStatus_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_ChangePassword_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_CreateLead_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_CreateMemberShip_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_DispMember_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_DispMemQuick_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_ExchangeCard_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_GetPointDetail_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_GetPoint_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_PosCpSearch_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_UpdateMemberShip_obService.cs" />
-    <Compile Include="WebSer\si_Dyn_WechatStateTran_obService.cs" />
-    <Compile Include="WebSer\si_GetMd_obService.cs" />
-    <Compile Include="WebSer\si_SMSInsert_real_obService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WebSerOld\" />

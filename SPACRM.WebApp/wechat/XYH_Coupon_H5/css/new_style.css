@@ -1,0 +1,77 @@
+﻿.layer { background: rgba(203,203,203,0.62); position: fixed; top: 0; margin: 0 auto; max-width: 720px; min-height: 100vh; width: 100%; height: 100%; z-index: 99; display: none }
+
+    .layer:before { top: 0.2963rem; left: 0.2963rem; background-position: 0 0 }
+
+    .layer:after { top: 0.2963rem; right: 0.2963rem; background-position: -7.40741rem 0 }
+
+    .layer .layer-box { position: relative; width: 100%; height: 100% }
+
+        .layer .layer-box .pd80 { padding: 2.96296rem }
+
+        .layer .layer-box:before { bottom: 0.2963rem; left: 0.2963rem; background-position: -15.18519rem 0 }
+
+        .layer .layer-box:after { right: 0.2963rem; bottom: 0.2963rem; background-position: -22.59259rem 0 }
+
+        .layer .layer-box .layer-cont { /*border:1px solid #fff;*/ /*padding:0.22222rem;*/ background: #fff; text-align: center; position: relative }
+
+.layer-cont .layer-btn { border-top: 1px solid #eee; }
+
+    /*.layer-cont .layer-btn button { height: 44px; line-height: 44px; text-align: center; color: #D12E21; font-size: 14px; width: 100%; }*/
+
+    .layer-cont .layer-btn button { height: 44px; line-height: 44px; text-align: center; color: #D12E21; font-size: 14px; width: 50%; float: left; border-right: 1px solid }
+
+
+.layer .layer-box .layer-cont .layer-btn button { display: block; width: 50%; float: left; border-right: 1px solid #eee; }
+    .layer .layer-box .layer-cont .layer-btn button:last-child { border-right: none; }
+    .layer .layer-box .layer-cont .layer-btn button.leftbutton { color: #333333; }
+.layer .layer-box .layer-cont .layer-border { padding: 1.222rem 2.111rem; position: relative }
+
+    .layer .layer-box .layer-cont .layer-border.layer-pd40 { padding: 2.22222rem 1.48148rem 1.11111rem 1.48148rem }
+
+    .layer .layer-box .layer-cont .layer-border.layer-pd60 { padding: 2.22222rem 2.22222rem 1.11111rem }
+
+    .layer .layer-box .layer-cont .layer-border.layer-pd85 { padding: 3.14815rem 1.48148rem }
+
+    .layer .layer-box .layer-cont .layer-border:before { top: 0; left: 0 }
+
+    .layer .layer-box .layer-cont .layer-border:after { right: 0; top: 0.03704rem; transform: rotate(90deg); -ms-transform: rotate(90deg); -moz-transform: rotate(90deg); -webkit-transform: rotate(90deg); -o-transform: rotate(90deg) }
+
+    /*.layer .layer-box .layer-cont .layer-border .layer-text { padding-bottom: 0.74074rem; border-bottom: 1px solid #fff }*/
+    .layer .layer-box .layer-cont .layer-border .layer-text { /*padding-bottom: 0.74074rem;*/ border-bottom: 1px solid #fff }
+
+        .layer .layer-box .layer-cont .layer-border .layer-text.layer-pd10 { padding: 0 0.37037rem 1.11111rem }
+
+        .layer .layer-box .layer-cont .layer-border .layer-text.layer-border-none { border-bottom: none }
+
+        .layer .layer-box .layer-cont .layer-border .layer-text.layer-no-btn { border-bottom: none; padding-bottom: 0 }
+
+.layer.modaltips .layer-box .layer-cont .layer-border { padding: 1.11111rem }
+
+.layer .layer-box .layer-cont .layer-border .layer-text p { /*white-space:nowrap;*/ color: #333333; border-radius: 20px; font-size: 1.11111rem; text-align: center; line-height: 1.7037rem }
+
+.layer .layer-box .layer-cont .layer-border .layer-btn { position: relative; margin-top: 0.95556rem; height: 1.66667rem }
+
+    .layer .layer-box .layer-cont .layer-border .layer-btn .layer-button { width: 5rem; height: 1.66667rem; display: inline-block; border: 1px solid #e9b1b0; color: #fff; text-align: center; line-height: 1.66667rem; font-size: 1.03704rem }
+
+    .layer .layer-box .layer-cont .layer-border .layer-btn.layer-two-btn { padding: 0 2.22222rem }
+
+    .layer .layer-box .layer-cont .layer-border .layer-btn.layer-double-btn { padding: 0 1.11111rem }
+
+.layer .layer-text.layer-input h3 { color: #fff; text-align: center; font-size: 1.11111rem; font-weight: bold }
+
+.layer .layer-text.layer-input p { width: 14.62963rem; margin-bottom: 0.2963rem }
+
+    .layer .layer-text.layer-input p:nth-of-type(1) { padding-top: 0.74074rem }
+
+    .layer .layer-text.layer-input p input { width: 13.88889rem; padding-left: 0.74074rem; line-height: 2rem; height: 2rem; background: #fff; font-size: 0.96296rem }
+
+        .layer .layer-text.layer-input p input.new_code { width: 7.2963rem }
+
+.layer .layer-box .layer-cont { width: 70%; }
+
+.layer.modal, .layer.modaltips { background: rgba(203,203,203,0.62); }
+
+.layer .layer-box .layer-cont { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); -ms-transform: translate(-50%,50%); -moz-transform: translate(-50%,-50%); -webkit-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); display: inline-block; border-radius: 8px; }
+
+
+#noChangepwd .layer-btn button, #bind_suc .layer-btn button { width: 100% }

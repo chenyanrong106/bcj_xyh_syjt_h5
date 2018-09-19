@@ -9,10 +9,11 @@ namespace SPACRM.DataAccess.XYH_Coupon
 {
     public class XHYCouponRepository : BaseRepository
     {
-        public WXCouponGiveInfo GetWXCouponGiveInfoByOpenid(string Openid)
+        public WXCouponGiveInfo GetWXCouponGiveInfoByOpenid(string Openid,string ActivityName)
         {
-            string sql = "select id,Openid,CouponNo,CardId,CreateDate,CouponGetDate,UseDate,UseStoreCode,Mobile,GetCoupon from WXCouponGiveInfo with(nolock) where Openid=@Openid";
-            return base.Get<WXCouponGiveInfo>(sql, new { Openid = Openid });
+            string sql = @"select id,ActivityName,Openid,CouponNo,CardId,CreateDate,CouponGetDate,UseDate,UseStoreCode,Mobile,GetCoupon from WXCouponGiveInfo with(nolock) 
+                            where Openid=@Openid and GetCoupon=1 and ActivityName=@ActivityName";
+            return base.Get<WXCouponGiveInfo>(sql, new { Openid = Openid, ActivityName= ActivityName });
         }
 
 
@@ -28,16 +29,17 @@ namespace SPACRM.DataAccess.XYH_Coupon
             return base.Excute(sql, new { id = id });
         }
 
-        public WXCouponGiveInfo CanGetCoupon(string OpenId, string cardId)
+        public WXCouponGiveInfo CanGetCoupon(string OpenId, string cardId,string ActivityName)
         {
-            string sql = "select Openid,CouponNo,[Status],CardId from WXCouponGiveInfo with(nolock) where Openid=@OpenId and isnull(Status,0)=0 and cardId=@cardId and GetCoupon=1";
-            return base.Get<WXCouponGiveInfo>(sql, new { OpenId = OpenId, cardId = cardId });
+            string sql = @"select ActivityName,Openid,CouponNo,[Status],CardId,GetCoupon from WXCouponGiveInfo with(nolock) 
+                            where Openid=@OpenId  and cardId=@cardId and GetCoupon=1 and ActivityName=@ActivityName";
+            return base.Get<WXCouponGiveInfo>(sql, new { OpenId = OpenId, cardId = cardId, ActivityName= ActivityName });
         }
 
-        public int UpdateWXCouponGiveInfoIsHX(string CouponNo)
+        public int UpdateWXCouponGiveInfoIsHX(string CouponNo,string ActivityName)
         {
-            string sql = "update WXCouponGiveInfo set Status=2 ,UseDate=getdate() where  CouponNo=@CouponNo ";
-            return base.Excute(sql, new { CouponNo = CouponNo });
+            string sql = "update WXCouponGiveInfo set Status=2 ,UseDate=getdate() where  CouponNo=@CouponNo and ActivityName=@ActivityName";
+            return base.Excute(sql, new { CouponNo = CouponNo, ActivityName= ActivityName });
         }
 
         public CardApiTicket GetModelCardApi()
@@ -51,18 +53,42 @@ namespace SPACRM.DataAccess.XYH_Coupon
         /// </summary>
         /// <param name="openid"></param>
         /// <returns></returns>
-        public List<WXCouponGiveInfo> GetWXCouponGiveInfo(string openid, string cardid)
+        public List<WXCouponGiveInfo> GetWXCouponGiveInfo(string openid, string cardid,string ActivityName)
         {
-            string sql = @"select Openid,CouponNo,Status,CardId,CreateDate,CouponGetDate,UseDate,UseStoreCode,Mobile,GetCoupon from WXCouponGiveInfo with(nolock)  where Openid=@openid and CardId=@cardid";
+            string sql = @"select Openid,ActivityName,CouponNo,Status,CardId,CreateDate,CouponGetDate,UseDate,UseStoreCode,Mobile,GetCoupon from WXCouponGiveInfo with(nolock)  
+                            where Openid=@openid and CardId=@cardid and ActivityName=@ActivityName";
 
-            return base.Query<WXCouponGiveInfo>(sql, new { openid = openid, cardid = cardid });
+            return base.Query<WXCouponGiveInfo>(sql, new { openid = openid, cardid = cardid , ActivityName = ActivityName });
         }
 
-        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile)
+        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile, string ActivityName)
         {
-            string sql = "select Id, Openid, Mobile, GetCoupon, CouponNo, Status, CardId, CreateDate, CouponGetDate, UseDate, UseStoreCode from WXCouponGiveInfo with(nolock) where Mobile = @Mobile";
-            return base.Get<WXCouponGiveInfo>(sql, new { Mobile = Mobile });
+            string sql = @"select Id,ActivityName, Openid, Mobile, GetCoupon, CouponNo, Status, CardId, CreateDate, CouponGetDate, UseDate, UseStoreCode from WXCouponGiveInfo with(nolock) 
+                            where Mobile = @Mobile and ActivityName=@ActivityName";
+            return base.Get<WXCouponGiveInfo>(sql, new { Mobile = Mobile, ActivityName= ActivityName });
         }
-        
+
+        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile,string CardId,string ActivityName)
+        {
+            string sql = @"select 
+                                Id, 
+                                ActivityName,
+                                Openid, 
+                                Mobile, 
+                                GetCoupon, 
+                                CouponNo, 
+                                Status, 
+                                CardId, 
+                                CreateDate, 
+                                CouponGetDate, 
+                                UseDate, 
+                                UseStoreCode 
+                           from WXCouponGiveInfo with(nolock) 
+                           where Mobile = @Mobile and CardId=@CardId and ActivityName=@ActivityName";
+            return base.Get<WXCouponGiveInfo>(sql, new { Mobile = Mobile, CardId= CardId , ActivityName = ActivityName });
+        }
+
+   
+
     }
 }

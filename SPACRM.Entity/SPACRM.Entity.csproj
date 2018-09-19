@@ -61,6 +61,7 @@
     <Compile Include="Entities\PVData.cs" />
     <Compile Include="Entities\TokeRes.cs" />
     <Compile Include="Entities\WxResBase.cs" />
+    <Compile Include="Entities\WXTG_INFO_EX.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Jsons\CodeValue.cs" />
     <Compile Include="Jsons\JsonQTable.cs" />

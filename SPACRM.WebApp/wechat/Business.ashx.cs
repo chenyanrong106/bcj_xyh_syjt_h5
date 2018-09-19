@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json;
 using SPACRM.Business.ServiceImpl;
+using SPACRM.Common;
+using SPACRM.Common.Utils;
 using SPACRM.Entity;
 using SPACRM.Entity.Entities;
 using SPACRM.Interface;
+using SPACRM.WebApp;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,7 +16,7 @@ using System.Text;
 using System.Web;
 using System.Web.Security;
 
-namespace WeChatCRM.WebApp.WeChat
+namespace WeChatCRM.WebApp
 {
     /// <summary>
     /// Business 的摘要说明
@@ -29,29 +32,37 @@ namespace WeChatCRM.WebApp.WeChat
             {
                 try
                 {
-                    ORG_INFO m = mss.GetWD(w.mjuserid);
-                    if (m != null)
-                    {
-                        string token =  w.Token();//w.mjuserid
+                    
+                        //string token =  w.Token();//w.mjuserid
+                        string resmsg = NetHelper.HttpRequest(AppConfig.TokenUrl, "", "GET", 2000,
+                       Encoding.UTF8, "application/json");
+                        TokeRes toke = JsonHelper.DeserializeObject<TokeRes>(resmsg);
+                        string token = toke.Access_Token;
                         string sj = ConvertDateTimeInt(DateTime.Now).ToString();//时间戳
                         string sjm = Guid.NewGuid().ToString("d"); //随机码
-                        string ticket = GetJSAPI_Ticket(token, m); //凭证
-                        WriteTxt("js注册：apiurl=" + context.Request.Params["apiurl"]);
-                        string dz = context.Request.Params["apiurl"];// context.Server.UrlDecode(context.Request.Params["apiurl"]);
-                        string noncestr = "noncestr=" + sjm;
+
+                        string jsapimsg = NetHelper.HttpRequest(AppConfig.JsApiTokenUrl, "", "GET", 2000,
+                      Encoding.UTF8, "application/json");
+                        JsApiTicket jat = JsonHelper.DeserializeObject<JsApiTicket>(jsapimsg);
+
+
+                        string ticket = jat.JsApi;// GetJSAPI_Ticket(token, m); //凭证
+                        //WriteTxt("js注册：apiurl=" + context.Request.Params["apiurl"]);
+                        string dz =  context.Server.UrlDecode(context.Request.Params["apiurl"]);//context.Request.Params["apiurl"];//
+                    string noncestr = "noncestr=" + sjm;
                         string jsapi_ticket = "jsapi_ticket=" + ticket;
                         string timestamp = "timestamp=" + sj;
                         string url = "url=" + dz;
-                        WriteTxt("js注册：url="+ dz);
+                        //WriteTxt("js注册：url="+ dz);
                         string[] ArrTmp = { noncestr, jsapi_ticket, timestamp, url };
                         Array.Sort(ArrTmp);     //字典排序
                         string tmpStr = string.Join("&", ArrTmp);
-                        WriteTxt("js注册：tmpStr=" + tmpStr);
+                        //WriteTxt("js注册：tmpStr=" + tmpStr);
                         tmpStr = FormsAuthentication.HashPasswordForStoringInConfigFile(tmpStr, "SHA1");
                         tmpStr = tmpStr.ToLower();
                         if (ticket == "")
                         {
-                            WriteTxt("js注册：失败" );
+                            //WriteTxt("js注册：失败" );
                             context.Response.Write("{\"status\":\"" + -1 + "\"}");
                         }
                         else
@@ -59,21 +70,21 @@ namespace WeChatCRM.WebApp.WeChat
                             var re = new
                             {
                                 state = 0,
-                                appId = m.AppID,
+                                appId = AppConfig.WXAppId,
                                 timestamp = sj,
                                 nonceStr = sjm,
                                 signature = tmpStr,
                                 url = dz,
                                 link = (dz.IndexOf("&") == -1 ? dz : dz.Substring(0, dz.IndexOf("&"))),
                                 title = "",
-                                imgUrl = ConfigurationSettings.AppSettings["WebUrl"]+"/wechat/spa/image/logo.jpg",//"http://www.meijiewd.com/assets/images/meijie.png",
+                                imgUrl = ConfigurationSettings.AppSettings["WebUrl"]+ "/wechat/XYH_Coupon_H5/images/logo.jpg",
                                 desc = ""
                             };
                             string ret = JsonConvert.SerializeObject(re);
-                            WriteTxt("js注册：" + ret);
+                            //WriteTxt("js注册：" + ret);
                             context.Response.Write(ret);
                         }
-                    }
+                    
                 }
                 catch (Exception ex)
                 {

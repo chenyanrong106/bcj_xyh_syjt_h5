@@ -160,6 +160,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HanderAjax.ashx.cs">
+      <DependentUpon>HanderAjax.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Helper\AuthorizeHelper.cs" />
     <Compile Include="Helper\DataSourceHelper.cs" />
     <Compile Include="Models\CustExchangeInfo.cs" />
@@ -176,7 +179,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\UploadModel.cs" />
     <Compile Include="ViewModels\View360Model.cs" />
-    <Compile Include="wechat\XYH_Coupon_H5\common\cardInfo.cs" />
+    <Compile Include="wechat\common\CardApi.cs" />
+    <Compile Include="wechat\common\CardExt.cs" />
+    <Compile Include="wechat\common\cardInfo.cs" />
+    <Compile Include="wechat\common\CardInfoExt.cs" />
+    <Compile Include="wechat\common\JsApiTicket.cs" />
+    <Compile Include="wechat\common\SMS.cs" />
+    <Compile Include="wechat\common\WXCardCommon.cs" />
     <Compile Include="wechat\XYH_Coupon_H5\html\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -184,11 +193,18 @@
     <Compile Include="wechat\XYH_Coupon_H5\html\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="wechat\XYH_Coupon_H5\wxcard\wxcard.aspx.cs">
+    <Compile Include="wechat\wxcard\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wechat\wxcard\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wechat\wxcard\wxcard.aspx.cs">
       <DependentUpon>wxcard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="wechat\XYH_Coupon_H5\wxcard\wxcard.aspx.designer.cs">
+    <Compile Include="wechat\wxcard\wxcard.aspx.designer.cs">
       <DependentUpon>wxcard.aspx</DependentUpon>
     </Compile>
     <Compile Include="wechat\XYH_Coupon_H5\XYHCouponHandler.ashx.cs">
@@ -1463,10 +1479,28 @@
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="wechat\XYH_Coupon_H5\css\libs\style.css" />
+    <Content Include="wechat\XYH_Coupon_H5\css\new_style.css" />
     <Content Include="wechat\XYH_Coupon_H5\css\public.css" />
+    <Content Include="wechat\XYH_Coupon_H5\css\style.css" />
     <Content Include="wechat\XYH_Coupon_H5\html\Home.aspx" />
     <Content Include="wechat\XYH_Coupon_H5\html\hxcoupon.html" />
     <Content Include="wechat\XYH_Coupon_H5\html\hxcouponok.html" />
+    <Content Include="wechat\XYH_Coupon_H5\html\list.html" />
+    <Content Include="wechat\XYH_Coupon_H5\images\30.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\bg.jpg" />
+    <Content Include="wechat\XYH_Coupon_H5\images\bg1.jpg" />
+    <Content Include="wechat\XYH_Coupon_H5\images\flower.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\home.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\list-bg.jpg" />
+    <Content Include="wechat\XYH_Coupon_H5\images\list.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\list1.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\list2.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\list3.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\logo.jpg" />
+    <Content Include="wechat\XYH_Coupon_H5\images\logo.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\pic1.png" />
+    <Content Include="wechat\XYH_Coupon_H5\images\share.png" />
     <Content Include="wechat\XYH_Coupon_H5\images\sign-check-icon.png" />
     <Content Include="wechat\XYH_Coupon_H5\js\jquery.cookie.js" />
     <Content Include="wechat\XYH_Coupon_H5\js\jquery.min.js" />
@@ -1474,7 +1508,8 @@
     <Content Include="wechat\XYH_Coupon_H5\js\requestparams.js" />
     <Content Include="wechat\XYH_Coupon_H5\js\validate.js" />
     <Content Include="wechat\XYH_Coupon_H5\js\wxshare.js" />
-    <Content Include="wechat\XYH_Coupon_H5\wxcard\wxcard.aspx" />
+    <Content Include="wechat\wxcard\test.aspx" />
+    <Content Include="wechat\wxcard\wxcard.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\app\" />
@@ -1715,9 +1750,15 @@
     <Content Include="assets\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="assets\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="assets\ueditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="HanderAjax.ashx" />
     <None Include="Properties\PublishProfiles\moon.pubxml" />
     <Content Include="wechat\Business.ashx" />
     <Content Include="wechat\XYH_Coupon_H5\XYHCouponHandler.ashx" />
+    <Content Include="wechat\XYH_Coupon_H5\css\libs\style.css.map" />
+    <Content Include="wechat\XYH_Coupon_H5\css\style.css.map" />
+    <Content Include="wechat\XYH_Coupon_H5\fonts\fangzhengyouti.ttf" />
+    <Content Include="wechat\XYH_Coupon_H5\fonts\PingFang SC Regular.ttf" />
+    <Content Include="wechat\XYH_Coupon_H5\fonts\PingFangSCRegular.ttf" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

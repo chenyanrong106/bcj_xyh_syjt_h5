@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using FluentScheduler;
 using SPACRM.Extension;
 using Vulcan.Framework.DBConnectionManager;
 
@@ -34,6 +35,8 @@ namespace SPACRM.WebApp
 
             //默认的数据库管理
             DbConnectionFactory.Default = new SqlConnectionFactory();
+
+            //JobManager.Initialize(new SendTmpMessageJob());
 
             //依赖注入
             Bootstrapper.Restart();

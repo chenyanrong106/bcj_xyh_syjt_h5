@@ -18,5 +18,6 @@ namespace SPACRM.Entity.Entities
         public string ACCOUNT { get; set; }
         public string LTIME { get; set; }
         public DateTime CREATE_DATE { get; set; }
+        public string openid { get; set; }
     }
 }

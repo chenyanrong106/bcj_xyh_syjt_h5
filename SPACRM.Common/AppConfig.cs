@@ -368,6 +368,12 @@ namespace SPACRM.Common
             }
         }
 
+        public static string JsApiTokenUrl
+        {
+            get { return Get("JsApiTokenUrl"); }
+        }
+
+
         public static string ActivityWebApp
         {
             get
@@ -382,6 +388,100 @@ namespace SPACRM.Common
             {
                 return Get("CardId");
             }
+        }
+
+        public static string WXAppId
+        {
+            get
+            {
+                return Get("WXAppId");
+            }
+        }
+        public static string TWOTGCardId_1
+        {
+            get
+            {
+                return Get("TWOTGCardId_1");
+            }
+        }
+
+        public static string TWOTGCardId_2
+        {
+            get
+            {
+                return Get("TWOTGCardId_2");
+            }
+        }
+
+        public static string ActivityStartDate
+        {
+            get
+            {
+                return Get("ActivityStartDate");
+            }
+        }
+
+        public static string ActivityEndDate
+        {
+            get
+            {
+                return Get("ActivityEndDate");
+            }
+        }
+        //来源系统
+        public static string SOURCE_SYSTEM
+        {
+            get
+            {
+                return Get("SOURCE_SYSTEM");
+            }
+        }
+        //销售组织
+        public static string VGROUP
+        {
+            get
+            {
+                return Get("VGROUP");
+            }
+        }
+        //忠诚度品牌
+        public static string LOYALTY_BRAND
+        {
+            get
+            {
+                return Get("LOYALTY_BRAND");
+            }
+        }
+        //数据来源
+        public static string DATA_SOURCE
+        {
+            get
+            {
+                return Get("DATA_SOURCE");
+            }
+        }
+
+        //潜客名称
+        public static string CUST_NAME
+        {
+            get
+            {
+                return Get("CUST_NAME");
+            }
+        }
+        
+        //成为潜客时的活动编码
+        public static string CAMPAIGN_ID
+        {
+            get
+            {
+                return Get("CAMPAIGN_ID");
+            }
+        }
+
+        public static string CardApiTokenUrl
+        {
+            get { return Get("CardApiTokenUrl"); }
         }
     }
 }

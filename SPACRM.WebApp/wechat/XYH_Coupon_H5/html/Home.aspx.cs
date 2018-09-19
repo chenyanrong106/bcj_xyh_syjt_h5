@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SPACRM.Business.ServiceImpl;
+using SPACRM.Business.XYH_Coupon;
 using SPACRM.Common;
 using SPACRM.Entity;
 using SPACRM.Interface;
@@ -20,54 +21,69 @@ namespace SPACRM.WebApp.wechat.XYH_Coupon_H5.html
         ISystemService sbo = new SystemService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Request.QueryString["para"] == null)
-            //{
-            //    if ((Request.QueryString["openid"] != null) || Session["FromUserName"] != null)
-            //    {
-            //        WriteTxt("结束授权");
-            //        string user = Request.QueryString["openid"] == null ? Session["FromUserName"].ToString() : Request.QueryString["openid"].ToString();
-            //        string access_token = Request.QueryString["Access_token"] == null ? Session["Access_token"].ToString() : Request.QueryString["Access_token"].ToString();
-            //        Session["FromUserName"] = user;
-            //        Session["Access_token"] = access_token;
+            if (Request.QueryString["para"] == null)
+            {
+                if ((Request.QueryString["openid"] != null) || Session["FromUserName"] != null)
+                {
+                    //WriteTxt("结束授权");
+                    string user = Request.QueryString["openid"] == null ? Session["FromUserName"].ToString() : Request.QueryString["openid"].ToString();
+                    string access_token = Request.QueryString["Access_token"] == null ? Session["Access_token"].ToString() : Request.QueryString["Access_token"].ToString();
+                    Session["FromUserName"] = user;
+                    Session["Access_token"] = access_token;
 
-            //        HttpCookie cookie = Request.Cookies["XYH_COUPON"];
-            //        if (cookie == null)
-            //            cookie = new HttpCookie("XYH_COUPON");
-            //        cookie.Values.Set("FromUserName", user);
-                    
-            //        string url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + user + "&lang=zh_CN";
-            //        string token = PostRequest(url);
-            //        WriteTxt(url);
-            //        WriteTxt(token);
-            //        OpenInfo autho = JsonConvert.DeserializeObject<OpenInfo>(token);
-            //        if (!string.IsNullOrWhiteSpace(autho.headimgurl))
-            //        {
-            //            MySmallShopService mss = new MySmallShopService();
-            //            OAauth_Log oa = mss.GetOA(user);
-            //            if (oa == null)
-            //            {
-            //                oa = new OAauth_Log();
-            //                oa.FromUserName = user;
-            //                oa.ToUserName = "商业集团送券活动";
-            //                oa.headimgurl = autho.headimgurl;
-            //                oa.Nickname = autho.nickname;
-            //                oa.CreateDate = DateTime.Now;
-            //                mss.SaveOA(oa);
-            //            }
-            //        }
-            //    }
-            //    else
-            //    {
-            //        WriteTxt("开始授权");
-            //        OAuth(AbsoluteUri);
-            //    }
-            //}
+                    HttpCookie cookie = Request.Cookies["XYH_COUPON"];
+                    if (cookie == null)
+                        cookie = new HttpCookie("XYH_COUPON");
+                    cookie.Values.Set("FromUserName", user);
+
+                    string url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + user + "&lang=zh_CN";
+                    string token = PostRequest(url);
+                    WriteTxt(url);
+                    WriteTxt(token);
+                    OpenInfo autho = JsonConvert.DeserializeObject<OpenInfo>(token);
+                    if (!string.IsNullOrWhiteSpace(autho.headimgurl))
+                    {
+                        MySmallShopService mss = new MySmallShopService();
+                        OAauth_Log oa = mss.GetOA(user, "商业集团送券活动");
+                        if (oa == null)
+                        {
+                            oa = new OAauth_Log();
+                            oa.FromUserName = user;
+                            oa.ToUserName = "商业集团送券活动";
+                            oa.headimgurl = autho.headimgurl;
+                            oa.Nickname = autho.nickname;
+                            oa.CreateDate = DateTime.Now;
+                            mss.SaveOA(oa);
+                        }
+                    }
+
+                    XHYCouponService _xyhService = new XHYCouponService();
+                    //判断是否参加并且可以领取卡券
+                    WXCouponGiveInfo model = _xyhService.GetWXCouponGiveInfoByOpenid(user,"SYJT");
+                    if (model != null)
+                    {
+                        if (model.GetCoupon == 1)
+                        {
+                            var phone = model.Mobile;
+                            Response.Redirect("list.html?mobile=" + phone);
+                        }
+                    }
+
+
+
+                }
+                else
+                {
+                    //WriteTxt("开始授权");
+                    OAuth(AbsoluteUri);
+                }
+            }
         }
 
 
         public void OAuth(string redirect_uri)
         {
-            string url = AppConfig.OAuthUrl + "?url={0}&scope=snsapi_userinfo";
+            string url = AppConfig.OAuthUrl + "?url={0}&scope=snsapi_userinfo";//snsapi_base
             url = string.Format(url, redirect_uri);
 
             Response.Redirect(url, false);

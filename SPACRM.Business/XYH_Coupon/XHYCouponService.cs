@@ -16,15 +16,15 @@ namespace SPACRM.Business.XYH_Coupon
         {
             _repo = new XHYCouponRepository();
         }
-
+        
         public long AddLodInfo(Tb_log log)
         {
             return _repo.Insert(log);
         }
 
-        public WXCouponGiveInfo GetWXCouponGiveInfoByOpenid(string Openid)
+        public WXCouponGiveInfo GetWXCouponGiveInfoByOpenid(string Openid,string ActivityName)
         {
-            return _repo.GetWXCouponGiveInfoByOpenid(Openid);
+            return _repo.GetWXCouponGiveInfoByOpenid(Openid, ActivityName);
         }
 
 
@@ -37,14 +37,14 @@ namespace SPACRM.Business.XYH_Coupon
             return _repo.UpdateWXCouponNoInfoIsImport(id);
         }
 
-        public WXCouponGiveInfo CanGetCoupon(string OpenId, string cardId)
+        public WXCouponGiveInfo CanGetCoupon(string OpenId, string cardId, string ActivityName)
         {
-            return _repo.CanGetCoupon(OpenId, cardId);
+            return _repo.CanGetCoupon(OpenId, cardId, ActivityName);
         }
 
-        public int UpdateWXCouponGiveInfoIsHX(string CouponNo)
+        public int UpdateWXCouponGiveInfoIsHX(string CouponNo, string ActivityName)
         {
-            return _repo.UpdateWXCouponGiveInfoIsHX(CouponNo);
+            return _repo.UpdateWXCouponGiveInfoIsHX(CouponNo, ActivityName);
         }
 
         public CardApiTicket GetModelCardApi()
@@ -62,9 +62,9 @@ namespace SPACRM.Business.XYH_Coupon
         /// </summary>
         /// <param name="openid"></param>
         /// <returns></returns>
-        public List<WXCouponGiveInfo> GetWXCouponGiveInfo(string openid, string cardid)
+        public List<WXCouponGiveInfo> GetWXCouponGiveInfo(string openid, string cardid, string ActivityName)
         {
-            return _repo.GetWXCouponGiveInfo(openid, cardid);
+            return _repo.GetWXCouponGiveInfo(openid, cardid, ActivityName);
         }
 
         public long AddWXCouponGiveInfo(WXCouponGiveInfo model)
@@ -72,9 +72,19 @@ namespace SPACRM.Business.XYH_Coupon
             return _repo.Insert(model);
         }
 
-        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile)
+        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile, string ActivityName)
         {
-            return _repo.GetWXCouponGiveInfoByMobile(Mobile);
+            return _repo.GetWXCouponGiveInfoByMobile(Mobile, ActivityName);
+        }
+
+        public WXCouponGiveInfo GetWXCouponGiveInfoByMobile(string Mobile, string CardId, string ActivityName)
+        {
+            return _repo.GetWXCouponGiveInfoByMobile(Mobile, CardId, ActivityName);
+        }
+
+        public long InsertWXCRMCustLog(WXCRMCustLog model)
+        {
+            return _repo.Insert(model);
         }
     }
 }
