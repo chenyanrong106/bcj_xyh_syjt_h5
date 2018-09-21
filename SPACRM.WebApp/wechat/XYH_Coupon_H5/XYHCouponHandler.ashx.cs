@@ -352,6 +352,9 @@ namespace SPACRM.WebApp.wechat.XYH_Coupon_H5
             string signature = "";
             string timestamp = "";
             string api_ticket = "";
+            string sjm = Guid.NewGuid().ToString("d"); //随机码
+            string nonce_str = "noncestr=" + sjm;  //签名必须要用到随机数
+
             //string code = new Random().Next(111111111, 999999999).ToString();
             //string openid = OpendID;// "oDRuD1DSi1yyDx9x4_Ttpf_0haB0";
 
@@ -372,7 +375,7 @@ Encoding.UTF8, "application/json");
             api_ticket = JsApiTicket.JsApi;// WXCardCommon.GetCardApi(token);
                                            //api_ticket = WXCardCommon.GetCardApi(token);
             //string[] ArrTmp = { cardId, timestamp, api_ticket, code, openid };
-            string[] ArrTmp = { cardId, timestamp, api_ticket };
+            string[] ArrTmp = { cardId, timestamp, api_ticket, nonce_str };
             Array.Sort(ArrTmp);
             string tmpStr = string.Join("", ArrTmp);
             tmpStr = FormsAuthentication.HashPasswordForStoringInConfigFile(tmpStr, "SHA1");
@@ -381,6 +384,7 @@ Encoding.UTF8, "application/json");
             CardExt cardExt = new CardExt();
             cardExt.timestamp = timestamp;
             cardExt.signature = signature;
+            cardExt.nonce_str = nonce_str;
             //cardExt.code = code;
             //cardExt.openid = openid;
             var retcardExt = JsonConvert.SerializeObject(cardExt);

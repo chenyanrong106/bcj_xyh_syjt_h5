@@ -11,5 +11,7 @@ namespace SPACRM.WebApp
         public string signature { get; set; }
         public string code { get; set; }
         public string openid { get; set; }
+
+        public string nonce_str { get; set; }
     }
 }
